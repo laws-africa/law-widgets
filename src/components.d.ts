@@ -6,7 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface AkomaNtoso {
+    interface LaAkomaNtoso {
+        /**
+          * If true, term definition pop ups that show above the term on hover will be hidden
+         */
+        "hideDefinitionPopups": boolean;
     }
     interface MyComponent {
         /**
@@ -24,11 +28,11 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLAkomaNtosoElement extends Components.AkomaNtoso, HTMLStencilElement {
+    interface HTMLLaAkomaNtosoElement extends Components.LaAkomaNtoso, HTMLStencilElement {
     }
-    var HTMLAkomaNtosoElement: {
-        prototype: HTMLAkomaNtosoElement;
-        new (): HTMLAkomaNtosoElement;
+    var HTMLLaAkomaNtosoElement: {
+        prototype: HTMLLaAkomaNtosoElement;
+        new (): HTMLLaAkomaNtosoElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -37,12 +41,16 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "akoma-ntoso": HTMLAkomaNtosoElement;
+        "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface AkomaNtoso {
+    interface LaAkomaNtoso {
+        /**
+          * If true, term definition pop ups that show above the term on hover will be hidden
+         */
+        "hideDefinitionPopups"?: boolean;
     }
     interface MyComponent {
         /**
@@ -59,7 +67,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
-        "akoma-ntoso": AkomaNtoso;
+        "la-akoma-ntoso": LaAkomaNtoso;
         "my-component": MyComponent;
     }
 }
@@ -67,7 +75,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "akoma-ntoso": LocalJSX.AkomaNtoso & JSXBase.HTMLAttributes<HTMLAkomaNtosoElement>;
+            "la-akoma-ntoso": LocalJSX.LaAkomaNtoso & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
