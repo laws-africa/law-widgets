@@ -7,10 +7,20 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface LaAkomaNtoso {
+    }
+    interface LaDecorateTerms {
         /**
-          * If true, term definition pop ups that show above the term on hover will be hidden
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the first `la-akoma-ntoso` element on the page.
          */
-        "hideDefinitionPopups": boolean;
+        "akomaNtoso": string;
+        /**
+          * Should term references be clickable?
+         */
+        "linkTerms": boolean;
+        /**
+          * Should term definitions be shown as popups?
+         */
+        "popupDefinitions": boolean;
     }
     interface MyComponent {
         /**
@@ -34,6 +44,12 @@ declare global {
         prototype: HTMLLaAkomaNtosoElement;
         new (): HTMLLaAkomaNtosoElement;
     };
+    interface HTMLLaDecorateTermsElement extends Components.LaDecorateTerms, HTMLStencilElement {
+    }
+    var HTMLLaDecorateTermsElement: {
+        prototype: HTMLLaDecorateTermsElement;
+        new (): HTMLLaDecorateTermsElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -42,15 +58,26 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
+        "la-decorate-terms": HTMLLaDecorateTermsElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
     interface LaAkomaNtoso {
+    }
+    interface LaDecorateTerms {
         /**
-          * If true, term definition pop ups that show above the term on hover will be hidden
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the first `la-akoma-ntoso` element on the page.
          */
-        "hideDefinitionPopups"?: boolean;
+        "akomaNtoso"?: string;
+        /**
+          * Should term references be clickable?
+         */
+        "linkTerms"?: boolean;
+        /**
+          * Should term definitions be shown as popups?
+         */
+        "popupDefinitions"?: boolean;
     }
     interface MyComponent {
         /**
@@ -68,6 +95,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
+        "la-decorate-terms": LaDecorateTerms;
         "my-component": MyComponent;
     }
 }
@@ -76,6 +104,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "la-akoma-ntoso": LocalJSX.LaAkomaNtoso & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoElement>;
+            "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

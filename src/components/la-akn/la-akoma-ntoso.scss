@@ -435,17 +435,4 @@ la-akoma-ntoso {
     float: left;
     margin-left: -3em
   }
-
-  .term-link {
-    cursor: pointer;
-    color: #007bff;
-  }
-
-  [data-defines] {
-    transition: background-color 300ms ease-in-out;
-
-    &.visited {
-      background-color: yellow;
-    }
-  }
 }
