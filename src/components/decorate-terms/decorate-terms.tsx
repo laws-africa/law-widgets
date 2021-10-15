@@ -1,4 +1,6 @@
-import { Component, Prop, Element, } from '@stencil/core';
+import { Component, Prop, Element, Watch } from '@stencil/core';
+import { renameElement } from "../../utils/utils";
+import { getAkomaNtosoElement } from "../../utils/linking";
 import tippy from "tippy.js";
 
 @Component({
@@ -6,10 +8,13 @@ import tippy from "tippy.js";
   styleUrl: 'decorate-terms.scss'
 })
 export class DecorateTerms {
-
   // The akn content element being decorated
-  protected akomaNtosoElement: HTMLElement = null;
+  protected akomaNtosoElement: HTMLElement | null;
   protected defnContainers: string = '.akn-p, .akn-subsection, .akn-section, .akn-blockList';
+
+  protected tippies = [];
+  // The wrapper element that ensures the tippy content is styled correctly
+  protected wrapper: HTMLElement = document.createElement('la-akoma-ntoso');
 
   @Element() el: HTMLElement;
 
@@ -30,21 +35,34 @@ export class DecorateTerms {
    */
   @Prop() linkTerms: boolean = false;
 
+  componentWillLoad () {
+    // TODO: watch for changes to the akn content?
+    this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
+    this.wrapper = document.createElement('la-akoma-ntoso');
+  }
+
   componentDidLoad() {
-    // TODO: attach to the akomaNtoso element
-    if (this.akomaNtoso) {
-      this.akomaNtosoElement = document.querySelector(this.akomaNtoso);
+    if (this.akomaNtosoElement) {
+      this.setupDefinitions();
+
+      if (this.linkTerms) {
+        this.makeTermLinks();
+      }
+
+      this.changePopupDefinitions(this.popupDefinitions);
     }
+  }
 
-    this.setupDefinitions();
-
-    // TODO: listen to changes
-    if (this.popupDefinitions) {
-      this.setupPopups();
+  @Watch('popupDefinitions')
+  changePopupDefinitions (popup) {
+    // remove existing popups
+    for (const tippy of this.tippies) {
+      tippy.destroy();
     }
+    this.tippies = [];
 
-    if (this.linkTerms) {
-      this.makeTermLinks();
+    if (this.akomaNtosoElement && popup) {
+      this.createPopups();
     }
   }
 
@@ -58,43 +76,39 @@ export class DecorateTerms {
     });
   }
 
-  // show definition popups
-  setupPopups () {
-    // TODO: is creating a container necessary? tippy should do that already
-    const toolTipsContainer = document.createElement('div');
-    toolTipsContainer.classList.add('la-akn-tooltip-container');
-    document.body.appendChild(toolTipsContainer);
-
-    this.akomaNtosoElement.querySelectorAll('.akn-term').forEach((termElement: HTMLElement) => {
-      tippy(termElement, {
-        allowHTML: true,
-        content: this.getPopupContent(termElement),
-        appendTo: toolTipsContainer,
-      });
+  createPopups () {
+    this.tippies = tippy('.akn-term', {
+      appendTo: () => this.el.ownerDocument.body,
+      content: '',
+      hideOnClick: true,
+      interactive: true,
+      maxWidth: 450,
+      onTrigger: this.onTrigger.bind(this),
+      theme: 'light-border'
     });
   }
 
-  getPopupContent (termElement: HTMLElement): string {
-    const termId: string = termElement.dataset.refersto;
-    const element = this.akomaNtosoElement.querySelector(`[data-defines="${termId}"]`);
-    return `<div>
-      <div class="tippy-content__header">${termElement.innerText}</div>
-      <div class="tippy-content__body">
-        <la-akoma-ntoso>${element.outerHTML}</la-akoma-ntoso>
-      </div>
-    </div>`;
+  onTrigger (tippy) {
+    const defn: HTMLElement = this.getDefinition(tippy.reference);
+
+    if (defn) {
+      const wrapper = this.wrapper.cloneNode(true);
+      wrapper.appendChild(defn.cloneNode(true));
+      tippy.setContent(wrapper);
+    }
+  }
+
+  getDefinition (reference: HTMLElement): HTMLElement {
+    const term = reference.getAttribute('data-refersto');
+    // find where the term is defined
+    return this.akomaNtosoElement.querySelector(`[data-defines="${term}"]`);
   }
 
   makeTermLinks () {
     this.akomaNtosoElement.classList.add('link-terms');
     this.akomaNtosoElement.querySelectorAll('.akn-term[data-refersto]').forEach((term: HTMLElement) => {
-      term.classList.add('term-link');
-      term.addEventListener('click', () => this.termClicked(term));
+      term = renameElement(term, 'a');
+      term.setAttribute('href', `#defn-${term.dataset.refersto.replace('#', '')}`);
     });
-  }
-
-  termClicked (term) {
-    // jump to term definition
-    window.location.hash = `#defn-${term.dataset.refersto.replace('#', '')}`;
   }
 }

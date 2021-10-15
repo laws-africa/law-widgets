@@ -1,43 +1,23 @@
 @use "sass:meta";
 @import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
 
-.la-akn-tooltip-container {
-  @include meta.load-css("~tippy.js/dist/tippy.css");
-
-  // Override Tippy styles
-  .tippy-box {
-    max-width: 400px;
-    box-shadow: 2px 2px 8px rgb(0 0 0 / 30%);
-    background-color: white;
-  }
-  .tippy-content {
-    padding: 0;
-  }
-
-  .tippy-content__header {
-    padding: .5rem .75rem;
-    margin-bottom: 0;
-    font-size: 1rem;
-    color: #212529;
-    border-bottom: 1px solid #ebebeb;
-    border-top-left-radius: calc(.3rem - 1px);
-    border-top-right-radius: calc(.3rem - 1px);
-    background-color: #f7f7f7;
-  }
-  .tippy-content__body {
-    padding: .5rem .75rem;
-    color: #212529;
-    background-color: white;
-  }
-
-  .tippy-arrow {
-    color: white;
-  }
-}
 la-akoma-ntoso {
+  display: block;
+
   font-family: Palatino, "Book Antiqua", "PT Serif", Georgia, serif;
   font-size: 15px;
   line-height: 1.35;
 
   @include meta.load-css('~indigo-web/css/indigo-web.min.css');
+
+  &.flash-target {
+    @keyframes fadeout {
+      from { background-color: yellow; }
+      to { background-color: unset; }
+    }
+
+    :target {
+      animation: fadeout 2s;
+    }
+  }
 }

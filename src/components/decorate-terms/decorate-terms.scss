@@ -1,17 +1,1 @@
-la-akoma-ntoso {
-  &.link-terms {
-    .term-link {
-      cursor: pointer;
-      color: #007bff;
-    }
-  }
-
-  @keyframes fadeout {
-    from { background-color: yellow; }
-    to { background-color: unset; }
-  }
-
-  [data-defines]:target {
-    animation: fadeout 2s;
-  }
-}
+@import '../../styles/tippy';

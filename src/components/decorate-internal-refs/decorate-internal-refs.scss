@@ -1,0 +1,8 @@
+@import '../../styles/tippy';
+
+la-akoma-ntoso.flag-internal-refs .akn-ref[href^="#"]::after {
+  content: "\F00C0";
+  font-style: normal;
+  font-family: 'Material Design Icons';
+  color: #9c27b0;
+}
