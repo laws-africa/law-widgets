@@ -23,12 +23,12 @@ export class DecorateTerms {
   /**
    * Should term definitions be shown as popups?
    */
-  @Prop() popupDefinitions: boolean = true;
+  @Prop() popupDefinitions: boolean = false;
 
   /**
    * Should term references be clickable?
    */
-  @Prop() linkTerms: boolean = true;
+  @Prop() linkTerms: boolean = false;
 
   componentDidLoad() {
     // TODO: attach to the akomaNtoso element
