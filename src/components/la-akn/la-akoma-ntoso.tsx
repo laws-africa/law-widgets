@@ -62,6 +62,10 @@ export class LaAkomaNtoso {
   }
 
   render() {
-    return <slot></slot>;
+    return (
+      <div class="akoma-ntoso">
+        <slot></slot>
+      </div>
+    );
   }
 }
