@@ -24,6 +24,7 @@
   "dependencies": {
     "@stencil/core": "^2.7.0",
     "@stencil/sass": "^1.5.0",
+    "indigo-web": "^5.2.0",
     "tippy.js": "^6.3.2"
   },
   "devDependencies": {
