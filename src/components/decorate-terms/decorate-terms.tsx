@@ -20,18 +20,19 @@ export class DecorateTerms {
 
   /**
    * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults
-   * to the first `la-akoma-ntoso` element on the page.
+   * to the containing la-akoma-ntoso element, if any, otherwise the first
+   * `la-akoma-ntoso` element on the page.
    */
     // TODO: should  we be watching this? What if it changes?
-  @Prop() akomaNtoso: string = 'la-akoma-ntoso';
+  @Prop() akomaNtoso: string;
 
   /**
-   * Should term definitions be shown as popups?
+   * If `true`, the definitions of terms will be shown as popups.
    */
   @Prop() popupDefinitions: boolean = false;
 
   /**
-   * Should term references be clickable?
+   * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
    */
   @Prop() linkTerms: boolean = false;
 

@@ -2,10 +2,6 @@ import { Component, Prop, Element, Watch } from '@stencil/core';
 import { getAkomaNtosoElement } from "../../utils/linking";
 import tippy from "tippy.js";
 
-/**
- * Decorates internal references within an Akoma Ntoso document by showing the contents of the target
- * of the internal reference in a popup.
- */
 @Component({
   tag: 'la-decorate-internal-refs',
   styleUrl: 'decorate-internal-refs.scss'
@@ -27,15 +23,15 @@ export class DecorateInternalRefs {
    * `la-akoma-ntoso` element on the page.
    */
     // TODO: should we be watching this? What if it changes?
-  @Prop() akomaNtoso: string = 'la-akoma-ntoso';
+  @Prop() akomaNtoso: string;
 
   /**
-   * Should internal ref targets be shown as popups?
+   * If `true`, the content of internal ref targets will be shown as popups.
    */
   @Prop() popups: boolean = false;
 
   /**
-   * Should internal refs be flagged to be more visible?
+   * If `true`, internal refs will be flagged with in icon to be more visible.
    */
   @Prop() flag: boolean = false;
 

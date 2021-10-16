@@ -14,25 +14,25 @@ export namespace Components {
          */
         "akomaNtoso": string;
         /**
-          * Should internal refs be flagged to be more visible?
+          * If `true`, internal refs will be flagged with in icon to be more visible.
          */
         "flag": boolean;
         /**
-          * Should internal ref targets be shown as popups?
+          * If `true`, the content of internal ref targets will be shown as popups.
          */
         "popups": boolean;
     }
     interface LaDecorateTerms {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the first `la-akoma-ntoso` element on the page.
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
         "akomaNtoso": string;
         /**
-          * Should term references be clickable?
+          * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
          */
         "linkTerms": boolean;
         /**
-          * Should term definitions be shown as popups?
+          * If `true`, the definitions of terms will be shown as popups.
          */
         "popupDefinitions": boolean;
     }
@@ -92,25 +92,25 @@ declare namespace LocalJSX {
          */
         "akomaNtoso"?: string;
         /**
-          * Should internal refs be flagged to be more visible?
+          * If `true`, internal refs will be flagged with in icon to be more visible.
          */
         "flag"?: boolean;
         /**
-          * Should internal ref targets be shown as popups?
+          * If `true`, the content of internal ref targets will be shown as popups.
          */
         "popups"?: boolean;
     }
     interface LaDecorateTerms {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the first `la-akoma-ntoso` element on the page.
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
         "akomaNtoso"?: string;
         /**
-          * Should term references be clickable?
+          * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
          */
         "linkTerms"?: boolean;
         /**
-          * Should term definitions be shown as popups?
+          * If `true`, the definitions of terms will be shown as popups.
          */
         "popupDefinitions"?: boolean;
     }
