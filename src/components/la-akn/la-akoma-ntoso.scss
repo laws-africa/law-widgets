@@ -4,11 +4,7 @@
 la-akoma-ntoso {
   display: block;
 
-  font-family: Palatino, "Book Antiqua", "PT Serif", Georgia, serif;
-  font-size: 15px;
-  line-height: 1.35;
-
-  @include meta.load-css('~indigo-web/css/indigo-web.min.css');
+  @include meta.load-css('~indigo-web/scss/indigo-web');
 
   &.flash-target {
     @keyframes fadeout {
