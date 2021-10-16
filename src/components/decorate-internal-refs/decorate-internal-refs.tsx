@@ -1,6 +1,6 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
 import { getAkomaNtosoElement } from "../../utils/linking";
-import tippy from "tippy.js";
+import tippy, { Instance as Tippy } from "tippy.js";
 
 @Component({
   tag: 'la-decorate-internal-refs',
@@ -8,12 +8,12 @@ import tippy from "tippy.js";
 })
 export class DecorateInternalRefs {
   // The akn content element being decorated
-  protected akomaNtosoElement: HTMLElement | null;
+  protected akomaNtosoElement?: HTMLElement | null;
 
-  protected tippies = [];
-  protected tippyContainer: HTMLElement;
+  protected tippies: Tippy[] = [];
+  protected tippyContainer?: HTMLElement;
 
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
   /**
    * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults
@@ -21,7 +21,7 @@ export class DecorateInternalRefs {
    * `la-akoma-ntoso` element on the page.
    */
     // TODO: should we be watching this? What if it changes?
-  @Prop() akomaNtoso: string;
+  @Prop() akomaNtoso?: string;
 
   /**
    * If `true`, the content of internal ref targets will be shown as popups.
@@ -67,6 +67,7 @@ export class DecorateInternalRefs {
   }
 
   createPopups () {
+    // @ts-ignore
     this.tippies = tippy('a.akn-ref[href^="#"]', {
       appendTo: () => this.tippyContainer,
       allowHTML: true,
@@ -78,15 +79,18 @@ export class DecorateInternalRefs {
     });
   }
 
-  onTrigger (tippy) {
-    const provision: HTMLElement = this.akomaNtosoElement.querySelector(tippy.reference.getAttribute('href'));
+  onTrigger (tippy: Tippy) {
+    if (this.akomaNtosoElement) {
+      const href: string = tippy.reference.getAttribute('href') || '';
+      const provision: HTMLElement | null = this.akomaNtosoElement.querySelector(href);
 
-    if (provision) {
-      tippy.setContent(`
+      if (provision) {
+        tippy.setContent(`
         <div>
           <div class="tippy-content__body"><la-akoma-ntoso>${provision.outerHTML}</la-akoma-ntoso></div>
         </div>`
-      );
+        );
+      }
     }
   }
 }

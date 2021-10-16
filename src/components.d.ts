@@ -12,7 +12,7 @@ export namespace Components {
         /**
           * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso": string;
+        "akomaNtoso"?: string;
         /**
           * If `true`, internal refs will be flagged with in icon to be more visible.
          */
@@ -26,7 +26,7 @@ export namespace Components {
         /**
           * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso": string;
+        "akomaNtoso"?: string;
         /**
           * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
          */
@@ -35,20 +35,6 @@ export namespace Components {
           * If `true`, the definitions of terms will be shown as popups.
          */
         "popupDefinitions": boolean;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
 }
 declare global {
@@ -70,17 +56,10 @@ declare global {
         prototype: HTMLLaDecorateTermsElement;
         new (): HTMLLaDecorateTermsElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
         "la-decorate-internal-refs": HTMLLaDecorateInternalRefsElement;
         "la-decorate-terms": HTMLLaDecorateTermsElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -114,25 +93,10 @@ declare namespace LocalJSX {
          */
         "popupDefinitions"?: boolean;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
         "la-decorate-internal-refs": LaDecorateInternalRefs;
         "la-decorate-terms": LaDecorateTerms;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -142,7 +106,6 @@ declare module "@stencil/core" {
             "la-akoma-ntoso": LocalJSX.LaAkomaNtoso & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoElement>;
             "la-decorate-internal-refs": LocalJSX.LaDecorateInternalRefs & JSXBase.HTMLAttributes<HTMLLaDecorateInternalRefsElement>;
             "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
