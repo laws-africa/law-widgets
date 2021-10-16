@@ -43,19 +43,6 @@ Alternatively place it elsewhere and provide a selector to identify the `<la-ako
 | `popupDefinitions` | `popup-definitions` | If `true`, the definitions of terms will be shown as popups.                                                                                                                             | `boolean` | `false`     |
 
 
-## Dependencies
-
-### Depends on
-
-- [la-akoma-ntoso](../la-akn)
-
-### Graph
-```mermaid
-graph TD;
-  la-decorate-terms --> la-akoma-ntoso
-  style la-decorate-terms fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
