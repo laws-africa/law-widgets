@@ -10,10 +10,8 @@ export class DecorateInternalRefs {
   // The akn content element being decorated
   protected akomaNtosoElement: HTMLElement | null;
 
-  // The wrapper element that ensures the tippy content is styled correctly
-  protected wrapper: HTMLElement = document.createElement('la-akoma-ntoso');
-
   protected tippies = [];
+  protected tippyContainer: HTMLElement;
 
   @Element() el: HTMLElement;
 
@@ -38,7 +36,9 @@ export class DecorateInternalRefs {
   componentWillLoad () {
     // TODO: watch for changes to the akn content?
     this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
-    this.wrapper = document.createElement('la-akoma-ntoso');
+    this.tippyContainer = document.createElement('div');
+    this.tippyContainer.className = 'la-decorate-internal-refs__popup';
+    document.body.appendChild(this.tippyContainer);
   }
 
   componentDidLoad() {
@@ -68,7 +68,8 @@ export class DecorateInternalRefs {
 
   createPopups () {
     this.tippies = tippy('a.akn-ref[href^="#"]', {
-      appendTo: () => this.el.ownerDocument.body,
+      appendTo: () => this.tippyContainer,
+      allowHTML: true,
       hideOnClick: true,
       interactive: true,
       maxWidth: 450,
@@ -81,9 +82,11 @@ export class DecorateInternalRefs {
     const provision: HTMLElement = this.akomaNtosoElement.querySelector(tippy.reference.getAttribute('href'));
 
     if (provision) {
-      const wrapper = this.wrapper.cloneNode(true);
-      wrapper.appendChild(provision.cloneNode(true));
-      tippy.setContent(wrapper);
+      tippy.setContent(`
+        <div>
+          <div class="tippy-content__body"><la-akoma-ntoso>${provision.outerHTML}</la-akoma-ntoso></div>
+        </div>`
+      );
     }
   }
 }

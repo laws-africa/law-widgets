@@ -13,8 +13,7 @@ export class DecorateTerms {
   protected defnContainers: string = '.akn-p, .akn-subsection, .akn-section, .akn-blockList';
 
   protected tippies = [];
-  // The wrapper element that ensures the tippy content is styled correctly
-  protected wrapper: HTMLElement = document.createElement('la-akoma-ntoso');
+  protected tippyContainer: HTMLElement;
 
   @Element() el: HTMLElement;
 
@@ -39,7 +38,9 @@ export class DecorateTerms {
   componentWillLoad () {
     // TODO: watch for changes to the akn content?
     this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
-    this.wrapper = document.createElement('la-akoma-ntoso');
+    this.tippyContainer = document.createElement('div');
+    this.tippyContainer.className = 'la-decorate-terms__popup';
+    document.body.appendChild(this.tippyContainer);
   }
 
   componentDidLoad() {
@@ -79,7 +80,8 @@ export class DecorateTerms {
 
   createPopups () {
     this.tippies = tippy('.akn-term', {
-      appendTo: () => this.el.ownerDocument.body,
+      appendTo: () => this.tippyContainer,
+      allowHTML: true,
       content: '',
       hideOnClick: true,
       interactive: true,
@@ -93,9 +95,12 @@ export class DecorateTerms {
     const defn: HTMLElement = this.getDefinition(tippy.reference);
 
     if (defn) {
-      const wrapper = this.wrapper.cloneNode(true);
-      wrapper.appendChild(defn.cloneNode(true));
-      tippy.setContent(wrapper);
+      tippy.setContent(`
+        <div>
+          <div class="tippy-content__title">${tippy.reference.innerText}</div>
+          <div class="tippy-content__body"><la-akoma-ntoso>${defn.outerHTML}</la-akoma-ntoso></div>
+        </div>`
+      );
     }
   }
 
