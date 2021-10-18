@@ -124,7 +124,7 @@ export class DecorateTerms {
       this.akomaNtosoElement.classList.add('link-terms');
       for (let term of this.akomaNtosoElement.querySelectorAll<HTMLElement>('.akn-term[data-refersto]')) {
         term = renameElement(term, 'a') as HTMLElement;
-        const termId: string | null = (term.dataset.refersto || '').replace('#', '');
+        const termId: string = (term.dataset.refersto || '').replace('#', '');
         term.setAttribute('href', `#defn-${termId}`);
       }
     }
