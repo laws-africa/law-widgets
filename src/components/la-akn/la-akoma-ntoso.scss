@@ -1,0 +1,19 @@
+@use "sass:meta";
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
+
+la-akoma-ntoso {
+  display: block;
+
+  @include meta.load-css('~indigo-web/scss/indigo-web');
+
+  &.flash-target {
+    @keyframes fadeout {
+      from { background-color: yellow; }
+      to { background-color: unset; }
+    }
+
+    :target {
+      animation: fadeout 2s;
+    }
+  }
+}
