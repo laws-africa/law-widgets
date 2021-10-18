@@ -1,0 +1,14 @@
+@use 'sass:meta';
+
+.la-decorate-internal-refs__popup {
+  @include meta.load-css('~tippy.js/dist/tippy.css');
+  @include meta.load-css('~tippy.js/themes/light-border.css');
+  @include meta.load-css('../../styles/tippy');
+}
+
+la-akoma-ntoso.flag-internal-refs .akn-ref[href^="#"]::after {
+  content: "\F00C0";
+  font-style: normal;
+  font-family: 'Material Design Icons';
+  color: #9c27b0;
+}

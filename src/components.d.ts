@@ -7,10 +7,34 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface LaAkomaNtoso {
+    }
+    interface LaDecorateInternalRefs {
         /**
-          * If true, term definition pop ups that show above the term on hover will be hidden
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "hideDefinitionPopups": boolean;
+        "akomaNtoso": string;
+        /**
+          * If `true`, internal refs will be flagged with in icon to be more visible.
+         */
+        "flag": boolean;
+        /**
+          * If `true`, the content of internal ref targets will be shown as popups.
+         */
+        "popups": boolean;
+    }
+    interface LaDecorateTerms {
+        /**
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+         */
+        "akomaNtoso": string;
+        /**
+          * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
+         */
+        "linkTerms": boolean;
+        /**
+          * If `true`, the definitions of terms will be shown as popups.
+         */
+        "popupDefinitions": boolean;
     }
     interface MyComponent {
         /**
@@ -34,6 +58,18 @@ declare global {
         prototype: HTMLLaAkomaNtosoElement;
         new (): HTMLLaAkomaNtosoElement;
     };
+    interface HTMLLaDecorateInternalRefsElement extends Components.LaDecorateInternalRefs, HTMLStencilElement {
+    }
+    var HTMLLaDecorateInternalRefsElement: {
+        prototype: HTMLLaDecorateInternalRefsElement;
+        new (): HTMLLaDecorateInternalRefsElement;
+    };
+    interface HTMLLaDecorateTermsElement extends Components.LaDecorateTerms, HTMLStencilElement {
+    }
+    var HTMLLaDecorateTermsElement: {
+        prototype: HTMLLaDecorateTermsElement;
+        new (): HTMLLaDecorateTermsElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -42,15 +78,41 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
+        "la-decorate-internal-refs": HTMLLaDecorateInternalRefsElement;
+        "la-decorate-terms": HTMLLaDecorateTermsElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
     interface LaAkomaNtoso {
+    }
+    interface LaDecorateInternalRefs {
         /**
-          * If true, term definition pop ups that show above the term on hover will be hidden
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "hideDefinitionPopups"?: boolean;
+        "akomaNtoso"?: string;
+        /**
+          * If `true`, internal refs will be flagged with in icon to be more visible.
+         */
+        "flag"?: boolean;
+        /**
+          * If `true`, the content of internal ref targets will be shown as popups.
+         */
+        "popups"?: boolean;
+    }
+    interface LaDecorateTerms {
+        /**
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+         */
+        "akomaNtoso"?: string;
+        /**
+          * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
+         */
+        "linkTerms"?: boolean;
+        /**
+          * If `true`, the definitions of terms will be shown as popups.
+         */
+        "popupDefinitions"?: boolean;
     }
     interface MyComponent {
         /**
@@ -68,6 +130,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
+        "la-decorate-internal-refs": LaDecorateInternalRefs;
+        "la-decorate-terms": LaDecorateTerms;
         "my-component": MyComponent;
     }
 }
@@ -76,6 +140,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "la-akoma-ntoso": LocalJSX.LaAkomaNtoso & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoElement>;
+            "la-decorate-internal-refs": LocalJSX.LaDecorateInternalRefs & JSXBase.HTMLAttributes<HTMLLaDecorateInternalRefsElement>;
+            "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
