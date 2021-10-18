@@ -74,7 +74,7 @@ export class DecorateTerms {
       for (const def of this.akomaNtosoElement.querySelectorAll<HTMLElement>('.akn-def[data-refersto]')) {
         const term = def.getAttribute('data-refersto')?.replace('#', '');
         const closest: HTMLElement | null = def.closest(this.defnContainers);
-        if (closest) {
+        if (closest && term) {
           closest.dataset.defines = def.dataset.refersto;
           closest.setAttribute('id', `defn-${term}`);
         }
