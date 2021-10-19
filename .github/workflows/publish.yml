@@ -23,5 +23,5 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           add: 'dist --force'
-          push: 'test-dist --force'
+          push: 'test --force'
           message: 'Add built artefacts'
