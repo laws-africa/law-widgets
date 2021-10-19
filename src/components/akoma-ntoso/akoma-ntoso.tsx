@@ -2,7 +2,7 @@ import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'la-akoma-ntoso',
-  styleUrl: 'la-akoma-ntoso.scss'
+  styleUrl: 'akoma-ntoso.scss',
 })
 export class AkomaNtoso {
   render() {

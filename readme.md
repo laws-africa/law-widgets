@@ -10,7 +10,7 @@ These are web components, so they work in any major framework or with no framewo
 
 ### Content components
 
-* [la-akoma-ntoso](src/components/la-akn/)
+* [la-akoma-ntoso](src/components/akoma-ntoso/)
 
 ### Behaviour components
 
