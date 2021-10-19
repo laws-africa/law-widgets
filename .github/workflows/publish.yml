@@ -20,10 +20,8 @@ jobs:
         run: npm run build
 
       - name: Push
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: test-dist # The branch name where you want to push the assets
-          FOLDER: dist # The directory where your assets are generated
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: "Build: ({sha}) {msg}" # The commit message
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: 'dist'
+          push: 'test-dist --force'
+          message: 'Add built artefacts'
