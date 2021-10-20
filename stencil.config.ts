@@ -4,6 +4,7 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'la-web-components',
   plugins: [sass()],
+  buildEs5: true,
   outputTargets: [
     {
       type: 'dist',
