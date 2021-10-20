@@ -1,0 +1,27 @@
+name: Compile and push to dist branch
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Push
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Install all dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Push
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: 'dist --force'
+          message: 'Add built artefacts'
+          push: 'origin HEAD:dist --force'
