@@ -3,7 +3,7 @@ name: Compile and push to dist branch
 on:
   push:
     branches:
-      - push-to-dist-workflow
+      - master
 
 jobs:
   build:
