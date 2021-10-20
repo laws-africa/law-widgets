@@ -24,4 +24,4 @@ jobs:
         with:
           add: 'dist --force'
           message: 'Add built artefacts test'
-          push: 'origin test --force'
+          push: 'origin HEAD:test --force'
