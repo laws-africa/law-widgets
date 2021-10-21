@@ -36,6 +36,14 @@ export namespace Components {
          */
         "popupDefinitions": boolean;
     }
+    interface LaTableOfContents {
+        "items": [];
+        "itemsRenderFromFilter": [];
+    }
+    interface LaTocItem {
+        "item": any;
+        "itemsFromFilter": [];
+    }
 }
 declare global {
     interface HTMLLaAkomaNtosoElement extends Components.LaAkomaNtoso, HTMLStencilElement {
@@ -56,10 +64,24 @@ declare global {
         prototype: HTMLLaDecorateTermsElement;
         new (): HTMLLaDecorateTermsElement;
     };
+    interface HTMLLaTableOfContentsElement extends Components.LaTableOfContents, HTMLStencilElement {
+    }
+    var HTMLLaTableOfContentsElement: {
+        prototype: HTMLLaTableOfContentsElement;
+        new (): HTMLLaTableOfContentsElement;
+    };
+    interface HTMLLaTocItemElement extends Components.LaTocItem, HTMLStencilElement {
+    }
+    var HTMLLaTocItemElement: {
+        prototype: HTMLLaTocItemElement;
+        new (): HTMLLaTocItemElement;
+    };
     interface HTMLElementTagNameMap {
         "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
         "la-decorate-internal-refs": HTMLLaDecorateInternalRefsElement;
         "la-decorate-terms": HTMLLaDecorateTermsElement;
+        "la-table-of-contents": HTMLLaTableOfContentsElement;
+        "la-toc-item": HTMLLaTocItemElement;
     }
 }
 declare namespace LocalJSX {
@@ -93,10 +115,21 @@ declare namespace LocalJSX {
          */
         "popupDefinitions"?: boolean;
     }
+    interface LaTableOfContents {
+        "items"?: [];
+        "itemsRenderFromFilter"?: [];
+    }
+    interface LaTocItem {
+        "item"?: any;
+        "itemsFromFilter"?: [];
+        "onTodoCompleted"?: (event: CustomEvent<any>) => void;
+    }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
         "la-decorate-internal-refs": LaDecorateInternalRefs;
         "la-decorate-terms": LaDecorateTerms;
+        "la-table-of-contents": LaTableOfContents;
+        "la-toc-item": LaTocItem;
     }
 }
 export { LocalJSX as JSX };
@@ -106,6 +139,8 @@ declare module "@stencil/core" {
             "la-akoma-ntoso": LocalJSX.LaAkomaNtoso & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoElement>;
             "la-decorate-internal-refs": LocalJSX.LaDecorateInternalRefs & JSXBase.HTMLAttributes<HTMLLaDecorateInternalRefsElement>;
             "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
+            "la-table-of-contents": LocalJSX.LaTableOfContents & JSXBase.HTMLAttributes<HTMLLaTableOfContentsElement>;
+            "la-toc-item": LocalJSX.LaTocItem & JSXBase.HTMLAttributes<HTMLLaTocItemElement>;
         }
     }
 }
