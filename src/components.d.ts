@@ -36,6 +36,15 @@ export namespace Components {
          */
         "popupDefinitions": boolean;
     }
+    interface LaGutter {
+        /**
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+         */
+        "akomaNtoso"?: string;
+    }
+    interface LaGutterItem {
+        "anchor"?: string;
+    }
 }
 declare global {
     interface HTMLLaAkomaNtosoElement extends Components.LaAkomaNtoso, HTMLStencilElement {
@@ -56,10 +65,24 @@ declare global {
         prototype: HTMLLaDecorateTermsElement;
         new (): HTMLLaDecorateTermsElement;
     };
+    interface HTMLLaGutterElement extends Components.LaGutter, HTMLStencilElement {
+    }
+    var HTMLLaGutterElement: {
+        prototype: HTMLLaGutterElement;
+        new (): HTMLLaGutterElement;
+    };
+    interface HTMLLaGutterItemElement extends Components.LaGutterItem, HTMLStencilElement {
+    }
+    var HTMLLaGutterItemElement: {
+        prototype: HTMLLaGutterItemElement;
+        new (): HTMLLaGutterItemElement;
+    };
     interface HTMLElementTagNameMap {
         "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
         "la-decorate-internal-refs": HTMLLaDecorateInternalRefsElement;
         "la-decorate-terms": HTMLLaDecorateTermsElement;
+        "la-gutter": HTMLLaGutterElement;
+        "la-gutter-item": HTMLLaGutterItemElement;
     }
 }
 declare namespace LocalJSX {
@@ -93,10 +116,21 @@ declare namespace LocalJSX {
          */
         "popupDefinitions"?: boolean;
     }
+    interface LaGutter {
+        /**
+          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+         */
+        "akomaNtoso"?: string;
+    }
+    interface LaGutterItem {
+        "anchor"?: string;
+    }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
         "la-decorate-internal-refs": LaDecorateInternalRefs;
         "la-decorate-terms": LaDecorateTerms;
+        "la-gutter": LaGutter;
+        "la-gutter-item": LaGutterItem;
     }
 }
 export { LocalJSX as JSX };
@@ -106,6 +140,8 @@ declare module "@stencil/core" {
             "la-akoma-ntoso": LocalJSX.LaAkomaNtoso & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoElement>;
             "la-decorate-internal-refs": LocalJSX.LaDecorateInternalRefs & JSXBase.HTMLAttributes<HTMLLaDecorateInternalRefsElement>;
             "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
+            "la-gutter": LocalJSX.LaGutter & JSXBase.HTMLAttributes<HTMLLaGutterElement>;
+            "la-gutter-item": LocalJSX.LaGutterItem & JSXBase.HTMLAttributes<HTMLLaGutterItemElement>;
         }
     }
 }
