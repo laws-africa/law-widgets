@@ -43,6 +43,9 @@ export namespace Components {
         "akomaNtoso"?: string;
     }
     interface LaGutterItem {
+        /**
+          * CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element.
+         */
         "anchor"?: string;
     }
 }
@@ -123,6 +126,9 @@ declare namespace LocalJSX {
         "akomaNtoso"?: string;
     }
     interface LaGutterItem {
+        /**
+          * CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element.
+         */
         "anchor"?: string;
     }
     interface IntrinsicElements {

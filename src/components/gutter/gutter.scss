@@ -14,18 +14,12 @@
     position: relative;
 
     // TODO
-    .gutter-items {
-      .gutter-marker {
-        position: absolute;
-        left: 5%;
-        transition: top ease-out 200ms, left ease-out 200ms;
-        z-index: 2;
-        width: 90%;
-
-        &.marker-active {
-          left: 0px;
-        }
-      }
+    > la-gutter-item {
+      position: absolute;
+      left: 5%;
+      transition: top ease-out 200ms, left ease-out 200ms;
+      z-index: 2;
+      width: 90%;
     }
   }
 }
