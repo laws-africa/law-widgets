@@ -37,12 +37,19 @@ export namespace Components {
         "popupDefinitions": boolean;
     }
     interface LaTableOfContents {
-        "items": [];
-        "itemsRenderFromFilter": [];
+        "collapseAll": () => Promise<void>;
+        "expandAll": () => Promise<void>;
+        "items": any[];
+        "itemsFromFilter": any[];
+    }
+    interface LaTableOfContentsController {
+        "items": any[];
     }
     interface LaTocItem {
+        "collapse": () => Promise<void>;
+        "expand": () => Promise<void>;
         "item": any;
-        "itemsFromFilter": [];
+        "itemsFromFilter": any[];
     }
 }
 declare global {
@@ -70,6 +77,12 @@ declare global {
         prototype: HTMLLaTableOfContentsElement;
         new (): HTMLLaTableOfContentsElement;
     };
+    interface HTMLLaTableOfContentsControllerElement extends Components.LaTableOfContentsController, HTMLStencilElement {
+    }
+    var HTMLLaTableOfContentsControllerElement: {
+        prototype: HTMLLaTableOfContentsControllerElement;
+        new (): HTMLLaTableOfContentsControllerElement;
+    };
     interface HTMLLaTocItemElement extends Components.LaTocItem, HTMLStencilElement {
     }
     var HTMLLaTocItemElement: {
@@ -81,6 +94,7 @@ declare global {
         "la-decorate-internal-refs": HTMLLaDecorateInternalRefsElement;
         "la-decorate-terms": HTMLLaDecorateTermsElement;
         "la-table-of-contents": HTMLLaTableOfContentsElement;
+        "la-table-of-contents-controller": HTMLLaTableOfContentsControllerElement;
         "la-toc-item": HTMLLaTocItemElement;
     }
 }
@@ -116,19 +130,23 @@ declare namespace LocalJSX {
         "popupDefinitions"?: boolean;
     }
     interface LaTableOfContents {
-        "items"?: [];
-        "itemsRenderFromFilter"?: [];
+        "items"?: any[];
+        "itemsFromFilter"?: any[];
+    }
+    interface LaTableOfContentsController {
+        "items"?: any[];
     }
     interface LaTocItem {
         "item"?: any;
-        "itemsFromFilter"?: [];
-        "onTodoCompleted"?: (event: CustomEvent<any>) => void;
+        "itemsFromFilter"?: any[];
+        "onTitleClicked"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
         "la-decorate-internal-refs": LaDecorateInternalRefs;
         "la-decorate-terms": LaDecorateTerms;
         "la-table-of-contents": LaTableOfContents;
+        "la-table-of-contents-controller": LaTableOfContentsController;
         "la-toc-item": LaTocItem;
     }
 }
@@ -140,6 +158,7 @@ declare module "@stencil/core" {
             "la-decorate-internal-refs": LocalJSX.LaDecorateInternalRefs & JSXBase.HTMLAttributes<HTMLLaDecorateInternalRefsElement>;
             "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
             "la-table-of-contents": LocalJSX.LaTableOfContents & JSXBase.HTMLAttributes<HTMLLaTableOfContentsElement>;
+            "la-table-of-contents-controller": LocalJSX.LaTableOfContentsController & JSXBase.HTMLAttributes<HTMLLaTableOfContentsControllerElement>;
             "la-toc-item": LocalJSX.LaTocItem & JSXBase.HTMLAttributes<HTMLLaTocItemElement>;
         }
     }
