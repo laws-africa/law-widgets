@@ -12,7 +12,8 @@ export class Gutter {
   protected akomaNtosoElement?: HTMLElement | null;
 
   protected layout?: GutterLayout;
-  protected observer?: ResizeObserver;
+  protected resizeObserver?: ResizeObserver;
+  protected mutationObserver?: MutationObserver;
 
   /**
    * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults
@@ -27,14 +28,26 @@ export class Gutter {
   componentWillLoad() {
     // TODO: watch for changes to the akn content?
     this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
-    this.setupLayout();
+
+    // re-run layout when child elements change
+    this.mutationObserver = new MutationObserver(this.runLayout.bind(this));
+    this.mutationObserver.observe(this.el, { childList: true });
   }
 
   componentDidLoad() {
-    // TODO: watch children
     // TODO: watch akn
     this.setupLayout();
     this.runLayout();
+  }
+
+  disconnectedCallback() {
+    if (this.mutationObserver) {
+      this.mutationObserver.disconnect();
+    }
+
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
   }
 
   setupLayout() {
@@ -42,12 +55,12 @@ export class Gutter {
       this.layout = new GutterLayout(this.akomaNtosoElement);
 
       if (window.ResizeObserver) {
-        if (this.observer) this.observer.disconnect();
+        if (this.resizeObserver) this.resizeObserver.disconnect();
         const delay = 250;
 
         // add observer to re-layout when the containing document changes size, which implies marker positions will change
-        this.observer = new ResizeObserver(debounce(this.runLayout.bind(this), delay));
-        this.observer.observe(this.akomaNtosoElement);
+        this.resizeObserver = new ResizeObserver(debounce(this.runLayout.bind(this), delay));
+        this.resizeObserver.observe(this.akomaNtosoElement);
       }
     }
   }
