@@ -41,8 +41,16 @@ export namespace Components {
           * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
         "akomaNtoso"?: string;
+        /**
+          * Layout the gutter items.
+         */
+        "layoutItems": () => Promise<void>;
     }
     interface LaGutterItem {
+        /**
+          * Indicates that this is the active item in the gutter. Only one item can be active at a time.
+         */
+        "active": boolean;
         /**
           * CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element.
          */
@@ -127,9 +135,17 @@ declare namespace LocalJSX {
     }
     interface LaGutterItem {
         /**
+          * Indicates that this is the active item in the gutter. Only one item can be active at a time.
+         */
+        "active"?: boolean;
+        /**
           * CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element.
          */
         "anchor"?: string;
+        /**
+          * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
+         */
+        "onItemChanged"?: (event: CustomEvent<void>) => void;
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;

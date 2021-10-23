@@ -38,6 +38,19 @@ Use this element in conjunction with an `<la-akoma-ntoso>` element, usually as a
 | `akomaNtoso` | `akoma-ntoso` | CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page. | `string \| undefined` | `undefined` |
 
 
+## Methods
+
+### `layoutItems() => Promise<void>`
+
+Layout the gutter items.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

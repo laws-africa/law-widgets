@@ -1,3 +1,7 @@
 la-gutter-item {
   display: block;
+
+  &[active] {
+    background-color: red;
+  }
 }

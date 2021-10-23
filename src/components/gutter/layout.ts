@@ -20,7 +20,7 @@ export class GutterLayout {
     this.anchors = new WeakMap();
   }
 
-  layout (items: HTMLLaGutterItemElement[], activeItem?: HTMLLaGutterElement) {
+  layout (items: HTMLLaGutterItemElement[]) {
     this.updateAnchors(items);
 
     // pre-calculate tops
@@ -28,6 +28,9 @@ export class GutterLayout {
 
     // sort items by ascending anchorElement top
     items = [...items].sort(this.compareItems.bind(this));
+
+    // find the first item that is active
+    const activeItem: HTMLLaGutterItemElement | undefined = items.find(x => x.active);
 
     if (activeItem) {
       const ix = items.indexOf(activeItem);

@@ -1,4 +1,4 @@
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, Prop, Listen, Method } from '@stencil/core';
 import { getAkomaNtosoElement } from "../../utils/linking";
 import { GutterLayout } from "./layout";
 import debounce from 'lodash/debounce';
@@ -15,6 +15,10 @@ export class Gutter {
   protected resizeObserver?: ResizeObserver;
   protected mutationObserver?: MutationObserver;
 
+  // Delay in msecs to debounce updates
+  protected debounceDelay: number = 200;
+  protected queueLayout: any;
+
   /**
    * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults
    * to the containing la-akoma-ntoso element, if any, otherwise the first
@@ -29,15 +33,17 @@ export class Gutter {
     // TODO: watch for changes to the akn content?
     this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
 
+    // setup a debounced function to trigger a layout run.
+    this.queueLayout = debounce(this.layoutItems.bind(this), this.debounceDelay);
+
     // re-run layout when child elements change
-    this.mutationObserver = new MutationObserver(this.runLayout.bind(this));
+    this.mutationObserver = new MutationObserver(this.queueLayout);
     this.mutationObserver.observe(this.el, { childList: true });
   }
 
   componentDidLoad() {
-    // TODO: watch akn
     this.setupLayout();
-    this.runLayout();
+    this.layoutItems();
   }
 
   disconnectedCallback() {
@@ -50,25 +56,53 @@ export class Gutter {
     }
   }
 
+  @Listen('itemChanged')
+  itemChanged(event: CustomEvent) {
+    const target: HTMLLaGutterItemElement | null = event.target as HTMLLaGutterItemElement;
+    if (target && target.active) {
+      // set all other items inactive. if there was a previously active item, this change will
+      // trigger a new event, but the debounce will prevent an unnecessary layout.
+      this.setOtherItemsInactive(target);
+    }
+    this.queueLayout();
+  }
+
+  /**
+   * Ensure all items except this one are set as inactive.
+   */
+  setOtherItemsInactive(activeItem: HTMLLaGutterItemElement) {
+    for (const item of this.items()) {
+      if (item != activeItem) {
+        item.active = false;
+      }
+    }
+  }
+
   setupLayout() {
     if (this.akomaNtosoElement) {
       this.layout = new GutterLayout(this.akomaNtosoElement);
 
       if (window.ResizeObserver) {
         if (this.resizeObserver) this.resizeObserver.disconnect();
-        const delay = 250;
 
         // add observer to re-layout when the containing document changes size, which implies marker positions will change
-        this.resizeObserver = new ResizeObserver(debounce(this.runLayout.bind(this), delay));
+        this.resizeObserver = new ResizeObserver(this.queueLayout);
         this.resizeObserver.observe(this.akomaNtosoElement);
       }
     }
   }
 
-  runLayout() {
+  /**
+   * Layout the gutter items.
+   */
+  @Method()
+  async layoutItems() {
     if (this.layout) {
-      // const activeMarker = this.markers.find(m => m.item === this.activeItem);
-      this.layout.layout([...this.el.querySelectorAll('la-gutter-item')]);
+      this.layout.layout([...this.items()]);
     }
+  }
+
+  items(): NodeListOf<HTMLLaGutterItemElement> {
+    return this.el.querySelectorAll('la-gutter-item');
   }
 }

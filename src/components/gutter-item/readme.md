@@ -12,9 +12,17 @@ using the `anchor` attribute. The gutter item is positioned horizontally alongsi
 
 ## Properties
 
-| Property | Attribute | Description                                                                               | Type                  | Default     |
-| -------- | --------- | ----------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `anchor` | `anchor`  | CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element. | `string \| undefined` | `undefined` |
+| Property | Attribute | Description                                                                                  | Type                  | Default     |
+| -------- | --------- | -------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| `active` | `active`  | Indicates that this is the active item in the gutter. Only one item can be active at a time. | `boolean`             | `false`     |
+| `anchor` | `anchor`  | CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element.    | `string \| undefined` | `undefined` |
+
+
+## Events
+
+| Event         | Description                                                                                              | Type                |
+| ------------- | -------------------------------------------------------------------------------------------------------- | ------------------- |
+| `itemChanged` | Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items. | `CustomEvent<void>` |
 
 
 ----------------------------------------------
