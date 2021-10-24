@@ -16,7 +16,7 @@ export class Gutter {
   protected mutationObserver?: MutationObserver;
 
   // Delay in msecs to debounce updates
-  protected debounceDelay: number = 200;
+  protected debounceDelay: number = 100;
   protected queueLayout: any;
 
   /**
@@ -65,6 +65,17 @@ export class Gutter {
       this.setOtherItemsInactive(target);
     }
     this.queueLayout();
+  }
+
+  @Listen('click')
+  clicked(event: MouseEvent) {
+    // a click in the gutter, outside of an item, deactivates all items
+    const target: HTMLElement | null = event.target as HTMLElement;
+    if (target && !target.closest('la-gutter-item')) {
+      for (const item of this.items()) {
+        item.active = false;
+      }
+    }
   }
 
   /**

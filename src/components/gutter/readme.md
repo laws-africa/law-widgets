@@ -1,9 +1,10 @@
 # la-gutter
 
-This elements provides a gutter to show items alongside an `<la-akoma-ntoso>` element. A gutter item must be linked
-to a reference element inside the `<la-akoma-ntoso>` element. The gutter item is positioned horizontally alongside
-its reference element.
+This elements provides a gutter alongside an `<la-akoma-ntoso>` element. The gutter contains `<la-gutter-item>` elements
+which are linked to a reference element inside the `<la-akoma-ntoso>` element using the `anchor` attribute. The gutter
+item is positioned horizontally alongside its anchor element.
 
+For correct alignment, wrap `<la-gutter>` and `<la-akoma-ntoso>` inside a `<div class="la-akoma-ntoso-with-gutter">` element.
 
 
 <!-- Auto Generated Below -->
@@ -16,7 +17,7 @@ its reference element.
 Use this element in conjunction with an `<la-akoma-ntoso>` element, usually as a sibling.
 
 ```html
-<div class="content-with-gutter">
+<div class="la-akoma-ntoso-with-gutter">
   <la-akoma-ntoso id="akn">
     <div id="sec_1">section 1 content</div>
     <div id="sec_2">section 2 content</div>

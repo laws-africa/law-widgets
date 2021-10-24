@@ -1,7 +1,7 @@
 Use this element in conjunction with an `<la-akoma-ntoso>` element, usually as a sibling.
 
 ```html
-<div class="content-with-gutter">
+<div class="la-content-with-gutter">
   <la-akoma-ntoso id="akn">
     <div id="sec_1">section 1 content</div>
     <div id="sec_2">section 2 content</div>
