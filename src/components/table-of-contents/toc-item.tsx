@@ -1,19 +1,20 @@
 import { Component, Prop, h, State, Event, EventEmitter, Method } from '@stencil/core';
+import { TOCTreeNode } from '../table-of-contents-controller/table-of-contents-controller';
 
 @Component({
   tag: 'la-toc-item',
 })
 export class TocItem {
-  @Prop() item: any = {} ;
-  @Prop() itemsFromFilter: any[] = []
+  @Prop() item: TOCTreeNode = {} ;
+  @Prop() itemsFromFilter: TOCTreeNode[] = []
 
   @State() expanded: boolean = false;
   @Event({
-    eventName: 'titleClicked',
+    eventName: 'title-clicked-bubble',
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) titleClicked: EventEmitter<any> | undefined;
+  }) titleClicked: EventEmitter<TOCTreeNode> | undefined;
 
   onTitleClick() {
     // @ts-ignore
@@ -30,7 +31,9 @@ export class TocItem {
     this.expanded = false;
   }
 
-  toggle = () => this.expanded = !this.expanded;
+  toggle () {
+    this.expanded = !this.expanded;
+  }
 
   render() {
     const isParent = this.item.children && this.item.children.length;
@@ -48,19 +51,19 @@ export class TocItem {
       }}>
         <div class="toc-item__indented">
           {isParent ?
-            <button type="button" onClick={this.toggle}>
+            <button type="button" onClick={this.toggle.bind(this)}>
               {this.expanded ? "-" : "+"}
             </button> : null}
         </div>
 
         <div class="toc-item__content">
           <div class="toc-item__content__action">
-            <button type="button"
+            <a href={this.item.id}
                     class="toc-item__content__action__btn"
-                    onClick={() => this.onTitleClick()}
+                    onClick={this.onTitleClick.bind(this)}
             >
               {this.item.title}
-            </button>
+            </a>
             <div class="right-icon"></div>
           </div>
           <div class="toc-item__content__children" style={{
@@ -68,7 +71,12 @@ export class TocItem {
           }}>
             {this.item.children && this.item.children.length ?
               this.item.children
-                .map((item: Object) => <la-toc-item item={item} itemsFromFilter={this.itemsFromFilter}/>)
+                .map((item: TOCTreeNode) =>
+                  <la-toc-item
+                    item={item}
+                    itemsFromFilter={this.itemsFromFilter}
+                  />
+                )
               : null}
           </div>
         </div>
