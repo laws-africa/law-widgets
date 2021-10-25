@@ -17,7 +17,7 @@ For correct alignment, wrap `<la-gutter>` and `<la-akoma-ntoso>` inside a `<div 
 Use this element in conjunction with an `<la-akoma-ntoso>` element, usually as a sibling.
 
 ```html
-<div class="la-akoma-ntoso-with-gutter">
+<div class="la-content-with-gutter">
   <la-akoma-ntoso id="akn">
     <div id="sec_1">section 1 content</div>
     <div id="sec_2">section 2 content</div>

@@ -56,7 +56,7 @@ export class Gutter {
     }
   }
 
-  @Listen('itemChanged')
+  @Listen('laItemChanged')
   itemChanged(event: CustomEvent) {
     const target: HTMLLaGutterItemElement | null = event.target as HTMLLaGutterItemElement;
     if (target && target.active) {

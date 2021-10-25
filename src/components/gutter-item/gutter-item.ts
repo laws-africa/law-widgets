@@ -19,11 +19,11 @@ export class GutterItem {
   /**
    * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
    */
-  @Event() itemChanged!: EventEmitter<void>;
+  @Event() laItemChanged!: EventEmitter<void>;
 
   @Watch('active')
   activeChanged() {
-    this.itemChanged.emit();
+    this.laItemChanged.emit();
   }
 
   @Listen('click')

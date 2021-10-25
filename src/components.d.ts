@@ -145,7 +145,7 @@ declare namespace LocalJSX {
         /**
           * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
          */
-        "onItemChanged"?: (event: CustomEvent<void>) => void;
+        "onLaItemChanged"?: (event: CustomEvent<void>) => void;
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;

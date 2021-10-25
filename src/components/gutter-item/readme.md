@@ -20,9 +20,9 @@ using the `anchor` attribute. The gutter item is positioned horizontally alongsi
 
 ## Events
 
-| Event         | Description                                                                                              | Type                |
-| ------------- | -------------------------------------------------------------------------------------------------------- | ------------------- |
-| `itemChanged` | Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items. | `CustomEvent<void>` |
+| Event           | Description                                                                                              | Type                |
+| --------------- | -------------------------------------------------------------------------------------------------------- | ------------------- |
+| `laItemChanged` | Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items. | `CustomEvent<void>` |
 
 
 ----------------------------------------------
