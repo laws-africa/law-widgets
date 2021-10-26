@@ -6,11 +6,34 @@ import { TOCTreeNode } from '../table-of-contents-controller/table-of-contents-c
   styleUrl: 'toc-item.scss'
 })
 export class TocItem {
+  /**
+   * Item used to build the table of contents
+   * */
   @Prop() item: TOCTreeNode = {} ;
+
+  /**
+   * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
+   * */
   @Prop() itemsFromFilter: TOCTreeNode[] = []
+
+  /**
+   * HTML displayed before item title
+   * */
   @Prop() prependHTML: string = ""
+
+  /**
+   * HTML displayed after item title
+   * */
   @Prop() appendHTML: string = ""
+
+  /**
+   * HTML displayed in toggle button when item is expanded
+   * */
   @Prop() expandIconHTML: string = ""
+
+  /**
+   * HTML displayed in toggle button when item is not expanded
+   * */
   @Prop() collapseIconHTML: string = ""
 
   @State() expanded: boolean = false;
