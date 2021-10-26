@@ -1,0 +1,23 @@
+la-toc-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .content {
+    flex-grow: 1;
+  }
+
+  .content__children {
+    display: none;
+  }
+
+  &.expanded > .content > .content__children {
+    display: inherit;
+  }
+
+  &.excluded {
+    display: none;
+  }
+
+
+}
