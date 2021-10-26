@@ -1,27 +1,28 @@
-import { Prop, h, Listen, Element, Method, Watch, State, Component, Event, EventEmitter } from '@stencil/core';
+import { Prop, h, Listen, Element, Method, Watch, State, Component, Event, EventEmitter, Host } from '@stencil/core';
 import { TOCTreeNode } from '../table-of-contents-controller/table-of-contents-controller';
 
 @Component({
-  tag: 'la-table-of-contents',
+  tag: 'la-table-of-contents'
 })
-
 export class TableOfContents {
   @Prop() items: TOCTreeNode[] = [];
-  @Prop() titleQuery: string = "";
+  @Prop() titleQuery: string = '';
   @State() itemsFromFilter: TOCTreeNode[] = [];
 
   @Element() el!: HTMLElement;
 
   @Event({
-    eventName: 'title-clicked',
+    eventName: 'tocTitleClicked',
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) titleClicked: EventEmitter<TOCTreeNode> | undefined;
+  })
+  tocTitleClicked: EventEmitter<TOCTreeNode> | undefined;
 
-
-  @Listen('title-clicked-bubble')
-  handleTitleClicked(event: CustomEvent) { this.titleClicked?.emit(event) }
+  @Listen('tocItemTitleClicked')
+  handleTitleClicked(event: CustomEvent) {
+    this.tocTitleClicked?.emit(event);
+  }
 
   @Method()
   async expandAll() {
@@ -37,15 +38,15 @@ export class TableOfContents {
   }
 
   flattenItems = (items: TOCTreeNode[]) => {
-    const flattenItems:TOCTreeNode[] = [];
-    const iterateFn = (item:TOCTreeNode) => {
+    const flattenItems: TOCTreeNode[] = [];
+    const iterateFn = (item: TOCTreeNode) => {
       flattenItems.push(item);
       if (item.children) item.children.forEach(iterateFn);
     };
 
     items.forEach(iterateFn);
     return flattenItems;
-  }
+  };
 
   @Watch('titleQuery')
   watchStateHandler(newTitleQuery: string) {
@@ -58,17 +59,18 @@ export class TableOfContents {
        * These false values are then eliminated by filter(Boolean)
        * */
 
-        // @ts-ignore
+      // @ts-ignore
       const filterTree = (nodes, cb) => {
-          return nodes.map((node: TOCTreeNode) => {
+        return nodes
+          .map((node: TOCTreeNode) => {
             if (cb(node)) return node;
             const children = filterTree(node.children || [], cb);
             return children.length && { ...node, children };
-          }).filter(Boolean);
-        };
+          })
+          .filter(Boolean);
+      };
 
-      const filteredItems = [...filterTree(this.items, (node: TOCTreeNode) =>
-        node.title.toLowerCase().includes(newTitleQuery.toLowerCase()))];
+      const filteredItems = [...filterTree(this.items, (node: TOCTreeNode) => node.title.toLowerCase().includes(newTitleQuery.toLowerCase()))];
 
       const flattenItems = this.flattenItems(filteredItems);
 
@@ -80,17 +82,34 @@ export class TableOfContents {
   }
 
   render() {
+    const renderTOCItem = (item: TOCTreeNode) => {
+      // TODO: Investigate better to render dynamic slots
+      const prepend = this.el.querySelector("[slot='prepend'] [slot='prepend']");
+      const append = this.el.querySelector("[slot='append'] [slot='append']");
+      const expandIcon = this.el.querySelector("[slot='expand-icon'] [slot='expand-icon']");
+      const collapseIcon = this.el.querySelector("[slot='collapse-icon'] [slot='collapse-icon']");
+      return (
+        <la-toc-item
+          item={item}
+          itemsFromFilter={this.itemsFromFilter}
+          prependHTML={prepend?.innerHTML}
+          appendHTML={append?.innerHTML}
+          expandIconHTML={expandIcon?.innerHTML}
+          collapseIconHTML={collapseIcon?.innerHTML}
+        ></la-toc-item>
+      );
+    };
+
     return (
-      <div class="la-table-of-content">
-        <div class="la-table-of-content__items">
-          {this.items.map((item) =>
-            <la-toc-item
-              item={item}
-              itemsFromFilter={this.itemsFromFilter}
-            />
-          )}
+      <Host>
+        <div style={{ display: 'none' }}>
+          <slot name="append"></slot>
+          <slot name="prepend"></slot>
+          <slot name="expand-icon"></slot>
+          <slot name="prepend-icon"></slot>
         </div>
-      </div>
+        <div class="toc-items">{this.items.map(item => renderTOCItem(item))}</div>
+      </Host>
     );
   }
 }
