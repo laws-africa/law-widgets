@@ -3,13 +3,13 @@
       "num":"",
       "heading":"",
       "element":{
-         
+
       },
       "type":"akomaNtoso",
       "id":null,
       "selected":false,
       "issues":[
-         
+
       ],
       "issues_title":"",
       "issues_description":"",
@@ -21,13 +21,13 @@
             "num":"",
             "heading":"",
             "element":{
-               
+
             },
             "type":"preface",
             "id":null,
             "selected":false,
             "issues":[
-               
+
             ],
             "issues_title":"",
             "issues_description":"",
@@ -39,13 +39,13 @@
             "num":"",
             "heading":"",
             "element":{
-               
+
             },
             "type":"preamble",
             "id":null,
             "selected":false,
             "issues":[
-               
+
             ],
             "issues_title":"",
             "issues_description":"",
@@ -57,13 +57,13 @@
             "num":"1",
             "heading":"",
             "element":{
-               
+
             },
             "type":"chapter",
             "id":"chp_1",
             "selected":false,
             "issues":[
-               
+
             ],
             "issues_title":"",
             "issues_description":"",
@@ -75,13 +75,13 @@
                   "num":"A",
                   "heading":"",
                   "element":{
-                     
+
                   },
                   "type":"part",
                   "id":"chp_1__part_A",
                   "selected":false,
                   "issues":[
-                     
+
                   ],
                   "issues_title":"",
                   "issues_description":"",
@@ -93,13 +93,13 @@
                         "num":"1.",
                         "heading":"",
                         "element":{
-                           
+
                         },
                         "type":"section",
                         "id":"sec_1",
                         "selected":false,
                         "issues":[
-                           
+
                         ],
                         "issues_title":"",
                         "issues_description":"",
@@ -111,13 +111,13 @@
                         "num":"3.",
                         "heading":"",
                         "element":{
-                           
+
                         },
                         "type":"section",
                         "id":"sec_3",
                         "selected":false,
                         "issues":[
-                           
+
                         ],
                         "issues_title":"",
                         "issues_description":"",
@@ -131,13 +131,13 @@
                   "num":"B",
                   "heading":"",
                   "element":{
-                     
+
                   },
                   "type":"part",
                   "id":"chp_1__part_B",
                   "selected":false,
                   "issues":[
-                     
+
                   ],
                   "issues_title":"",
                   "issues_description":"",
@@ -149,13 +149,13 @@
                         "num":"5.",
                         "heading":"",
                         "element":{
-                           
+
                         },
                         "type":"section",
                         "id":"sec_5",
                         "selected":false,
                         "issues":[
-                           
+
                         ],
                         "issues_title":"",
                         "issues_description":"",
@@ -171,13 +171,13 @@
             "num":"2",
             "heading":"",
             "element":{
-               
+
             },
             "type":"chapter",
             "id":"chp_2",
             "selected":false,
             "issues":[
-               
+
             ],
             "issues_title":"",
             "issues_description":"",
@@ -189,13 +189,13 @@
                   "num":"6.",
                   "heading":"",
                   "element":{
-                     
+
                   },
                   "type":"section",
                   "id":"sec_6",
                   "selected":false,
                   "issues":[
-                     
+
                   ],
                   "issues_title":"",
                   "issues_description":"",
@@ -207,13 +207,13 @@
                   "num":"7.",
                   "heading":"",
                   "element":{
-                     
+
                   },
                   "type":"section",
                   "id":"sec_7",
                   "selected":false,
                   "issues":[
-                     
+
                   ],
                   "issues_title":"",
                   "issues_description":"",
@@ -224,5 +224,23 @@
             ]
          }
       ]
-   }
+   },
+  {
+    "num":"",
+    "heading":"",
+    "element":{
+
+    },
+    "type":"akomaNtoso",
+    "id":null,
+    "selected":false,
+    "issues":[
+
+    ],
+    "issues_title":"",
+    "issues_description":"",
+    "issues_severity":"",
+    "title":"New Document ??",
+    "index":12
+  }
 ]
