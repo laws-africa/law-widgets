@@ -7,6 +7,12 @@ la-toc-item {
     flex-grow: 1;
   }
 
+  .content__action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   .content__children {
     display: none;
   }
