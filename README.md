@@ -11,6 +11,7 @@ These are web components, so they work in any major framework or with no framewo
 ### Content components
 
 * [la-akoma-ntoso](src/components/akoma-ntoso/)
+* [la-gutter](src/components/gutter/)
 
 ### Behaviour components
 
@@ -23,17 +24,17 @@ There are three methods for using these web components:
 
 ### Script tag
 
-- Put a script tag similar to this `<script type='module' src='https://unpkg.com/my-component@0.0.1/dist/my-component.esm.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/gh/laws-africa/la-web-components@0.0.4-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
-### Node Modules
-- Run `npm install my-component --save`
-- Put a script tag similar to this `<script type='module' src='node_modules/my-component/dist/my-component.esm.js'></script>` in the head of your index.html
+### Node Modules (not yet supported)
+- Run `npm install @lawsafrica/la-web-components --save`
+- Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/la-web-component/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
+- Run `npm install @lawsafrica/la-web-components --save`
+- Add an import to the npm packages `import la-web-components;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
 # Development
@@ -64,3 +65,15 @@ npm test
 
 Need help? Check out the [Stencil docs](https://stenciljs.com/docs/my-first-component).
 
+## Releasing a new version
+
+1. Update the version number in package.json
+2. Commit and push to GitHub on the master branch
+3. GitHub will build the package into the `dist` branch
+4. Tag and release using GitHub off of the `dist` branch
+
+# Copyright and license
+
+Copyright 2021 Laws.Africa.
+
+Licensed under [GNU LGPLv3](LICENSE).
