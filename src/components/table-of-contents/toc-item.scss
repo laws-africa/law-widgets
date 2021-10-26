@@ -17,7 +17,7 @@ la-toc-item {
     display: none;
   }
 
-  &.expanded > .content > .content__children {
+  &[expanded] > .content > .content__children {
     display: inherit;
   }
 
