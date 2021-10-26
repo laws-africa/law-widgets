@@ -1,8 +1,13 @@
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
 
-export interface TOCTreeNode {
-  [key: string]: any // type for unknown keys.
-  children?: TOCTreeNode[] // type for a known property.
+/**
+ * An item in the table of contents. Each item must have a `title` attribute (which may be `null`),
+ * and a `children` attribute (which may be `null`).
+ */
+export interface TOCItem {
+  [key: string]: any; // type for unknown keys.
+  title?: string;
+  children?: TOCItem[];
 }
 
 @Component({
@@ -12,14 +17,14 @@ export class TableOfContents {
   /**
    * An array of items used to build the table of contents
    * */
-  @Prop() items: TOCTreeNode[] = [];
+  @Prop() items: TOCItem[] = [];
 
   /**
    * value to filter items by item title
    * */
   @Prop() titleFilter: string = '';
 
-  @State() filteredItems: TOCTreeNode[] | null = null;
+  @State() filteredItems: Set<TOCItem> | null = null;
 
   @Element() el!: HTMLElement;
 
@@ -36,44 +41,39 @@ export class TableOfContents {
     }
   }
 
-  flattenItems = (items: TOCTreeNode[]) => {
-    const flattenItems: TOCTreeNode[] = [];
-    const iterateFn = (item: TOCTreeNode) => {
-      flattenItems.push(item);
-      if (item.children) item.children.forEach(iterateFn);
-    };
-
-    items.forEach(iterateFn);
-    return flattenItems;
-  };
-
   @Watch('titleFilter')
-  watchStateHandler(newTitleQuery: string) {
-    if (newTitleQuery) {
-      /***
-       * A recursive function that copies the tree, but only retaining children that have a deeper match
-       * When a node matches, no deeper recursion is needed, as then the whole subtree below that node remains
-       * included.
-       * The map will map nodes to false when there is no match somewhere in the subtree rooted by that node.
-       * These false values are then eliminated by filter(Boolean)
-       * */
+  titleFilterChanged(filter: string) {
+    if (filter) {
+      const needle = filter.toLocaleLowerCase();
+      const filteredItems: Set<TOCItem> = new Set<TOCItem>();
 
-      // @ts-ignore
-      const filterTree = (nodes, cb) => {
-        return nodes
-          .map((node: TOCTreeNode) => {
-            if (cb(node)) return node;
-            const children = filterTree(node.children || [], cb);
-            return children.length && { ...node, children };
-          })
-          .filter(Boolean);
-      };
+      // Recursive function that determines whether or not an item should be rendered.
+      // An item is rendered if its title matches the filter, or any of its children should be rendered.
+      function shouldInclude(item: TOCItem): boolean {
+        // this will be true if this item matches the search, or any child does
+        let include: boolean = false;
 
-      const filteredItems = [...filterTree(this.items, (node: TOCTreeNode) => node.title.toLowerCase().includes(newTitleQuery.toLowerCase()))];
+        if (item.children) {
+          for (const child of item.children) {
+            include = shouldInclude(child) || include;
+          }
+        }
 
-      const flattenItems = this.flattenItems(filteredItems);
+        // does this item match?
+        include = include || (item.title?.toLocaleLowerCase() || '').includes(needle);
 
-      this.filteredItems = [...flattenItems];
+        if (include) {
+          filteredItems.add(item);
+        }
+
+        return include;
+      }
+
+      for (const item of this.items) {
+        shouldInclude(item);
+      }
+
+      this.filteredItems = filteredItems;
     } else {
       this.filteredItems = null;
     }
@@ -81,7 +81,7 @@ export class TableOfContents {
   }
 
   render() {
-    const renderTOCItem = (item: TOCTreeNode) => {
+    const renderTOCItem = (item: TOCItem) => {
       // TODO: Investigate better to render dynamic slots
       const prepend = this.el.querySelector("[slot='prepend'] [slot='prepend']");
       const append = this.el.querySelector("[slot='append'] [slot='append']");

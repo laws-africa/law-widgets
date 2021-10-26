@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host } from '@stencil/core';
-import { TOCTreeNode } from './table-of-contents';
+import { TOCItem } from './table-of-contents';
 
 @Component({
   tag: 'la-toc-item',
@@ -9,12 +9,12 @@ export class TocItem {
   /**
    * Item used to build the table of contents
    * */
-  @Prop() item: TOCTreeNode = {};
+  @Prop() item: TOCItem = {};
 
   /**
    * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
    * */
-  @Prop() filteredItems: TOCTreeNode[] | null = null;
+  @Prop() filteredItems: Set<TOCItem> | null = null;
 
   /**
    * HTML displayed before item title
@@ -44,7 +44,7 @@ export class TocItem {
 
   render() {
     const isParent = this.item.children && this.item.children.length;
-    const showItem = !this.filteredItems || this.filteredItems.includes(this.item);
+    const showItem = !this.filteredItems || this.filteredItems.has(this.item);
 
     const renderToggleBtnInner = () => {
       if (this.expanded) {
@@ -76,7 +76,7 @@ export class TocItem {
           <div class="content__children">
             {this.item.children && this.item.children.length ?
               this.item.children
-                .map((item: TOCTreeNode) =>
+                .map((item: TOCItem) =>
                   <la-toc-item
                     item={item}
                     filteredItems={this.filteredItems}
