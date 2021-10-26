@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TOCTreeNode } from "./components/table-of-contents-controller/table-of-contents-controller";
-import { TOCTreeNode as TOCTreeNode1 } from "./components/table-of-contents-controller/table-of-contents-controller";
+import { TOCTreeNode } from "./components/table-of-contents/table-of-contents";
+import { TOCTreeNode as TOCTreeNode1 } from "./components/table-of-contents/table-of-contents";
 export namespace Components {
     interface LaAkomaNtoso {
     }
