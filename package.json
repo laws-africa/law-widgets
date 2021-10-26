@@ -36,5 +36,5 @@
     "prettier": "^2.4.1",
     "puppeteer": "^10.0.0"
   },
-  "license": "MIT"
+  "license": "LGPL-3.0-or-later"
 }
