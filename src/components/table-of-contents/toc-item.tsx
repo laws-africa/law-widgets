@@ -1,24 +1,28 @@
-import { Component, Prop, h, State, Event, EventEmitter, Method } from '@stencil/core';
+import { Component, Prop, h, State, Event, EventEmitter, Method, Host } from '@stencil/core';
 import { TOCTreeNode } from '../table-of-contents-controller/table-of-contents-controller';
 
 @Component({
   tag: 'la-toc-item',
+  styleUrl: 'toc-item.scss'
 })
 export class TocItem {
   @Prop() item: TOCTreeNode = {} ;
   @Prop() itemsFromFilter: TOCTreeNode[] = []
+  @Prop() prependHTML: string = ""
+  @Prop() appendHTML: string = ""
+  @Prop() expandIconHTML: string = ""
+  @Prop() collapseIconHTML: string = ""
 
   @State() expanded: boolean = false;
   @Event({
-    eventName: 'title-clicked-bubble',
+    eventName: 'tocItemTitleClicked',
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) titleClicked: EventEmitter<TOCTreeNode> | undefined;
+  }) tocItemTitleClicked: EventEmitter<TOCTreeNode> | undefined;
 
   onTitleClick() {
-    // @ts-ignore
-    this.titleClicked.emit(this.item);
+    this.tocItemTitleClicked?.emit(this.item);
   }
 
   @Method()
@@ -37,50 +41,60 @@ export class TocItem {
 
   render() {
     const isParent = this.item.children && this.item.children.length;
-    const showItem = (() => {
+    const excludeItem = !(() => {
       // Show everything because search field is empty
       if (!this.itemsFromFilter.length) {
         return true;
       }
       return this.itemsFromFilter.length && this.itemsFromFilter.some(item => item.title === this.item.title);
-    })()
+    })();
+
+    const renderToggleBtnInner = () => {
+      if(this.expanded) {
+        return this.collapseIconHTML ? <span innerHTML={this.collapseIconHTML}></span> : "-";
+      }
+      return this.expandIconHTML ? <span innerHTML={this.expandIconHTML}></span> : "+";
+    }
 
     return (
-      <div class="toc-item" style={{
-        display: showItem ? 'block' : 'none'
-      }}>
-        <div class="toc-item__indented">
+      <Host class={`${this.expanded ? 'expanded' : ''} ${ excludeItem ? 'excluded' : ''}`}>
+        <div class="indented">
           {isParent ?
             <button type="button" onClick={this.toggle.bind(this)}>
-              {this.expanded ? "-" : "+"}
-            </button> : null}
+              {renderToggleBtnInner()}
+            </button>
+            : null}
         </div>
 
-        <div class="toc-item__content">
-          <div class="toc-item__content__action">
-            <a href={this.item.id}
-                    class="toc-item__content__action__btn"
+        <div class="content">
+          <div class="content__action">
+            {this.prependHTML ? <div class="content__action__prepend" innerHTML={this.prependHTML}></div> : null }
+            <a href={`#${this.item.id}`}
+                    class="content__action__title"
                     onClick={this.onTitleClick.bind(this)}
             >
               {this.item.title}
             </a>
-            <div class="right-icon"></div>
+            {this.appendHTML ? <div class="content__action__append" innerHTML={this.appendHTML}></div> : null }
           </div>
-          <div class="toc-item__content__children" style={{
-            display: this.expanded ? 'block' : 'none'
-          }}>
+          <div class="content__children">
             {this.item.children && this.item.children.length ?
               this.item.children
                 .map((item: TOCTreeNode) =>
                   <la-toc-item
                     item={item}
                     itemsFromFilter={this.itemsFromFilter}
-                  />
+                    prependHTML={this.prependHTML}
+                    appendHTML={this.appendHTML}
+                    expandIconHTML={this.expandIconHTML}
+                    collapseIconHTML={this.collapseIconHTML}
+                  >
+                  </la-toc-item>
                 )
               : null}
           </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }
