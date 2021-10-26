@@ -11,8 +11,16 @@ export interface TOCTreeNode {
   tag: 'la-table-of-contents-controller',
 })
 export class TableOfContentsController {
+  /**
+   * An array of items used to build the table of contents
+   * */
   @Prop() items: TOCTreeNode[] = sampleData;
+
+  /**
+   * Placeholder for search title filter
+   * */
   @Prop() titleFilterPlaceholder: string = "Search by title";
+
   @State() titleQuery: string = "";
   @Element() el!: HTMLElement;
 
