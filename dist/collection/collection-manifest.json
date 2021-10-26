@@ -1,0 +1,16 @@
+{
+  "entries": [
+    "./components/akoma-ntoso/akoma-ntoso.js",
+    "./components/decorate-internal-refs/decorate-internal-refs.js",
+    "./components/decorate-terms/decorate-terms.js",
+    "./components/gutter/gutter.js",
+    "./components/gutter-item/gutter-item.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.9.0",
+    "typescriptVersion": "4.2.3"
+  },
+  "collections": [],
+  "bundles": []
+}
