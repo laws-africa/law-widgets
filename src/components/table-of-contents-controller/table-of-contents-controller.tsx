@@ -1,6 +1,6 @@
 import { Component, Prop, h, Host, State, Element, } from '@stencil/core';
 import sampleData from "./sample-toc.json";
-import { TOCTreeNode } from '../table-of-contents/table-of-contents';
+import { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-table-of-contents-controller',
@@ -9,7 +9,7 @@ export class TableOfContentsController {
   /**
    * An array of items used to build the table of contents
    * */
-  @Prop() items: TOCTreeNode[] = sampleData;
+  @Prop() items: TOCItem[] = sampleData;
 
   /**
    * Placeholder for search title filter
@@ -20,6 +20,7 @@ export class TableOfContentsController {
   @Element() el!: HTMLElement;
 
   handleTitleChange (e: Event) {
+    // TODO: debounce
     this.titleFilter = (e.target as HTMLInputElement).value;
   }
 
@@ -44,7 +45,7 @@ export class TableOfContentsController {
           <input class="search__input"
                  value={this.titleFilter}
                  placeholder={this.titleFilterPlaceholder}
-                 onChange={e => this.handleTitleChange(e)}/>
+                 onInput={e => this.handleTitleChange(e)}/>
           <button type="button"
                   class="search__clear-button"
                   onClick={() => this.clearQuery()}>

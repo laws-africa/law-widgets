@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TOCTreeNode } from "./components/table-of-contents/table-of-contents";
-import { TOCTreeNode as TOCTreeNode1 } from "./components/table-of-contents/table-of-contents";
+import { TOCItem } from "./components/table-of-contents/table-of-contents";
+import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-contents";
 export namespace Components {
     interface LaAkomaNtoso {
     }
@@ -44,7 +44,7 @@ export namespace Components {
         /**
           * An array of items used to build the table of contents
          */
-        "items": TOCTreeNode[];
+        "items": TOCItem[];
         /**
           * value to filter items by item title
          */
@@ -54,7 +54,7 @@ export namespace Components {
         /**
           * An array of items used to build the table of contents
          */
-        "items": TOCTreeNode[];
+        "items": TOCItem[];
         /**
           * Placeholder for search title filter
          */
@@ -77,11 +77,11 @@ export namespace Components {
         /**
           * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
          */
-        "filteredItems": TOCTreeNode[] | null;
+        "filteredItems": Set<TOCItem> | null;
         /**
           * Item used to build the table of contents
          */
-        "item": TOCTreeNode;
+        "item": TOCItem;
         /**
           * HTML displayed before item title
          */
@@ -169,7 +169,7 @@ declare namespace LocalJSX {
         /**
           * An array of items used to build the table of contents
          */
-        "items"?: TOCTreeNode[];
+        "items"?: TOCItem[];
         /**
           * value to filter items by item title
          */
@@ -179,7 +179,7 @@ declare namespace LocalJSX {
         /**
           * An array of items used to build the table of contents
          */
-        "items"?: TOCTreeNode[];
+        "items"?: TOCItem[];
         /**
           * Placeholder for search title filter
          */
@@ -202,11 +202,11 @@ declare namespace LocalJSX {
         /**
           * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
          */
-        "filteredItems"?: TOCTreeNode[] | null;
+        "filteredItems"?: Set<TOCItem> | null;
         /**
           * Item used to build the table of contents
          */
-        "item"?: TOCTreeNode;
+        "item"?: TOCItem;
         /**
           * HTML displayed before item title
          */
