@@ -10,7 +10,12 @@
 
 </head>
 <body>
-<la-table-of-contents-controller></la-table-of-contents-controller>
+<la-table-of-contents-controller>
+  <span slot='prepend'>🏆</span>
+  <span slot='append'>🥙</span>
+  <span slot='expand-icon'>⬇️</span>
+  <span slot='collapse-icon'>⬆️</span>
+</la-table-of-contents-controller>
 
 <la-decorate-terms link-terms popup-definitions akoma-ntoso="#doc"></la-decorate-terms>
 <la-akoma-ntoso id="doc" class="flash-target">
