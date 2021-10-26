@@ -41,21 +41,51 @@ export namespace Components {
     interface LaTableOfContents {
         "collapseAll": () => Promise<void>;
         "expandAll": () => Promise<void>;
+        /**
+          * An array of items used to build the table of contents
+         */
         "items": TOCTreeNode[];
+        /**
+          * value to filter items by item title
+         */
         "titleQuery": string;
     }
     interface LaTableOfContentsController {
+        /**
+          * An array of items used to build the table of contents
+         */
         "items": TOCTreeNode[];
+        /**
+          * Placeholder for search title filter
+         */
         "titleFilterPlaceholder": string;
     }
     interface LaTocItem {
+        /**
+          * HTML displayed after item title
+         */
         "appendHTML": string;
         "collapse": () => Promise<void>;
+        /**
+          * HTML displayed in toggle button when item is not expanded
+         */
         "collapseIconHTML": string;
         "expand": () => Promise<void>;
+        /**
+          * HTML displayed in toggle button when item is expanded
+         */
         "expandIconHTML": string;
+        /**
+          * Item used to build the table of contents
+         */
         "item": TOCTreeNode;
+        /**
+          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
+         */
         "itemsFromFilter": TOCTreeNode[];
+        /**
+          * HTML displayed before item title
+         */
         "prependHTML": string;
     }
 }
@@ -137,23 +167,53 @@ declare namespace LocalJSX {
         "popupDefinitions"?: boolean;
     }
     interface LaTableOfContents {
+        /**
+          * An array of items used to build the table of contents
+         */
         "items"?: TOCTreeNode[];
         "onTocTitleClicked"?: (event: CustomEvent<any>) => void;
+        /**
+          * value to filter items by item title
+         */
         "titleQuery"?: string;
     }
     interface LaTableOfContentsController {
+        /**
+          * An array of items used to build the table of contents
+         */
         "items"?: TOCTreeNode[];
         "onTitleClicked"?: (event: CustomEvent<any>) => void;
         "onTocControllerTitleClicked"?: (event: CustomEvent<any>) => void;
+        /**
+          * Placeholder for search title filter
+         */
         "titleFilterPlaceholder"?: string;
     }
     interface LaTocItem {
+        /**
+          * HTML displayed after item title
+         */
         "appendHTML"?: string;
+        /**
+          * HTML displayed in toggle button when item is not expanded
+         */
         "collapseIconHTML"?: string;
+        /**
+          * HTML displayed in toggle button when item is expanded
+         */
         "expandIconHTML"?: string;
+        /**
+          * Item used to build the table of contents
+         */
         "item"?: TOCTreeNode;
+        /**
+          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
+         */
         "itemsFromFilter"?: TOCTreeNode[];
         "onTocItemTitleClicked"?: (event: CustomEvent<any>) => void;
+        /**
+          * HTML displayed before item title
+         */
         "prependHTML"?: string;
     }
     interface IntrinsicElements {
