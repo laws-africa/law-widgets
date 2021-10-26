@@ -1,11 +1,6 @@
-import { Component, Prop, h, Host, State, Element, Listen, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Host, State, Element, } from '@stencil/core';
 import sampleData from "./sample-toc.json";
-
-export interface TOCTreeNode {
-  [key: string]: any // type for unknown keys.
-  children?: TOCTreeNode[] // type for a known property.
-}
-
+import { TOCTreeNode } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-table-of-contents-controller',
@@ -21,18 +16,16 @@ export class TableOfContentsController {
    * */
   @Prop() titleFilterPlaceholder: string = "Search by title";
 
-  @State() titleQuery: string = "";
+  @State() titleFilter: string = "";
   @Element() el!: HTMLElement;
 
-  @Event({
-    eventName: 'titleClicked',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  }) titleClicked: EventEmitter<TOCTreeNode> | undefined;
+  handleTitleChange (e: Event) {
+    this.titleFilter = (e.target as HTMLInputElement).value;
+  }
 
-  handleTitleChange (e: Event) { this.titleQuery = (e.target as HTMLInputElement).value;}
-  clearQuery () { this.titleQuery  = "" }
+  clearQuery () {
+    this.titleFilter = "";
+  }
 
   async expandAll () {
     const tocElement = this.el.querySelector('la-table-of-contents');
@@ -44,48 +37,36 @@ export class TableOfContentsController {
     tocElement?.collapseAll();
   }
 
-  @Event({
-    eventName: 'tocControllerTitleClicked',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  }) tocControllerTitleClicked: EventEmitter<TOCTreeNode> | undefined;
-
-  @Listen('tocTitleClicked')
-  handleTitleClicked (event: CustomEvent) {
-    this.tocControllerTitleClicked?.emit(event)
-  }
-
   render() {
     return (
       <Host>
         <div class="search">
           <input class="search__input"
-                 value={this.titleQuery}
+                 value={this.titleFilter}
                  placeholder={this.titleFilterPlaceholder}
-                 onChange={this.handleTitleChange.bind(this)}/>
+                 onChange={e => this.handleTitleChange(e)}/>
           <button type="button"
                   class="search__clear-button"
-                  onClick={this.clearQuery.bind(this)}>
+                  onClick={() => this.clearQuery()}>
             Clear
           </button>
         </div>
         <div class="toggle">
           <button type="button"
                   class="toggle__expand-all-btn"
-                  onClick={this.expandAll.bind(this)}
+                  onClick={() => this.expandAll()}
           >
             Expand All
           </button>
           <button type="button"
                   class="toggle__collapse-all-tbn"
-                  onClick={this.collapseAll.bind(this)}
+                  onClick={() => this.collapseAll()}
           >
             Collapse All
           </button>
         </div>
 
-        <la-table-of-contents items={this.items} titleQuery={this.titleQuery}>
+        <la-table-of-contents items={this.items} titleFilter={this.titleFilter}>
           <span slot="append"><slot name="append"></slot></span>
           <span slot="prepend"><slot name="prepend"></slot></span>
           <span slot="expand-icon"><slot name="expand-icon"></slot></span>
