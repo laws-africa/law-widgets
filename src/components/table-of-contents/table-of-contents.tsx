@@ -5,8 +5,16 @@ import { TOCTreeNode } from '../table-of-contents-controller/table-of-contents-c
   tag: 'la-table-of-contents'
 })
 export class TableOfContents {
+  /**
+   * An array of items used to build the table of contents
+   * */
   @Prop() items: TOCTreeNode[] = [];
+
+  /**
+   * value to filter items by item title
+   * */
   @Prop() titleQuery: string = '';
+
   @State() itemsFromFilter: TOCTreeNode[] = [];
 
   @Element() el!: HTMLElement;
