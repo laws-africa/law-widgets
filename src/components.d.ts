@@ -138,11 +138,13 @@ declare namespace LocalJSX {
     }
     interface LaTableOfContents {
         "items"?: TOCTreeNode[];
-        "onTitle-clicked"?: (event: CustomEvent<any>) => void;
+        "onTocTitleClicked"?: (event: CustomEvent<any>) => void;
         "titleQuery"?: string;
     }
     interface LaTableOfContentsController {
         "items"?: TOCTreeNode[];
+        "onTitleClicked"?: (event: CustomEvent<any>) => void;
+        "onTocControllerTitleClicked"?: (event: CustomEvent<any>) => void;
         "titleFilterPlaceholder"?: string;
     }
     interface LaTocItem {
@@ -151,7 +153,7 @@ declare namespace LocalJSX {
         "expandIconHTML"?: string;
         "item"?: TOCTreeNode;
         "itemsFromFilter"?: TOCTreeNode[];
-        "onTitle-clicked-bubble"?: (event: CustomEvent<any>) => void;
+        "onTocItemTitleClicked"?: (event: CustomEvent<any>) => void;
         "prependHTML"?: string;
     }
     interface IntrinsicElements {
