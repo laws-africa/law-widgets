@@ -86,6 +86,7 @@ export class TableOfContents {
       // TODO: Investigate better to render dynamic slots
       const prepend = this.el.querySelector("[slot='prepend'] [slot='prepend']");
       const append = this.el.querySelector("[slot='append'] [slot='append']");
+
       const expandIcon = this.el.querySelector("[slot='expand-icon'] [slot='expand-icon']");
       const collapseIcon = this.el.querySelector("[slot='collapse-icon'] [slot='collapse-icon']");
       return (
@@ -106,7 +107,7 @@ export class TableOfContents {
           <slot name="append"></slot>
           <slot name="prepend"></slot>
           <slot name="expand-icon"></slot>
-          <slot name="prepend-icon"></slot>
+          <slot name="collapse-icon"></slot>
         </div>
         <div class="toc-items">{this.items.map(item => renderTOCItem(item))}</div>
       </Host>
