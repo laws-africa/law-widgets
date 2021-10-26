@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TOCTreeNode } from "./components/table-of-contents-controller/table-of-contents-controller";
-import { TOCTreeNode as TOCTreeNode1 } from "./components/table-of-contents-controller/table-of-contents-controller";
+import { TOCTreeNode } from "./components/table-of-contents/table-of-contents";
+import { TOCTreeNode as TOCTreeNode1 } from "./components/table-of-contents/table-of-contents";
 export namespace Components {
     interface LaAkomaNtoso {
     }
@@ -48,7 +48,7 @@ export namespace Components {
         /**
           * value to filter items by item title
          */
-        "titleQuery": string;
+        "titleFilter": string;
     }
     interface LaTableOfContentsController {
         /**
@@ -65,24 +65,23 @@ export namespace Components {
           * HTML displayed after item title
          */
         "appendHTML": string;
-        "collapse": () => Promise<void>;
         /**
           * HTML displayed in toggle button when item is not expanded
          */
         "collapseIconHTML": string;
-        "expand": () => Promise<void>;
         /**
           * HTML displayed in toggle button when item is expanded
          */
         "expandIconHTML": string;
+        "expanded": boolean;
+        /**
+          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
+         */
+        "filteredItems": TOCTreeNode[] | null;
         /**
           * Item used to build the table of contents
          */
         "item": TOCTreeNode;
-        /**
-          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
-         */
-        "itemsFromFilter": TOCTreeNode[];
         /**
           * HTML displayed before item title
          */
@@ -171,19 +170,16 @@ declare namespace LocalJSX {
           * An array of items used to build the table of contents
          */
         "items"?: TOCTreeNode[];
-        "onTocTitleClicked"?: (event: CustomEvent<any>) => void;
         /**
           * value to filter items by item title
          */
-        "titleQuery"?: string;
+        "titleFilter"?: string;
     }
     interface LaTableOfContentsController {
         /**
           * An array of items used to build the table of contents
          */
         "items"?: TOCTreeNode[];
-        "onTitleClicked"?: (event: CustomEvent<any>) => void;
-        "onTocControllerTitleClicked"?: (event: CustomEvent<any>) => void;
         /**
           * Placeholder for search title filter
          */
@@ -202,15 +198,15 @@ declare namespace LocalJSX {
           * HTML displayed in toggle button when item is expanded
          */
         "expandIconHTML"?: string;
+        "expanded"?: boolean;
+        /**
+          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
+         */
+        "filteredItems"?: TOCTreeNode[] | null;
         /**
           * Item used to build the table of contents
          */
         "item"?: TOCTreeNode;
-        /**
-          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
-         */
-        "itemsFromFilter"?: TOCTreeNode[];
-        "onTocItemTitleClicked"?: (event: CustomEvent<any>) => void;
         /**
           * HTML displayed before item title
          */
