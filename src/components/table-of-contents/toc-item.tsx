@@ -1,5 +1,5 @@
-import { Component, Prop, h, State, Event, EventEmitter, Method, Host } from '@stencil/core';
-import { TOCTreeNode } from '../table-of-contents-controller/table-of-contents-controller';
+import { Component, Prop, h, Host } from '@stencil/core';
+import { TOCTreeNode } from './table-of-contents';
 
 @Component({
   tag: 'la-toc-item',
@@ -9,54 +9,34 @@ export class TocItem {
   /**
    * Item used to build the table of contents
    * */
-  @Prop() item: TOCTreeNode = {} ;
+  @Prop() item: TOCTreeNode = {};
 
   /**
    * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
    * */
-  @Prop() itemsFromFilter: TOCTreeNode[] = []
+  @Prop() filteredItems: TOCTreeNode[] | null = null;
 
   /**
    * HTML displayed before item title
    * */
-  @Prop() prependHTML: string = ""
+  @Prop() prependHTML: string = "";
 
   /**
    * HTML displayed after item title
    * */
-  @Prop() appendHTML: string = ""
+  @Prop() appendHTML: string = "";
 
   /**
    * HTML displayed in toggle button when item is expanded
    * */
-  @Prop() expandIconHTML: string = ""
+  @Prop() expandIconHTML: string = "";
 
   /**
    * HTML displayed in toggle button when item is not expanded
    * */
-  @Prop() collapseIconHTML: string = ""
+  @Prop() collapseIconHTML: string = "";
 
-  @State() expanded: boolean = false;
-  @Event({
-    eventName: 'tocItemTitleClicked',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  }) tocItemTitleClicked: EventEmitter<TOCTreeNode> | undefined;
-
-  onTitleClick() {
-    this.tocItemTitleClicked?.emit(this.item);
-  }
-
-  @Method()
-  async expand() {
-    this.expanded = true;
-  }
-
-  @Method()
-  async collapse() {
-    this.expanded = false;
-  }
+  @Prop({ reflect: true}) expanded: boolean = true;
 
   toggle () {
     this.expanded = !this.expanded;
@@ -64,23 +44,17 @@ export class TocItem {
 
   render() {
     const isParent = this.item.children && this.item.children.length;
-    const excludeItem = !(() => {
-      // Show everything because search field is empty
-      if (!this.itemsFromFilter.length) {
-        return true;
-      }
-      return this.itemsFromFilter.length && this.itemsFromFilter.some(item => item.title === this.item.title);
-    })();
+    const showItem = !this.filteredItems || this.filteredItems.includes(this.item);
 
     const renderToggleBtnInner = () => {
-      if(this.expanded) {
+      if (this.expanded) {
         return this.collapseIconHTML ? <span innerHTML={this.collapseIconHTML}></span> : "-";
       }
       return this.expandIconHTML ? <span innerHTML={this.expandIconHTML}></span> : "+";
     }
 
     return (
-      <Host class={`${this.expanded ? 'expanded' : ''} ${ excludeItem ? 'excluded' : ''}`}>
+      <Host class={`${ !showItem ? 'excluded' : ''}`}>
         <div class="indented">
           {isParent ?
             <button type="button" onClick={this.toggle.bind(this)}>
@@ -94,7 +68,6 @@ export class TocItem {
             {this.prependHTML ? <div class="content__action__prepend" innerHTML={this.prependHTML}></div> : null }
             <a href={`#${this.item.id}`}
                     class="content__action__title"
-                    onClick={this.onTitleClick.bind(this)}
             >
               {this.item.title}
             </a>
@@ -106,7 +79,7 @@ export class TocItem {
                 .map((item: TOCTreeNode) =>
                   <la-toc-item
                     item={item}
-                    itemsFromFilter={this.itemsFromFilter}
+                    filteredItems={this.filteredItems}
                     prependHTML={this.prependHTML}
                     appendHTML={this.appendHTML}
                     expandIconHTML={this.expandIconHTML}
