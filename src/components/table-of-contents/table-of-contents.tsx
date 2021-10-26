@@ -1,5 +1,9 @@
-import { Prop, h, Listen, Element, Method, Watch, State, Component, Event, EventEmitter, Host } from '@stencil/core';
-import { TOCTreeNode } from '../table-of-contents-controller/table-of-contents-controller';
+import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+
+export interface TOCTreeNode {
+  [key: string]: any // type for unknown keys.
+  children?: TOCTreeNode[] // type for a known property.
+}
 
 @Component({
   tag: 'la-table-of-contents'
@@ -13,35 +17,22 @@ export class TableOfContents {
   /**
    * value to filter items by item title
    * */
-  @Prop() titleQuery: string = '';
+  @Prop() titleFilter: string = '';
 
-  @State() itemsFromFilter: TOCTreeNode[] = [];
+  @State() filteredItems: TOCTreeNode[] | null = null;
 
   @Element() el!: HTMLElement;
-
-  @Event({
-    eventName: 'tocTitleClicked',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  tocTitleClicked: EventEmitter<TOCTreeNode> | undefined;
-
-  @Listen('tocItemTitleClicked')
-  handleTitleClicked(event: CustomEvent) {
-    this.tocTitleClicked?.emit(event);
-  }
 
   @Method()
   async expandAll() {
     for (const item of this.el.querySelectorAll('la-toc-item')) {
-      item.expand();
+      item.expanded = true;
     }
   }
   @Method()
   async collapseAll() {
     for (const item of this.el.querySelectorAll('la-toc-item')) {
-      item.collapse();
+      item.expanded = false;
     }
   }
 
@@ -56,7 +47,7 @@ export class TableOfContents {
     return flattenItems;
   };
 
-  @Watch('titleQuery')
+  @Watch('titleFilter')
   watchStateHandler(newTitleQuery: string) {
     if (newTitleQuery) {
       /***
@@ -82,9 +73,9 @@ export class TableOfContents {
 
       const flattenItems = this.flattenItems(filteredItems);
 
-      this.itemsFromFilter = [...flattenItems];
+      this.filteredItems = [...flattenItems];
     } else {
-      this.itemsFromFilter = [];
+      this.filteredItems = null;
     }
     this.expandAll();
   }
@@ -100,7 +91,7 @@ export class TableOfContents {
       return (
         <la-toc-item
           item={item}
-          itemsFromFilter={this.itemsFromFilter}
+          filteredItems={this.filteredItems}
           prependHTML={prepend?.innerHTML}
           appendHTML={append?.innerHTML}
           expandIconHTML={expandIcon?.innerHTML}
