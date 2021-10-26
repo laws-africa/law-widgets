@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TOCTreeNode } from "./components/table-of-contents-controller/table-of-contents-controller";
+import { TOCTreeNode as TOCTreeNode1 } from "./components/table-of-contents-controller/table-of-contents-controller";
 export namespace Components {
     interface LaAkomaNtoso {
     }
@@ -39,17 +41,22 @@ export namespace Components {
     interface LaTableOfContents {
         "collapseAll": () => Promise<void>;
         "expandAll": () => Promise<void>;
-        "items": any[];
-        "itemsFromFilter": any[];
+        "items": TOCTreeNode[];
+        "titleQuery": string;
     }
     interface LaTableOfContentsController {
-        "items": any[];
+        "items": TOCTreeNode[];
+        "titleFilterPlaceholder": string;
     }
     interface LaTocItem {
+        "appendHTML": string;
         "collapse": () => Promise<void>;
+        "collapseIconHTML": string;
         "expand": () => Promise<void>;
-        "item": any;
-        "itemsFromFilter": any[];
+        "expandIconHTML": string;
+        "item": TOCTreeNode;
+        "itemsFromFilter": TOCTreeNode[];
+        "prependHTML": string;
     }
 }
 declare global {
@@ -130,16 +137,22 @@ declare namespace LocalJSX {
         "popupDefinitions"?: boolean;
     }
     interface LaTableOfContents {
-        "items"?: any[];
-        "itemsFromFilter"?: any[];
+        "items"?: TOCTreeNode[];
+        "onTitle-clicked"?: (event: CustomEvent<any>) => void;
+        "titleQuery"?: string;
     }
     interface LaTableOfContentsController {
-        "items"?: any[];
+        "items"?: TOCTreeNode[];
+        "titleFilterPlaceholder"?: string;
     }
     interface LaTocItem {
-        "item"?: any;
-        "itemsFromFilter"?: any[];
-        "onTitleClicked"?: (event: CustomEvent<any>) => void;
+        "appendHTML"?: string;
+        "collapseIconHTML"?: string;
+        "expandIconHTML"?: string;
+        "item"?: TOCTreeNode;
+        "itemsFromFilter"?: TOCTreeNode[];
+        "onTitle-clicked-bubble"?: (event: CustomEvent<any>) => void;
+        "prependHTML"?: string;
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
