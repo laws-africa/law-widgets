@@ -15,7 +15,8 @@ export interface TOCItem {
 })
 export class TableOfContents {
   /**
-   * An array of items used to build the table of contents
+   * An array of items used to build the table of contents. Each item must have a `title` attribute
+   * (which may be `null`), and a `children` attribute (which may be `null`).
    * */
   @Prop() items: TOCItem[] = [];
 
@@ -28,12 +29,19 @@ export class TableOfContents {
 
   @Element() el!: HTMLElement;
 
+  /**
+   * Expands all items
+   */
   @Method()
   async expandAll() {
     for (const item of this.el.querySelectorAll('la-toc-item')) {
       item.expanded = true;
     }
   }
+
+  /**
+   * Collapses all items
+   */
   @Method()
   async collapseAll() {
     for (const item of this.el.querySelectorAll('la-toc-item')) {
@@ -82,20 +90,34 @@ export class TableOfContents {
 
   render() {
     const renderTOCItem = (item: TOCItem) => {
-      // TODO: Investigate better to render dynamic slots
-      const prepend = this.el.querySelector("[slot='prepend'] [slot='prepend']");
-      const append = this.el.querySelector("[slot='append'] [slot='append']");
+      const getSlotHTML = (selector: string) => {
+        const element = this.el.querySelector(selector);
+        /**
+         * If slots originate from `la-table-of-contents`, query for slot html is
+         * `this.el.querySelector([slot]).innerHTML`
+         * If slot originate from `la-table-of-contents-controller` query for slot html is
+         * `this.el.querySelector([slot] [slot]).innerHTML`
+         * */
+        if(element?.querySelector(selector)) {
+          return element.querySelector(selector)?.innerHTML || "";
+        }
+        return element?.innerHTML || "";
+      }
 
-      const expandIcon = this.el.querySelector("[slot='expand-icon'] [slot='expand-icon']");
-      const collapseIcon = this.el.querySelector("[slot='collapse-icon'] [slot='collapse-icon']");
+      // TODO: Investigate better to render dynamic slots
+      const prepend = getSlotHTML("[slot='prepend']");
+      const append = getSlotHTML("[slot='append']");
+
+      const expandIcon = getSlotHTML("[slot='expand-icon']");
+      const collapseIcon = getSlotHTML("[slot='collapse-icon']");
       return (
         <la-toc-item
           item={item}
           filteredItems={this.filteredItems}
-          prependHTML={prepend?.innerHTML}
-          appendHTML={append?.innerHTML}
-          expandIconHTML={expandIcon?.innerHTML}
-          collapseIconHTML={collapseIcon?.innerHTML}
+          prependHtml={prepend}
+          appendHtml={append}
+          expandIconHtml={expandIcon}
+          collapseIconHtml={collapseIcon}
         ></la-toc-item>
       );
     };
