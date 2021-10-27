@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host } from '@stencil/core';
-import { TOCItem } from './table-of-contents';
+import { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-toc-item',
@@ -19,24 +19,28 @@ export class TocItem {
   /**
    * HTML displayed before item title
    * */
-  @Prop() prependHTML: string = "";
+  @Prop() prependHtml: string = "";
 
   /**
    * HTML displayed after item title
    * */
-  @Prop() appendHTML: string = "";
+  @Prop() appendHtml: string = "";
 
   /**
    * HTML displayed in toggle button when item is expanded
    * */
-  @Prop() expandIconHTML: string = "";
+  @Prop() expandIconHtml: string = "";
 
   /**
    * HTML displayed in toggle button when item is not expanded
    * */
-  @Prop() collapseIconHTML: string = "";
+  @Prop() collapseIconHtml: string = "";
 
-  @Prop({ reflect: true}) expanded: boolean = true;
+  /**
+   * If true, `item` `children`, and the collapsed icon are shown but expanded icon is hidden. If false, the `item`
+   * `children` and collapsed icon are hidden but the expanded icon is show
+   * */
+  @Prop({ reflect: true, mutable: true}) expanded: boolean = true;
 
   toggle () {
     this.expanded = !this.expanded;
@@ -48,9 +52,9 @@ export class TocItem {
 
     const renderToggleBtnInner = () => {
       if (this.expanded) {
-        return this.collapseIconHTML ? <span innerHTML={this.collapseIconHTML}></span> : "-";
+        return this.collapseIconHtml ? <span innerHTML={this.collapseIconHtml}></span> : "-";
       }
-      return this.expandIconHTML ? <span innerHTML={this.expandIconHTML}></span> : "+";
+      return this.expandIconHtml ? <span innerHTML={this.expandIconHtml}></span> : "+";
     }
 
     return (
@@ -65,13 +69,13 @@ export class TocItem {
 
         <div class="content">
           <div class="content__action">
-            {this.prependHTML ? <div class="content__action__prepend" innerHTML={this.prependHTML}></div> : null }
+            {this.prependHtml ? <div class="content__action__prepend" innerHTML={this.prependHtml}></div> : null }
             <a href={`#${this.item.id}`}
                     class="content__action__title"
             >
               {this.item.title}
             </a>
-            {this.appendHTML ? <div class="content__action__append" innerHTML={this.appendHTML}></div> : null }
+            {this.appendHtml ? <div class="content__action__append" innerHTML={this.appendHtml}></div> : null }
           </div>
           <div class="content__children">
             {this.item.children && this.item.children.length ?
@@ -80,10 +84,10 @@ export class TocItem {
                   <la-toc-item
                     item={item}
                     filteredItems={this.filteredItems}
-                    prependHTML={this.prependHTML}
-                    appendHTML={this.appendHTML}
-                    expandIconHTML={this.expandIconHTML}
-                    collapseIconHTML={this.collapseIconHTML}
+                    prependHtml={this.prependHtml}
+                    appendHtml={this.appendHtml}
+                    expandIconHtml={this.expandIconHtml}
+                    collapseIconHtml={this.collapseIconHtml}
                   >
                   </la-toc-item>
                 )
