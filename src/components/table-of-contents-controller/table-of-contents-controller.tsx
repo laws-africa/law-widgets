@@ -1,15 +1,16 @@
 import { Component, Prop, h, Host, State, Element, } from '@stencil/core';
-import sampleData from "./sample-toc.json";
 import { TOCItem } from '../table-of-contents/table-of-contents';
+import debounce from 'lodash/debounce';
 
 @Component({
   tag: 'la-table-of-contents-controller',
 })
 export class TableOfContentsController {
   /**
-   * An array of items used to build the table of contents
+   * An array of items used to build the table of contents. Each item must have a `title` attribute
+   * (which may be `null`), and a `children` attribute (which may be `null`).
    * */
-  @Prop() items: TOCItem[] = sampleData;
+  @Prop() items: TOCItem[] = [];
 
   /**
    * Placeholder for search title filter
@@ -19,10 +20,9 @@ export class TableOfContentsController {
   @State() titleFilter: string = "";
   @Element() el!: HTMLElement;
 
-  handleTitleChange (e: Event) {
-    // TODO: debounce
+  handleTitleChange = debounce((e: Event) => {
     this.titleFilter = (e.target as HTMLInputElement).value;
-  }
+  }, 300)
 
   clearQuery () {
     this.titleFilter = "";
