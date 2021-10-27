@@ -70,7 +70,7 @@ export class TocItem {
         <div class="content">
           <div class="content__action">
             {this.prependHtml ? <div class="content__action__prepend" innerHTML={this.prependHtml}></div> : null }
-            <a href={`#${this.item.id}`}
+            <a href={`#${this.item.id || ''}`}
                     class="content__action__title"
             >
               {this.item.title}
