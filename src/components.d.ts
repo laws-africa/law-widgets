@@ -68,23 +68,15 @@ export namespace Components {
          */
         "expandAll": () => Promise<void>;
         /**
-          * An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+          * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
-        "items": TOCItem[];
+        "items": TOCItem[] | string;
         /**
           * value to filter items by item title
          */
         "titleFilter": string;
-        /**
-          * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
-         */
-        "toggleButtonClasses": string;
     }
     interface LaTableOfContentsController {
-        /**
-          * Additional CSS classes added to the clear button
-         */
-        "clearButtonClasses": string;
         /**
           * Additional classes added to Collapse all button
          */
@@ -94,9 +86,9 @@ export namespace Components {
          */
         "expandAllBtnClasses": string;
         /**
-          * An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+          * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
-        "items": TOCItem[];
+        "items": TOCItem[] | string;
         /**
           * Additional CSS classes added to the search filter input
          */
@@ -105,10 +97,6 @@ export namespace Components {
           * Placeholder for search title filter
          */
         "titleFilterPlaceholder": string;
-        /**
-          * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
-         */
-        "toggleButtonClasses": string;
     }
     interface LaTocItem {
         /**
@@ -139,10 +127,6 @@ export namespace Components {
           * HTML displayed before item title
          */
         "prependHtml": string;
-        /**
-          * Additional CSS classes added to the expand/collapse button
-         */
-        "toggleButtonClasses": string;
     }
 }
 declare global {
@@ -258,23 +242,15 @@ declare namespace LocalJSX {
     }
     interface LaTableOfContents {
         /**
-          * An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+          * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
-        "items"?: TOCItem[];
+        "items"?: TOCItem[] | string;
         /**
           * value to filter items by item title
          */
         "titleFilter"?: string;
-        /**
-          * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
-         */
-        "toggleButtonClasses"?: string;
     }
     interface LaTableOfContentsController {
-        /**
-          * Additional CSS classes added to the clear button
-         */
-        "clearButtonClasses"?: string;
         /**
           * Additional classes added to Collapse all button
          */
@@ -284,9 +260,9 @@ declare namespace LocalJSX {
          */
         "expandAllBtnClasses"?: string;
         /**
-          * An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+          * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
-        "items"?: TOCItem[];
+        "items"?: TOCItem[] | string;
         /**
           * Additional CSS classes added to the search filter input
          */
@@ -295,10 +271,6 @@ declare namespace LocalJSX {
           * Placeholder for search title filter
          */
         "titleFilterPlaceholder"?: string;
-        /**
-          * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
-         */
-        "toggleButtonClasses"?: string;
     }
     interface LaTocItem {
         /**
@@ -329,10 +301,6 @@ declare namespace LocalJSX {
           * HTML displayed before item title
          */
         "prependHtml"?: string;
-        /**
-          * Additional CSS classes added to the expand/collapse button
-         */
-        "toggleButtonClasses"?: string;
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
