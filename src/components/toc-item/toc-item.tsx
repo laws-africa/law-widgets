@@ -42,11 +42,6 @@ export class TocItem {
    * */
   @Prop({ reflect: true, mutable: true}) expanded: boolean = true;
 
-  /**
-   * Additional CSS classes added to the expand/collapse button
-   * */
-  @Prop() toggleButtonClasses: string = "";
-
   toggle () {
     this.expanded = !this.expanded;
   }
@@ -57,16 +52,16 @@ export class TocItem {
 
     const renderToggleBtnInner = () => {
       if (this.expanded) {
-        return this.collapseIconHtml ? <span innerHTML={this.collapseIconHtml}></span> : "-";
+        return this.collapseIconHtml ? <span innerHTML={this.collapseIconHtml}></span> : <span>&#8595;</span>;
       }
-      return this.expandIconHtml ? <span innerHTML={this.expandIconHtml}></span> : "+";
+      return this.expandIconHtml ? <span innerHTML={this.expandIconHtml}></span> : <span>&#8594;</span>;
     }
 
     return (
       <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
         <div class="indented">
           {isParent ? (
-            <button class={`indented__toggle-btn ${this.toggleButtonClasses}`} type="button" onClick={this.toggle.bind(this)}>
+            <button class="indented__toggle-btn" type="button" onClick={this.toggle.bind(this)}>
               {renderToggleBtnInner()}
             </button>
           ) : null}
