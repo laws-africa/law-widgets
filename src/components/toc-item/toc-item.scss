@@ -1,4 +1,8 @@
 la-toc-item {
+  * {
+    box-sizing: border-box;
+  }
+
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -25,5 +29,10 @@ la-toc-item {
     display: none;
   }
 
-
+  .indented__toggle-btn {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
 }
