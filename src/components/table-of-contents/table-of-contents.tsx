@@ -25,6 +25,11 @@ export class TableOfContents {
    * */
   @Prop() titleFilter: string = '';
 
+  /**
+   * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
+   * */
+  @Prop() toggleButtonClasses: string = "";
+
   @State() filteredItems: Set<TOCItem> | null = null;
 
   @Element() el!: HTMLElement;
@@ -118,6 +123,7 @@ export class TableOfContents {
           appendHtml={append}
           expandIconHtml={expandIcon}
           collapseIconHtml={collapseIcon}
+          toggleButtonClasses={this.toggleButtonClasses}
         ></la-toc-item>
       );
     };
