@@ -9,12 +9,60 @@ the following functionality:
 <!-- Auto Generated Below -->
 
 
+## Usage
+
+### Html
+
+## Vanilla HTML JS Implementation
+THis example demos the following:
+* Passing in data into `items` of `la-table-of-content-controller` via js
+* Slot usage
+* Filtering via titleQuery
+
+```html
+<la-table-of-contents titleFilter='Ch. 2'>
+  <span slot='prepend'>🏆</span>
+  <span slot='append'>🥙</span>
+  <span slot='expand-icon'>⬇️</span>
+  <span slot='collapse-icon'>⬆️</span>
+</la-table-of-contents>
+<script>
+  const laTocElement = document.querySelector('la-table-of-contents');
+  const items = [
+    {
+      title: 'Entire document',
+      children: [
+        {
+          title: 'Ch. 1 – ',
+          children: [
+            {
+              title: 'Part B',
+            },
+          ],
+        },
+        {
+          title: 'Ch. 2 – ',
+          index: 9,
+        },
+      ],
+    },
+  ];
+  laTocElement.items = items;
+</script>
+```
+
+
+
 ## Properties
 
 | Property                 | Attribute                  | Description                                                                                                                                                             | Type        | Default             |
 | ------------------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------- |
-| `items`                  | --                         | An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[]` | `sampleData`        |
+| `clearButtonClasses`     | `clear-button-classes`     | Additional CSS classes added to the clear button                                                                                                                        | `string`    | `""`                |
+| `collapseAllBtnClasses`  | `collapse-all-btn-classes` | Additional classes added to Collapse all button                                                                                                                         | `string`    | `""`                |
+| `expandAllBtnClasses`    | `expand-all-btn-classes`   | Additional classes added to Expand all button                                                                                                                           | `string`    | `""`                |
+| `items`                  | --                         | An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[]` | `[]`                |
 | `titleFilterPlaceholder` | `title-filter-placeholder` | Placeholder for search title filter                                                                                                                                     | `string`    | `"Search by title"` |
+| `toggleButtonClasses`    | `toggle-button-classes`    | Additional CSS classes added to the expand/collapse button of a `la-toc-item`                                                                                           | `string`    | `""`                |
 
 
 ## Dependencies

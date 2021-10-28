@@ -17,6 +17,26 @@ export class TableOfContentsController {
    * */
   @Prop() titleFilterPlaceholder: string = "Search by title";
 
+  /**
+   * Additional classes added to Expand all button
+   * */
+  @Prop() expandAllBtnClasses: string = "";
+
+  /**
+   * Additional classes added to Collapse all button
+   * */
+  @Prop() collapseAllBtnClasses: string = "";
+
+  /**
+   * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
+   * */
+  @Prop() toggleButtonClasses: string = "";
+
+  /**
+   * Additional CSS classes added to the clear button
+   * */
+  @Prop() clearButtonClasses: string = "";
+
   @State() titleFilter: string = "";
   @Element() el!: HTMLElement;
 
@@ -47,27 +67,31 @@ export class TableOfContentsController {
                  placeholder={this.titleFilterPlaceholder}
                  onInput={e => this.handleTitleChange(e)}/>
           <button type="button"
-                  class="search__clear-button"
+                  class={`search__clear-button ${this.clearButtonClasses}`}
                   onClick={() => this.clearQuery()}>
             Clear
           </button>
         </div>
         <div class="toggle">
           <button type="button"
-                  class="toggle__expand-all-btn"
+                  class={`toggle__expand-all-btn ${this.expandAllBtnClasses}`}
                   onClick={() => this.expandAll()}
           >
             Expand All
           </button>
           <button type="button"
-                  class="toggle__collapse-all-tbn"
+                  class={`toggle__collapse-all-tbn ${this.collapseAllBtnClasses}`}
                   onClick={() => this.collapseAll()}
           >
             Collapse All
           </button>
         </div>
 
-        <la-table-of-contents items={this.items} titleFilter={this.titleFilter}>
+        <la-table-of-contents
+          items={this.items}
+          titleFilter={this.titleFilter}
+          toggleButtonClasses={this.toggleButtonClasses}
+        >
           <span slot="append"><slot name="append"></slot></span>
           <span slot="prepend"><slot name="prepend"></slot></span>
           <span slot="expand-icon"><slot name="expand-icon"></slot></span>
