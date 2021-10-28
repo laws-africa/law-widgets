@@ -98,6 +98,10 @@ export namespace Components {
          */
         "items": TOCItem[];
         /**
+          * Additional CSS classes added to the search filter input
+         */
+        "searchFilterInputClasses": string;
+        /**
           * Placeholder for search title filter
          */
         "titleFilterPlaceholder": string;
@@ -283,6 +287,10 @@ declare namespace LocalJSX {
           * An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items"?: TOCItem[];
+        /**
+          * Additional CSS classes added to the search filter input
+         */
+        "searchFilterInputClasses"?: string;
         /**
           * Placeholder for search title filter
          */

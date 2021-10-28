@@ -55,14 +55,15 @@ THis example demos the following:
 
 ## Properties
 
-| Property                 | Attribute                  | Description                                                                                                                                                             | Type        | Default             |
-| ------------------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------- |
-| `clearButtonClasses`     | `clear-button-classes`     | Additional CSS classes added to the clear button                                                                                                                        | `string`    | `""`                |
-| `collapseAllBtnClasses`  | `collapse-all-btn-classes` | Additional classes added to Collapse all button                                                                                                                         | `string`    | `""`                |
-| `expandAllBtnClasses`    | `expand-all-btn-classes`   | Additional classes added to Expand all button                                                                                                                           | `string`    | `""`                |
-| `items`                  | --                         | An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[]` | `[]`                |
-| `titleFilterPlaceholder` | `title-filter-placeholder` | Placeholder for search title filter                                                                                                                                     | `string`    | `"Search by title"` |
-| `toggleButtonClasses`    | `toggle-button-classes`    | Additional CSS classes added to the expand/collapse button of a `la-toc-item`                                                                                           | `string`    | `""`                |
+| Property                   | Attribute                     | Description                                                                                                                                                             | Type        | Default             |
+| -------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------- |
+| `clearButtonClasses`       | `clear-button-classes`        | Additional CSS classes added to the clear button                                                                                                                        | `string`    | `""`                |
+| `collapseAllBtnClasses`    | `collapse-all-btn-classes`    | Additional classes added to Collapse all button                                                                                                                         | `string`    | `""`                |
+| `expandAllBtnClasses`      | `expand-all-btn-classes`      | Additional classes added to Expand all button                                                                                                                           | `string`    | `""`                |
+| `items`                    | --                            | An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[]` | `[]`                |
+| `searchFilterInputClasses` | `search-filter-input-classes` | Additional CSS classes added to the search filter input                                                                                                                 | `string`    | `""`                |
+| `titleFilterPlaceholder`   | `title-filter-placeholder`    | Placeholder for search title filter                                                                                                                                     | `string`    | `"Search by title"` |
+| `toggleButtonClasses`      | `toggle-button-classes`       | Additional CSS classes added to the expand/collapse button of a `la-toc-item`                                                                                           | `string`    | `""`                |
 
 
 ## Dependencies

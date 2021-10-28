@@ -37,6 +37,11 @@ export class TableOfContentsController {
    * */
   @Prop() clearButtonClasses: string = "";
 
+  /**
+   * Additional CSS classes added to the search filter input
+   * */
+  @Prop() searchFilterInputClasses: string = "";
+
   @State() titleFilter: string = "";
   @Element() el!: HTMLElement;
 
@@ -62,13 +67,15 @@ export class TableOfContentsController {
     return (
       <Host>
         <div class="search">
-          <input class="search__input"
+          <input class={`search__input ${this.searchFilterInputClasses}`}
                  value={this.titleFilter}
                  placeholder={this.titleFilterPlaceholder}
                  onInput={e => this.handleTitleChange(e)}/>
           <button type="button"
                   class={`search__clear-button ${this.clearButtonClasses}`}
-                  onClick={() => this.clearQuery()}>
+                  onClick={() => this.clearQuery()}
+                  disabled={!this.titleFilter}
+          >
             Clear
           </button>
         </div>
