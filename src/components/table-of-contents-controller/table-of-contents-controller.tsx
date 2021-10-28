@@ -1,16 +1,19 @@
-import { Component, Prop, h, Host, State, Element, } from '@stencil/core';
+import { Component, Prop, h, Host, State, Element, Watch } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
 import debounce from 'lodash/debounce';
 
 @Component({
   tag: 'la-table-of-contents-controller',
+  styleUrl: 'table-of-contents-controller.scss'
 })
 export class TableOfContentsController {
+  @State() innerItems: TOCItem[] = []
+
   /**
-   * An array of items used to build the table of contents. Each item must have a `title` attribute
-   * (which may be `null`), and a `children` attribute (which may be `null`).
+   * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each
+   * item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
    * */
-  @Prop() items: TOCItem[] = [];
+  @Prop() items: TOCItem[] | string = [];
 
   /**
    * Placeholder for search title filter
@@ -28,16 +31,6 @@ export class TableOfContentsController {
   @Prop() collapseAllBtnClasses: string = "";
 
   /**
-   * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
-   * */
-  @Prop() toggleButtonClasses: string = "";
-
-  /**
-   * Additional CSS classes added to the clear button
-   * */
-  @Prop() clearButtonClasses: string = "";
-
-  /**
    * Additional CSS classes added to the search filter input
    * */
   @Prop() searchFilterInputClasses: string = "";
@@ -49,9 +42,19 @@ export class TableOfContentsController {
     this.titleFilter = (e.target as HTMLInputElement).value;
   }, 300)
 
-  clearQuery () {
-    this.titleFilter = "";
+  componentWillLoad() {
+    this.parseItemsProp(this.items);
   }
+
+  @Watch('items')
+  parseItemsProp(newValue: any) {
+    if(typeof newValue === 'string') {
+      this.innerItems = JSON.parse(newValue);
+    } else if (Array.isArray(newValue)) {
+      this.innerItems = [...newValue];
+    }
+  }
+
 
   async expandAll () {
     const tocElement = this.el.querySelector('la-table-of-contents');
@@ -71,13 +74,6 @@ export class TableOfContentsController {
                  value={this.titleFilter}
                  placeholder={this.titleFilterPlaceholder}
                  onInput={e => this.handleTitleChange(e)}/>
-          <button type="button"
-                  class={`search__clear-button ${this.clearButtonClasses}`}
-                  onClick={() => this.clearQuery()}
-                  disabled={!this.titleFilter}
-          >
-            Clear
-          </button>
         </div>
         <div class="toggle">
           <button type="button"
@@ -87,7 +83,7 @@ export class TableOfContentsController {
             Expand All
           </button>
           <button type="button"
-                  class={`toggle__collapse-all-tbn ${this.collapseAllBtnClasses}`}
+                  class={`toggle__collapse-all-btn ${this.collapseAllBtnClasses}`}
                   onClick={() => this.collapseAll()}
           >
             Collapse All
@@ -95,9 +91,8 @@ export class TableOfContentsController {
         </div>
 
         <la-table-of-contents
-          items={this.items}
+          items={this.innerItems}
           titleFilter={this.titleFilter}
-          toggleButtonClasses={this.toggleButtonClasses}
         >
           <span slot="append"><slot name="append"></slot></span>
           <span slot="prepend"><slot name="prepend"></slot></span>
