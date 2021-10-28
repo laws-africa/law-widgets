@@ -55,11 +55,10 @@ THis example demos the following:
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                                                                                             | Type        | Default |
-| --------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------- |
-| `items`               | --                      | An array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[]` | `[]`    |
-| `titleFilter`         | `title-filter`          | value to filter items by item title                                                                                                                                     | `string`    | `''`    |
-| `toggleButtonClasses` | `toggle-button-classes` | Additional CSS classes added to the expand/collapse button of a `la-toc-item`                                                                                           | `string`    | `""`    |
+| Property      | Attribute      | Description                                                                                                                                                                                               | Type                  | Default |
+| ------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------- |
+| `items`       | `items`        | JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[] \| string` | `[]`    |
+| `titleFilter` | `title-filter` | value to filter items by item title                                                                                                                                                                       | `string`              | `''`    |
 
 
 ## Methods
