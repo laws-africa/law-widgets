@@ -42,12 +42,17 @@ export class TocItem {
    * */
   @Prop({ reflect: true, mutable: true}) expanded: boolean = true;
 
+  /**
+   * Additional CSS classes added to the expand/collapse button
+   * */
+  @Prop() toggleButtonClasses: string = "";
+
   toggle () {
     this.expanded = !this.expanded;
   }
 
   render() {
-    const isParent = this.item.children && this.item.children.length;
+    const isParent = !!(this.item.children && this.item.children.length);
     const showItem = !this.filteredItems || this.filteredItems.has(this.item);
 
     const renderToggleBtnInner = () => {
@@ -58,29 +63,26 @@ export class TocItem {
     }
 
     return (
-      <Host class={`${ !showItem ? 'excluded' : ''}`}>
+      <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
         <div class="indented">
-          {isParent ?
-            <button type="button" onClick={this.toggle.bind(this)}>
+          {isParent ? (
+            <button class={`indented__toggle-btn ${this.toggleButtonClasses}`} type="button" onClick={this.toggle.bind(this)}>
               {renderToggleBtnInner()}
             </button>
-            : null}
+          ) : null}
         </div>
 
         <div class="content">
           <div class="content__action">
-            {this.prependHtml ? <div class="content__action__prepend" innerHTML={this.prependHtml}></div> : null }
-            <a href={`#${this.item.id || ''}`}
-                    class="content__action__title"
-            >
+            {this.prependHtml ? <div class="content__action__prepend" innerHTML={this.prependHtml}></div> : null}
+            <a href={`#${this.item.id || ''}`} class="content__action__title">
               {this.item.title}
             </a>
-            {this.appendHtml ? <div class="content__action__append" innerHTML={this.appendHtml}></div> : null }
+            {this.appendHtml ? <div class="content__action__append" innerHTML={this.appendHtml}></div> : null}
           </div>
           <div class="content__children">
-            {this.item.children && this.item.children.length ?
-              this.item.children
-                .map((item: TOCItem) =>
+            {this.item.children && this.item.children.length
+              ? this.item.children.map((item: TOCItem) => (
                   <la-toc-item
                     item={item}
                     filteredItems={this.filteredItems}
@@ -88,9 +90,8 @@ export class TocItem {
                     appendHtml={this.appendHtml}
                     expandIconHtml={this.expandIconHtml}
                     collapseIconHtml={this.collapseIconHtml}
-                  >
-                  </la-toc-item>
-                )
+                  ></la-toc-item>
+                ))
               : null}
           </div>
         </div>
