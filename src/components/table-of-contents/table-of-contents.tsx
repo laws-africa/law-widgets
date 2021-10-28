@@ -15,24 +15,35 @@ export interface TOCItem {
 })
 export class TableOfContents {
   /**
-   * An array of items used to build the table of contents. Each item must have a `title` attribute
-   * (which may be `null`), and a `children` attribute (which may be `null`).
+   * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
+   * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
    * */
-  @Prop() items: TOCItem[] = [];
+  @Prop() items: TOCItem[] | string = [];
 
   /**
    * value to filter items by item title
    * */
   @Prop() titleFilter: string = '';
 
-  /**
-   * Additional CSS classes added to the expand/collapse button of a `la-toc-item`
-   * */
-  @Prop() toggleButtonClasses: string = "";
 
   @State() filteredItems: Set<TOCItem> | null = null;
 
+  @State() innerItems: TOCItem[] = []
+
   @Element() el!: HTMLElement;
+
+  @Watch('items')
+  parseItemsProp(newValue: any) {
+    if(typeof newValue === 'string') {
+      this.innerItems = JSON.parse(newValue);
+    } else if (Array.isArray(newValue)) {
+      this.innerItems = [...newValue];
+    }
+  }
+
+  componentWillLoad() {
+    this.parseItemsProp(this.items);
+  }
 
   /**
    * Expands all items
@@ -82,7 +93,7 @@ export class TableOfContents {
         return include;
       }
 
-      for (const item of this.items) {
+      for (const item of this.innerItems) {
         shouldInclude(item);
       }
 
@@ -99,9 +110,9 @@ export class TableOfContents {
         const element = this.el.querySelector(selector);
         /**
          * If slots originate from `la-table-of-contents`, query for slot html is
-         * `this.el.querySelector([slot]).innerHTML`
+         * `this.el.querySelector("[slot]").innerHTML`
          * If slot originate from `la-table-of-contents-controller` query for slot html is
-         * `this.el.querySelector([slot] [slot]).innerHTML`
+         * `this.el.querySelector("[slot] [slot]").innerHTML`
          * */
         if(element?.querySelector(selector)) {
           return element.querySelector(selector)?.innerHTML || "";
@@ -123,7 +134,6 @@ export class TableOfContents {
           appendHtml={append}
           expandIconHtml={expandIcon}
           collapseIconHtml={collapseIcon}
-          toggleButtonClasses={this.toggleButtonClasses}
         ></la-toc-item>
       );
     };
@@ -136,7 +146,7 @@ export class TableOfContents {
           <slot name="expand-icon"></slot>
           <slot name="collapse-icon"></slot>
         </div>
-        <div class="toc-items">{this.items.map(item => renderTOCItem(item))}</div>
+        <div class="toc-items">{this.innerItems.map(item => renderTOCItem(item))}</div>
       </Host>
     );
   }
