@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, State, Element, Watch } from '@stencil/core';
+import { Component, Prop, h, Host, State, Element } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
 import debounce from 'lodash/debounce';
 
@@ -7,8 +7,6 @@ import debounce from 'lodash/debounce';
   styleUrl: 'table-of-contents-controller.scss'
 })
 export class TableOfContentsController {
-  @State() innerItems: TOCItem[] = []
-
   /**
    * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each
    * item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
@@ -41,20 +39,6 @@ export class TableOfContentsController {
   handleTitleChange = debounce((e: Event) => {
     this.titleFilter = (e.target as HTMLInputElement).value;
   }, 300)
-
-  componentWillLoad() {
-    this.parseItemsProp(this.items);
-  }
-
-  @Watch('items')
-  parseItemsProp(newValue: any) {
-    if(typeof newValue === 'string') {
-      this.innerItems = JSON.parse(newValue);
-    } else if (Array.isArray(newValue)) {
-      this.innerItems = [...newValue];
-    }
-  }
-
 
   async expandAll () {
     const tocElement = this.el.querySelector('la-table-of-contents');
@@ -91,7 +75,7 @@ export class TableOfContentsController {
         </div>
 
         <la-table-of-contents
-          items={this.innerItems}
+          items={this.items}
           titleFilter={this.titleFilter}
         >
           <span slot="append"><slot name="append"></slot></span>
