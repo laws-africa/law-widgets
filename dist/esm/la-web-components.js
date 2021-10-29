@@ -1,0 +1,17 @@
+import { p as promiseResolve, b as bootstrapLazy } from './index-3aca4964.js';
+
+/*
+ Stencil Client Patch Browser v2.9.0 | MIT Licensed | https://stenciljs.com
+ */
+const patchBrowser = () => {
+    const importMeta = import.meta.url;
+    const opts = {};
+    if (importMeta !== '') {
+        opts.resourcesUrl = new URL('.', importMeta).href;
+    }
+    return promiseResolve(opts);
+};
+
+patchBrowser().then(options => {
+  return bootstrapLazy([["la-akoma-ntoso_8",[[4,"la-table-of-contents-controller",{"items":[1],"titleFilterPlaceholder":[1,"title-filter-placeholder"],"expandAllBtnClasses":[1,"expand-all-btn-classes"],"collapseAllBtnClasses":[1,"collapse-all-btn-classes"],"searchFilterInputClasses":[1,"search-filter-input-classes"],"titleFilter":[32]}],[4,"la-akoma-ntoso"],[0,"la-decorate-internal-refs",{"akomaNtoso":[1,"akoma-ntoso"],"popups":[4],"flag":[4]}],[0,"la-decorate-terms",{"akomaNtoso":[1,"akoma-ntoso"],"popupDefinitions":[4,"popup-definitions"],"linkTerms":[4,"link-terms"]}],[0,"la-gutter",{"akomaNtoso":[1,"akoma-ntoso"],"layoutItems":[64]},[[0,"laItemChanged","itemChanged"],[0,"click","clicked"]]],[0,"la-gutter-item",{"anchor":[1],"active":[1540]},[[0,"click","onClick"]]],[4,"la-table-of-contents",{"items":[1],"titleFilter":[1,"title-filter"],"filteredItems":[32],"innerItems":[32],"expandAll":[64],"collapseAll":[64]}],[0,"la-toc-item",{"item":[16],"filteredItems":[16],"prependHtml":[1,"prepend-html"],"appendHtml":[1,"append-html"],"expandIconHtml":[1,"expand-icon-html"],"collapseIconHtml":[1,"collapse-icon-html"],"expanded":[1540]}]]]], options);
+});
