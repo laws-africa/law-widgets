@@ -8,12 +8,11 @@ la-toc-item {
   width: 100%;
 
   .indented {
-    min-width: 1.2em;
-    flex-basis: 0;
+    width: 1.4em;
   }
 
   .content {
-    flex-grow: 1;
+    flex: 1;
   }
 
   .content__action {
