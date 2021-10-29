@@ -71,20 +71,31 @@ export class TableOfContents {
       const needle = filter.toLocaleLowerCase();
       const filteredItems: Set<TOCItem> = new Set<TOCItem>();
 
+      // recursively include all children
+      function includeKids(item: TOCItem) {
+        for (const child of item.children || []) {
+          filteredItems.add(child);
+          includeKids(child);
+        }
+      }
+
       // Recursive function that determines whether or not an item should be rendered.
       // An item is rendered if its title matches the filter, or any of its children should be rendered.
       function shouldInclude(item: TOCItem): boolean {
         // this will be true if this item matches the search, or any child does
-        let include: boolean = false;
+        let include: boolean = (item.title?.toLocaleLowerCase() || '').includes(needle);
 
-        if (item.children) {
-          for (const child of item.children) {
-            include = shouldInclude(child) || include;
+        if (include) {
+          // this item matches, show include all children automatically, no need to go any deeper
+          includeKids(item);
+        } else {
+          // if any children match, then this node must be included
+          if (item.children) {
+            for (const child of item.children) {
+              include = shouldInclude(child) || include;
+            }
           }
         }
-
-        // does this item match?
-        include = include || (item.title?.toLocaleLowerCase() || '').includes(needle);
 
         if (include) {
           filteredItems.add(item);
