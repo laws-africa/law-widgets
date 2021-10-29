@@ -7,6 +7,11 @@ la-toc-item {
   flex-direction: row;
   width: 100%;
 
+  .indented {
+    min-width: 1.2em;
+    flex-basis: 0;
+  }
+
   .content {
     flex-grow: 1;
   }
