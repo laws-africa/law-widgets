@@ -5,8 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+<<<<<<< master
 import { TOCItem } from "./components/table-of-contents/table-of-contents";
 import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-contents";
+=======
+import { Color, Shape } from "./components/globals";
+>>>>>>> create sample button component with story: my-button
 export namespace Components {
     interface LaAkomaNtoso {
     }
@@ -58,6 +62,7 @@ export namespace Components {
          */
         "anchor"?: string;
     }
+<<<<<<< master
     interface LaTableOfContents {
         /**
           * Collapses all items
@@ -127,6 +132,14 @@ export namespace Components {
           * HTML displayed before item title
          */
         "prependHtml": string;
+=======
+    interface MyButton {
+        "color"?: Color;
+        "disabled"?: boolean;
+        "elevation"?: boolean;
+        "shape"?: Shape;
+        "size"?: 'large' | 'medium' | 'small';
+>>>>>>> create sample button component with story: my-button
     }
 }
 declare global {
@@ -160,6 +173,7 @@ declare global {
         prototype: HTMLLaGutterItemElement;
         new (): HTMLLaGutterItemElement;
     };
+<<<<<<< master
     interface HTMLLaTableOfContentsElement extends Components.LaTableOfContents, HTMLStencilElement {
     }
     var HTMLLaTableOfContentsElement: {
@@ -177,6 +191,13 @@ declare global {
     var HTMLLaTocItemElement: {
         prototype: HTMLLaTocItemElement;
         new (): HTMLLaTocItemElement;
+=======
+    interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
+    }
+    var HTMLMyButtonElement: {
+        prototype: HTMLMyButtonElement;
+        new (): HTMLMyButtonElement;
+>>>>>>> create sample button component with story: my-button
     };
     interface HTMLElementTagNameMap {
         "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
@@ -184,9 +205,13 @@ declare global {
         "la-decorate-terms": HTMLLaDecorateTermsElement;
         "la-gutter": HTMLLaGutterElement;
         "la-gutter-item": HTMLLaGutterItemElement;
+<<<<<<< master
         "la-table-of-contents": HTMLLaTableOfContentsElement;
         "la-table-of-contents-controller": HTMLLaTableOfContentsControllerElement;
         "la-toc-item": HTMLLaTocItemElement;
+=======
+        "my-button": HTMLMyButtonElement;
+>>>>>>> create sample button component with story: my-button
     }
 }
 declare namespace LocalJSX {
@@ -240,6 +265,7 @@ declare namespace LocalJSX {
          */
         "onLaItemChanged"?: (event: CustomEvent<void>) => void;
     }
+<<<<<<< master
     interface LaTableOfContents {
         /**
           * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
@@ -301,6 +327,14 @@ declare namespace LocalJSX {
           * HTML displayed before item title
          */
         "prependHtml"?: string;
+=======
+    interface MyButton {
+        "color"?: Color;
+        "disabled"?: boolean;
+        "elevation"?: boolean;
+        "shape"?: Shape;
+        "size"?: 'large' | 'medium' | 'small';
+>>>>>>> create sample button component with story: my-button
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
@@ -308,9 +342,13 @@ declare namespace LocalJSX {
         "la-decorate-terms": LaDecorateTerms;
         "la-gutter": LaGutter;
         "la-gutter-item": LaGutterItem;
+<<<<<<< master
         "la-table-of-contents": LaTableOfContents;
         "la-table-of-contents-controller": LaTableOfContentsController;
         "la-toc-item": LaTocItem;
+=======
+        "my-button": MyButton;
+>>>>>>> create sample button component with story: my-button
     }
 }
 export { LocalJSX as JSX };
@@ -322,9 +360,13 @@ declare module "@stencil/core" {
             "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
             "la-gutter": LocalJSX.LaGutter & JSXBase.HTMLAttributes<HTMLLaGutterElement>;
             "la-gutter-item": LocalJSX.LaGutterItem & JSXBase.HTMLAttributes<HTMLLaGutterItemElement>;
+<<<<<<< master
             "la-table-of-contents": LocalJSX.LaTableOfContents & JSXBase.HTMLAttributes<HTMLLaTableOfContentsElement>;
             "la-table-of-contents-controller": LocalJSX.LaTableOfContentsController & JSXBase.HTMLAttributes<HTMLLaTableOfContentsControllerElement>;
             "la-toc-item": LocalJSX.LaTocItem & JSXBase.HTMLAttributes<HTMLLaTocItemElement>;
+=======
+            "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
+>>>>>>> create sample button component with story: my-button
         }
     }
 }
