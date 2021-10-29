@@ -1,36 +1,18 @@
 la-table-of-contents-controller {
- * {
-   box-sizing: border-box;
- }
+  * {
+    box-sizing: border-box;
+  }
 
   .search {
     width: 100%;
     margin-bottom: 5px;
   }
 
-  .search__input {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.2rem;
-    border: 1px solid #ced4da;
-    width: 100%;
-  }
-
   .toggle {
     margin-bottom: 5px;
-  }
-
-  .toggle button {
-    color: #fff;
-    background-color: #007bff;
-    border-color: transparent;
-    font-weight: 400;
-    text-align: center;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.2rem;
   }
 
   .toggle__expand-all-btn {
     margin-right: 5px;
   }
-
 }

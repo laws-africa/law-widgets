@@ -39,6 +39,34 @@
   laTOC.items = items;
 </script>
 
+<hr>
+
+<la-table-of-contents-controller items='[
+    {
+      "title": "Entire document",
+      "children": [
+        {
+          "title": "Ch. 1 – ",
+          "children": [
+            {
+              "title": "Part B"
+            }
+          ]
+        },
+        {
+          "title": "Ch. 2 – ",
+          "children": null
+        }
+      ]
+    }
+  ]'>
+  <span slot='prepend'>🏆</span>
+  <span slot='append'>🥙</span>
+  <span slot='collapse-icon'>-</span>
+  <span slot='expand-icon'>+</span>
+</la-table-of-contents-controller>
+
+<hr>
 
 <la-decorate-terms link-terms popup-definitions akoma-ntoso="#doc"></la-decorate-terms>
 
