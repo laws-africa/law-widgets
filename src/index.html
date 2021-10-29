@@ -7,16 +7,74 @@
 
   <script type='module' src='/build/la-web-components.esm.js'></script>
   <script nomodule src='/build/la-web-components.js'></script>
-
 </head>
 <body>
+
+<la-table-of-contents-controller>
+  <span slot='prepend'>🏆</span>
+  <span slot='append'>🥙</span>
+</la-table-of-contents-controller>
+<script>
+  const laTOC = document.querySelector('la-table-of-contents-controller');
+  const items = [
+    {
+      id: null,
+      title: 'Entire document',
+      children: [
+        {
+          title: 'Ch. 1 – ',
+          children: [
+            {
+              title: 'Part B',
+            },
+          ],
+        },
+        {
+          title: 'Ch. 2 – ',
+          index: 9,
+        },
+      ],
+    },
+  ];
+  laTOC.items = items;
+</script>
+
+<hr>
+
+<la-table-of-contents-controller items='[
+    {
+      "title": "Entire document",
+      "children": [
+        {
+          "title": "Ch. 1 – ",
+          "children": [
+            {
+              "title": "Part B"
+            }
+          ]
+        },
+        {
+          "title": "Ch. 2 – ",
+          "children": null
+        }
+      ]
+    }
+  ]'>
+  <span slot='prepend'>🏆</span>
+  <span slot='append'>🥙</span>
+  <span slot='collapse-icon'>-</span>
+  <span slot='expand-icon'>+</span>
+</la-table-of-contents-controller>
+
+<hr>
+
 <la-decorate-terms link-terms popup-definitions akoma-ntoso="#doc"></la-decorate-terms>
 
 <div class="la-akoma-ntoso-with-gutter">
-<la-akoma-ntoso id="doc" class="flash-target">
-  <la-decorate-internal-refs popups flag></la-decorate-internal-refs>
+  <la-akoma-ntoso id="doc" class="flash-target">
+    <la-decorate-internal-refs popups flag></la-decorate-internal-refs>
 
-  <span class='akn-akomaNtoso'>
+    <span class='akn-akomaNtoso'>
       <article class='akn-act' data-contains='originalVersion' data-name='act'>
          <section class='akn-preamble'
                   id='preamble'>
@@ -2986,7 +3044,7 @@
          </span>
       </article>
    </span>
-</la-akoma-ntoso>
+  </la-akoma-ntoso>
 
   <la-gutter>
     <la-gutter-item anchor="#sec_1">a comment on section 1 that is very wide and wraps</la-gutter-item>
@@ -2996,5 +3054,6 @@
     <la-gutter-item anchor="#sec_2">a fourth comment on section 2</la-gutter-item>
   </la-gutter>
 </div>
+
 </body>
 </html>

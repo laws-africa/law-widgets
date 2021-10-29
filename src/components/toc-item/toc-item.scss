@@ -1,0 +1,42 @@
+la-toc-item {
+  * {
+    box-sizing: border-box;
+  }
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .indented {
+    width: 1.4em;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .content__action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .content__children {
+    display: none;
+  }
+
+  &[expanded] > .content > .content__children {
+    display: inherit;
+  }
+
+  &.excluded {
+    display: none;
+  }
+
+  .indented__toggle-btn {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+}
