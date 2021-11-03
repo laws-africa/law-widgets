@@ -121,5 +121,15 @@ export const CustomExpandCollapseIcons = () => {
     </div>`
 }
 
+export const PrependAndAppend = () => {
+  return html`
+    <div>
+      <la-table-of-contents .items='${items}'>
+        <span slot='prepend'>🚨️</span>
+        <span slot='append'>🤷🏾</span>
+      </la-table-of-contents>
+    </div>`
+}
+
 
 
