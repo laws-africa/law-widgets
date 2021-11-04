@@ -3,7 +3,34 @@ import '../../../dist/collection/components/table-of-contents-controller/table-o
 import "./storybook.css";
 
 export default {
-  title: 'Library/LaTableOfContentsController'
+  title: 'Library/LaTableOfContentsController',
+  argTypes: {
+    items: {
+      description: "JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).",
+      control: { type: null },
+      defaultValue: { summary: "[]" }
+    },
+    titleFilterPlaceholder: {
+      description: "Placeholder for search title filter",
+      control: { type: null },
+      defaultValue: { summary: "Search by title" }
+    },
+    expandAllBtnClasses: {
+      description: "Additional classes added to Expand all button",
+      control: { type: null },
+      defaultValue: { summary: "" }
+    },
+    collapseAllBtnClasses: {
+      description: "Additional classes added to Collapse all button",
+      control: { type: null },
+      defaultValue: { summary: "" }
+    },
+    searchFilterInputClasses: {
+      description: "Additional CSS classes added to the search filter input",
+      control: { type: null },
+      defaultValue: { summary: "" }
+    },
+  },
 };
 
 const items = [
