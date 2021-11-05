@@ -13,3 +13,9 @@
   color: white;
   border: none;
 }
+
+la-gutter-item {
+  border: 1px solid grey;
+  background-color: white;
+  padding: 5px;
+}

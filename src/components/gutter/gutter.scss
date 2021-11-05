@@ -15,6 +15,7 @@ $la-gutter-padding: 0.5rem;
     flex: 20%;
     max-width: 20%;
     position: relative;
+    overflow-y: hidden;
 
     background-color: rgba(0, 0, 0, 0.05);
     padding-left: $la-gutter-padding;
