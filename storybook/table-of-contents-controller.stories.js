@@ -1,26 +1,13 @@
 import { html } from "lit-html";
 import { TableOfContentsController } from '../dist/collection/components/table-of-contents-controller/table-of-contents-controller';
 import { argTypesForComponent } from "./utils";
+import items from './toc.json';
 import "./storybook.css";
 
 export default {
   title: 'Library/la-table-of-contents-controller',
   argTypes: argTypesForComponent(TableOfContentsController)
 };
-
-const items = [
-  {
-    title: 'Ch. 1 – ',
-    children: [
-      {
-        title: 'Part B',
-      },
-    ],
-  },
-  {
-    title: 'Ch. 2 – ',
-  }
-];
 
 const Template = (props) =>
   html`<la-table-of-contents-controller
