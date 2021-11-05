@@ -4,7 +4,7 @@ import "./storybook.css";
 
 const argTypes = {...TableOfContentsController.properties};
 for (const val of Object.values(argTypes)) {
-  val.defaultValue = JSON.parse(val.defaultValue);
+  val.defaultValue = eval(val.defaultValue);
   val.description = val.docs.text;
   val.type = {
     name: val.type,
