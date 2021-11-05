@@ -1,36 +1,20 @@
-import { html } from "lit-html"
-import '../../../dist/collection/components/table-of-contents-controller/table-of-contents-controller';
+import { html } from "lit-html";
+import { TableOfContentsController } from '../../../dist/collection/components/table-of-contents-controller/table-of-contents-controller';
 import "./storybook.css";
 
+const argTypes = {...TableOfContentsController.properties};
+for (const val of Object.values(argTypes)) {
+  val.defaultValue = JSON.parse(val.defaultValue);
+  val.description = val.docs.text;
+  val.type = {
+    name: val.type,
+    required: val.required
+  };
+}
+
 export default {
-  title: 'Library/LaTableOfContentsController',
-  argTypes: {
-    items: {
-      description: "JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).",
-      control: { type: null },
-      defaultValue: { summary: "[]" }
-    },
-    titleFilterPlaceholder: {
-      description: "Placeholder for search title filter",
-      control: { type: null },
-      defaultValue: { summary: "Search by title" }
-    },
-    expandAllBtnClasses: {
-      description: "Additional classes added to Expand all button",
-      control: { type: null },
-      defaultValue: { summary: "" }
-    },
-    collapseAllBtnClasses: {
-      description: "Additional classes added to Collapse all button",
-      control: { type: null },
-      defaultValue: { summary: "" }
-    },
-    searchFilterInputClasses: {
-      description: "Additional CSS classes added to the search filter input",
-      control: { type: null },
-      defaultValue: { summary: "" }
-    },
-  },
+  title: 'Library/la-table-of-contents-controller',
+  argTypes: argTypes,
 };
 
 const items = [
@@ -47,34 +31,30 @@ const items = [
   }
 ];
 
-export const Default = () => html`<la-table-of-contents-controller .items='${items}'>`;
+const Template = (props) =>
+  html`<la-table-of-contents-controller
+    .items='${items}'
+    .expandAllBtnClasses=${props.expandAllBtnClasses}
+    .collapseAllBtnClasses=${props.collapseAllBtnClasses}
+    .searchFilterInputClasses=${props.searchFilterInputClasses}
+    .titleFilterPlaceholder=${props.titleFilterPlaceholder}
+  >`;
 
-export const TitleFilterPlaceholder = () => {
-  return html`
-      <la-table-of-contents-controller
-        title-filter-placeholder='Custom title filter'
-        .items='${items}'
-      >
-    </div>
-  `
-}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const ExpandCollapseAllClasses = () => html`
-      <la-table-of-contents-controller
-        expand-all-btn-classes='custom-expand-all-btn'
-        collapse-all-btn-classes='custom-collapse-all-btn'
-        .items='${items}'
-      >
-    </div>
-`
+export const TitleFilterPlaceholder = Template.bind({});
+TitleFilterPlaceholder.args = {
+  titleFilterPlaceholder: "Type in me!"
+};
 
-export const TitleFilterClasses = () => html`
-      <la-table-of-contents-controller
-        search-filter-input-classes='custom-title-filter'
-        .items='${items}'
-      >
-    </div>
-`
+export const ExpandCollapseAllClasses = Template.bind({});
+ExpandCollapseAllClasses.args = {
+  expandAllBtnClasses: 'custom-expand-all-btn',
+  collapseAllBtnClasses: 'custom-collapse-all-btn',
+};
 
-
-
+export const SearchFilterClasses = Template.bind({});
+SearchFilterClasses.args = {
+  searchFilterInputClasses: 'custom-search-filter'
+};
