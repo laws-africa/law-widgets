@@ -1,5 +1,5 @@
 import { html } from "lit-html"
-import '../../../dist/collection/components/table-of-contents/table-of-contents';
+import '../dist/collection/components/table-of-contents/table-of-contents';
 import { ref, createRef } from 'lit-html/directives/ref';
 
 export default {

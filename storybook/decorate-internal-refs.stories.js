@@ -1,23 +1,19 @@
 import { html } from "lit-html";
-import { AkomaNtoso } from '../../../dist/collection/components/akoma-ntoso/akoma-ntoso';
-
-const argTypes = {...AkomaNtoso.properties};
-for (const val of Object.values(argTypes)) {
-  val.defaultValue = eval(val.defaultValue);
-  val.description = val.docs.text;
-  val.type = {
-    name: val.type,
-    required: val.required
-  };
-}
+import { DecorateInternalRefs } from '../dist/collection/components/decorate-internal-refs/decorate-internal-refs';
+import { argTypesForComponent } from "./utils";
 
 export default {
-  title: 'Library/la-akoma-ntoso',
-  argTypes: argTypes,
+  title: 'Library/la-decorate-internal-refs',
+  argTypes: argTypesForComponent(DecorateInternalRefs)
 };
 
 const Template = (props) => html`
   <la-akoma-ntoso>
+    <la-decorate-internal-refs
+      ?popups=${props.popups}
+      ?flag=${props.flag}
+    ></la-decorate-internal-refs>
+
     <section class="akn-section" id="sec_5" data-eid="sec_5">
       <h3>5. Amendment, suspension and cancellation of permits</h3>
       <span class="akn-hcontainer" id="sec_5__hcontainer_1" data-eid="sec_5__hcontainer_1" data-name="hcontainer">
@@ -34,7 +30,7 @@ const Template = (props) => html`
                 </span>
                 <span class="akn-item" id="sec_5__hcontainer_1__list_1__item_a__list_1__item_ii" data-eid="sec_5__hcontainer_1__list_1__item_a__list_1__item_ii">
                   <span class="akn-num">(ii)</span>
-                  <span class="akn-p">a continued contravention of any provision of <a class="akn-ref" data-href="#sec_6" href="#sec_6">section 6</a>;</span>
+                  <span class="akn-p">a continued contravention of any provision of <a class="akn-ref" data-href="#sec_6" href="#sec_5__hcontainer_1__list_1__item_b">section 6b</a>;</span>
                 </span>
               </span>
             </span>

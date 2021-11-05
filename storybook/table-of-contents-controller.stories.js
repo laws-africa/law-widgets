@@ -1,20 +1,11 @@
 import { html } from "lit-html";
-import { TableOfContentsController } from '../../../dist/collection/components/table-of-contents-controller/table-of-contents-controller';
+import { TableOfContentsController } from '../dist/collection/components/table-of-contents-controller/table-of-contents-controller';
+import { argTypesForComponent } from "./utils";
 import "./storybook.css";
-
-const argTypes = {...TableOfContentsController.properties};
-for (const val of Object.values(argTypes)) {
-  val.defaultValue = eval(val.defaultValue);
-  val.description = val.docs.text;
-  val.type = {
-    name: val.type,
-    required: val.required
-  };
-}
 
 export default {
   title: 'Library/la-table-of-contents-controller',
-  argTypes: argTypes,
+  argTypes: argTypesForComponent(TableOfContentsController)
 };
 
 const items = [
