@@ -24,7 +24,7 @@ There are three methods for using these web components:
 
 ### Script tag
 
-- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/gh/laws-africa/la-web-components@0.0.4-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/gh/laws-africa/la-web-components@0.0.6-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules (not yet supported)
@@ -45,11 +45,35 @@ Clone this repository and run:
 npm install
 ```
 
-To run a web server for live reloading during development, run:
+Need help? Check out the [Stencil docs](https://stenciljs.com/docs/my-first-component).
+
+## Using Storybook
+
+Development is easiest using Storybook for testing.
+
+Run these commands in separate terminals:
+
+```bash
+npm run storybook
+```
+
+```bash
+npm run stencil-for-storybook
+```
+
+To build Storybook for static use (not yet tested):
+
+```bash
+npm run build-storybook
+```
+
+## Without Storybook
 
 ```bash
 npm run start
 ```
+
+## Building for production
 
 To build the component for production, run:
 
@@ -57,13 +81,13 @@ To build the component for production, run:
 npm run build
 ```
 
+## Running tests
+
 To run the unit tests for the components, run:
 
 ```bash
 npm test
 ```
-
-Need help? Check out the [Stencil docs](https://stenciljs.com/docs/my-first-component).
 
 ## Releasing a new version
 
