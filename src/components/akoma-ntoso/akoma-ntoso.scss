@@ -1,8 +1,43 @@
 @use "sass:meta";
-@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
 
 la-akoma-ntoso {
   display: block;
+
+  @font-face {
+    font-family: PT Serif;
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url("./assets/fonts/PTSerif-Regular.woff2") format('woff2'),
+      url("./assets/fonts/PTSerif-Regular.woff") format('woff');
+  }
+
+  @font-face {
+    font-family: PT Serif;
+    font-style: italic;
+    font-weight: normal;
+    src:
+      url("./assets/fonts/PTSerif-Italic.woff2") format('woff2'),
+      url("./assets/fonts/PTSerif-Italic.woff") format('woff');
+  }
+
+  @font-face {
+    font-family: PT Serif;
+    font-style: normal;
+    font-weight: bold;
+    src:
+      url("./assets/fonts/PTSerif-Bold.woff2") format('woff2'),
+      url("./assets/fonts/PTSerif-Bold.woff") format('woff');
+  }
+
+  @font-face {
+    font-family: PT Serif;
+    font-style: italic;
+    font-weight: bold;
+    src:
+      url("./assets/fonts/PTSerif-BoldItalic.woff2") format('woff2'),
+      url("./assets/fonts/PTSerif-BoldItalic.woff") format('woff');
+  }
 
   @include meta.load-css('~indigo-web/scss/indigo-web');
 
