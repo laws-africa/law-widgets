@@ -16,7 +16,7 @@ export class TableOfContentsController {
   /**
    * Placeholder for search title filter
    * */
-  @Prop() titleFilterPlaceholder: string = "Search by title";
+  @Prop() titleFilterPlaceholder: string = "Search the table of contents";
 
   /**
    * Additional classes added to Expand all button
