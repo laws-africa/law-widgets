@@ -2,6 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
+    ],
+  },
   mode: 'production',
   entry: {
     bundle: './bundle.js'
@@ -12,7 +22,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    })
+      maxChunks: 1,
+    }),
   ],
 };
