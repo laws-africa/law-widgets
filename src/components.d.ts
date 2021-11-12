@@ -10,7 +10,7 @@ import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-con
 export namespace Components {
     interface LaAkomaNtoso {
         /**
-          * The emanating actor, unless implicitly deducible by the document type (e.g., acts and bills do not usually require actor, while ministerial decrees and European legislation do) *
+          * The emanating actor, unless implicitly deducible by the document type (e.g., acts and bills do not usually require actor, while ministerial decrees and European legislation do)
          */
         "frbrAuthor"?: string;
         /**
@@ -18,7 +18,7 @@ export namespace Components {
          */
         "frbrCountry"?: string;
         /**
-          * Original creation date (expressed in YYYY-MM-DD format or just YYYY if the year is sufficient for identification purposes` *
+          * Original creation date (expressed in `YYYY-MM-DD` format or just `YYYY` if the year is sufficient for identification purposes
          */
         "frbrDate"?: string;
         /**
@@ -38,11 +38,11 @@ export namespace Components {
          */
         "frbrNumber"?: string;
         /**
-          * Subtype used if the document is anything other an act / statement / judgment / doc *
+          * Subtype used if the document is anything other an `act` / `statement` / `judgment` / `doc`
          */
         "frbrSubtype"?: string;
         /**
-          * Type of document - For legislation – Acts, Regulations, Statutory Instruments, and the like – use act. - For case law, use judgment. - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
+          * Type of document  - For legislation – Acts, Regulations, Statutory Instruments, and the like – use `act`.  - For case law, use `judgment`.  - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
          */
         "frbrType"?: string;
     }
@@ -228,7 +228,7 @@ declare global {
 declare namespace LocalJSX {
     interface LaAkomaNtoso {
         /**
-          * The emanating actor, unless implicitly deducible by the document type (e.g., acts and bills do not usually require actor, while ministerial decrees and European legislation do) *
+          * The emanating actor, unless implicitly deducible by the document type (e.g., acts and bills do not usually require actor, while ministerial decrees and European legislation do)
          */
         "frbrAuthor"?: string;
         /**
@@ -236,7 +236,7 @@ declare namespace LocalJSX {
          */
         "frbrCountry"?: string;
         /**
-          * Original creation date (expressed in YYYY-MM-DD format or just YYYY if the year is sufficient for identification purposes` *
+          * Original creation date (expressed in `YYYY-MM-DD` format or just `YYYY` if the year is sufficient for identification purposes
          */
         "frbrDate"?: string;
         /**
@@ -256,11 +256,11 @@ declare namespace LocalJSX {
          */
         "frbrNumber"?: string;
         /**
-          * Subtype used if the document is anything other an act / statement / judgment / doc *
+          * Subtype used if the document is anything other an `act` / `statement` / `judgment` / `doc`
          */
         "frbrSubtype"?: string;
         /**
-          * Type of document - For legislation – Acts, Regulations, Statutory Instruments, and the like – use act. - For case law, use judgment. - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
+          * Type of document  - For legislation – Acts, Regulations, Statutory Instruments, and the like – use `act`.  - For case law, use `judgment`.  - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
          */
         "frbrType"?: string;
     }
