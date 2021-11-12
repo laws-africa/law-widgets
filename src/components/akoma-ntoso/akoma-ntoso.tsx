@@ -5,7 +5,16 @@ import { Component, h, Prop, Watch } from '@stencil/core';
   styleUrl: 'akoma-ntoso.scss',
 })
 export class AkomaNtoso {
+  /**
+   * String of standard parsed into thee follwoing metadata properties frbr-attributes:
+   * frbrCountry, frbrType, frbrSubtype, frbrAuthor, frbrDate, frbrNumber, frbrExpressionDate,
+   * frbrLanguage
+   * */
   @Prop({ reflect: true, mutable: true}) frbrExpressionUri?: string;
+  /**
+   * A metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction
+   * to be used in the work-level IRI of this document
+   * */
   @Prop({ reflect: true, mutable: true}) frbrCountry?: string;
   @Prop({ reflect: true, mutable: true}) frbrType?: string;
   @Prop({ reflect: true, mutable: true}) frbrSubtype?: string;

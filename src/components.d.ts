@@ -10,9 +10,15 @@ import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-con
 export namespace Components {
     interface LaAkomaNtoso {
         "frbrAuthor"?: string;
+        /**
+          * A metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction to be used in the work-level IRI of this document
+         */
         "frbrCountry"?: string;
         "frbrDate"?: string;
         "frbrExpressionDate"?: string;
+        /**
+          * String of standard parsed into thee follwoing metadata properties frbr-attributes: frbrCountry, frbrType, frbrSubtype, frbrAuthor, frbrDate, frbrNumber, frbrExpressionDate, frbrLanguage
+         */
         "frbrExpressionUri"?: string;
         "frbrLanguage"?: string;
         "frbrNumber"?: string;
@@ -201,9 +207,15 @@ declare global {
 declare namespace LocalJSX {
     interface LaAkomaNtoso {
         "frbrAuthor"?: string;
+        /**
+          * A metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction to be used in the work-level IRI of this document
+         */
         "frbrCountry"?: string;
         "frbrDate"?: string;
         "frbrExpressionDate"?: string;
+        /**
+          * String of standard parsed into thee follwoing metadata properties frbr-attributes: frbrCountry, frbrType, frbrSubtype, frbrAuthor, frbrDate, frbrNumber, frbrExpressionDate, frbrLanguage
+         */
         "frbrExpressionUri"?: string;
         "frbrLanguage"?: string;
         "frbrNumber"?: string;
