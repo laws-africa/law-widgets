@@ -6,9 +6,7 @@ import { Component, h, Prop, Watch } from '@stencil/core';
 })
 export class AkomaNtoso {
   /**
-   * String of standard parsed into thee follwoing metadata properties frbr-attributes:
-   * frbrCountry, frbrType, frbrSubtype, frbrAuthor, frbrDate, frbrNumber, frbrExpressionDate,
-   * frbrLanguage
+   * Full Akoma Ntoso FRBR Expression URI used to populate the other `frbr` fields if they are unset. Setting this is the preferred mechanism for ensuring tradition-specific styling.
    * */
   @Prop({ reflect: true, mutable: true}) frbrExpressionUri?: string;
   /**
