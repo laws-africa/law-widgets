@@ -8,7 +8,18 @@ export default {
 };
 
 const Template = (props) => html`
-  <la-akoma-ntoso>
+  <la-akoma-ntoso
+    .frbrExpressionUri=${props.frbrExpressionUri}
+    .frbrCountry=${props.frbrCountry}
+    .frbrType=${props.frbrType}
+    .frbrSubtype=${props.frbrSubtype}
+    .frbrAuthor=${props.frbrAuthor}
+    .frbrDate=${props.frbrDate}
+    .frbrNumber=${props.frbrNumber}
+    .frbrExpressionDate=${props.frbrExpressionDate}
+    .frbrLanguage=${props.frbrLanguage}
+    >
+    <div class='akn-remark'>Lorem AKN Remark Content</div>
     <section class="akn-section" id="sec_5" data-eid="sec_5">
       <h3>5. Amendment, suspension and cancellation of permits</h3>
       <span class="akn-hcontainer" id="sec_5__hcontainer_1" data-eid="sec_5__hcontainer_1" data-name="hcontainer">
@@ -52,3 +63,9 @@ const Template = (props) => html`
 
 export const Default = Template.bind({});
 Default.args = {};
+
+
+export const FrbrCountryNA = Template.bind({});
+FrbrCountryNA.args = {
+  frbrCountry: 'na',
+};
