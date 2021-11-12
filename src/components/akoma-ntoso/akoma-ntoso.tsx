@@ -6,7 +6,8 @@ import { Component, h, Prop, Watch } from '@stencil/core';
 })
 export class AkomaNtoso {
   /**
-   * Full Akoma Ntoso FRBR Expression URI used to populate the other `frbr` fields if they are unset. Setting this is the preferred mechanism for ensuring tradition-specific styling.
+   * Full Akoma Ntoso FRBR Expression URI used to populate the other `frbr` fields if they are unset.
+   * Setting this is the preferred mechanism for ensuring tradition-specific styling.
    * */
   @Prop({ reflect: true, mutable: true}) frbrExpressionUri?: string;
   /**
@@ -15,18 +16,32 @@ export class AkomaNtoso {
    * */
   @Prop({ reflect: true, mutable: true}) frbrCountry?: string;
   /**
-   * - For legislation – Acts, Regulations, Statutory Instruments, and the like – use act.
-   * - For case law, use judgment.
+   * Type of document
+   *
+   * - For legislation – Acts, Regulations, Statutory Instruments, and the like – use `act`.
+   *
+   * - For case law, use `judgment`.
+   *
    * - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
    * */
   @Prop({ reflect: true, mutable: true}) frbrType?: string;
-  /** Subtype used if the document is anything other an act / statement / judgment / doc **/
+  /** Subtype used if the document is anything other an `act` / `statement` / `judgment` / `doc` */
   @Prop({ reflect: true, mutable: true}) frbrSubtype?: string;
-  /** Author is included to differentiate from the ‘default’ author * **/
+  /** The emanating actor, unless implicitly deducible by the document type (e.g., acts and bills do not usually
+   *  require actor, while ministerial decrees and European legislation do)
+   *  */
   @Prop({ reflect: true, mutable: true}) frbrAuthor?: string;
+  /** Original creation date (expressed in `YYYY-MM-DD` format or just `YYYY` if the year is sufficient for
+   * identification purposes
+   * */
   @Prop({ reflect: true, mutable: true}) frbrDate?: string;
+  /**
+   * Number or title or other disambiguating feature of the Work (when appropriate, otherwise optionally the string nn)
+   * */
   @Prop({ reflect: true, mutable: true}) frbrNumber?: string;
+  /** Any content-specification date */
   @Prop({ reflect: true, mutable: true}) frbrExpressionDate?: string;
+  /** The human language code in which the Expression is drafted */
   @Prop({ reflect: true, mutable: true}) frbrLanguage?: string;
 
   @Watch('frbrExpressionUri')
