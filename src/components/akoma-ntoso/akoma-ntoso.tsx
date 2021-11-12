@@ -10,12 +10,19 @@ export class AkomaNtoso {
    * */
   @Prop({ reflect: true, mutable: true}) frbrExpressionUri?: string;
   /**
-   * A metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction
-   * to be used in the work-level IRI of this document
+   * Country (a two-letter or code according to ISO 3166-1 [ISO3166] or a short and unique alphanumeric codes
+   * according to ISO 3166-2 [ISO3166-2]).
    * */
   @Prop({ reflect: true, mutable: true}) frbrCountry?: string;
+  /**
+   * - For legislation – Acts, Regulations, Statutory Instruments, and the like – use act.
+   * - For case law, use judgment.
+   * - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
+   * */
   @Prop({ reflect: true, mutable: true}) frbrType?: string;
+  /** Subtype used if the document is anything other an act / statement / judgment / doc **/
   @Prop({ reflect: true, mutable: true}) frbrSubtype?: string;
+  /** Author is included to differentiate from the ‘default’ author * **/
   @Prop({ reflect: true, mutable: true}) frbrAuthor?: string;
   @Prop({ reflect: true, mutable: true}) frbrDate?: string;
   @Prop({ reflect: true, mutable: true}) frbrNumber?: string;

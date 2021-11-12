@@ -9,20 +9,29 @@ import { TOCItem } from "./components/table-of-contents/table-of-contents";
 import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-contents";
 export namespace Components {
     interface LaAkomaNtoso {
+        /**
+          * Author is included to differentiate from the ‘default’ author * *
+         */
         "frbrAuthor"?: string;
         /**
-          * A metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction to be used in the work-level IRI of this document
+          * Country (a two-letter or code according to ISO 3166-1 [ISO3166] or a short and unique alphanumeric codes according to ISO 3166-2 [ISO3166-2]).
          */
         "frbrCountry"?: string;
         "frbrDate"?: string;
         "frbrExpressionDate"?: string;
         /**
-          * String of standard parsed into thee follwoing metadata properties frbr-attributes: frbrCountry, frbrType, frbrSubtype, frbrAuthor, frbrDate, frbrNumber, frbrExpressionDate, frbrLanguage
+          * Full Akoma Ntoso FRBR Expression URI used to populate the other `frbr` fields if they are unset. Setting this is the preferred mechanism for ensuring tradition-specific styling.
          */
         "frbrExpressionUri"?: string;
         "frbrLanguage"?: string;
         "frbrNumber"?: string;
+        /**
+          * Subtype used if the document is anything other an act / statement / judgment / doc *
+         */
         "frbrSubtype"?: string;
+        /**
+          * - For legislation – Acts, Regulations, Statutory Instruments, and the like – use act. - For case law, use judgment. - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
+         */
         "frbrType"?: string;
     }
     interface LaDecorateInternalRefs {
@@ -206,20 +215,29 @@ declare global {
 }
 declare namespace LocalJSX {
     interface LaAkomaNtoso {
+        /**
+          * Author is included to differentiate from the ‘default’ author * *
+         */
         "frbrAuthor"?: string;
         /**
-          * A metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction to be used in the work-level IRI of this document
+          * Country (a two-letter or code according to ISO 3166-1 [ISO3166] or a short and unique alphanumeric codes according to ISO 3166-2 [ISO3166-2]).
          */
         "frbrCountry"?: string;
         "frbrDate"?: string;
         "frbrExpressionDate"?: string;
         /**
-          * String of standard parsed into thee follwoing metadata properties frbr-attributes: frbrCountry, frbrType, frbrSubtype, frbrAuthor, frbrDate, frbrNumber, frbrExpressionDate, frbrLanguage
+          * Full Akoma Ntoso FRBR Expression URI used to populate the other `frbr` fields if they are unset. Setting this is the preferred mechanism for ensuring tradition-specific styling.
          */
         "frbrExpressionUri"?: string;
         "frbrLanguage"?: string;
         "frbrNumber"?: string;
+        /**
+          * Subtype used if the document is anything other an act / statement / judgment / doc *
+         */
         "frbrSubtype"?: string;
+        /**
+          * - For legislation – Acts, Regulations, Statutory Instruments, and the like – use act. - For case law, use judgment. - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
+         */
         "frbrType"?: string;
     }
     interface LaDecorateInternalRefs {
