@@ -3,8 +3,7 @@
 
 la-akoma-ntoso {
   display: block;
-
-  @include meta.load-css('~indigo-web/scss/indigo-web');
+  @import "~indigo-web/scss/indigo-web";
 
   &.flash-target {
     @keyframes fadeout {
@@ -15,5 +14,17 @@ la-akoma-ntoso {
     :target {
       animation: fadeout 2s;
     }
+  }
+
+  &[frbr-country="ke"] {
+    @include tradition-ke;
+  }
+
+  &[frbr-country="na"] {
+    @include tradition-na;
+  }
+
+  &[frbr-country="pl"] {
+    @include tradition-pl;
   }
 }
