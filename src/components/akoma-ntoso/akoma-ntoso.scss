@@ -16,15 +16,15 @@ la-akoma-ntoso {
     }
   }
 
-  &[frbr-country="ke"] {
+  &[frbr-country^="ke"] {
     @include tradition-ke;
   }
 
-  &[frbr-country="na"] {
+  &[frbr-country^="na"] {
     @include tradition-na;
   }
 
-  &[frbr-country="pl"] {
+  &[frbr-country^="pl"] {
     @include tradition-pl;
   }
 }
