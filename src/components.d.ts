@@ -9,15 +9,15 @@ import { TOCItem } from "./components/table-of-contents/table-of-contents";
 import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-contents";
 export namespace Components {
     interface LaAkomaNtoso {
-        "frbrAuthor": string;
-        "frbrCountry": string;
-        "frbrDate": string;
-        "frbrExpressionDate": string;
-        "frbrExpressionUri": string;
-        "frbrLanguage": string;
-        "frbrNumber": string;
-        "frbrSubtype": string;
-        "frbrType": string;
+        "frbrAuthor"?: string;
+        "frbrCountry"?: string;
+        "frbrDate"?: string;
+        "frbrExpressionDate"?: string;
+        "frbrExpressionUri"?: string;
+        "frbrLanguage"?: string;
+        "frbrNumber"?: string;
+        "frbrSubtype"?: string;
+        "frbrType"?: string;
     }
     interface LaDecorateInternalRefs {
         /**

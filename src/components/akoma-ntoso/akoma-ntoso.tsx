@@ -5,15 +5,15 @@ import { Component, h, Prop, Watch } from '@stencil/core';
   styleUrl: 'akoma-ntoso.scss',
 })
 export class AkomaNtoso {
-  @Prop({ reflect: true, mutable: true}) frbrExpressionUri: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrCountry: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrType: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrSubtype: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrAuthor: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrDate: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrNumber: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrExpressionDate: string = ""
-  @Prop({ reflect: true, mutable: true}) frbrLanguage: string = "";
+  @Prop({ reflect: true, mutable: true}) frbrExpressionUri?: string;
+  @Prop({ reflect: true, mutable: true}) frbrCountry?: string;
+  @Prop({ reflect: true, mutable: true}) frbrType?: string;
+  @Prop({ reflect: true, mutable: true}) frbrSubtype?: string;
+  @Prop({ reflect: true, mutable: true}) frbrAuthor?: string;
+  @Prop({ reflect: true, mutable: true}) frbrDate?: string;
+  @Prop({ reflect: true, mutable: true}) frbrNumber?: string;
+  @Prop({ reflect: true, mutable: true}) frbrExpressionDate?: string;
+  @Prop({ reflect: true, mutable: true}) frbrLanguage?: string;
 
   @Watch('frbrExpressionUri')
   parseFrbrExpressionUri(newValue: string) {
@@ -55,7 +55,7 @@ export class AkomaNtoso {
   }
 
   componentWillLoad() {
-    this.parseFrbrExpressionUri(this.frbrExpressionUri);
+    if(this.frbrExpressionUri )this.parseFrbrExpressionUri(this.frbrExpressionUri);
   }
 
   render() {
