@@ -1,4 +1,4 @@
-import { Component, h, Prop, Watch } from '@stencil/core';
+import { Component, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'la-akoma-ntoso',
@@ -85,11 +85,5 @@ export class AkomaNtoso {
 
   componentWillLoad() {
     if(this.frbrExpressionUri )this.parseFrbrExpressionUri(this.frbrExpressionUri);
-  }
-
-  render() {
-    return (
-      <slot></slot>
-    );
   }
 }
