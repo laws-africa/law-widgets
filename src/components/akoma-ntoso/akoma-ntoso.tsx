@@ -89,9 +89,7 @@ export class AkomaNtoso {
 
   render() {
     return (
-      <div class="akoma-ntoso">
-        <slot></slot>
-      </div>
+      <slot></slot>
     );
   }
 }
