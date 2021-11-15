@@ -2,8 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
 
 la-akoma-ntoso {
+  @import "~indigo-web/scss/mixins/index";
+  @import "~indigo-web/scss/variables";
+
   display: block;
-  @import "~indigo-web/scss/indigo-web";
 
   &.flash-target {
     @keyframes fadeout {
@@ -27,4 +29,9 @@ la-akoma-ntoso {
   &[frbr-country^="pl"] {
     @include tradition-pl;
   }
+
+  @include core;
+  @include coverpage;
+  @include tables;
+  @include utilities;
 }
