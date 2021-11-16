@@ -1,0 +1,35 @@
+la-toc-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+la-toc-item * {
+  box-sizing: border-box;
+}
+la-toc-item .indented {
+  width: 1.4em;
+  height: 1.4em;
+}
+la-toc-item .content {
+  flex: 1;
+}
+la-toc-item .content__action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+la-toc-item .content__children {
+  display: none;
+}
+la-toc-item[expanded] > .content > .content__children {
+  display: inherit;
+}
+la-toc-item.excluded {
+  display: none;
+}
+la-toc-item .indented__toggle-btn {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}

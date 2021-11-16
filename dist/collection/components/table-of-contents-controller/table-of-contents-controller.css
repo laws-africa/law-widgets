@@ -1,0 +1,13 @@
+la-table-of-contents-controller * {
+  box-sizing: border-box;
+}
+la-table-of-contents-controller .search {
+  width: 100%;
+  margin-bottom: 5px;
+}
+la-table-of-contents-controller .toggle {
+  margin-bottom: 5px;
+}
+la-table-of-contents-controller .toggle__expand-all-btn {
+  margin-right: 5px;
+}

@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
+la-akoma-ntoso {
+  /*
+   * Variables
+   */
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
+  display: block;
+  /* typography */
+  font-family: Palatino, "Book Antiqua", "PT Serif", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.35;
+  /* headings */
+  /* block containers */
+  /* Schedules and attachments */
+  /* Indent list-like containers that have margin numbers.
+     For the exception where these are not numbered, .akn--no-indent is applied to override the indent. */
+  /* lists (mostly used in definitions) */
+  /* blocklists */
+  /* bulleted lists */
+  /* inline elements */
+  /* footnotes */
+  /* quotes */
+}
+@keyframes fadeout {
+  from {
+    background-color: yellow;
+  }
+  to {
+    background-color: unset;
+  }
+}
+la-akoma-ntoso.flash-target :target {
+  animation: fadeout 2s;
+}
+la-akoma-ntoso[frbr-country^=ke] {
+  /*
+   * Kenya (KE) AKN styles
+   */
+}
+la-akoma-ntoso[frbr-country^=ke] .akn-remark,
+la-akoma-ntoso[frbr-country^=ke] .akn-crossHeading {
+  font-style: normal;
+}
+la-akoma-ntoso[frbr-country^=ke] .coverpage .amendment,
+la-akoma-ntoso[frbr-country^=ke] .coverpage .verification-notice,
+la-akoma-ntoso[frbr-country^=ke] .coverpage .as-at-date-notice {
+  font-style: normal;
+}
+la-akoma-ntoso[frbr-country^=ke] .akn-listIntroduction > .akn-remark:only-child,
+la-akoma-ntoso[frbr-country^=ke] .akn-p > .akn-remark:only-child {
+  display: block;
+  margin-top: 0.8em;
+  text-align: center;
+}
+la-akoma-ntoso[frbr-country^=na] .coverpage .amendment-list,
+la-akoma-ntoso[frbr-country^=na] .coverpage .commencement-date,
+la-akoma-ntoso[frbr-country^=na] .coverpage .verification-notice,
+la-akoma-ntoso[frbr-country^=na] .coverpage .as-at-date-notice,
+la-akoma-ntoso[frbr-country^=na] .coverpage .assent-date {
+  font-style: normal;
+  font-weight: bold;
+  color: #00b156;
+}
+la-akoma-ntoso[frbr-country^=na] .coverpage .as-at-date-notice,
+la-akoma-ntoso[frbr-country^=na] .coverpage .amendment,
+la-akoma-ntoso[frbr-country^=na] .coverpage .commencement-note,
+la-akoma-ntoso[frbr-country^=na] .coverpage .verification-notice {
+  font-style: normal;
+}
+la-akoma-ntoso[frbr-country^=na] .akn-remark {
+  font-style: normal;
+  font-weight: bold;
+  color: #00b156;
+}
+la-akoma-ntoso[frbr-country^=na] .akn-p > .akn-remark:only-child,
+la-akoma-ntoso[frbr-country^=na] .akn-listIntroduction > .akn-remark:only-child {
+  display: block;
+  margin-top: 0.8em;
+  text-align: center;
+}
+la-akoma-ntoso[frbr-country^=pl] {
+  /* paragraph elements */
+  /* numbered block elements */
+}
+la-akoma-ntoso[frbr-country^=pl] .coverpage .doctype {
+  text-transform: uppercase;
+}
+la-akoma-ntoso[frbr-country^=pl] .akn-intro,
+la-akoma-ntoso[frbr-country^=pl] .akn-list,
+la-akoma-ntoso[frbr-country^=pl] .akn-paragraph,
+la-akoma-ntoso[frbr-country^=pl] .akn-point {
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso[frbr-country^=pl] .akn-alinea,
+la-akoma-ntoso[frbr-country^=pl] .akn-indent,
+la-akoma-ntoso[frbr-country^=pl] .akn-paragraph,
+la-akoma-ntoso[frbr-country^=pl] .akn-point {
+  margin-left: 3em;
+}
+la-akoma-ntoso[frbr-country^=pl] .akn-alinea > .akn-num,
+la-akoma-ntoso[frbr-country^=pl] .akn-alinea > .akn-indent-num,
+la-akoma-ntoso[frbr-country^=pl] .akn-indent > .akn-num,
+la-akoma-ntoso[frbr-country^=pl] .akn-indent > .akn-indent-num,
+la-akoma-ntoso[frbr-country^=pl] .akn-paragraph > .akn-num,
+la-akoma-ntoso[frbr-country^=pl] .akn-paragraph > .akn-indent-num,
+la-akoma-ntoso[frbr-country^=pl] .akn-point > .akn-num,
+la-akoma-ntoso[frbr-country^=pl] .akn-point > .akn-indent-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+}
+la-akoma-ntoso h1,
+la-akoma-ntoso h2,
+la-akoma-ntoso h3,
+la-akoma-ntoso h4,
+la-akoma-ntoso h5,
+la-akoma-ntoso .akn-heading {
+  margin-top: 0px;
+  margin-bottom: 0.8em;
+  font-family: Palatino, "Book Antiqua", "PT Serif", Georgia, serif;
+  font-weight: bold;
+}
+la-akoma-ntoso h1 {
+  font-size: 26px;
+  line-height: 1.2;
+}
+la-akoma-ntoso h2,
+la-akoma-ntoso .akn-heading {
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.2;
+}
+la-akoma-ntoso h3 {
+  font-size: 18px;
+  line-height: 1.35;
+}
+la-akoma-ntoso h4 {
+  font-size: 15px;
+  line-height: 1.35;
+}
+la-akoma-ntoso .akn-subheading,
+la-akoma-ntoso .akn-crossHeading {
+  text-align: center;
+  font-style: italic;
+}
+la-akoma-ntoso .akn-act,
+la-akoma-ntoso .akn-akomaNtoso,
+la-akoma-ntoso .akn-article,
+la-akoma-ntoso .akn-blockList,
+la-akoma-ntoso .akn-chapter,
+la-akoma-ntoso .akn-conclusions,
+la-akoma-ntoso .akn-coverPage,
+la-akoma-ntoso .akn-crossHeading,
+la-akoma-ntoso .akn-division,
+la-akoma-ntoso .akn-hcontainer,
+la-akoma-ntoso .akn-heading,
+la-akoma-ntoso .akn-list,
+la-akoma-ntoso .akn-paragraph,
+la-akoma-ntoso .akn-part,
+la-akoma-ntoso .akn-point,
+la-akoma-ntoso .akn-preamble,
+la-akoma-ntoso .akn-preface,
+la-akoma-ntoso .akn-section,
+la-akoma-ntoso .akn-subdivision,
+la-akoma-ntoso .akn-subheading,
+la-akoma-ntoso .akn-subsection {
+  display: block;
+}
+la-akoma-ntoso .akn-preface,
+la-akoma-ntoso .akn-preamble {
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-preface > .akn-p,
+la-akoma-ntoso .akn-preamble > .akn-p {
+  display: block;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-article,
+la-akoma-ntoso .akn-chapter,
+la-akoma-ntoso .akn-division,
+la-akoma-ntoso .akn-part,
+la-akoma-ntoso .akn-section,
+la-akoma-ntoso .akn-subdivision {
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-attachment > .akn-subheading {
+  font-style: normal;
+}
+la-akoma-ntoso .akn-subsection,
+la-akoma-ntoso .akn-paragraph,
+la-akoma-ntoso .akn-subparagraph {
+  margin-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-subsection.akn--no-indent,
+la-akoma-ntoso .akn-paragraph.akn--no-indent,
+la-akoma-ntoso .akn-subparagraph.akn--no-indent {
+  margin-left: 0px;
+}
+la-akoma-ntoso .akn-subsection > .akn-num,
+la-akoma-ntoso .akn-paragraph > .akn-num,
+la-akoma-ntoso .akn-subparagraph > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-subsection > .akn-heading,
+la-akoma-ntoso .akn-paragraph > .akn-heading,
+la-akoma-ntoso .akn-subparagraph > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-listIntroduction,
+la-akoma-ntoso .akn-p {
+  display: block;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-list > .akn-intro {
+  display: block;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-list > .akn-point {
+  display: block;
+  margin-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-list > .akn-point > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-blockList > .akn-item {
+  display: block;
+  margin-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-blockList > .akn-item > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-ul {
+  display: block;
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-li {
+  display: list-item;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-def {
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-longTitle {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-remark {
+  font-style: italic;
+}
+la-akoma-ntoso img {
+  max-width: 100%;
+}
+la-akoma-ntoso .akn-authorialNote {
+  display: flex;
+  font-size: small;
+  margin-top: 0.8em;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-authorialNote > .akn-authorialNote--marker {
+  margin-right: 1.5em;
+}
+la-akoma-ntoso .akn-authorialNote + .akn-authorialNote {
+  margin-top: -1.6em;
+}
+la-akoma-ntoso .akn-embeddedStructure {
+  display: block;
+  margin-left: 2em;
+}
+la-akoma-ntoso .akn-embeddedStructure[data-startQuote]::before {
+  content: attr(data-startQuote);
+  margin-left: -0.5em;
+  float: left;
+}
+la-akoma-ntoso .coverpage {
+  text-align: center;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .coverpage .notice-list {
+  margin: 0px;
+  padding: 0px;
+}
+la-akoma-ntoso .coverpage .notice-list li {
+  list-style: none;
+}
+la-akoma-ntoso .coverpage .place-name,
+la-akoma-ntoso .coverpage .parent-work {
+  font-size: 19px;
+  line-height: 1.2;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+}
+la-akoma-ntoso .coverpage .assent-date,
+la-akoma-ntoso .coverpage .commencement-date {
+  margin-bottom: 0.8em;
+  font-weight: bold;
+}
+la-akoma-ntoso .coverpage .commencement-date-list {
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .coverpage .commencement-date-uncommenced {
+  margin-bottom: 0.8em;
+  font-weight: bold;
+}
+la-akoma-ntoso .coverpage .commencements-table {
+  margin: auto;
+  max-width: 80%;
+}
+la-akoma-ntoso .coverpage .amendment-list {
+  margin-top: 1.6em;
+  padding: 0px;
+}
+la-akoma-ntoso .coverpage .amendment {
+  list-style: none;
+  margin-bottom: 0.8em;
+  font-style: italic;
+}
+la-akoma-ntoso .coverpage .commencement-note,
+la-akoma-ntoso .coverpage .verification-notice,
+la-akoma-ntoso .coverpage .as-at-date-notice {
+  margin-top: 0.8em;
+  font-style: italic;
+}
+la-akoma-ntoso table {
+  width: 100%;
+  margin-bottom: 1.6em;
+  border: 1px solid #ddd;
+}
+la-akoma-ntoso table th,
+la-akoma-ntoso table td {
+  border-left: 1px solid #ddd;
+  padding: 5px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+la-akoma-ntoso table th {
+  font-weight: bold;
+}
+la-akoma-ntoso table th > :last-child, la-akoma-ntoso table td > :last-child {
+  margin-bottom: 0px;
+}
+la-akoma-ntoso table thead th {
+  vertical-align: bottom;
+}
+la-akoma-ntoso table caption + thead tr:first-child th,
+la-akoma-ntoso table caption + thead tr:first-child td,
+la-akoma-ntoso table colgroup + thead tr:first-child th,
+la-akoma-ntoso table colgroup + thead tr:first-child td,
+la-akoma-ntoso table thead:first-child tr:first-child th,
+la-akoma-ntoso table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+la-akoma-ntoso table tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+la-akoma-ntoso table .table {
+  background-color: white;
+}
+la-akoma-ntoso .akn--text-left {
+  text-align: left;
+}
+la-akoma-ntoso .akn--text-center {
+  text-align: center;
+}
+la-akoma-ntoso .akn--text-right {
+  text-align: right;
+}
