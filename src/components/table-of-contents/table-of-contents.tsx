@@ -43,6 +43,7 @@ export class TableOfContents {
 
   componentWillLoad() {
     this.parseItemsProp(this.items);
+    this.titleFilterChanged(this.titleFilter);
   }
 
   /**
