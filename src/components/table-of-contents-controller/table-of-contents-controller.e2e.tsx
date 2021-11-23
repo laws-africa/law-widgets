@@ -50,7 +50,7 @@ describe('la-table-of-contents-controller', () => {
     expect(items[2].className.includes('excluded')).toBe(true);
   });
 
-  it('should render expand all button and collapse all button', async () => {
+  it('should render expand all button and collapse all buttons', async () => {
     const page = await newE2EPage();
     await page.setContent(`
             <la-table-of-contents-controller></la-table-of-contents-controller>`);
