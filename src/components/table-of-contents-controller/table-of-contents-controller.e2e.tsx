@@ -1,5 +1,5 @@
 import { newE2EPage } from '@stencil/core/testing';
-import sampleItems from '../table-of-contents/data.json';
+import data from '../table-of-contents/fixtures.json';
 
 describe('la-table-of-contents-controller', () => {
   it('should render', async () => {
@@ -36,7 +36,7 @@ describe('la-table-of-contents-controller', () => {
     const page = await newE2EPage();
     await page.setContent(`
             <la-table-of-contents-controller
-              items='${JSON.stringify(sampleItems)}'>
+              items='${JSON.stringify(data.simple_toc_list)}'>
             </la-table-of-contents-controller>`);
     const titleFilter = await page.find('la-table-of-contents-controller .search__input');
     await titleFilter.type('Item One');
@@ -79,7 +79,7 @@ describe('la-table-of-contents-controller', () => {
     const page = await newE2EPage();
     await page.setContent(`
             <la-table-of-contents-controller
-              items='${JSON.stringify(sampleItems)}'>
+              items='${JSON.stringify(data.simple_toc_list)}'>
             </la-table-of-contents-controller>`);
     const expandAllBtn = await page.find('.toggle__expand-all-btn');
     const collapseAllBtn = await page.find('.toggle__collapse-all-btn');
