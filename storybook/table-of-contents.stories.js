@@ -60,3 +60,15 @@ export const PrependAndAppend = () => html`
     <span slot="append">🤷🏾</span>
   </la-table-of-contents>
 `;
+
+
+export const TocItemRenderedEvtUsage = () => {
+  const handleItemRender = (e) => {
+    if(e.detail.append_icon) {
+      e.target.appendHtml = e.detail.append_icon;
+    }
+  }
+  return html`
+    <la-table-of-contents .items='${items}' @itemRendered=${handleItemRender}/>
+  `
+}
