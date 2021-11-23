@@ -8,6 +8,7 @@ export interface TOCItem {
   [key: string]: any; // type for unknown keys.
   title?: string;
   children?: TOCItem[];
+  selected?: Boolean,
 }
 
 @Component({
