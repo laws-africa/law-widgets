@@ -63,7 +63,7 @@ describe('la-table-of-contents', () => {
     expect(onlyShowsCertainItem(secondTestItems, 2)).toBe(true);
   });
 
-  it('should show all items when clearing titleFilter prop', async () => {
+  it('should show all items when titleFilter prop is empty string', async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'
