@@ -369,6 +369,8 @@ declare namespace LocalJSX {
           * Item used to build the table of contents
          */
         "item"?: TOCItem;
+        "onItemRendered"?: (event: CustomEvent<any>) => void;
+        "onItemWillRender"?: (event: CustomEvent<any>) => void;
         /**
           * HTML displayed before item title
          */
