@@ -1,9 +1,9 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-toc-item',
-  styleUrl: 'toc-item.scss'
+  styleUrl: 'toc-item.scss',
 })
 export class TocItem {
   /**
@@ -19,31 +19,55 @@ export class TocItem {
   /**
    * HTML displayed before item title
    * */
-  @Prop() prependHtml: string = "";
+  @Prop() prependHtml: string = '';
 
   /**
    * HTML displayed after item title
    * */
-  @Prop() appendHtml: string = "";
+  @Prop() appendHtml: string = '';
 
   /**
    * HTML displayed in toggle button when item is expanded
    * */
-  @Prop() expandIconHtml: string = "";
+  @Prop() expandIconHtml: string = '';
 
   /**
    * HTML displayed in toggle button when item is not expanded
    * */
-  @Prop() collapseIconHtml: string = "";
+  @Prop() collapseIconHtml: string = '';
 
   /**
    * If true, `item` `children`, and the collapsed icon are shown but expanded icon is hidden. If false, the `item`
    * `children` and collapsed icon are hidden but the expanded icon is show
    * */
-  @Prop({ reflect: true, mutable: true}) expanded: boolean = true;
+  @Prop({ reflect: true, mutable: true }) expanded: boolean = true;
 
-  toggle () {
+  root: HTMLElement | undefined;
+
+  toggle() {
     this.expanded = !this.expanded;
+  }
+
+  @Event({
+    eventName: 'itemWillRender',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  }) itemWillRender: EventEmitter<TOCItem> | undefined;
+
+  @Event({
+    eventName: 'itemRendered',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  }) itemRendered: EventEmitter<TOCItem> | undefined;
+
+
+  componentWillRender() {
+    this.itemWillRender?.emit(this.item);
+  }
+  componentDidRender() {
+    this.itemRendered?.emit(this.item);
   }
 
   render() {
@@ -55,7 +79,7 @@ export class TocItem {
         return this.collapseIconHtml ? <span innerHTML={this.collapseIconHtml}></span> : <span>▼</span>;
       }
       return this.expandIconHtml ? <span innerHTML={this.expandIconHtml}></span> : <span>▶</span>;
-    }
+    };
 
     return (
       <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
