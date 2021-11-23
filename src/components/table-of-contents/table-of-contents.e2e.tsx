@@ -63,7 +63,7 @@ describe('la-table-of-contents', () => {
     expect(onlyShowsCertainItem(secondTestItems, 2)).toBe(true);
   });
 
-  it('should show all items when titleFilter prop is empty string', async () => {
+  it('should show all items when titleFilter prop is empty string or is string with just spaces', async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'
@@ -74,8 +74,15 @@ describe('la-table-of-contents', () => {
       component.titleFilter = "";
     });
     await page.waitForChanges();
-    const items = await page.findAll('la-table-of-contents la-toc-item');
-    expect(items.every(node => node.classList.contains('excluded'))).toBe(false);
+    const itemsOfEmptyString = await page.findAll('la-table-of-contents la-toc-item');
+    expect(itemsOfEmptyString.every(item => item.classList.contains('excluded'))).toBe(false);
+
+    await page.$eval('la-table-of-contents', (component: any) => {
+      component.titleFilter = "       ";
+    });
+    await page.waitForChanges();
+    const itemsOfSpacedString = await page.findAll('la-table-of-contents la-toc-item');
+    expect(itemsOfSpacedString.every(item => item.classList.contains('excluded'))).toBe(false);
   });
 
   it('should have filtering that is case insensitive', async () => {
