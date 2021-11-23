@@ -101,7 +101,7 @@ describe('la-table-of-contents', () => {
     expect(onlyShowsCertainItem(itemsFromMixedCase, 0)).toBe(true);
   });
 
-  it('should have no items to show when titleFilter is set to `Item One   ` (trailing spaces)', async () => {
+  it('should filter items correctly when titleFilter prop has leading or trailing spaces', async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'
@@ -109,19 +109,16 @@ describe('la-table-of-contents', () => {
       </la-table-of-contents>
     `);
     const itemsFromTrailingSpace = await page.findAll('la-table-of-contents la-toc-item');
-    expect(itemsFromTrailingSpace.every(item => item.classList.contains('excluded'))).toBe(true);
+    expect(onlyShowsCertainItem(itemsFromTrailingSpace, 0)).toBe(true);
+
+    await page.$eval('la-table-of-contents', (component: any) => {
+      component.titleFilter = '   Item One'
+    });
+
+    const itemsFromLeadingSpaces = await page.findAll('la-table-of-contents la-toc-item');
+    expect(onlyShowsCertainItem(itemsFromLeadingSpaces, 0)).toBe(true);
   })
 
-  it('should have no items to show when titleFilter is set to `   Item One` (leading spaces)', async () => {
-    const page = await newE2EPage();
-    await page.setContent(`
-      <la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'
-                            title-filter='   Item One'>
-      </la-table-of-contents>
-    `);
-    const itemsFromLeadingSpaces = await page.findAll('la-table-of-contents la-toc-item');
-    expect(itemsFromLeadingSpaces.every(item => item.classList.contains('excluded'))).toBe(true);
-  })
 
   it('should render expanded items on mount', async () => {
     const page = await newE2EPage();
