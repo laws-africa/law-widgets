@@ -63,7 +63,7 @@ describe('la-table-of-contents', () => {
     expect(onlyShowsCertainItem(secondTestItems, 2)).toBe(true);
   });
 
-  it('should have show all items when clearing titleFilter prop', async () => {
+  it('should show all items when clearing titleFilter prop', async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'
@@ -78,7 +78,7 @@ describe('la-table-of-contents', () => {
     expect(items.every(node => node.classList.contains('excluded'))).toBe(false);
   });
 
-  it('should filter items correctly regardless of case value assigned to titleFilter prop', async () => {
+  it('should have filtering that is case insensitive', async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'
@@ -130,7 +130,7 @@ describe('la-table-of-contents', () => {
     }
   });
 
-  it('should render items when collapseAll method is called', async () => {
+  it('should have all items without expanded attribute when collapseAll method is called', async () => {
     const page = await newE2EPage();
     await page.setContent(`<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`);
 
