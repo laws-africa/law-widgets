@@ -1,4 +1,4 @@
-import { newE2EPage } from '@stencil/core/testing';
+import { E2EElement, newE2EPage } from '@stencil/core/testing';
 import data from './fixtures.json';
 
 const onlyShowsCertainItem = (items: any[], itemToShowIndex: number) => {
@@ -20,14 +20,8 @@ describe('la-table-of-contents', () => {
     await page.setContent(`<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`);
     const renderedItems = await page.findAll('la-table-of-contents la-toc-item .content__action__title');
 
-    const dataMatchesDOMNodes = (
-      items: any[],
-      data: Array<{
-        id: string;
-        title: string;
-      }>,
-    ) => {
-      return items.every((item: { innerText: string; href: string }, index: number) => {
+    const dataMatchesDOMNodes = (items: E2EElement[], data: { title: any }[]) => {
+      return items.every((item, index: number) => {
         return item.innerText === data[index].title;
       });
     };
