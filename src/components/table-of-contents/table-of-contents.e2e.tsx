@@ -71,14 +71,14 @@ describe('la-table-of-contents', () => {
       </la-table-of-contents>
     `);
     await page.$eval('la-table-of-contents', (component: any) => {
-      component.titleFilter = "";
+      component.titleFilter = '';
     });
     await page.waitForChanges();
     const itemsOfEmptyString = await page.findAll('la-table-of-contents la-toc-item');
     expect(itemsOfEmptyString.every(item => item.classList.contains('excluded'))).toBe(false);
 
     await page.$eval('la-table-of-contents', (component: any) => {
-      component.titleFilter = "       ";
+      component.titleFilter = '       ';
     });
     await page.waitForChanges();
     const itemsOfSpacedString = await page.findAll('la-table-of-contents la-toc-item');
@@ -94,14 +94,14 @@ describe('la-table-of-contents', () => {
     `);
 
     await page.$eval('la-table-of-contents', (component: any) => {
-      component.titleFilter = "ITEM ONE";
+      component.titleFilter = 'ITEM ONE';
     });
     await page.waitForChanges();
     const itemsFromUppercase = await page.findAll('la-table-of-contents la-toc-item');
     expect(onlyShowsCertainItem(itemsFromUppercase, 0)).toBe(true);
 
     await page.$eval('la-table-of-contents', (component: any) => {
-      component.titleFilter = "ITEm ONe";
+      component.titleFilter = 'ITEm ONe';
     });
     await page.waitForChanges();
     const itemsFromMixedCase = await page.findAll('la-table-of-contents la-toc-item');
@@ -119,13 +119,12 @@ describe('la-table-of-contents', () => {
     expect(onlyShowsCertainItem(itemsFromTrailingSpace, 0)).toBe(true);
 
     await page.$eval('la-table-of-contents', (component: any) => {
-      component.titleFilter = '   Item One'
+      component.titleFilter = '   Item One';
     });
 
     const itemsFromLeadingSpaces = await page.findAll('la-table-of-contents la-toc-item');
     expect(onlyShowsCertainItem(itemsFromLeadingSpaces, 0)).toBe(true);
-  })
-
+  });
 
   it('should render expanded items on mount', async () => {
     const page = await newE2EPage();
