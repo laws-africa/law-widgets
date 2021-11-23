@@ -69,7 +69,7 @@ export class TableOfContents {
   @Watch('titleFilter')
   titleFilterChanged(filter: string) {
     if (filter) {
-      const needle = filter.toLocaleLowerCase();
+      const needle = filter.toLocaleLowerCase().trim();
       const filteredItems: Set<TOCItem> = new Set<TOCItem>();
 
       // recursively include all children
