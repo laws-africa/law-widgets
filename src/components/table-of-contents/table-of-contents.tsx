@@ -132,7 +132,6 @@ export class TableOfContents {
         return element?.innerHTML || "";
       }
 
-      // TODO: Investigate better to render dynamic slots
       const prepend = getSlotHTML("[slot='prepend']");
       const append = getSlotHTML("[slot='append']");
 
