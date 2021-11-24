@@ -22,6 +22,10 @@ la-toc-item {
     align-items: center;
   }
 
+  .content__action__title {
+    flex-grow: 1;
+  }
+
   .content__children {
     display: none;
   }
