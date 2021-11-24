@@ -20,10 +20,10 @@
 
 ## Events
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `itemRendered`   |             | `CustomEvent<any>` |
-| `itemWillRender` |             | `CustomEvent<any>` |
+| Event              | Description | Type               |
+| ------------------ | ----------- | ------------------ |
+| `itemRendered`     |             | `CustomEvent<any>` |
+| `itemTitleClicked` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
