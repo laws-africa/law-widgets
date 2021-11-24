@@ -370,7 +370,7 @@ declare namespace LocalJSX {
          */
         "item"?: TOCItem;
         "onItemRendered"?: (event: CustomEvent<any>) => void;
-        "onItemWillRender"?: (event: CustomEvent<any>) => void;
+        "onItemTitleClicked"?: (event: CustomEvent<any>) => void;
         /**
           * HTML displayed before item title
          */
