@@ -3,6 +3,7 @@ import { TableOfContents} from '../dist/collection/components/table-of-contents/
 import { argTypesForComponent } from "./utils";
 import { ref, createRef } from 'lit-html/directives/ref';
 import items from './toc.json';
+import "./storybook.css";
 
 export default {
   title: 'Library/la-table-of-contents',
@@ -62,13 +63,37 @@ export const PrependAndAppend = () => html`
 `;
 
 
-export const TocItemRenderedEvtUsage = () => {
+export const TocItemRenderedEvtDemo = () => {
   const handleItemRender = (e) => {
-    if(e.detail.append_icon) {
-      e.target.appendHtml = e.detail.append_icon;
+    if(e.target.item.append_icon) {
+      e.target.appendHtml = e.target.item.append_icon;
     }
   }
   return html`
     <la-table-of-contents .items='${items}' @itemRendered=${handleItemRender}/>
+  `
+}
+
+export const TocItemTitleClickedEvtDemo = () => {
+  /**
+   * Anchor move out of the preview frame in storybook, preventing the demo of `itemTitleClicked` event.
+   * Workaround: remove href attribute
+   */
+  const handleItemRendered = (e) => {
+    e.target.querySelector('.content__action__title').removeAttribute('href');
+  }
+  const handleItemTitleClick = (e) => {
+    const items = e.target.closest('la-table-of-contents').querySelectorAll('la-toc-item');
+    for(const item of items) {
+     item.classList.remove('selected');
+    }
+    e.target.classList.add('selected');
+  }
+
+  return html`
+    <la-table-of-contents .items='${items}'
+        @itemRendered='${handleItemRendered}'
+        @itemTitleClicked=${handleItemTitleClick}
+    />
   `
 }
