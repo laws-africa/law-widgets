@@ -44,30 +44,30 @@ export class TocItem {
 
   root: HTMLElement | undefined;
 
-  toggle() {
+  toggle = () => {
     this.expanded = !this.expanded;
   }
-
-  @Event({
-    eventName: 'itemWillRender',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  }) itemWillRender: EventEmitter<TOCItem> | undefined;
 
   @Event({
     eventName: 'itemRendered',
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) itemRendered: EventEmitter<TOCItem> | undefined;
+  }) itemRendered: EventEmitter | undefined;
 
+  @Event({
+    eventName: 'itemTitleClicked',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  }) itemTitleClicked: EventEmitter | undefined;
 
-  componentWillRender() {
-    this.itemWillRender?.emit(this.item);
-  }
   componentDidRender() {
-    this.itemRendered?.emit(this.item);
+    this.itemRendered?.emit();
+  }
+
+  onItemTitleClick = () => {
+    this.itemTitleClicked?.emit();
   }
 
   render() {
@@ -85,16 +85,16 @@ export class TocItem {
       <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
         <div class="indented">
           {isParent ? (
-            <button class="indented__toggle-btn" type="button" onClick={this.toggle.bind(this)}>
+            <button class="indented__toggle-btn" type="button" onClick={this.toggle}>
               {renderToggleBtnInner()}
             </button>
           ) : null}
         </div>
 
         <div class="content">
-          <div class={`content__action ${this.item.selected ? 'selected' : ''}`}>
+          <div class="content__action">
             {this.prependHtml ? <div class="content__action__prepend" innerHTML={this.prependHtml}></div> : null}
-            <a href={`#${this.item.id || ''}`} class="content__action__title">
+            <a href={`#${this.item.id || ''}`} class="content__action__title" onClick={this.onItemTitleClick}>
               {this.item.title}
             </a>
             {this.appendHtml ? <div class="content__action__append" innerHTML={this.appendHtml}></div> : null}
