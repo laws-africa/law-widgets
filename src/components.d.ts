@@ -126,10 +126,6 @@ export namespace Components {
          */
         "items": TOCItem[] | string;
         /**
-          * Additional CSS classes added to the search filter input
-         */
-        "searchFilterInputClasses": string;
-        /**
           * Additional classes added to title filter button
          */
         "titleFilterClearBtnClasses": string;
@@ -137,6 +133,10 @@ export namespace Components {
           * If true, shows clear title filter button
          */
         "titleFilterClearable": boolean;
+        /**
+          * Additional CSS classes added to the search filter input
+         */
+        "titleFilterInputClasses": string;
         /**
           * Placeholder for search title filter
          */
@@ -344,10 +344,6 @@ declare namespace LocalJSX {
          */
         "items"?: TOCItem[] | string;
         /**
-          * Additional CSS classes added to the search filter input
-         */
-        "searchFilterInputClasses"?: string;
-        /**
           * Additional classes added to title filter button
          */
         "titleFilterClearBtnClasses"?: string;
@@ -355,6 +351,10 @@ declare namespace LocalJSX {
           * If true, shows clear title filter button
          */
         "titleFilterClearable"?: boolean;
+        /**
+          * Additional CSS classes added to the search filter input
+         */
+        "titleFilterInputClasses"?: string;
         /**
           * Placeholder for search title filter
          */
