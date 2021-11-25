@@ -7,6 +7,10 @@ export const config: Config = {
   buildEs5: 'prod',
   outputTargets: [
     {
+      type: 'dist-custom-elements',
+      autoDefineCustomElements: true,
+    },
+    {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
