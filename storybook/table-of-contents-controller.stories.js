@@ -14,7 +14,7 @@ const Template = (props) =>
     .items='${items}'
     .expandAllBtnClasses=${props.expandAllBtnClasses}
     .collapseAllBtnClasses=${props.collapseAllBtnClasses}
-    .searchFilterInputClasses=${props.searchFilterInputClasses}
+    .titleFilterInputClasses=${props.titleFilterInputClasses}
     .titleFilterPlaceholder=${props.titleFilterPlaceholder}
     .titleFilterClearable=${props.titleFilterClearable}
     .titleFilterClearBtnClasses=${props.titleFilterClearBtnClasses}
@@ -36,7 +36,7 @@ ExpandCollapseAllClasses.args = {
 
 export const SearchFilterClasses = Template.bind({});
 SearchFilterClasses.args = {
-  searchFilterInputClasses: 'custom-search-filter'
+  titleFilterInputClasses: 'custom-search-filter'
 };
 
 export const ClearSearchFilterButton = Template.bind({});

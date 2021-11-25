@@ -16,9 +16,9 @@ describe('la-table-of-contents-controller', () => {
     expect(titleFilter).not.toBeNull();
   });
 
-  it('should append css classes to title filter search based on searchFilterInputClasses prop set', async () => {
+  it('should append css classes to title filter search based on titleFilterInputClasses prop set', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents-controller search-filter-input-classes='input-class'></la-table-of-contents-controller>`);
+    await page.setContent(`<la-table-of-contents-controller title-filter-input-classes='input-class'></la-table-of-contents-controller>`);
     const titleFilter = await page.find('la-table-of-contents-controller .search__input');
     expect(titleFilter.classList.contains('input-class')).toBe(true);
   });
