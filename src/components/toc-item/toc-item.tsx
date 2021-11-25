@@ -44,7 +44,7 @@ export class TocItem {
 
   root: HTMLElement | undefined;
 
-  toggle = () => {
+  toggle() {
     this.expanded = !this.expanded;
   }
 
@@ -53,22 +53,24 @@ export class TocItem {
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) itemRendered: EventEmitter | undefined;
+  })
+  itemRendered!: EventEmitter;
 
   @Event({
     eventName: 'itemTitleClicked',
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) itemTitleClicked: EventEmitter | undefined;
+  })
+  itemTitleClicked!: EventEmitter;
 
   componentDidRender() {
-    this.itemRendered?.emit();
+    this.itemRendered.emit();
   }
 
   onItemTitleClick = () => {
-    this.itemTitleClicked?.emit();
-  }
+    this.itemTitleClicked.emit();
+  };
 
   render() {
     const isParent = !!(this.item.children && this.item.children.length);
@@ -85,7 +87,7 @@ export class TocItem {
       <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
         <div class="indented">
           {isParent ? (
-            <button class="indented__toggle-btn" type="button" onClick={this.toggle}>
+            <button class="indented__toggle-btn" type="button" onClick={() => this.toggle()}>
               {renderToggleBtnInner()}
             </button>
           ) : null}
