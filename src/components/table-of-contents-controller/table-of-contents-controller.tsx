@@ -21,7 +21,7 @@ export class TableOfContentsController {
   /**
    * If true, shows clear title filter button
    */
-  @Prop() titleFilterClearable: boolean = false;
+  @Prop() titleFilterClearable: boolean = true;
 
   /**
    * Additional classes added to title filter button
@@ -41,7 +41,7 @@ export class TableOfContentsController {
   /**
    * Additional CSS classes added to the search filter input
    * */
-  @Prop() searchFilterInputClasses: string = '';
+  @Prop() titleFilterInputClasses: string = '';
 
   @State() titleFilter: string = '';
   @Element() el!: HTMLElement;
@@ -50,7 +50,9 @@ export class TableOfContentsController {
     this.titleFilter = (e.target as HTMLInputElement).value;
   }, 300);
 
-  clearTitleFilter = () => (this.titleFilter = '');
+  clearTitleFilter() {
+    this.titleFilter = '';
+  }
 
   async expandAll() {
     const tocElement = this.el.querySelector('la-table-of-contents');
@@ -67,16 +69,14 @@ export class TableOfContentsController {
       <Host>
         <div class="search">
           <input
-            class={`search__input ${this.searchFilterInputClasses}`}
+            class={`search__input ${this.titleFilterInputClasses}`}
             value={this.titleFilter}
             placeholder={this.titleFilterPlaceholder}
             onInput={e => this.handleTitleChange(e)}
           />
           {this.titleFilterClearable ? (
-            <button class={`search__clear-btn ${this.titleFilterClearBtnClasses}`}
-                    type="button"
-                    onClick={this.clearTitleFilter} disabled={!this.titleFilter}>
-              <slot name="clear-title-filter-icon">&#10005;</slot>
+            <button class={`search__clear-btn ${this.titleFilterClearBtnClasses}`} type="button" onClick={() => this.clearTitleFilter} disabled={!this.titleFilter}>
+              <slot name="clear-title-filter-icon">✕</slot>
             </button>
           ) : null}
         </div>
