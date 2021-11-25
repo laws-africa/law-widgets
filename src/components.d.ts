@@ -130,6 +130,14 @@ export namespace Components {
          */
         "searchFilterInputClasses": string;
         /**
+          * Additional classes added to title filter button
+         */
+        "titleFilterClearBtnClasses": string;
+        /**
+          * If true, shows clear title filter button
+         */
+        "titleFilterClearable": boolean;
+        /**
           * Placeholder for search title filter
          */
         "titleFilterPlaceholder": string;
@@ -339,6 +347,14 @@ declare namespace LocalJSX {
           * Additional CSS classes added to the search filter input
          */
         "searchFilterInputClasses"?: string;
+        /**
+          * Additional classes added to title filter button
+         */
+        "titleFilterClearBtnClasses"?: string;
+        /**
+          * If true, shows clear title filter button
+         */
+        "titleFilterClearable"?: boolean;
         /**
           * Placeholder for search title filter
          */
