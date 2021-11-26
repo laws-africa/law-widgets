@@ -1,10 +1,10 @@
-@use "sass:meta";
 @import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
 
-la-akoma-ntoso {
-  @import "~indigo-web/scss/mixins/index";
-  @import "~indigo-web/scss/variables";
+@import "~indigo-web/scss/mixins/index";
+@import "~indigo-web/scss/variables";
+@import "structure";
 
+la-akoma-ntoso {
   display: block;
 
   &.flash-target {
@@ -18,20 +18,27 @@ la-akoma-ntoso {
     }
   }
 
-  &[frbr-country^="ke"] {
-    @include tradition-ke;
-  }
-
-  &[frbr-country^="na"] {
-    @include tradition-na;
-  }
-
-  &[frbr-country^="pl"] {
-    @include tradition-pl;
-  }
-
+  // basic styles
   @include core;
   @include coverpage;
   @include tables;
   @include utilities;
+
+  // traditions
+  &[frbr-country^="ke"] { @include tradition-ke; }
+  &[frbr-country^="na"] { @include tradition-na; }
+  &[frbr-country^="pl"] { @include tradition-pl; }
+
+  // structural markup
+  &.show-structure,
+  &.show-structure-hier { @include show-structure-hier; }
+
+  &.show-structure,
+  &.show-structure-block { @include show-structure-block; }
+
+  &.show-structure,
+  &.show-structure-inline { @include show-structure-inline; }
+
+  &.show-structure,
+  &.show-structure-subflow { @include show-structure-subflow; }
 }

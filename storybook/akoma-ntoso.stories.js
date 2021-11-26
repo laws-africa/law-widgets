@@ -18,6 +18,7 @@ const Template = props => html`
     .frbrNumber="${props.frbrNumber}"
     .frbrExpressionDate="${props.frbrExpressionDate}"
     .frbrLanguage="${props.frbrLanguage}"
+    .className=${props.class}
   >
     <div class="akn-remark">Lorem AKN Remark Content</div>
     <section class="akn-section" id="sec_5" data-eid="sec_5">
@@ -55,7 +56,8 @@ const Template = props => html`
                 </span>
                 <span class="akn-item" id="sec_5__hcontainer_1__list_1__item_a__list_1__item_ii" data-eid="sec_5__hcontainer_1__list_1__item_a__list_1__item_ii">
                   <span class="akn-num">(ii)</span>
-                  <span class="akn-p">a continued contravention of any provision of <a class="akn-ref" data-href="#sec_6" href="#sec_6">section 6</a>;</span>
+                  <span class="akn-p">a continued <abbr class="akn-abbr" title="foo">contravention</abbr> of any provision of <a class="akn-ref" data-href="#sec_6" href="#sec_6">section 6</a>;</span>
+                  <span class="akn-p">an <span class="akn-remark">[authorial note]</span>.</span>
                 </span>
               </span>
             </span>
@@ -125,4 +127,9 @@ Default.args = {};
 export const FrbrCountryNA = Template.bind({});
 FrbrCountryNA.args = {
   frbrCountry: 'na'
+};
+
+export const Structure = Template.bind({});
+Structure.args = {
+  class: 'show-structure',
 };

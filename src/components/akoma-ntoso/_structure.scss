@@ -1,0 +1,89 @@
+@mixin show-block-structure($colour, $name) {
+  position: relative;
+  padding-top: 1em;
+  border-left: 1px solid $colour;
+
+  &::before {
+    content: $name;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    // TODO: use color-yiq or equivalent from bootstrap
+    color: darken($colour, 20%);
+    background-color: $colour;
+
+    border-top-right-radius: 5px;
+    padding: 0px 4px;
+
+    font-family: sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+}
+
+@mixin show-inline-structure($colour, $name) {
+  background-color: rgba(red($colour), green($colour), blue($colour), 0.15);
+  position: relative;
+
+  &:hover::before {
+    content: $name;
+
+    // TODO: use color-yiq or equivalent from bootstrap
+    color: color-yiq($colour);
+    background-color: $colour;
+
+    position: absolute;
+    top: -14px;
+    left: 0px;
+
+    padding: 0px 4px;
+
+    font-family: sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+
+@mixin show-structure-hier {
+  .akn-article { @include show-block-structure(teal, 'article'); }
+  .akn-chapter { @include show-block-structure(green, 'chapter'); }
+  .akn-item { @include show-block-structure(pink, 'item'); }
+  .akn-paragraph { @include show-block-structure(yellow, 'para'); }
+  .akn-part { @include show-block-structure(purple, 'part'); }
+  .akn-subparagraph { @include show-block-structure(orange, 'subpara'); }
+  .akn-subpart { @include show-block-structure(cyan, 'subpart'); }
+  .akn-section { @include show-block-structure(orange, 'sec'); }
+  .akn-subsection { @include show-block-structure(purple, 'subsec'); }
+  .akn-hcontainer { @include show-block-structure(gray, 'hcontainer'); }
+  .akn-crossHeading { @include show-block-structure(gray, 'crossHeading'); }
+}
+
+@mixin show-structure-block {
+  .akn-blockList { @include show-block-structure(red, 'items'); }
+  .akn-preface { @include show-block-structure(indigo, 'preface'); }
+  .akn-preamble { @include show-block-structure(gray, 'preamble'); }
+  .akn-ul { @include show-block-structure(red, 'bullets'); }
+}
+
+@mixin show-structure-inline {
+  .akn-abbr {
+    @include show-inline-structure(red, 'abbr.');
+    &:hover::before {
+      content: "ABBR. - " attr(title);
+      text-transform: none;
+    }
+  }
+}
+
+@mixin show-structure-subflow {
+  .akn-authorialNote { @include show-block-structure(lightgray, 'footnote'); }
+  .akn-embeddedStructure { @include show-block-structure(green, 'quote'); }
+}
