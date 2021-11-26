@@ -104,7 +104,7 @@ describe('la-table-of-contents-controller', () => {
     await page.setContent(`<la-table-of-contents-controller hide-clear-title-filter-button></la-table-of-contents-controller>`);
     const input = await page.find('la-table-of-contents-controller .search__clear-btn');
     expect(input).toBe(null);
-  })
+  });
 
   it('should clear title filter input on click of clear filter button', async () => {
     const page = await newE2EPage();
@@ -120,6 +120,6 @@ describe('la-table-of-contents-controller', () => {
     const updatedInput = await page.find('la-table-of-contents-controller .search__input');
     const updatedInputValue = await updatedInput.getProperty('value');
 
-    expect(updatedInputValue).toBe('')
+    expect(updatedInputValue).toBe('');
   });
 });
