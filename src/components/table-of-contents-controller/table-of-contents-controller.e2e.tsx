@@ -16,9 +16,9 @@ describe('la-table-of-contents-controller', () => {
     expect(titleFilter).not.toBeNull();
   });
 
-  it('should append css classes to title filter search based on searchFilterInputClasses prop set', async () => {
+  it('should append css classes to title filter search based on titleFilterInputClasses prop set', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents-controller search-filter-input-classes='input-class'></la-table-of-contents-controller>`);
+    await page.setContent(`<la-table-of-contents-controller title-filter-input-classes='input-class'></la-table-of-contents-controller>`);
     const titleFilter = await page.find('la-table-of-contents-controller .search__input');
     expect(titleFilter.classList.contains('input-class')).toBe(true);
   });
@@ -97,5 +97,29 @@ describe('la-table-of-contents-controller', () => {
       const expanded = await item.getProperty('expanded');
       expect(expanded).toBe(true);
     }
+  });
+
+  it('should not render clear filter button if prop `hideClearTitleFilterButton` is set to true', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<la-table-of-contents-controller hide-clear-title-filter-button></la-table-of-contents-controller>`);
+    const input = await page.find('la-table-of-contents-controller .search__clear-btn');
+    expect(input).toBe(null);
+  });
+
+  it('should clear title filter input on click of clear filter button', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+            <la-table-of-contents-controller></la-table-of-contents-controller>`);
+    const input = await page.find('la-table-of-contents-controller .search__input');
+    await input.type('Foo');
+    const inputValue = await input.getProperty('value');
+    await page.waitForTimeout(300);
+    expect(inputValue).toBe('Foo');
+    const clearButton = await page.find('la-table-of-contents-controller button.search__clear-btn');
+    await clearButton.click();
+    const updatedInput = await page.find('la-table-of-contents-controller .search__input');
+    const updatedInputValue = await updatedInput.getProperty('value');
+
+    expect(updatedInputValue).toBe('');
   });
 });

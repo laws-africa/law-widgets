@@ -14,8 +14,10 @@ const Template = (props) =>
     .items='${items}'
     .expandAllBtnClasses=${props.expandAllBtnClasses}
     .collapseAllBtnClasses=${props.collapseAllBtnClasses}
-    .searchFilterInputClasses=${props.searchFilterInputClasses}
+    .titleFilterInputClasses=${props.titleFilterInputClasses}
     .titleFilterPlaceholder=${props.titleFilterPlaceholder}
+    .titleFilterClearable=${props.titleFilterClearable}
+    .titleFilterClearBtnClasses=${props.titleFilterClearBtnClasses}
   >`;
 
 export const Default = Template.bind({});
@@ -34,5 +36,24 @@ ExpandCollapseAllClasses.args = {
 
 export const SearchFilterClasses = Template.bind({});
 SearchFilterClasses.args = {
-  searchFilterInputClasses: 'custom-search-filter'
+  titleFilterInputClasses: 'custom-search-filter'
 };
+
+export const ClearSearchFilterButton = Template.bind({});
+ClearSearchFilterButton.args = {
+  titleFilterClearable: true,
+}
+
+export const CustomClearFilterButtonIcon = () => {
+  return html`<la-table-of-contents-controller .titleFilterClearable=${true} .items='${items}'>
+                  <span slot='clear-title-filter-icon'>
+                    ❌
+                  </span>
+              </la-table-of-contents-controller>`
+}
+
+export const ClearSearchFilterButtonWithClass = Template.bind({});
+ClearSearchFilterButtonWithClass.args = {
+  titleFilterClearable: true,
+  titleFilterClearBtnClasses: "clear-btn"
+}

@@ -1,0 +1,27 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "jquery": true
+  },
+  "extends": [
+    "standard"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "rules": {
+    "semi": [
+      "error",
+      "always"
+    ]
+  },
+  "globals": {
+    "it": true,
+    "describe": true,
+    "expect": true,
+    "jest": true
+  }
+}

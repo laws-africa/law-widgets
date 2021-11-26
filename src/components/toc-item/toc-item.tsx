@@ -1,9 +1,9 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-toc-item',
-  styleUrl: 'toc-item.scss'
+  styleUrl: 'toc-item.scss',
 })
 export class TocItem {
   /**
@@ -19,32 +19,58 @@ export class TocItem {
   /**
    * HTML displayed before item title
    * */
-  @Prop() prependHtml: string = "";
+  @Prop() prependHtml: string = '';
 
   /**
    * HTML displayed after item title
    * */
-  @Prop() appendHtml: string = "";
+  @Prop() appendHtml: string = '';
 
   /**
    * HTML displayed in toggle button when item is expanded
    * */
-  @Prop() expandIconHtml: string = "";
+  @Prop() expandIconHtml: string = '';
 
   /**
    * HTML displayed in toggle button when item is not expanded
    * */
-  @Prop() collapseIconHtml: string = "";
+  @Prop() collapseIconHtml: string = '';
 
   /**
    * If true, `item` `children`, and the collapsed icon are shown but expanded icon is hidden. If false, the `item`
    * `children` and collapsed icon are hidden but the expanded icon is show
    * */
-  @Prop({ reflect: true, mutable: true}) expanded: boolean = true;
+  @Prop({ reflect: true, mutable: true }) expanded: boolean = true;
 
-  toggle () {
+  root: HTMLElement | undefined;
+
+  toggle() {
     this.expanded = !this.expanded;
   }
+
+  @Event({
+    eventName: 'itemRendered',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  itemRendered!: EventEmitter;
+
+  @Event({
+    eventName: 'itemTitleClicked',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  itemTitleClicked!: EventEmitter;
+
+  componentDidRender() {
+    this.itemRendered.emit();
+  }
+
+  onItemTitleClick = () => {
+    this.itemTitleClicked.emit();
+  };
 
   render() {
     const isParent = !!(this.item.children && this.item.children.length);
@@ -55,13 +81,13 @@ export class TocItem {
         return this.collapseIconHtml ? <span innerHTML={this.collapseIconHtml}></span> : <span>▼</span>;
       }
       return this.expandIconHtml ? <span innerHTML={this.expandIconHtml}></span> : <span>▶</span>;
-    }
+    };
 
     return (
       <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
         <div class="indented">
           {isParent ? (
-            <button class="indented__toggle-btn" type="button" onClick={this.toggle.bind(this)}>
+            <button class="indented__toggle-btn" type="button" onClick={() => this.toggle()}>
               {renderToggleBtnInner()}
             </button>
           ) : null}
@@ -70,7 +96,7 @@ export class TocItem {
         <div class="content">
           <div class="content__action">
             {this.prependHtml ? <div class="content__action__prepend" innerHTML={this.prependHtml}></div> : null}
-            <a href={`#${this.item.id || ''}`} class="content__action__title">
+            <a href={`#${this.item.id || ''}`} class="content__action__title" onClick={this.onItemTitleClick}>
               {this.item.title}
             </a>
             {this.appendHtml ? <div class="content__action__append" innerHTML={this.appendHtml}></div> : null}
