@@ -19,9 +19,9 @@ export class TableOfContentsController {
   @Prop() titleFilterPlaceholder: string = 'Search the table of contents';
 
   /**
-   * If true, shows clear title filter button
+   * If true, hides clear title filter button
    */
-  @Prop() titleFilterClearable: boolean = true;
+  @Prop() hideClearTitleFilterButton: boolean = false;
 
   /**
    * Additional classes added to title filter button
@@ -65,6 +65,20 @@ export class TableOfContentsController {
   }
 
   render() {
+    const renderHideClearFilterButton = () => {
+      if(this.hideClearTitleFilterButton) {
+        return null;
+      }
+      return (
+        <button class={`search__clear-btn ${this.titleFilterClearBtnClasses}`}
+                type="button" onClick={() => this.clearTitleFilter()}
+                disabled={!this.titleFilter}
+        >
+          <slot name="clear-title-filter-icon">✕</slot>
+        </button>
+      )
+    }
+
     return (
       <Host>
         <div class="search">
@@ -74,11 +88,7 @@ export class TableOfContentsController {
             placeholder={this.titleFilterPlaceholder}
             onInput={e => this.handleTitleChange(e)}
           />
-          {this.titleFilterClearable ? (
-            <button class={`search__clear-btn ${this.titleFilterClearBtnClasses}`} type="button" onClick={() => this.clearTitleFilter()} disabled={!this.titleFilter}>
-              <slot name="clear-title-filter-icon">✕</slot>
-            </button>
-          ) : null}
+          {renderHideClearFilterButton()}
         </div>
         <div class="toggle">
           <button type="button" class={`toggle__expand-all-btn ${this.expandAllBtnClasses}`} onClick={() => this.expandAll()}>
