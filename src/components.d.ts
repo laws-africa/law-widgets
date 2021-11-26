@@ -122,6 +122,10 @@ export namespace Components {
          */
         "expandAllBtnClasses": string;
         /**
+          * If true, hides clear title filter button
+         */
+        "hideClearTitleFilterButton": boolean;
+        /**
           * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items": TOCItem[] | string;
@@ -129,10 +133,6 @@ export namespace Components {
           * Additional classes added to title filter button
          */
         "titleFilterClearBtnClasses": string;
-        /**
-          * If true, shows clear title filter button
-         */
-        "titleFilterClearable": boolean;
         /**
           * Additional CSS classes added to the search filter input
          */
@@ -340,6 +340,10 @@ declare namespace LocalJSX {
          */
         "expandAllBtnClasses"?: string;
         /**
+          * If true, hides clear title filter button
+         */
+        "hideClearTitleFilterButton"?: boolean;
+        /**
           * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items"?: TOCItem[] | string;
@@ -347,10 +351,6 @@ declare namespace LocalJSX {
           * Additional classes added to title filter button
          */
         "titleFilterClearBtnClasses"?: string;
-        /**
-          * If true, shows clear title filter button
-         */
-        "titleFilterClearable"?: boolean;
         /**
           * Additional CSS classes added to the search filter input
          */
