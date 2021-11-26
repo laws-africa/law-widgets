@@ -75,7 +75,7 @@ export class TableOfContentsController {
             onInput={e => this.handleTitleChange(e)}
           />
           {this.titleFilterClearable ? (
-            <button class={`search__clear-btn ${this.titleFilterClearBtnClasses}`} type="button" onClick={() => this.clearTitleFilter} disabled={!this.titleFilter}>
+            <button class={`search__clear-btn ${this.titleFilterClearBtnClasses}`} type="button" onClick={() => this.clearTitleFilter()} disabled={!this.titleFilter}>
               <slot name="clear-title-filter-icon">✕</slot>
             </button>
           ) : null}
