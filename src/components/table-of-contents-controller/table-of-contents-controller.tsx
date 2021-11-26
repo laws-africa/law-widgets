@@ -66,7 +66,7 @@ export class TableOfContentsController {
 
   render() {
     const renderHideClearFilterButton = () => {
-      if(this.hideClearTitleFilterButton) {
+      if (this.hideClearTitleFilterButton) {
         return null;
       }
       return (
@@ -76,8 +76,8 @@ export class TableOfContentsController {
         >
           <slot name="clear-title-filter-icon">✕</slot>
         </button>
-      )
-    }
+      );
+    };
 
     return (
       <Host>
