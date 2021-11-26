@@ -1,7 +1,7 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
-import { renameElement } from "../../utils/utils";
-import { getAkomaNtosoElement } from "../../utils/linking";
-import tippy, { Instance as Tippy } from "tippy.js";
+import { renameElement } from '../../utils/utils';
+import { getAkomaNtosoElement } from '../../utils/linking';
+import tippy, { Instance as Tippy } from 'tippy.js';
 
 @Component({
   tag: 'la-decorate-terms',
@@ -22,7 +22,7 @@ export class DecorateTerms {
    * to the containing la-akoma-ntoso element, if any, otherwise the first
    * `la-akoma-ntoso` element on the page.
    */
-    // TODO: should  we be watching this? What if it changes?
+  // TODO: should  we be watching this? What if it changes?
   @Prop() akomaNtoso?: string;
 
   /**
@@ -43,7 +43,7 @@ export class DecorateTerms {
     document.body.appendChild(this.tippyContainer);
   }
 
-  componentDidLoad() {
+  componentDidLoad () {
     if (this.akomaNtosoElement) {
       this.setupDefinitions();
 
