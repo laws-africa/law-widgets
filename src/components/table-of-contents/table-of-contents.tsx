@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
 
 /**
@@ -25,7 +26,6 @@ export class TableOfContents {
    * */
   @Prop() titleFilter: string = '';
 
-
   @State() filteredItems: Set<TOCItem> | null = null;
 
   @State() innerItems: TOCItem[] = []
@@ -33,15 +33,15 @@ export class TableOfContents {
   @Element() el!: HTMLElement;
 
   @Watch('items')
-  parseItemsProp(newValue: any) {
-    if(typeof newValue === 'string') {
+  parseItemsProp (newValue: any) {
+    if (typeof newValue === 'string') {
       this.innerItems = JSON.parse(newValue);
     } else if (Array.isArray(newValue)) {
       this.innerItems = [...newValue];
     }
   }
 
-  componentWillLoad() {
+  componentWillLoad () {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
   }
@@ -50,7 +50,7 @@ export class TableOfContents {
    * Expands all items
    */
   @Method()
-  async expandAll() {
+  async expandAll () {
     for (const item of this.el.querySelectorAll('la-toc-item')) {
       item.expanded = true;
     }
@@ -60,20 +60,20 @@ export class TableOfContents {
    * Collapses all items
    */
   @Method()
-  async collapseAll() {
+  async collapseAll () {
     for (const item of this.el.querySelectorAll('la-toc-item')) {
       item.expanded = false;
     }
   }
 
   @Watch('titleFilter')
-  titleFilterChanged(filter: string) {
+  titleFilterChanged (filter: string) {
     if (filter) {
       const needle = filter.toLocaleLowerCase().trim();
       const filteredItems: Set<TOCItem> = new Set<TOCItem>();
 
       // recursively include all children
-      function includeKids(item: TOCItem) {
+      function includeKids (item: TOCItem) {
         for (const child of item.children || []) {
           filteredItems.add(child);
           includeKids(child);
@@ -82,7 +82,7 @@ export class TableOfContents {
 
       // Recursive function that determines whether or not an item should be rendered.
       // An item is rendered if its title matches the filter, or any of its children should be rendered.
-      function shouldInclude(item: TOCItem): boolean {
+      function shouldInclude (item: TOCItem): boolean {
         // this will be true if this item matches the search, or any child does
         let include: boolean = (item.title?.toLocaleLowerCase() || '').includes(needle);
 
@@ -116,7 +116,7 @@ export class TableOfContents {
     this.expandAll();
   }
 
-  render() {
+  render () {
     const renderTOCItem = (item: TOCItem) => {
       const getSlotHTML = (selector: string) => {
         const element = this.el.querySelector(selector);
@@ -126,11 +126,11 @@ export class TableOfContents {
          * If slot originate from `la-table-of-contents-controller` query for slot html is
          * `this.el.querySelector("[slot] [slot]").innerHTML`
          * */
-        if(element?.querySelector(selector)) {
-          return element.querySelector(selector)?.innerHTML || "";
+        if (element?.querySelector(selector)) {
+          return element.querySelector(selector)?.innerHTML || '';
         }
-        return element?.innerHTML || "";
-      }
+        return element?.innerHTML || '';
+      };
 
       const prepend = getSlotHTML("[slot='prepend']");
       const append = getSlotHTML("[slot='append']");

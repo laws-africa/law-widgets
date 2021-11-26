@@ -1,9 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-toc-item',
-  styleUrl: 'toc-item.scss',
+  styleUrl: 'toc-item.scss'
 })
 export class TocItem {
   /**
@@ -44,7 +45,7 @@ export class TocItem {
 
   root: HTMLElement | undefined;
 
-  toggle() {
+  toggle () {
     this.expanded = !this.expanded;
   }
 
@@ -52,7 +53,7 @@ export class TocItem {
     eventName: 'itemRendered',
     composed: true,
     cancelable: true,
-    bubbles: true,
+    bubbles: true
   })
   itemRendered!: EventEmitter;
 
@@ -60,11 +61,11 @@ export class TocItem {
     eventName: 'itemTitleClicked',
     composed: true,
     cancelable: true,
-    bubbles: true,
+    bubbles: true
   })
   itemTitleClicked!: EventEmitter;
 
-  componentDidRender() {
+  componentDidRender () {
     this.itemRendered.emit();
   }
 
@@ -72,7 +73,7 @@ export class TocItem {
     this.itemTitleClicked.emit();
   };
 
-  render() {
+  render () {
     const isParent = !!(this.item.children && this.item.children.length);
     const showItem = !this.filteredItems || this.filteredItems.has(this.item);
 
@@ -86,11 +87,13 @@ export class TocItem {
     return (
       <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
         <div class="indented">
-          {isParent ? (
+          {isParent
+            ? (
             <button class="indented__toggle-btn" type="button" onClick={() => this.toggle()}>
               {renderToggleBtnInner()}
             </button>
-          ) : null}
+              )
+            : null}
         </div>
 
         <div class="content">
@@ -112,7 +115,7 @@ export class TocItem {
                     expandIconHtml={this.expandIconHtml}
                     collapseIconHtml={this.collapseIconHtml}
                   ></la-toc-item>
-                ))
+              ))
               : null}
           </div>
         </div>
