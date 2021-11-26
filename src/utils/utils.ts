@@ -1,4 +1,4 @@
-export function format(first: string, middle: string, last: string): string {
+export function format (first: string, middle: string, last: string): string {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
@@ -7,7 +7,7 @@ export function format(first: string, middle: string, last: string): string {
  * @param el
  * @param name
  */
-export function renameElement(el: Element, name: string): Element {
+export function renameElement (el: Element, name: string): Element {
   const newEl: HTMLElement = document.createElement(name);
 
   for (let i = 0; i < el.attributes.length; i++) {
