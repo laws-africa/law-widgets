@@ -8,10 +8,20 @@
     "standard"
   ],
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaVersion": 11,
     "sourceType": "module"
   },
   "rules": {
-    "semi": ["error", "always"]
+    "semi": [
+      "error",
+      "always"
+    ]
+  },
+  "globals": {
+    "it": true,
+    "describe": true,
+    "expect": true,
+    "jest": true
   }
 }
