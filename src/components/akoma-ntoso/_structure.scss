@@ -1,3 +1,65 @@
+// AKN hierarchical elements
+$akn-elements-hier: (
+  "alinea", "article", "book", "chapter", "clause", "division", "indent", "level", "list", "paragraph", "part", "point",
+  "proviso", "rule", "section", "subchapter", "subclause", "subdivision", "sublist", "subparagraph", "subpart",
+  "subrule", "subsection", "subtitle", "title", "tome", "transitional",
+  // semi-hierarchical
+  "crossHeading");
+
+// AKN block and block-like elements
+// TODO: add more
+$akn-elements-block: (
+  "blockList", "item", "preamble", "preface", "ul"
+);
+
+// AKN inline elements
+$akn-elements-inline: (
+  "abbr", "remark"
+);
+
+// AKN subflow elements
+$akn-elements-subflow: (
+  "authorialNote", "embeddedStructure"
+);
+
+// Display names for AKN elements, possibly abbreviated
+$akn-element-names: (
+  "abbr": "abbr",
+  "alinea": "alinea",
+  "article": "article",
+  "authorialNote": "footnote",
+  "blockList": "items",
+  "book": "book",
+  "chapter": "chapter",
+  "clause": "clause",
+  "crossHeading": "crossHeading",
+  "division": "division",
+  "embeddedStructure": "quote",
+  "indent": "indent",
+  "level": "level",
+  "list": "list",
+  "paragraph": "para",
+  "part": "part",
+  "point": "point",
+  "proviso": "proviso",
+  "remark": "remark",
+  "rule": "rule",
+  "section": "sec",
+  "subchapter": "subchapter",
+  "subclause": "subclause",
+  "subdivision": "subdivision",
+  "sublist": "sublist",
+  "subparagraph": "subpara",
+  "subpart": "subpart",
+  "subrule": "subrule",
+  "subsection": "subsection",
+  "subtitle": "subtitle",
+  "title": "title",
+  "tome": "tome",
+  "transitional": "transitional",
+  "ul": "bullets",
+);
+
 @mixin show-block-structure($colour, $name) {
   position: relative;
   padding-top: 1em;
@@ -11,7 +73,7 @@
     left: 0px;
 
     // TODO: use color-yiq or equivalent from bootstrap
-    color: darken($colour, 20%);
+    color: black;
     background-color: $colour;
 
     border-top-right-radius: 5px;
@@ -51,39 +113,41 @@
   }
 }
 
-
 @mixin show-structure-hier {
-  .akn-article { @include show-block-structure(teal, 'article'); }
-  .akn-chapter { @include show-block-structure(green, 'chapter'); }
-  .akn-item { @include show-block-structure(pink, 'item'); }
-  .akn-paragraph { @include show-block-structure(yellow, 'para'); }
-  .akn-part { @include show-block-structure(purple, 'part'); }
-  .akn-subparagraph { @include show-block-structure(orange, 'subpara'); }
-  .akn-subpart { @include show-block-structure(cyan, 'subpart'); }
-  .akn-section { @include show-block-structure(orange, 'sec'); }
-  .akn-subsection { @include show-block-structure(purple, 'subsec'); }
-  .akn-hcontainer { @include show-block-structure(gray, 'hcontainer'); }
-  .akn-crossHeading { @include show-block-structure(gray, 'crossHeading'); }
+  @each $elem in $akn-elements-hier {
+    .akn-#{$elem} {
+      @include show-block-structure(blue, map-get($akn-element-names, $elem));
+    }
+  }
 }
 
 @mixin show-structure-block {
-  .akn-blockList { @include show-block-structure(red, 'items'); }
-  .akn-preface { @include show-block-structure(indigo, 'preface'); }
-  .akn-preamble { @include show-block-structure(gray, 'preamble'); }
-  .akn-ul { @include show-block-structure(red, 'bullets'); }
+  @each $elem in $akn-elements-block {
+    .akn-#{$elem} {
+      @include show-block-structure(red, map-get($akn-element-names, $elem));
+    }
+  }
 }
 
 @mixin show-structure-inline {
+  @each $elem in $akn-elements-inline {
+    .akn-#{$elem} {
+      @include show-inline-structure(pink, map-get($akn-element-names, $elem));
+    }
+  }
+
   .akn-abbr {
-    @include show-inline-structure(red, 'abbr.');
     &:hover::before {
-      content: "ABBR. - " attr(title);
+      content: "#{to-upper-case(map-get($akn-element-names, 'abbr'))} - " attr(title);
       text-transform: none;
     }
   }
 }
 
 @mixin show-structure-subflow {
-  .akn-authorialNote { @include show-block-structure(lightgray, 'footnote'); }
-  .akn-embeddedStructure { @include show-block-structure(green, 'quote'); }
+  @each $elem in $akn-elements-subflow {
+    .akn-#{$elem} {
+      @include show-block-structure(green, map-get($akn-element-names, $elem));
+    }
+  }
 }
