@@ -1,6 +1,6 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
-import { getAkomaNtosoElement } from "../../utils/linking";
-import tippy, { Instance as Tippy } from "tippy.js";
+import { getAkomaNtosoElement } from '../../utils/linking';
+import tippy, { Instance as Tippy } from 'tippy.js';
 
 @Component({
   tag: 'la-decorate-internal-refs',
@@ -20,7 +20,7 @@ export class DecorateInternalRefs {
    * to the containing la-akoma-ntoso element, if any, otherwise the first
    * `la-akoma-ntoso` element on the page.
    */
-    // TODO: should we be watching this? What if it changes?
+  // TODO: should we be watching this? What if it changes?
   @Prop() akomaNtoso?: string;
 
   /**
@@ -41,20 +41,20 @@ export class DecorateInternalRefs {
     document.body.appendChild(this.tippyContainer);
   }
 
-  componentDidLoad() {
+  componentDidLoad () {
     this.changeFlag(this.flag);
     this.changePopups(this.popups);
   }
 
   @Watch('flag')
-  changeFlag(flag: boolean) {
+  changeFlag (flag: boolean) {
     if (this.akomaNtosoElement) {
       this.akomaNtosoElement.classList.toggle('flag-internal-refs', flag);
     }
   }
 
   @Watch('popups')
-  changePopups(popups: boolean) {
+  changePopups (popups: boolean) {
     // remove existing popups
     for (const tippy of this.tippies) {
       tippy.destroy();

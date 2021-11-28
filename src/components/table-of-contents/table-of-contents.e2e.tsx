@@ -10,7 +10,7 @@ const onlyShowsCertainItem = (items: any[], itemToShowIndex: number) => {
 describe('la-table-of-contents', () => {
   it('should render', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents></la-table-of-contents>`);
+    await page.setContent('<la-table-of-contents></la-table-of-contents>');
     const component = await page.find('la-table-of-contents');
     expect(component).not.toBeNull();
   });
@@ -150,7 +150,7 @@ describe('la-table-of-contents', () => {
       `<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'>
                 <span slot='prepend'>Prepend</span>
                 <span slot='append'>Append</span>
-              </la-table-of-contents>`,
+              </la-table-of-contents>`
     );
     const expandedItems = await page.findAll('la-table-of-contents la-toc-item');
     for (const item of expandedItems) {

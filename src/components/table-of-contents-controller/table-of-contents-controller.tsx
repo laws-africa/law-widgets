@@ -1,10 +1,11 @@
+// eslint-disable-next-line no-unused-vars
 import { Component, Prop, h, Host, State, Element } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
 import debounce from 'lodash/debounce';
 
 @Component({
   tag: 'la-table-of-contents-controller',
-  styleUrl: 'table-of-contents-controller.scss',
+  styleUrl: 'table-of-contents-controller.scss'
 })
 export class TableOfContentsController {
   /**
@@ -50,21 +51,21 @@ export class TableOfContentsController {
     this.titleFilter = (e.target as HTMLInputElement).value;
   }, 300);
 
-  clearTitleFilter() {
+  clearTitleFilter () {
     this.titleFilter = '';
   }
 
-  async expandAll() {
+  async expandAll () {
     const tocElement = this.el.querySelector('la-table-of-contents');
     tocElement?.expandAll();
   }
 
-  async collapseAll() {
+  async collapseAll () {
     const tocElement = this.el.querySelector('la-table-of-contents');
     tocElement?.collapseAll();
   }
 
-  render() {
+  render () {
     const renderHideClearFilterButton = () => {
       if (this.hideClearTitleFilterButton) {
         return null;
