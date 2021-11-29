@@ -1,0 +1,48 @@
+// AKN inline elements
+$akn-elements-inline: (
+  "abbr", "remark"
+);
+
+// AKN subflow elements
+$akn-elements-subflow: (
+  "authorialNote", "embeddedStructure"
+);
+
+// Display names for AKN elements, possibly abbreviated
+$akn-element-names: (
+  "abbr": "abbr",
+  "alinea": "alinea",
+  "article": "article",
+  "authorialNote": "footnote",
+  "blockList": "items",
+  "book": "book",
+  "chapter": "chapter",
+  "clause": "clause",
+  "crossHeading": "crossHeading",
+  "division": "division",
+  "embeddedStructure": "quote",
+  "indent": "indent",
+  "level": "level",
+  "list": "list",
+  "paragraph": "para",
+  "part": "part",
+  "point": "point",
+  "proviso": "proviso",
+  "remark": "remark",
+  "rule": "rule",
+  "section": "sec",
+  "subchapter": "subchapter",
+  "subclause": "subclause",
+  "subdivision": "subdivision",
+  "sublist": "sublist",
+  "subparagraph": "subpara",
+  "subpart": "subpart",
+  "subrule": "subrule",
+  "subsection": "subsection",
+  "subtitle": "subtitle",
+  "title": "title",
+  "tome": "tome",
+  "transitional": "transitional",
+  "ul": "bullets",
+);
+
