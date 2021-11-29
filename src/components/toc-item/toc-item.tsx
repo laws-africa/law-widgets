@@ -69,8 +69,8 @@ export class TocItem {
     this.itemRendered.emit();
   }
 
-  onItemTitleClick = () => {
-    this.itemTitleClicked.emit();
+  onItemTitleClick = (e: any) => {
+    this.itemTitleClicked.emit(e);
   };
 
   render () {
