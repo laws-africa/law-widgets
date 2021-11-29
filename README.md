@@ -28,7 +28,7 @@ There are three methods for using these web components:
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
-- Run `npm install @lawsafrica/la-web-components --save`
+- Run `npm install @laws-africa/la-components --save`
 - Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/la-web-component/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
