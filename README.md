@@ -28,13 +28,13 @@ There are three methods for using these web components:
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
-- Run `npm install @laws-africa/la-components --save`
-- Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/la-web-component/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Run `npm install @laws-africa/web-components --save`
+- Put a script tag similar to this `<script type="module" src="node_modules/@laws-africa/web-components/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
-- Run `npm install @lawsafrica/la-web-components --save`
-- Add an import to the npm packages `import la-web-components;`
+- Run `npm install @laws-africa/web-components --save`
+- Add an import to the npm packages `import @laws-africa;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
 # Development
