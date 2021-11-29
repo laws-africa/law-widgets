@@ -1,6 +1,7 @@
 {
   "name": "la-web-components",
-  "version": "0.3.0-beta",
+  "author": "Greg Kempe <greg@laws.africa>",
+  "version": "0.4.0-beta",
   "description": "Laws.Africa Web Components",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
@@ -58,5 +59,13 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
   },
-  "license": "LGPL-3.0-or-later"
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://github.com/laws-africa/la-web-components#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laws-africa/la-web-components.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
