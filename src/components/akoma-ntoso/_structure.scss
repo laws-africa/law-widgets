@@ -26,14 +26,14 @@
 }
 
 @mixin show-inline-structure($colour, $name) {
-  background-color: rgba(red($colour), green($colour), blue($colour), 0.15);
+  background-color: rgba(red($colour), green($colour), blue($colour), 0.4);
   position: relative;
 
   &:hover::before {
     content: $name;
 
     // TODO: use color-yiq or equivalent from bootstrap
-    color: color-yiq($colour);
+    color: black;
     background-color: $colour;
 
     position: absolute;
@@ -55,23 +55,25 @@
   @for $i from 1 through length($akn-elements-hier) {
     $elem: nth($akn-elements-hier, $i);
     .akn-#{$elem} {
-      @include show-block-structure(adjust-hue(#EF9A9A, $i * 10deg), map-get($akn-element-names, $elem));
+      @include show-block-structure(adjust-hue($akn-structure-hier-start-colour, $i * 10deg), map-get($akn-element-names, $elem));
     }
   }
 }
 
 @mixin show-structure-block {
-  @each $elem in $akn-elements-block {
+  @for $i from 1 through length($akn-elements-block) {
+    $elem: nth($akn-elements-block, $i);
     .akn-#{$elem} {
-      @include show-block-structure(red, map-get($akn-element-names, $elem));
+      @include show-block-structure(adjust-hue($akn-structure-block-start-colour, $i * 10deg), map-get($akn-element-names, $elem));
     }
   }
 }
 
 @mixin show-structure-inline {
-  @each $elem in $akn-elements-inline {
+  @for $i from 1 through length($akn-elements-inline) {
+    $elem: nth($akn-elements-inline, $i);
     .akn-#{$elem} {
-      @include show-inline-structure(pink, map-get($akn-element-names, $elem));
+      @include show-inline-structure(adjust-hue($akn-structure-inline-start-colour, $i * 10deg), map-get($akn-element-names, $elem));
     }
   }
 
@@ -84,9 +86,10 @@
 }
 
 @mixin show-structure-subflow {
-  @each $elem in $akn-elements-subflow {
+  @for $i from 1 through length($akn-elements-subflow) {
+    $elem: nth($akn-elements-subflow, $i);
     .akn-#{$elem} {
-      @include show-block-structure(green, map-get($akn-element-names, $elem));
+      @include show-block-structure(adjust-hue($akn-structure-subflow-start-colour, $i * 60deg), map-get($akn-element-names, $elem));
     }
   }
 }

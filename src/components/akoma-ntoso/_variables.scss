@@ -22,11 +22,14 @@ $akn-element-names: (
   "division": "division",
   "embeddedStructure": "quote",
   "indent": "indent",
+  "item": "item",
   "level": "level",
   "list": "list",
   "paragraph": "para",
   "part": "part",
   "point": "point",
+  "preamble": "preamble",
+  "preface": "preface",
   "proviso": "proviso",
   "remark": "remark",
   "rule": "rule",
@@ -46,3 +49,7 @@ $akn-element-names: (
   "ul": "bullets",
 );
 
+$akn-structure-hier-start-colour: #EF9A9A;
+$akn-structure-block-start-colour: adjust-hue($akn-structure-hier-start-colour, 55deg);
+$akn-structure-inline-start-colour: adjust-hue($akn-structure-hier-start-colour, 105deg);
+$akn-structure-subflow-start-colour: adjust-hue($akn-structure-hier-start-colour, 25deg);
