@@ -1,6 +1,17 @@
+@function yiq-is-light($color, $threshold: 190) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+
+  $yiq: (($red*299) + ($green*587) + ($blue*114)) / 1000;
+
+  @return if($yiq >= $threshold, true, false);
+}
+
 @mixin show-block-structure($colour, $name) {
   position: relative;
   padding-top: 1em;
+  padding-left: 1px;
   border-left: 1px solid $colour;
 
   &::before {
@@ -10,8 +21,7 @@
     top: 0px;
     left: 0px;
 
-    // TODO: use color-yiq or equivalent from bootstrap
-    color: black;
+    color: if(yiq-is-light($colour), black, white);
     background-color: $colour;
 
     border-top-right-radius: 5px;
@@ -32,12 +42,11 @@
   &:hover::before {
     content: $name;
 
-    // TODO: use color-yiq or equivalent from bootstrap
-    color: black;
+    color: if(yiq-is-light($colour), black, white);
     background-color: $colour;
 
     position: absolute;
-    top: -14px;
+    top: -1.4em;
     left: 0px;
 
     padding: 0px 4px;
