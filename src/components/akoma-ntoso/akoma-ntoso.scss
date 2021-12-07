@@ -22,6 +22,11 @@ la-akoma-ntoso {
   // all AKN styling from indigo-web
   @include indigo-web;
 
+  // traditions
+  &[frbr-country^="ke"] { @include tradition-ke; }
+  &[frbr-country^="na"] { @include tradition-na; }
+  &[frbr-country^="pl"] { @include tradition-pl; }
+
   // structural markup
   &.show-structure,
   &.show-structure-hier { @include show-structure-hier; }
