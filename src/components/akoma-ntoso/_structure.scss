@@ -10,9 +10,9 @@
 
 @mixin show-block-structure($colour, $name) {
   position: relative;
-  padding-top: 1em;
-  padding-left: 1px;
-  border-left: 1px solid $colour;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid $colour;
 
   &::before {
     content: $name;
@@ -49,6 +49,7 @@
     top: -1.4em;
     left: 0px;
 
+    border-top-right-radius: 5px;
     padding: 0px 4px;
 
     font-family: sans-serif;
