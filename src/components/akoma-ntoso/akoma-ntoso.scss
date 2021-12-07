@@ -34,4 +34,7 @@ la-akoma-ntoso {
 
   &.show-structure,
   &.show-structure-subflow { @include show-structure-subflow; }
+
+  &.show-structure,
+  &.show-structure-doc-container { @include show-structure-doc-container; }
 }
