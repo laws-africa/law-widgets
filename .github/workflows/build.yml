@@ -1,0 +1,38 @@
+name: Compile and push to dist branch
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Push
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Install all dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Build storybook
+        run: npm run build-storybook
+
+      - name: Push
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: 'dist --force'
+          message: 'Add built artefacts'
+          push: 'origin HEAD:dist --force'
+
+      - name: Publish Storybook
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: storybook-static/
+          SINGLE_COMMIT: true
