@@ -98,6 +98,10 @@
       }
     }
   }
+
+  .akn--table-container {
+    @include show-block-structure($akn-structure-block-start-colour, map-get($akn-element-names, "table"));
+  }
 }
 
 @mixin show-structure-inline {
