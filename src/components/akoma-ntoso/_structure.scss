@@ -69,6 +69,11 @@
     }
   }
 
+  // include hcontainer name if not "hcontainer"
+  .akn-hcontainer:not([data-name="hcontainer"])::before {
+    content: "#{to-upper-case(map-get($akn-element-names, 'hcontainer'))} - " attr(data-name) !important;
+  }
+
   // HACK
   // we indent these numbered elements using padding, and so we need to take into account their existing
   // padding when adding the structure-derived padding
