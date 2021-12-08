@@ -71,12 +71,12 @@ describe('la-akoma-ntoso', () => {
       await page.waitForChanges();
       expect(page.rootInstance.frbrNumber).toBe('dogs');
     });
-    it('should have attribute frbr-expression-date to equal `@2010-02-03`', async () => {
+    it('should have attribute frbr-expression-date to equal `2010-02-03`', async () => {
       const page = await createAknPage();
       const component = createComponentWithUri(page);
       page.root?.appendChild(component);
       await page.waitForChanges();
-      expect(page.rootInstance.frbrExpressionDate).toBe('@2010-02-03');
+      expect(page.rootInstance.frbrExpressionDate).toBe('2010-02-03');
     });
 
     it('should have attribute frbr-language to equal `eng`', async () => {

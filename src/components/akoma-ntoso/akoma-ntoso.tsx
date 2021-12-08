@@ -73,7 +73,10 @@ export class AkomaNtoso {
               if (!this.frbrNumber) this.frbrNumber = output.groups[key];
               break;
             case 'expression_date':
-              if (!this.frbrExpressionDate) this.frbrExpressionDate = output.groups[key];
+              if (!this.frbrExpressionDate) {
+                this.frbrExpressionDate = output.groups[key].replace('@', '')
+                  .replace(':', '')
+              }
               break;
             case 'language':
               if (!this.frbrLanguage) this.frbrLanguage = output.groups[key];
