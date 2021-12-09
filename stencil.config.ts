@@ -8,21 +8,27 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist-custom-elements',
-      autoDefineCustomElements: true,
+      autoDefineCustomElements: true
     },
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      copy: [
+        {
+          src: 'components/*/*.scss',
+          dest: 'components-sass-files'
+        }
+      ]
     },
     {
-      type: 'dist-custom-elements-bundle',
+      type: 'dist-custom-elements-bundle'
     },
     {
-      type: 'docs-readme',
+      type: 'docs-readme'
     },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
-    },
-  ],
+      serviceWorker: null // disable service workers
+    }
+  ]
 };
