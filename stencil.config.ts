@@ -3,7 +3,9 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'la-web-components',
-  plugins: [sass()],
+  plugins: [sass({
+    includePaths: ['./node_modules']
+  })],
   buildEs5: 'prod',
   outputTargets: [
     {
