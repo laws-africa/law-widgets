@@ -16,7 +16,7 @@ export const config: Config = {
       copy: [
         {
           src: 'components/*/*.scss',
-          dest: 'components-sass-files'
+          dest: '../../scss'
         }
       ]
     },
