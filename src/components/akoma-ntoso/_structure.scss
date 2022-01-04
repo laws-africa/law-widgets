@@ -11,7 +11,7 @@
 @mixin show-block-structure($colour, $name) {
   position: relative;
   padding-top: 1.2em;
-  padding-left: 3px;
+  padding-left: $akn-structure-spacing;
   border-left: 2px solid $colour;
 
   &::before {
@@ -68,6 +68,24 @@
       @include show-block-structure(adjust-hue($akn-structure-hier-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
     }
   }
+
+  // include hcontainer name if not "hcontainer"
+  .akn-hcontainer:not([data-name="hcontainer"])::before {
+    content: "#{to-upper-case(map-get($akn-element-names, 'hcontainer'))} - " attr(data-name) !important;
+  }
+
+  // HACK
+  // we indent these numbered elements using padding, and so we need to take into account their existing
+  // padding when adding the structure-derived padding
+  .akn-subsection,
+  .akn-paragraph,
+  .akn-subparagraph,
+  .akn-blockList > .akn-item {
+    // to complicate matters further, the hier element should actually NOT have padding if it has .akn--no-indent
+    &:not(.akn--no-indent) {
+      padding-left: calc($akn-para-indent + $akn-structure-spacing);
+    }
+  }
 }
 
 @mixin show-structure-block {
@@ -79,6 +97,10 @@
         @include show-block-structure(adjust-hue($akn-structure-block-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
       }
     }
+  }
+
+  .akn--table-container {
+    @include show-block-structure($akn-structure-block-start-colour, map-get($akn-element-names, "table"));
   }
 }
 

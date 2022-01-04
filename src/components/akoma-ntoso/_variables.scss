@@ -46,6 +46,7 @@ $akn-element-names: (
   "subrule": "subrule",
   "subsection": "subsection",
   "subtitle": "subtitle",
+  "table": "table",
   "title": "title",
   "tome": "tome",
   "transitional": "transitional",
@@ -57,3 +58,4 @@ $akn-structure-block-start-colour: adjust-hue($akn-structure-hier-start-colour, 
 $akn-structure-inline-start-colour: adjust-hue($akn-structure-hier-start-colour, 105deg);
 $akn-structure-subflow-start-colour: adjust-hue($akn-structure-hier-start-colour, 25deg);
 $akn-structure-doc-container-start-colour: adjust-hue($akn-structure-hier-start-colour, 35deg);
+$akn-structure-spacing: 3px;
