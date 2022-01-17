@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build and Push
+    concurrency:
+      group: la-web-components
+      cancel-in-progress: true
     steps:
       - name: git-checkout
         uses: actions/checkout@v2
