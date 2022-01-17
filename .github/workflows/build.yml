@@ -1,4 +1,4 @@
-name: Compile and push to dist branch
+name: Compile and commit to dist
 
 on:
   push:
@@ -12,8 +12,9 @@ jobs:
     steps:
       - name: git-checkout
         uses: actions/checkout@v2
-        # use a token that has admin perms to bypass direct commits to master
-        token: ${{ secrets.LA_ACTIONS_TOKEN }}
+        with:
+          # use a token that has admin perms to bypass direct commits to master
+          token: ${{ secrets.LA_ACTIONS_TOKEN }}
 
       - name: Install all dependencies
         run: npm ci
