@@ -92,9 +92,9 @@ npm test
 # Releasing a new version
 
 1. Update the version number: `npm version --no-git-tag-version <version>`
-2. Commit and push to GitHub on the master branch
-3. GitHub will build the package into the `dist` branch
-4. Tag and release using GitHub off of the `dist` branch
+2. Commit and push to GitHub using a Pull Request onto the master branch
+3. GitHub will build the package and update the `dist` directory
+4. [Tag and release using GitHub](https://github.com/laws-africa/la-web-components/releases/new) off of the `master` branch
 5. GitHub will release a new version of the built package to GitHub packages
 
 # Copyright and license
