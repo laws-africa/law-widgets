@@ -27,7 +27,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@stencil/core": "^2.7.0",
+    "@stencil/core": "^2.13.0",
     "@stencil/sass": "^1.5.0",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.4.0",
