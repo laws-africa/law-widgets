@@ -135,7 +135,7 @@ export class GutterLayout {
 
   getItemAnchor (item: HTMLLaGutterItemElement): HTMLElement | null {
     if (item.anchor) {
-      return this.root.querySelector(item.anchor);
+      return item.anchor instanceof HTMLElement ? item.anchor : this.root.querySelector(item.anchor);
     }
     return null;
   }
