@@ -1,6 +1,6 @@
-export function getAkomaNtosoElement (component: Element, selector?: string): HTMLElement | null {
+export function getAkomaNtosoElement (component: Element, selector?: string | HTMLElement): HTMLElement | null {
   if (selector) {
-    return component.ownerDocument.querySelector(selector);
+    return selector instanceof HTMLElement ? selector : component.ownerDocument.querySelector(selector);
   }
 
   // try the nearest ancestor
