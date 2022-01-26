@@ -1,6 +1,6 @@
 import { Component, Element, Prop, Listen, Method } from '@stencil/core';
-import { getAkomaNtosoElement } from "../../utils/linking";
-import { GutterLayout } from "./layout";
+import { getAkomaNtosoElement } from '../../utils/linking';
+import { GutterLayout } from './layout';
 import debounce from 'lodash/debounce';
 
 @Component({
@@ -20,16 +20,16 @@ export class Gutter {
   protected queueLayout: any;
 
   /**
-   * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults
+   * CSS selector or HTMLElement for the la-akoma-ntoso element that will be decorated. Defaults
    * to the containing la-akoma-ntoso element, if any, otherwise the first
    * `la-akoma-ntoso` element on the page.
    */
-    // TODO: should  we be watching this? What if it changes?
-  @Prop() akomaNtoso?: string;
+  // TODO: should  we be watching this? What if it changes?
+  @Prop() akomaNtoso?: string | HTMLElement;
 
   @Element() el!: HTMLElement;
 
-  componentWillLoad() {
+  componentWillLoad () {
     // TODO: watch for changes to the akn content?
     this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
 
@@ -41,12 +41,12 @@ export class Gutter {
     this.mutationObserver.observe(this.el, { childList: true });
   }
 
-  componentDidLoad() {
+  componentDidLoad () {
     this.setupLayout();
     this.layoutItems();
   }
 
-  disconnectedCallback() {
+  disconnectedCallback () {
     if (this.mutationObserver) {
       this.mutationObserver.disconnect();
     }
@@ -57,7 +57,7 @@ export class Gutter {
   }
 
   @Listen('laItemChanged')
-  itemChanged(event: CustomEvent) {
+  itemChanged (event: CustomEvent) {
     const target: HTMLLaGutterItemElement | null = event.target as HTMLLaGutterItemElement;
     if (target && target.active) {
       // set all other items inactive. if there was a previously active item, this change will
@@ -68,7 +68,7 @@ export class Gutter {
   }
 
   @Listen('click')
-  clicked(event: MouseEvent) {
+  clicked (event: MouseEvent) {
     // a click in the gutter, outside of an item, deactivates all items
     const target: HTMLElement | null = event.target as HTMLElement;
     if (target && !target.closest('la-gutter-item')) {
@@ -81,7 +81,7 @@ export class Gutter {
   /**
    * Ensure all items except this one are set as inactive.
    */
-  setOtherItemsInactive(activeItem: HTMLLaGutterItemElement) {
+  setOtherItemsInactive (activeItem: HTMLLaGutterItemElement) {
     for (const item of this.items()) {
       if (item != activeItem) {
         item.active = false;
@@ -89,7 +89,7 @@ export class Gutter {
     }
   }
 
-  setupLayout() {
+  setupLayout () {
     if (this.akomaNtosoElement) {
       this.layout = new GutterLayout(this.akomaNtosoElement);
 
@@ -107,13 +107,13 @@ export class Gutter {
    * Layout the gutter items.
    */
   @Method()
-  async layoutItems() {
+  async layoutItems () {
     if (this.layout) {
       this.layout.layout([...this.items()]);
     }
   }
 
-  items(): NodeListOf<HTMLLaGutterItemElement> {
+  items (): NodeListOf<HTMLLaGutterItemElement> {
     return this.el.querySelectorAll('la-gutter-item');
   }
 }
