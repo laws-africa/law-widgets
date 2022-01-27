@@ -25,6 +25,11 @@ export class GutterItem {
     this.laItemChanged.emit();
   }
 
+  @Watch('anchor')
+  anchorChanged () {
+    this.laItemChanged.emit();
+  }
+
   @Listen('click')
   onClick () {
     this.active = true;
