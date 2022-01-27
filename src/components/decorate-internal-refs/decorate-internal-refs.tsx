@@ -16,12 +16,12 @@ export class DecorateInternalRefs {
   @Element() el!: HTMLElement;
 
   /**
-   * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults
+   * CSS selector for the la-akoma-ntoso element or HTMLELement that will be decorated. Defaults
    * to the containing la-akoma-ntoso element, if any, otherwise the first
    * `la-akoma-ntoso` element on the page.
    */
   // TODO: should we be watching this? What if it changes?
-  @Prop() akomaNtoso?: string;
+  @Prop() akomaNtoso?: string | HTMLElement;
 
   /**
    * If `true`, the content of internal ref targets will be shown as popups.
