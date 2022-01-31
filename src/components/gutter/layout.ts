@@ -21,7 +21,7 @@ export class GutterLayout {
   }
 
   layout (items: HTMLLaGutterItemElement[]) {
-    this.updateAnchors(items);
+    this.updateAnchorsAndItems(items);
 
     // pre-calculate tops
     this.updateTops(items);
@@ -122,7 +122,7 @@ export class GutterLayout {
     }
   }
 
-  updateAnchors (items: HTMLLaGutterItemElement[]) {
+  updateAnchorsAndItems (items: HTMLLaGutterItemElement[]) {
     this.anchors = new WeakMap();
 
     for (const item of items) {
@@ -130,12 +130,17 @@ export class GutterLayout {
       if (anchor) {
         this.anchors.set(item, anchor);
       }
+      item.style.display = anchor ? 'block' : 'none';
     }
   }
 
   getItemAnchor (item: HTMLLaGutterItemElement): HTMLElement | null {
     if (item.anchor) {
-      return this.root.querySelector(item.anchor);
+      if (item.anchor instanceof HTMLElement) {
+        return this.root.contains(item.anchor) ? item.anchor : null;
+      } else {
+        return this.root.querySelector(item.anchor);
+      }
     }
     return null;
   }

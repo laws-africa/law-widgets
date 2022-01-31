@@ -34,11 +34,11 @@ Alternatively place it elsewhere and provide a selector to identify the `<la-ako
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                                                                                                              | Type                  | Default     |
-| ------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `akomaNtoso` | `akoma-ntoso` | CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page. | `string \| undefined` | `undefined` |
-| `flag`       | `flag`        | If `true`, internal refs will be flagged with in icon to be more visible.                                                                                                                | `boolean`             | `false`     |
-| `popups`     | `popups`      | If `true`, the content of internal ref targets will be shown as popups.                                                                                                                  | `boolean`             | `false`     |
+| Property     | Attribute     | Description                                                                                                                                                                                             | Type                                 | Default     |
+| ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| `akomaNtoso` | `akoma-ntoso` | CSS selector for the la-akoma-ntoso element or HTMLELement that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page. | `HTMLElement \| string \| undefined` | `undefined` |
+| `flag`       | `flag`        | If `true`, internal refs will be flagged with in icon to be more visible.                                                                                                                               | `boolean`                            | `false`     |
+| `popups`     | `popups`      | If `true`, the content of internal ref targets will be shown as popups.                                                                                                                                 | `boolean`                            | `false`     |
 
 
 ----------------------------------------------
