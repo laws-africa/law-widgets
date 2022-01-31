@@ -93,6 +93,10 @@ export namespace Components {
           * CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element.
          */
         "anchor"?: string | HTMLElement;
+        /**
+          * Indicates if item has corresponding anchor element in akoma-ntoso.
+         */
+        "noAnchorFound": boolean;
     }
     interface LaTableOfContents {
         /**
@@ -315,6 +319,10 @@ declare namespace LocalJSX {
           * CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element.
          */
         "anchor"?: string | HTMLElement;
+        /**
+          * Indicates if item has corresponding anchor element in akoma-ntoso.
+         */
+        "noAnchorFound"?: boolean;
         /**
           * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
          */
