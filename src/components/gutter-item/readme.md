@@ -12,10 +12,11 @@ using the `anchor` attribute. The gutter item is positioned horizontally alongsi
 
 ## Properties
 
-| Property | Attribute | Description                                                                                              | Type                                 | Default     |
-| -------- | --------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
-| `active` | `active`  | Indicates that this is the active item in the gutter. Only one item can be active at a time.             | `boolean`                            | `false`     |
-| `anchor` | `anchor`  | CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element. | `HTMLElement \| string \| undefined` | `undefined` |
+| Property        | Attribute         | Description                                                                                              | Type                                 | Default     |
+| --------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| `active`        | `active`          | Indicates that this is the active item in the gutter. Only one item can be active at a time.             | `boolean`                            | `false`     |
+| `anchor`        | `anchor`          | CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element. | `HTMLElement \| string \| undefined` | `undefined` |
+| `noAnchorFound` | `no-anchor-found` | Indicates if item has corresponding anchor element in akoma-ntoso.                                       | `boolean`                            | `false`     |
 
 
 ## Events
