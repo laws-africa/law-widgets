@@ -1,6 +1,6 @@
 import { Component, Element, Prop, Listen, Method } from '@stencil/core';
-import { getAkomaNtosoElement } from "../../utils/linking";
-import { GutterLayout } from "./layout";
+import { getAkomaNtosoElement } from '../../utils/linking';
+import { GutterLayout } from './layout';
 import debounce from 'lodash/debounce';
 export class Gutter {
   constructor() {
@@ -91,15 +91,19 @@ export class Gutter {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "string",
-        "resolved": "string | undefined",
-        "references": {}
+        "original": "string | HTMLElement",
+        "resolved": "HTMLElement | string | undefined",
+        "references": {
+          "HTMLElement": {
+            "location": "global"
+          }
+        }
       },
       "required": false,
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "CSS selector for the la-akoma-ntoso element that will be decorated. Defaults\nto the containing la-akoma-ntoso element, if any, otherwise the first\n`la-akoma-ntoso` element on the page."
+        "text": "CSS selector or HTMLElement for the la-akoma-ntoso element that will be decorated. Defaults\nto the containing la-akoma-ntoso element, if any, otherwise the first\n`la-akoma-ntoso` element on the page."
       },
       "attribute": "akoma-ntoso",
       "reflect": false

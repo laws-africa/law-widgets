@@ -19,7 +19,7 @@ class GutterLayout {
     this.anchors = new WeakMap();
   }
   layout(items) {
-    this.updateAnchors(items);
+    this.updateAnchorsAndItems(items);
     // pre-calculate tops
     this.updateTops(items);
     // sort items by ascending anchorElement top
@@ -113,18 +113,24 @@ class GutterLayout {
       }
     }
   }
-  updateAnchors(items) {
+  updateAnchorsAndItems(items) {
     this.anchors = new WeakMap();
     for (const item of items) {
       const anchor = this.getItemAnchor(item);
       if (anchor) {
         this.anchors.set(item, anchor);
       }
+      item.style.display = anchor ? 'block' : 'none';
     }
   }
   getItemAnchor(item) {
     if (item.anchor) {
-      return this.root.querySelector(item.anchor);
+      if (item.anchor instanceof HTMLElement) {
+        return this.root.contains(item.anchor) ? item.anchor : null;
+      }
+      else {
+        return this.root.querySelector(item.anchor);
+      }
     }
     return null;
   }

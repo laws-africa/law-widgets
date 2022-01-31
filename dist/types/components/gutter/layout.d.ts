@@ -19,7 +19,7 @@ export declare class GutterLayout {
   compareItems(a: HTMLLaGutterItemElement, b: HTMLLaGutterItemElement): number;
   layoutUpwards(items: HTMLLaGutterItemElement[], start: number, watermark: number): void;
   layoutDownwards(items: HTMLLaGutterItemElement[], start: number, watermark: number): void;
-  updateAnchors(items: HTMLLaGutterItemElement[]): void;
+  updateAnchorsAndItems(items: HTMLLaGutterItemElement[]): void;
   getItemAnchor(item: HTMLLaGutterItemElement): HTMLElement | null;
   updateTops(items: HTMLLaGutterItemElement[]): void;
   /**

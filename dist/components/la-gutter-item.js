@@ -15,11 +15,15 @@ let GutterItem = class extends HTMLElement {
   activeChanged() {
     this.laItemChanged.emit();
   }
+  anchorChanged() {
+    this.laItemChanged.emit();
+  }
   onClick() {
     this.active = true;
   }
   static get watchers() { return {
-    "active": ["activeChanged"]
+    "active": ["activeChanged"],
+    "anchor": ["anchorChanged"]
   }; }
   static get style() { return gutterItemCss; }
 };

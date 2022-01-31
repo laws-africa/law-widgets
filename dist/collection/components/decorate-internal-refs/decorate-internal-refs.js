@@ -75,15 +75,19 @@ export class DecorateInternalRefs {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "string",
-        "resolved": "string | undefined",
-        "references": {}
+        "original": "string | HTMLElement",
+        "resolved": "HTMLElement | string | undefined",
+        "references": {
+          "HTMLElement": {
+            "location": "global"
+          }
+        }
       },
       "required": false,
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "CSS selector for the la-akoma-ntoso element that will be decorated. Defaults\nto the containing la-akoma-ntoso element, if any, otherwise the first\n`la-akoma-ntoso` element on the page."
+        "text": "CSS selector for the la-akoma-ntoso element or HTMLELement that will be decorated. Defaults\nto the containing la-akoma-ntoso element, if any, otherwise the first\n`la-akoma-ntoso` element on the page."
       },
       "attribute": "akoma-ntoso",
       "reflect": false

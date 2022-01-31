@@ -1,6 +1,6 @@
 function getAkomaNtosoElement(component, selector) {
   if (selector) {
-    return component.ownerDocument.querySelector(selector);
+    return selector instanceof HTMLElement ? selector : component.ownerDocument.querySelector(selector);
   }
   // try the nearest ancestor
   let el = component.closest('la-akoma-ntoso');

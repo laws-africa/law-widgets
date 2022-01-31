@@ -48,9 +48,9 @@ export namespace Components {
     }
     interface LaDecorateInternalRefs {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+          * CSS selector for the la-akoma-ntoso element or HTMLELement that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso"?: string;
+        "akomaNtoso"?: string | HTMLElement;
         /**
           * If `true`, internal refs will be flagged with in icon to be more visible.
          */
@@ -62,9 +62,9 @@ export namespace Components {
     }
     interface LaDecorateTerms {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+          * CSS selector for the la-akoma-ntoso element and HTMLElement that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso"?: string;
+        "akomaNtoso"?: string | HTMLElement;
         /**
           * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
          */
@@ -76,9 +76,9 @@ export namespace Components {
     }
     interface LaGutter {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+          * CSS selector or HTMLElement for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso"?: string;
+        "akomaNtoso"?: string | HTMLElement;
         /**
           * Layout the gutter items.
          */
@@ -90,9 +90,9 @@ export namespace Components {
          */
         "active": boolean;
         /**
-          * CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element.
+          * CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element.
          */
-        "anchor"?: string;
+        "anchor"?: string | HTMLElement;
     }
     interface LaTableOfContents {
         /**
@@ -274,9 +274,9 @@ declare namespace LocalJSX {
     }
     interface LaDecorateInternalRefs {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+          * CSS selector for the la-akoma-ntoso element or HTMLELement that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso"?: string;
+        "akomaNtoso"?: string | HTMLElement;
         /**
           * If `true`, internal refs will be flagged with in icon to be more visible.
          */
@@ -288,9 +288,9 @@ declare namespace LocalJSX {
     }
     interface LaDecorateTerms {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+          * CSS selector for the la-akoma-ntoso element and HTMLElement that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso"?: string;
+        "akomaNtoso"?: string | HTMLElement;
         /**
           * If `true`, terms will be changed to `<a>` elements that jump to the term definition.
          */
@@ -302,9 +302,9 @@ declare namespace LocalJSX {
     }
     interface LaGutter {
         /**
-          * CSS selector for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+          * CSS selector or HTMLElement for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
          */
-        "akomaNtoso"?: string;
+        "akomaNtoso"?: string | HTMLElement;
     }
     interface LaGutterItem {
         /**
@@ -312,9 +312,9 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element.
+          * CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element.
          */
-        "anchor"?: string;
+        "anchor"?: string | HTMLElement;
         /**
           * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
          */

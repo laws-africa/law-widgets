@@ -9,6 +9,9 @@ export class GutterItem {
   activeChanged() {
     this.laItemChanged.emit();
   }
+  anchorChanged() {
+    this.laItemChanged.emit();
+  }
   onClick() {
     this.active = true;
   }
@@ -24,15 +27,19 @@ export class GutterItem {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "string",
-        "resolved": "string | undefined",
-        "references": {}
+        "original": "string | HTMLElement",
+        "resolved": "HTMLElement | string | undefined",
+        "references": {
+          "HTMLElement": {
+            "location": "global"
+          }
+        }
       },
       "required": false,
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "CSS selector for the anchor element in the enclosing gutter's `<la-akoma-ntoso>` element."
+        "text": "CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element."
       },
       "attribute": "anchor",
       "reflect": false
@@ -75,6 +82,9 @@ export class GutterItem {
   static get watchers() { return [{
       "propName": "active",
       "methodName": "activeChanged"
+    }, {
+      "propName": "anchor",
+      "methodName": "anchorChanged"
     }]; }
   static get listeners() { return [{
       "name": "click",
