@@ -16,11 +16,6 @@ export class GutterItem {
   @Prop({ reflect: true, mutable: true }) active: boolean = false;
 
   /**
-   * Indicates if item has corresponding anchor element in akoma-ntoso.
-   */
-  @Prop({ reflect: true, mutable: true }) noAnchorFound: boolean = false;
-
-  /**
    * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
    */
   @Event() laItemChanged!: EventEmitter<void>;
