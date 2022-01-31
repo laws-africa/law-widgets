@@ -129,10 +129,8 @@ export class GutterLayout {
       const anchor: HTMLElement | null = this.getItemAnchor(item);
       if (anchor) {
         this.anchors.set(item, anchor);
-        item.noAnchorFound = false;
-      } else {
-        item.noAnchorFound = true;
       }
+      item.style.display = anchor ? 'block' : 'none';
     }
   }
 
