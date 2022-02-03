@@ -113,6 +113,48 @@ export class Gutter {
     }
   }
 
+  @Method()
+  async navigateToNextItem () {
+    const items = [...this.items()];
+    const activeItemIndex = items.findIndex(item => item.active);
+    items.forEach(item => { item.active = false; });
+
+    const nextActiveItem = (() => {
+      // if no gutter item is active or if last gutter item is active then go to first gutter item
+      if (activeItemIndex === -1 || activeItemIndex === items.length - 1) {
+        return items[0];
+      } else {
+        // Otherwise go to next gutter item
+        return items[activeItemIndex + 1];
+      }
+    })();
+
+    nextActiveItem.active = true;
+    nextActiveItem.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  @Method()
+  async navigateToPrevItem () {
+    const items = [...this.items()];
+    const activeItemIndex = items.findIndex(item => item.active);
+    items.forEach(item => { item.active = false; });
+
+    const nextActiveItem = (() => {
+      switch (true) {
+        // if no gutter item is active then go to first gutter item
+        case activeItemIndex === -1:
+          return items[0];
+        case activeItemIndex === 0:
+          // if first gutter item is active next go to last gutter item
+          return items[items.length - 1];
+        default:
+          return items[activeItemIndex - 1];
+      }
+    })();
+    nextActiveItem.active = true;
+    nextActiveItem.scrollIntoView({ behavior: 'smooth' });
+  }
+
   items (): NodeListOf<HTMLLaGutterItemElement> {
     return this.el.querySelectorAll('la-gutter-item');
   }

@@ -83,6 +83,8 @@ export namespace Components {
           * Layout the gutter items.
          */
         "layoutItems": () => Promise<void>;
+        "navigateToNextItem": () => Promise<void>;
+        "navigateToPrevItem": () => Promise<void>;
     }
     interface LaGutterItem {
         /**
