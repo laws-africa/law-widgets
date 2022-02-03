@@ -21,7 +21,7 @@
 la-gutter > la-gutter-item {
   position: absolute;
   left: 1rem;
-  max-width: calc(100% - 1.5rem);
+  width: calc(100% - 1.5rem);
   transition: top ease-out 100ms, left ease-out 100ms;
   z-index: 2;
 }

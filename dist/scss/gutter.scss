@@ -26,7 +26,7 @@ $la-gutter-padding: 0.5rem;
 la-gutter > la-gutter-item {
   position: absolute;
   left: 2 * $la-gutter-padding;
-  max-width: calc(100% - 3 * $la-gutter-padding);
+  width: calc(100% - 3 * $la-gutter-padding);
   transition: top ease-out 100ms, left ease-out 100ms;
   z-index: 2;
 
