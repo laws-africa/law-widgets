@@ -76,11 +76,11 @@ export namespace Components {
     }
     interface LaGutter {
         /**
-          * Method that activates the next item of current active item. The next item's prop `active` will be true. Returns promise with next active item. If there is no item active,the first item is active. If the current active item is the last item in the gutter, then when activateNextItem is called, the last item will be active
+          * Activates the item logically after the currently active item. The activated item's `active` property will be set to true. Returns the activated item. If there is no currently active active, the top-most item is activated. If the currently active item is the bottom-most item in the gutter, then the top-most item will be activated.
          */
         "activateNextItem": () => Promise<HTMLLaGutterItemElement | undefined>;
         /**
-          * Method that activates the previous item of current active item. The next item's prop `active` will be true. Returns promise with next active item. If there is no item active,the first item is active. If the current active item is the first item in the gutter, then when activateNextItem is called, the last item will be active
+          * Activates the item logically before the currently active item. The activated item's `active` property will be set to true. Returns the activated item. If there is no currently active active, the bottom-most item is activated. If the currently active item is the bottom-most item in the gutter, then the top-most item will be activated.
          */
         "activatePrevItem": () => Promise<HTMLLaGutterItemElement | undefined>;
         /**
