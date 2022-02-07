@@ -1,9 +1,9 @@
-import { html } from "lit-html";
-import { TableOfContents} from '../dist/collection/components/table-of-contents/table-of-contents';
-import { argTypesForComponent } from "./utils";
+import { html } from 'lit-html';
+import { TableOfContents } from '../dist/collection/components/table-of-contents/table-of-contents';
+import { argTypesForComponent } from './utils';
 import { ref, createRef } from 'lit-html/directives/ref';
 import items from './toc.json';
-import "./storybook.css";
+import './storybook.css';
 
 export default {
   title: 'Library/la-table-of-contents',
@@ -62,17 +62,16 @@ export const PrependAndAppend = () => html`
   </la-table-of-contents>
 `;
 
-
 export const TocItemRenderedEvtDemo = () => {
   const handleItemRender = (e) => {
-    if(e.target.item.append_icon) {
+    if (e.target.item.append_icon) {
       e.target.appendHtml = e.target.item.append_icon;
     }
-  }
+  };
   return html`
     <la-table-of-contents .items='${items}' @itemRendered=${handleItemRender}/>
-  `
-}
+  `;
+};
 
 export const TocItemTitleClickedEvtDemo = () => {
   /**
@@ -81,19 +80,19 @@ export const TocItemTitleClickedEvtDemo = () => {
    */
   const handleItemRendered = (e) => {
     e.target.querySelector('.content__action__title').removeAttribute('href');
-  }
+  };
   const handleItemTitleClick = (e) => {
     const items = e.target.closest('la-table-of-contents').querySelectorAll('la-toc-item');
-    for(const item of items) {
-     item.classList.remove('selected');
+    for (const item of items) {
+      item.classList.remove('selected');
     }
     e.target.classList.add('selected');
-  }
+  };
 
   return html`
     <la-table-of-contents .items='${items}'
         @itemRendered='${handleItemRendered}'
         @itemTitleClicked=${handleItemTitleClick}
     />
-  `
-}
+  `;
+};
