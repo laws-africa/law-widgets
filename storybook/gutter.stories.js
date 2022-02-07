@@ -1,13 +1,15 @@
-import { html } from "lit-html";
+import { html } from 'lit-html';
 import { Gutter } from '../dist/collection/components/gutter/gutter';
-import { argTypesForComponent } from "./utils";
+import { argTypesForComponent } from './utils';
+import { createRef, ref } from 'lit-html/directives/ref';
+import items from './toc.json';
 
 export default {
   title: 'Library/la-gutter',
   argTypes: argTypesForComponent(Gutter)
 };
 
-const Template = (props) => html`
+const renderTemplate = ({ externalRef }) => html`
   <div class="la-akoma-ntoso-with-gutter">
     <la-akoma-ntoso id="doc">
       <section class="akn-section" id="sec_3" data-eid="sec_3">
@@ -25,7 +27,7 @@ const Template = (props) => html`
       </section>
     </la-akoma-ntoso>
 
-    <la-gutter akoma-ntoso="#doc">
+    <la-gutter akoma-ntoso="#doc" ${externalRef ? ref(externalRef) : null}>
       <la-gutter-item anchor="#sec_3__subsec_1">A comment on 3(1)</la-gutter-item>
       <la-gutter-item anchor="#sec_3__subsec_2">First comment on 3(2)</la-gutter-item>
       <la-gutter-item anchor="#sec_3__subsec_2">Second comment on 3(2)</la-gutter-item>
@@ -35,5 +37,24 @@ const Template = (props) => html`
   </div>
 `;
 
+const Template = (props) => renderTemplate(props);
+
 export const Default = Template.bind({});
 Default.args = {};
+
+export const ActivateItemWithButtons = () => {
+  const componentRef = createRef();
+  const activatePrevItem = () => { componentRef.value.activatePrevItem(); };
+  const activateNextItem = () => { componentRef.value.activateNextItem(); };
+  return html`
+    <button @click='${activatePrevItem}'>
+      Activate previous item
+    </button>
+    <button @click='${activateNextItem}'>
+      Activate next item
+    </button>
+    <div>
+      ${renderTemplate({ externalRef: componentRef })}
+    </div>
+  `;
+};
