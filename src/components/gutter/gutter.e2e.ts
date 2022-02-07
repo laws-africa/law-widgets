@@ -8,20 +8,23 @@ describe('la-gutter', () => {
     expect(component).not.toBeNull();
   });
 
-  it('next first la-gutter-item should not have active as true but the second la-gutter-item should after navigateToNextItem is called', async () => {
+  it('next first la-gutter-item should not have active as true but the second la-gutter-item should after activateNextItem is called', async () => {
     const page = await newE2EPage();
     await page.setContent(`
-        <la-gutter>
-          <la-gutter-item active id='first-item'>Item One</la-gutter-item>
-          <la-gutter-item id='second-item'>Item Two</la-gutter-item>
-          <la-gutter-item>Item Three</la-gutter-item>
-        </la-gutter>
+      <la-akoma-ntoso id="doc">
+        <div id='#sect_1'>Lorem Ipsum</div>
+        <div id='#sect_2'>Lorem Ipsum</div>
+      </la-akoma-ntoso>
+      <la-gutter akoma-ntoso="#doc">
+        <la-gutter-item anchor="#sect_1" active>Comment</la-gutter-item>
+        <la-gutter-item anchor="#sect_2">Comment</la-gutter-item>
+      </la-gutter>
     `);
 
     const laGutter = await page.find('la-gutter');
-    const firstItem = await page.find('#first-item');
-    const secondItem = await page.find('#second-item');
-    await laGutter.callMethod('navigateToNextItem');
+    const firstItem = await page.find('la-gutter la-gutter-item:first-child');
+    const secondItem = await page.find('la-gutter la-gutter-item:last-child');
+    await laGutter.callMethod('activateNextItem');
     await page.waitForChanges();
     const firstItemActiveState = await firstItem.getProperty('active');
     expect(firstItemActiveState).toBe(false);
@@ -29,18 +32,21 @@ describe('la-gutter', () => {
     expect(secondItemActiveState).toBe(true);
   });
 
-  it('if last la-gutter-item is active and navigateToNextItem is called, first la-gutter-item should be active and rest is not', async () => {
+  it('if last la-gutter-item is active and activateNextItem is called, first la-gutter-item should be active and rest is not', async () => {
     const page = await newE2EPage();
     await page.setContent(`
-        <la-gutter>
-          <la-gutter-item>Item One</la-gutter-item>
-          <la-gutter-item>Item Two</la-gutter-item>
-          <la-gutter-item active>Item Three</la-gutter-item>
-        </la-gutter>
+      <la-akoma-ntoso id="doc">
+        <div id='#sect_1'>Lorem Ipsum</div>
+        <div id='#sect_2'>Lorem Ipsum</div>
+      </la-akoma-ntoso>
+      <la-gutter akoma-ntoso="#doc">
+        <la-gutter-item anchor="#sect_1">Comment</la-gutter-item>
+        <la-gutter-item anchor="#sect_2" active>Comment</la-gutter-item>
+      </la-gutter>
     `);
 
     const laGutter = await page.find('la-gutter');
-    await laGutter.callMethod('navigateToNextItem');
+    await laGutter.callMethod('activateNextItem');
     const firstItem = await page.find('la-gutter la-gutter-item:first-child');
     const firstItemActiveState = await firstItem.getProperty('active');
     expect(firstItemActiveState).toBe(true);
@@ -49,18 +55,22 @@ describe('la-gutter', () => {
     const lastItemActiveState = await lastItem.getProperty('active');
     expect(lastItemActiveState).toBe(false);
   });
-
+  //
   it('if second la-gutter-item is active and prevToNextItem is called, first la-gutter-item should be active and the rest is not', async () => {
     const page = await newE2EPage();
     await page.setContent(`
-        <la-gutter>
-          <la-gutter-item>Item One</la-gutter-item>
-          <la-gutter-item active>Item Three</la-gutter-item>
-        </la-gutter>
+      <la-akoma-ntoso id="doc">
+        <div id='#sect_1'>Lorem Ipsum</div>
+        <div id='#sect_2'>Lorem Ipsum</div>
+      </la-akoma-ntoso>
+      <la-gutter akoma-ntoso="#doc">
+        <la-gutter-item anchor="#sect_1">Comment</la-gutter-item>
+        <la-gutter-item anchor="#sect_2" active>Comment</la-gutter-item>
+      </la-gutter>
     `);
 
     const laGutter = await page.find('la-gutter');
-    await laGutter.callMethod('navigateToPrevItem');
+    await laGutter.callMethod('activatePrevItem');
     const firstItem = await page.find('la-gutter la-gutter-item:first-child');
     const firstItemActiveState = await firstItem.getProperty('active');
     expect(firstItemActiveState).toBe(true);
