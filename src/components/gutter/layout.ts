@@ -27,7 +27,7 @@ export class GutterLayout {
     this.updateTops(items);
 
     // sort items by ascending anchorElement top
-    items = this.getSortedItems(items);
+    items = this.sortItems(items);
 
     // find the first item that is active
     const activeItem: HTMLLaGutterItemElement | undefined = items.find(x => x.active);
@@ -55,7 +55,7 @@ export class GutterLayout {
     this.layoutDownwards(items, 0, 0);
   }
 
-  getSortedItems (items: HTMLLaGutterItemElement[]) {
+  sortItems (items: HTMLLaGutterItemElement[]) {
     return [...items].sort(this.compareItems.bind(this));
   }
 
