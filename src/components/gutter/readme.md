@@ -39,7 +39,38 @@ Use this element in conjunction with an `<la-akoma-ntoso>` element, usually as a
 | `akomaNtoso` | `akoma-ntoso` | CSS selector or HTMLElement for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page. | `HTMLElement \| string \| undefined` | `undefined` |
 
 
+## Events
+
+| Event            | Description                                    | Type                |
+| ---------------- | ---------------------------------------------- | ------------------- |
+| `layoutComplete` | Event emitted when `this.layout` has finished. | `CustomEvent<void>` |
+
+
 ## Methods
+
+### `activateNextItem() => Promise<HTMLLaGutterItemElement | undefined>`
+
+Method that activates the next item of current active item. The next item's prop `active` will be true. Returns promise with
+next active item. If there is no item active,the first item is active. If the current active item is
+the last item in the gutter, then when activateNextItem is called, the last item will be active
+
+#### Returns
+
+Type: `Promise<HTMLLaGutterItemElement | undefined>`
+
+
+
+### `activatePrevItem() => Promise<HTMLLaGutterItemElement | undefined>`
+
+Method that activates the previous item of current active item. The next item's prop `active` will be true. Returns promise with
+next active item. If there is no item active,the first item is active. If the current active item is
+the first item in the gutter, then when activateNextItem is called, the last item will be active
+
+#### Returns
+
+Type: `Promise<HTMLLaGutterItemElement | undefined>`
+
+
 
 ### `layoutItems() => Promise<void>`
 
