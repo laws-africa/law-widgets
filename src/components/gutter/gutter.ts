@@ -131,19 +131,15 @@ export class Gutter {
   @Method()
   async activateNextItem () {
     if (this.layout) {
-      const items = this.layout.getSortedItems([...this.items()]);
+      const items = this.layout.sortItems([...this.items()]);
       const activeItemIndex = items.findIndex(item => item.active);
-      items.forEach(item => { item.active = false; });
-
-      const nextActiveItem = (() => {
-        // if no gutter item is active or if last gutter item is active then go to first gutter item
-        if (activeItemIndex === -1 || activeItemIndex === items.length - 1) {
-          return items[0];
-        } else {
-          // Otherwise go to next gutter item
-          return items[activeItemIndex + 1];
-        }
-      })();
+      /*
+      * if no gutter item is active or if last gutter item is active then go to first gutter item.
+      * Otherwise go to next gutter item
+      * */
+      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === items.length - 1
+        ? items[0]
+        : items[activeItemIndex + 1];
 
       nextActiveItem.active = true;
       return nextActiveItem;
@@ -151,29 +147,25 @@ export class Gutter {
   }
 
   /**
-   * Method that activates the previous item of current active item. The next item's prop `active` will be true. Returns promise with
-   * next active item. If there is no item active,the first item is active. If the current active item is
-   * the first item in the gutter, then when activateNextItem is called, the last item will be active
+   * Activates the item logically before the currently active item. The activated item's `active` property will be set to true. Returns the
+   * activated item. If there is no currently active active, the bottom-most item is activated. If the currently active item is
+   * the bottom-most item in the gutter, then the top-most item will be activated.
    */
   @Method()
   async activatePrevItem () {
     if (this.layout) {
-      const items = this.layout.getSortedItems([...this.items()]);
+      const items = this.layout.sortItems([...this.items()]);
       const activeItemIndex = items.findIndex(item => item.active);
-      items.forEach(item => { item.active = false; });
-
-      const nextActiveItem = (() => {
-        switch (true) {
-          // if no gutter item is active then go to first gutter item
-          case activeItemIndex === -1:
-            return items[0];
-          case activeItemIndex === 0:
-            // if first gutter item is active next go to last gutter item
-            return items[items.length - 1];
-          default:
-            return items[activeItemIndex - 1];
-        }
-      })();
+      let nextActiveItem;
+      // if no gutter item is active then go to first gutter item
+      if (activeItemIndex === -1) {
+        nextActiveItem = items[0];
+      } else if (activeItemIndex === 0) {
+        // if first gutter item is active next go to last gutter item
+        nextActiveItem = items[items.length - 1];
+      } else {
+        nextActiveItem = items[activeItemIndex - 1];
+      }
       nextActiveItem.active = true;
       return nextActiveItem;
     }
