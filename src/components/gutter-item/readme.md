@@ -16,6 +16,7 @@ using the `anchor` attribute. The gutter item is positioned horizontally alongsi
 | -------- | --------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
 | `active` | `active`  | Indicates that this is the active item in the gutter. Only one item can be active at a time.             | `boolean`                            | `false`     |
 | `anchor` | `anchor`  | CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element. | `HTMLElement \| string \| undefined` | `undefined` |
+| `order`  | `order`   | Order number of item against of items in gutter.                                                         | `number \| undefined`                | `undefined` |
 
 
 ## Events
