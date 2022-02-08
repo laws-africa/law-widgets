@@ -161,7 +161,7 @@ export class Gutter {
       if (activeItemIndex === -1) {
         nextActiveItem = items[0];
       } else if (activeItemIndex === 0) {
-        // if first gutter item is active next go to last gutter item
+        // if first gutter item is active, go to last gutter item
         nextActiveItem = items[items.length - 1];
       } else {
         nextActiveItem = items[activeItemIndex - 1];
