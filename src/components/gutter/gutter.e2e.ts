@@ -8,7 +8,7 @@ describe('la-gutter', () => {
     expect(component).not.toBeNull();
   });
 
-  it('next first la-gutter-item should not have active as true but the second la-gutter-item should after activateNextItem is called', async () => {
+  it('first la-gutter-item should not have active as true but the second la-gutter-item should after activateNextItem is called', async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-akoma-ntoso id="doc">
