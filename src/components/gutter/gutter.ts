@@ -157,9 +157,9 @@ export class Gutter {
       const items = this.layout.sortItems([...this.items()]);
       const activeItemIndex = items.findIndex(item => item.active);
       let nextActiveItem;
-      // if no gutter item is active then go to first gutter item
+      // if no gutter item is active then go to last gutter item
       if (activeItemIndex === -1) {
-        nextActiveItem = items[0];
+        nextActiveItem = items[items.length - 1];
       } else if (activeItemIndex === 0) {
         // if first gutter item is active, go to last gutter item
         nextActiveItem = items[items.length - 1];
