@@ -16,6 +16,11 @@ export class GutterItem {
   @Prop({ reflect: true, mutable: true }) active: boolean = false;
 
   /**
+   * Order number of item against of items in gutter.
+   */
+  @Prop({ reflect: true, mutable: true }) order: number | undefined;
+
+  /**
    * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
    */
   @Event() laItemChanged!: EventEmitter<void>;
