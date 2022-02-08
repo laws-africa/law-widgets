@@ -48,27 +48,29 @@ Use this element in conjunction with an `<la-akoma-ntoso>` element, usually as a
 
 ## Methods
 
-### `activateNextItem() => Promise<HTMLLaGutterItemElement | undefined>`
+### `activateNextItem() => Promise<HTMLLaGutterItemElement | null>`
 
-Activates the item logically after the currently active item. The activated item's `active` property will be set to true. Returns the
-activated item. If there is no currently active active, the top-most item is activated. If the currently active item is
-the bottom-most item in the gutter, then the top-most item will be activated.
-
-#### Returns
-
-Type: `Promise<HTMLLaGutterItemElement | undefined>`
-
-
-
-### `activatePrevItem() => Promise<HTMLLaGutterItemElement | undefined>`
-
-Activates the item logically before the currently active item. The activated item's `active` property will be set to true. Returns the
-activated item. If there is no currently active active, the bottom-most item is activated. If the currently active item is
-the bottom-most item in the gutter, then the top-most item will be activated.
+Activates the item logically after the currently active item. The activated item's `active` property will be set to
+true. Returns the activated item. Or returns null if the number of items are less then 1. If there is no currently
+active active, the top-most item is activated. If the currently active item is the bottom-most item in the gutter,
+then the top-most item will be activated.
 
 #### Returns
 
-Type: `Promise<HTMLLaGutterItemElement | undefined>`
+Type: `Promise<HTMLLaGutterItemElement | null>`
+
+
+
+### `activatePrevItem() => Promise<HTMLLaGutterItemElement | null>`
+
+Activates the item logically before the currently active item. The activated item's `active` property will be set
+to true. Returns the activated item. Or returns null if the number of items are less then 1. If there is no currently
+active active, the bottom-most item is activated. If the currently active item is the bottom-most item in the gutter,
+then the top-most item will be activated.
+
+#### Returns
+
+Type: `Promise<HTMLLaGutterItemElement | null>`
 
 
 
