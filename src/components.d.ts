@@ -101,10 +101,6 @@ export namespace Components {
           * CSS selector for the anchor element or HTMLElement in the enclosing gutter's `<la-akoma-ntoso>` element.
          */
         "anchor"?: string | HTMLElement;
-        /**
-          * Order number of item against of items in gutter.
-         */
-        "order": number | undefined;
     }
     interface LaTableOfContents {
         /**
@@ -335,10 +331,6 @@ declare namespace LocalJSX {
           * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
          */
         "onLaItemChanged"?: (event: CustomEvent<void>) => void;
-        /**
-          * Order number of item against of items in gutter.
-         */
-        "order"?: number | undefined;
     }
     interface LaTableOfContents {
         /**
