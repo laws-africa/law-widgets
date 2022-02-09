@@ -56,10 +56,7 @@ export class GutterLayout {
   }
 
   sortItems (items: HTMLLaGutterItemElement[]) {
-    return [...items].sort(this.compareItems.bind(this)).map((item, index) => {
-      item.order = index + 1;
-      return item;
-    });
+    return [...items].sort(this.compareItems.bind(this));
   }
 
   /**
