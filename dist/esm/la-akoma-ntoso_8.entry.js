@@ -3535,7 +3535,7 @@ class GutterLayout {
     // pre-calculate tops
     this.updateTops(items);
     // sort items by ascending anchorElement top
-    items = [...items].sort(this.compareItems.bind(this));
+    items = this.sortItems(items);
     // find the first item that is active
     const activeItem = items.find(x => x.active);
     if (activeItem) {
@@ -3558,6 +3558,9 @@ class GutterLayout {
     }
     // nothing is primary, go top downwards
     this.layoutDownwards(items, 0, 0);
+  }
+  sortItems(items) {
+    return [...items].sort(this.compareItems.bind(this));
   }
   /**
    * Comparator that sorts items be ascending top value.
@@ -4187,6 +4190,7 @@ const gutterCss = ".la-akoma-ntoso-with-gutter{display:-ms-flexbox;display:flex;
 let Gutter = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    this.layoutComplete = createEvent(this, "layoutComplete", 7);
     // Delay in msecs to debounce updates
     this.debounceDelay = 100;
   }
@@ -4257,6 +4261,55 @@ let Gutter = class {
   async layoutItems() {
     if (this.layout) {
       this.layout.layout([...this.items()]);
+      this.layoutComplete.emit();
+    }
+  }
+  /**
+   * Activates the item logically after the currently active item. The activated item's `active` property will be set to
+   * true. Returns the activated item. Or returns null if there are no items. If there is no item currently
+   * active, the top-most item is activated. If the currently active item is the bottom-most item in the gutter,
+   * then the top-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
+   */
+  async activateNextItem() {
+    const items = this.layout ? this.layout.sortItems([...this.items()]) : [];
+    if (items.length === 1) {
+      items[0].active = true;
+      return items[0];
+    }
+    else if (items.length > 1) {
+      const activeItemIndex = items.findIndex(item => item.active);
+      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === items.length - 1
+        ? items[0]
+        : items[activeItemIndex + 1];
+      nextActiveItem.active = true;
+      return nextActiveItem;
+    }
+    else {
+      return null;
+    }
+  }
+  /**
+   * Activates the item logically before the currently active item. The activated item's `active` property will be set to
+   * true. Returns the activated item. Or returns null if there are no items. If there is no item currently
+   * active, the bottom-most item is activated. If the currently active item is the top-most item in the gutter,
+   * then the bottom-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
+   */
+  async activatePrevItem() {
+    const items = this.layout ? this.layout.sortItems([...this.items()]) : [];
+    if (items.length === 1) {
+      items[0].active = true;
+      return items[0];
+    }
+    else if (items.length > 1) {
+      const activeItemIndex = items.findIndex(item => item.active);
+      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === 0
+        ? items[items.length - 1]
+        : items[activeItemIndex - 1];
+      nextActiveItem.active = true;
+      return nextActiveItem;
+    }
+    else {
+      return null;
     }
   }
   items() {

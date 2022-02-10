@@ -13,6 +13,7 @@ export declare class GutterLayout {
    */
   constructor(root: HTMLElement);
   layout(items: HTMLLaGutterItemElement[]): void;
+  sortItems(items: HTMLLaGutterItemElement[]): HTMLLaGutterItemElement[];
   /**
    * Comparator that sorts items be ascending top value.
    */
