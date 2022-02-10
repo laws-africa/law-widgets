@@ -39,7 +39,40 @@ Use this element in conjunction with an `<la-akoma-ntoso>` element, usually as a
 | `akomaNtoso` | `akoma-ntoso` | CSS selector or HTMLElement for the la-akoma-ntoso element that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page. | `HTMLElement \| string \| undefined` | `undefined` |
 
 
+## Events
+
+| Event            | Description                                    | Type                |
+| ---------------- | ---------------------------------------------- | ------------------- |
+| `layoutComplete` | Event emitted when `this.layout` has finished. | `CustomEvent<void>` |
+
+
 ## Methods
+
+### `activateNextItem() => Promise<HTMLLaGutterItemElement | null>`
+
+Activates the item logically after the currently active item. The activated item's `active` property will be set to
+true. Returns the activated item. Or returns null if there are no items. If there is no item currently
+active, the top-most item is activated. If the currently active item is the bottom-most item in the gutter,
+then the top-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
+
+#### Returns
+
+Type: `Promise<HTMLLaGutterItemElement | null>`
+
+
+
+### `activatePrevItem() => Promise<HTMLLaGutterItemElement | null>`
+
+Activates the item logically before the currently active item. The activated item's `active` property will be set to
+true. Returns the activated item. Or returns null if there are no items. If there is no item currently
+active, the bottom-most item is activated. If the currently active item is the top-most item in the gutter,
+then the bottom-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
+
+#### Returns
+
+Type: `Promise<HTMLLaGutterItemElement | null>`
+
+
 
 ### `layoutItems() => Promise<void>`
 
