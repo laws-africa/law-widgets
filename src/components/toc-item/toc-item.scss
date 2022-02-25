@@ -43,5 +43,10 @@ la-toc-item {
     border: none;
     box-shadow: none;
     cursor: pointer;
+    display: inline-block;
+    // mimic button styles
+    font-size: smaller;
+    text-align: center;
+    padding: 1px 6px;
   }
 }

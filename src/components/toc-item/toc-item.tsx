@@ -89,9 +89,9 @@ export class TocItem {
         <div class="indented">
           {isParent
             ? (
-            <button class="indented__toggle-btn" type="button" onClick={() => this.toggle()}>
+            <div class="indented__toggle-btn" onClick={() => this.toggle()}>
               {renderToggleBtnInner()}
-            </button>
+            </div>
               )
             : null}
         </div>
