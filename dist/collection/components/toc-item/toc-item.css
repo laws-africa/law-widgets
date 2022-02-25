@@ -31,8 +31,9 @@ la-toc-item.excluded {
   display: none;
 }
 la-toc-item .indented__toggle-btn {
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
   cursor: pointer;
+  display: inline-block;
+  font-size: smaller;
+  text-align: center;
+  padding: 1px 6px;
 }

@@ -52,7 +52,7 @@ export class TocItem {
     };
     return (h(Host, Object.assign({}, (isParent ? { parent: isParent } : {}), { class: `${!showItem ? 'excluded' : ''}` }),
       h("div", { class: "indented" }, isParent
-        ? (h("button", { class: "indented__toggle-btn", type: "button", onClick: () => this.toggle() }, renderToggleBtnInner()))
+        ? (h("div", { class: "indented__toggle-btn", role: "button", onClick: () => this.toggle() }, renderToggleBtnInner()))
         : null),
       h("div", { class: "content" },
         h("div", { class: "content__action" },
