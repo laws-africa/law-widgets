@@ -335,7 +335,6 @@ const setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags) => {
                         // Workaround for Safari, moving the <input> caret when re-assigning the same valued
                         if (memberName === 'list') {
                             isProp = false;
-                            // tslint:disable-next-line: triple-equals
                         }
                         else if (oldValue == null || elm[memberName] != n) {
                             elm[memberName] = n;
@@ -1136,6 +1135,29 @@ const then = (promise, thenFn) => {
 };
 const addHydratedFlag = (elm) => elm.classList.add('hydrated')
     ;
+/**
+ * Parse a new property value for a given property type.
+ *
+ * While the prop value can reasonably be expected to be of `any` type as far as TypeScript's type checker is concerned,
+ * it is not safe to assume that the string returned by evaluating `typeof propValue` matches:
+ *   1. `any`, the type given to `propValue` in the function signature
+ *   2. the type stored from `propType`.
+ *
+ * This function provides the capability to parse/coerce a property's value to potentially any other JavaScript type.
+ *
+ * Property values represented in TSX preserve their type information. In the example below, the number 0 is passed to
+ * a component. This `propValue` will preserve its type information (`typeof propValue === 'number'`). Note that is
+ * based on the type of the value being passed in, not the type declared of the class member decorated with `@Prop`.
+ * ```tsx
+ * <my-cmp prop-val={0}></my-cmp>
+ * ```
+ *
+ * HTML prop values on the other hand, will always a string
+ *
+ * @param propValue the new value to coerce to some type
+ * @param propType the type of the prop, expressed as a binary number
+ * @returns the parsed/coerced value
+ */
 const parsePropertyValue = (propValue, propType) => {
     // ensure this value is of the correct prop type
     if (propValue != null && !isComplexType(propValue)) {
@@ -1237,14 +1259,14 @@ const proxyComponent = (Cstr, cmpMeta, flags) => {
             prototype.attributeChangedCallback = function (attrName, _oldValue, newValue) {
                 plt.jmp(() => {
                     const propName = attrNameToPropName.get(attrName);
-                    //  In a webcomponent lifecyle the attributeChangedCallback runs prior to connectedCallback
+                    //  In a web component lifecycle the attributeChangedCallback runs prior to connectedCallback
                     //  in the case where an attribute was set inline.
                     //  ```html
                     //    <my-component some-attribute="some-value"></my-component>
                     //  ```
                     //
-                    //  There is an edge case where a developer sets the attribute inline on a custom element and then programatically
-                    //  changes it before it has been upgraded as shown below:
+                    //  There is an edge case where a developer sets the attribute inline on a custom element and then
+                    //  programmatically changes it before it has been upgraded as shown below:
                     //
                     //  ```html
                     //    <!-- this component has _not_ been upgraded yet -->
@@ -1254,13 +1276,13 @@ const proxyComponent = (Cstr, cmpMeta, flags) => {
                     //      el = document.querySelector("#test");
                     //      el.someAttribute = "another-value";
                     //      // upgrade component
-                    //      cutsomElements.define('my-component', MyComponent);
+                    //      customElements.define('my-component', MyComponent);
                     //    </script>
                     //  ```
                     //  In this case if we do not unshadow here and use the value of the shadowing property, attributeChangedCallback
                     //  will be called with `newValue = "some-value"` and will set the shadowed property (this.someAttribute = "another-value")
                     //  to the value that was set inline i.e. "some-value" from above example. When
-                    //  the connectedCallback attempts to unshadow it will use "some-value" as the intial value rather than "another-value"
+                    //  the connectedCallback attempts to unshadow it will use "some-value" as the initial value rather than "another-value"
                     //
                     //  The case where the attribute was NOT set inline but was not set programmatically shall be handled/unshadowed
                     //  by connectedCallback as this attributeChangedCallback will not fire.
@@ -1273,6 +1295,14 @@ const proxyComponent = (Cstr, cmpMeta, flags) => {
                     if (this.hasOwnProperty(propName)) {
                         newValue = this[propName];
                         delete this[propName];
+                    }
+                    else if (prototype.hasOwnProperty(propName) &&
+                        typeof this[propName] === 'number' &&
+                        this[propName] == newValue) {
+                        // if the propName exists on the prototype of `Cstr`, this update may be a result of Stencil using native
+                        // APIs to reflect props as attributes. Calls to `setAttribute(someElement, propName)` will result in
+                        // `propName` to be converted to a `DOMString`, which may not be what we want for other primitive props.
+                        return;
                     }
                     this[propName] = newValue === null && typeof this[propName] === 'boolean' ? false : newValue;
                 });
@@ -1359,7 +1389,7 @@ const initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId, Cstr) =>
     const ancestorComponent = hostRef.$ancestorComponent$;
     const schedule = () => scheduleUpdate(hostRef, true);
     if (ancestorComponent && ancestorComponent['s-rc']) {
-        // this is the intial load and this component it has an ancestor component
+        // this is the initial load and this component it has an ancestor component
         // but the ancestor component has NOT fired its will update lifecycle yet
         // so let's just cool our jets and wait for the ancestor to continue first
         // this will get fired off when the ancestor component
@@ -1466,60 +1496,62 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
     let isBootstrapping = true;
     Object.assign(plt, options);
     plt.$resourcesUrl$ = new URL(options.resourcesUrl || './', doc.baseURI).href;
-    lazyBundles.map((lazyBundle) => lazyBundle[1].map((compactMeta) => {
-        const cmpMeta = {
-            $flags$: compactMeta[0],
-            $tagName$: compactMeta[1],
-            $members$: compactMeta[2],
-            $listeners$: compactMeta[3],
-        };
-        {
-            cmpMeta.$members$ = compactMeta[2];
-        }
-        {
-            cmpMeta.$listeners$ = compactMeta[3];
-        }
-        {
-            cmpMeta.$attrsToReflect$ = [];
-        }
-        {
-            cmpMeta.$watchers$ = {};
-        }
-        const tagName = cmpMeta.$tagName$;
-        const HostElement = class extends HTMLElement {
-            // StencilLazyHost
-            constructor(self) {
-                // @ts-ignore
-                super(self);
-                self = this;
-                registerHost(self, cmpMeta);
+    lazyBundles.map((lazyBundle) => {
+        lazyBundle[1].map((compactMeta) => {
+            const cmpMeta = {
+                $flags$: compactMeta[0],
+                $tagName$: compactMeta[1],
+                $members$: compactMeta[2],
+                $listeners$: compactMeta[3],
+            };
+            {
+                cmpMeta.$members$ = compactMeta[2];
             }
-            connectedCallback() {
-                if (appLoadFallback) {
-                    clearTimeout(appLoadFallback);
-                    appLoadFallback = null;
+            {
+                cmpMeta.$listeners$ = compactMeta[3];
+            }
+            {
+                cmpMeta.$attrsToReflect$ = [];
+            }
+            {
+                cmpMeta.$watchers$ = {};
+            }
+            const tagName = cmpMeta.$tagName$;
+            const HostElement = class extends HTMLElement {
+                // StencilLazyHost
+                constructor(self) {
+                    // @ts-ignore
+                    super(self);
+                    self = this;
+                    registerHost(self, cmpMeta);
                 }
-                if (isBootstrapping) {
-                    // connectedCallback will be processed once all components have been registered
-                    deferredConnectedCallbacks.push(this);
+                connectedCallback() {
+                    if (appLoadFallback) {
+                        clearTimeout(appLoadFallback);
+                        appLoadFallback = null;
+                    }
+                    if (isBootstrapping) {
+                        // connectedCallback will be processed once all components have been registered
+                        deferredConnectedCallbacks.push(this);
+                    }
+                    else {
+                        plt.jmp(() => connectedCallback(this));
+                    }
                 }
-                else {
-                    plt.jmp(() => connectedCallback(this));
+                disconnectedCallback() {
+                    plt.jmp(() => disconnectedCallback(this));
                 }
+                componentOnReady() {
+                    return getHostRef(this).$onReadyPromise$;
+                }
+            };
+            cmpMeta.$lazyBundleId$ = lazyBundle[0];
+            if (!exclude.includes(tagName) && !customElements.get(tagName)) {
+                cmpTags.push(tagName);
+                customElements.define(tagName, proxyComponent(HostElement, cmpMeta, 1 /* isElementConstructor */));
             }
-            disconnectedCallback() {
-                plt.jmp(() => disconnectedCallback(this));
-            }
-            componentOnReady() {
-                return getHostRef(this).$onReadyPromise$;
-            }
-        };
-        cmpMeta.$lazyBundleId$ = lazyBundle[0];
-        if (!exclude.includes(tagName) && !customElements.get(tagName)) {
-            cmpTags.push(tagName);
-            customElements.define(tagName, proxyComponent(HostElement, cmpMeta, 1 /* isElementConstructor */));
-        }
-    }));
+        });
+    });
     {
         visibilityStyle.innerHTML = cmpTags + HYDRATED_CSS;
         visibilityStyle.setAttribute('data-styles', '');

@@ -1,4 +1,4 @@
-import { h, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { HTMLElement, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
 import { d as defineCustomElement$1 } from './toc-item.js';
 
 let TableOfContents = class extends HTMLElement {
@@ -128,6 +128,9 @@ TableOfContents = /*@__PURE__*/ proxyCustomElement(TableOfContents, [4, "la-tabl
     "collapseAll": [64]
   }]);
 function defineCustomElement() {
+  if (typeof customElements === "undefined") {
+    return;
+  }
   const components = ["la-table-of-contents", "la-toc-item"];
   components.forEach(tagName => { switch (tagName) {
     case "la-table-of-contents":

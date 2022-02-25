@@ -1,4 +1,4 @@
-import { proxyCustomElement } from '@stencil/core/internal/client';
+import { HTMLElement, proxyCustomElement } from '@stencil/core/internal/client';
 import { g as getAkomaNtosoElement } from './linking.js';
 import { t as tippy } from './tippy.esm.js';
 
@@ -81,6 +81,9 @@ DecorateInternalRefs = /*@__PURE__*/ proxyCustomElement(DecorateInternalRefs, [0
     "flag": [4]
   }]);
 function defineCustomElement$1() {
+  if (typeof customElements === "undefined") {
+    return;
+  }
   const components = ["la-decorate-internal-refs"];
   components.forEach(tagName => { switch (tagName) {
     case "la-decorate-internal-refs":

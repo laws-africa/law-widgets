@@ -1,4 +1,4 @@
-import { createEvent, proxyCustomElement } from '@stencil/core/internal/client';
+import { HTMLElement, createEvent, proxyCustomElement } from '@stencil/core/internal/client';
 
 const gutterItemCss = "la-gutter-item{display:block}";
 
@@ -32,6 +32,9 @@ GutterItem = /*@__PURE__*/ proxyCustomElement(GutterItem, [0, "la-gutter-item", 
     "active": [1540]
   }, [[0, "click", "onClick"]]]);
 function defineCustomElement$1() {
+  if (typeof customElements === "undefined") {
+    return;
+  }
   const components = ["la-gutter-item"];
   components.forEach(tagName => { switch (tagName) {
     case "la-gutter-item":

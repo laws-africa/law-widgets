@@ -1,4 +1,4 @@
-import { createEvent, proxyCustomElement } from '@stencil/core/internal/client';
+import { HTMLElement as HTMLElement$1, createEvent, proxyCustomElement } from '@stencil/core/internal/client';
 import { g as getAkomaNtosoElement } from './linking.js';
 import { d as debounce_1 } from './debounce.js';
 
@@ -164,7 +164,7 @@ class GutterLayout {
 
 const gutterCss = ".la-akoma-ntoso-with-gutter{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.la-akoma-ntoso-with-gutter la-akoma-ntoso{-ms-flex:80%;flex:80%;max-width:80%;position:relative;padding-right:0.5rem}.la-akoma-ntoso-with-gutter la-gutter{-ms-flex:20%;flex:20%;max-width:20%;position:relative;overflow-y:hidden;background-color:rgba(0, 0, 0, 0.05);padding-left:0.5rem;padding-right:0.5rem}la-gutter>la-gutter-item{position:absolute;left:1rem;width:calc(100% - 1.5rem);-webkit-transition:top ease-out 100ms, left ease-out 100ms;transition:top ease-out 100ms, left ease-out 100ms;z-index:2}la-gutter>la-gutter-item[active]{left:0.5rem}";
 
-let Gutter = class extends HTMLElement {
+let Gutter = class extends HTMLElement$1 {
   constructor() {
     super();
     this.__registerHost();
@@ -303,6 +303,9 @@ Gutter = /*@__PURE__*/ proxyCustomElement(Gutter, [0, "la-gutter", {
     "activatePrevItem": [64]
   }, [[0, "laItemChanged", "itemChanged"], [0, "click", "clicked"]]]);
 function defineCustomElement$1() {
+  if (typeof customElements === "undefined") {
+    return;
+  }
   const components = ["la-gutter"];
   components.forEach(tagName => { switch (tagName) {
     case "la-gutter":

@@ -1,4 +1,4 @@
-import { h, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { HTMLElement, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
 import { d as debounce_1 } from './debounce.js';
 import { d as defineCustomElement$3 } from './table-of-contents.js';
 import { d as defineCustomElement$2 } from './toc-item.js';
@@ -77,6 +77,9 @@ TableOfContentsController = /*@__PURE__*/ proxyCustomElement(TableOfContentsCont
     "titleFilter": [32]
   }]);
 function defineCustomElement$1() {
+  if (typeof customElements === "undefined") {
+    return;
+  }
   const components = ["la-table-of-contents-controller", "la-table-of-contents", "la-toc-item"];
   components.forEach(tagName => { switch (tagName) {
     case "la-table-of-contents-controller":

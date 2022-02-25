@@ -1,4 +1,4 @@
-import { proxyCustomElement } from '@stencil/core/internal/client';
+import { HTMLElement, proxyCustomElement } from '@stencil/core/internal/client';
 import { g as getAkomaNtosoElement } from './linking.js';
 import { t as tippy } from './tippy.esm.js';
 
@@ -133,6 +133,9 @@ DecorateTerms = /*@__PURE__*/ proxyCustomElement(DecorateTerms, [0, "la-decorate
     "linkTerms": [4, "link-terms"]
   }]);
 function defineCustomElement$1() {
+  if (typeof customElements === "undefined") {
+    return;
+  }
   const components = ["la-decorate-terms"];
   components.forEach(tagName => { switch (tagName) {
     case "la-decorate-terms":
