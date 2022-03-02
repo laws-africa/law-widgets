@@ -79,4 +79,34 @@ describe('la-gutter', () => {
     const lastItemActiveState = await lastItem.getProperty('active');
     expect(lastItemActiveState).toBe(false);
   });
+
+  it('should not activate items that dont have a valid anchor', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <la-akoma-ntoso id="doc">
+        <div id="sect_1">Lorem Ipsum</div>
+        <div id="sect_2">Lorem Ipsum</div>
+      </la-akoma-ntoso>
+      <la-gutter akoma-ntoso="#doc">
+        <la-gutter-item anchor="#sect_1" active>Comment</la-gutter-item>
+        <la-gutter-item anchor="#badness">Anchor doesn't exist</la-gutter-item>
+        <la-gutter-item anchor="#sect_2">Comment</la-gutter-item>
+      </la-gutter>
+    `);
+    const laGutter = await page.find('la-gutter');
+
+    // should skip 2nd and activate 3rd
+    await laGutter.callMethod('activateNextItem');
+    let item = await page.find('la-gutter la-gutter-item:nth-child(2)');
+    expect(await item.getProperty('active')).toBe(false);
+    item = await page.find('la-gutter la-gutter-item:nth-child(3)');
+    expect(await item.getProperty('active')).toBe(true);
+
+    // should skip 2nd and activate 1st
+    await laGutter.callMethod('activatePrevItem');
+    item = await page.find('la-gutter la-gutter-item:nth-child(2)');
+    expect(await item.getProperty('active')).toBe(false);
+    item = await page.find('la-gutter la-gutter-item:nth-child(1)');
+    expect(await item.getProperty('active')).toBe(true);
+  });
 });
