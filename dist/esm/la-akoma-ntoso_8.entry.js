@@ -3635,7 +3635,7 @@ class GutterLayout {
       if (anchor) {
         this.anchors.set(item, anchor);
       }
-      item.style.display = anchor ? 'block' : 'none';
+      item.style.display = anchor ? '' : 'none';
     }
   }
   getItemAnchor(item) {
@@ -4271,7 +4271,7 @@ let Gutter = class {
    * then the top-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
    */
   async activateNextItem() {
-    const items = this.layout ? this.layout.sortItems([...this.items()]) : [];
+    const items = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
     if (items.length === 1) {
       items[0].active = true;
       return items[0];
@@ -4295,7 +4295,7 @@ let Gutter = class {
    * then the bottom-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
    */
   async activatePrevItem() {
-    const items = this.layout ? this.layout.sortItems([...this.items()]) : [];
+    const items = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
     if (items.length === 1) {
       items[0].active = true;
       return items[0];
@@ -4314,6 +4314,9 @@ let Gutter = class {
   }
   items() {
     return this.el.querySelectorAll('la-gutter-item');
+  }
+  getVisibleItems() {
+    return [...this.items()].filter(i => i.style.display !== 'none');
   }
   get el() { return getElement(this); }
 };

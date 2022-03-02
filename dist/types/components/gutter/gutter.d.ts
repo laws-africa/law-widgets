@@ -47,4 +47,5 @@ export declare class Gutter {
    */
   activatePrevItem(): Promise<HTMLLaGutterItemElement | null>;
   items(): NodeListOf<HTMLLaGutterItemElement>;
+  getVisibleItems(): HTMLLaGutterItemElement[];
 }
