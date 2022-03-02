@@ -12,8 +12,8 @@ describe('la-gutter', () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-akoma-ntoso id="doc">
-        <div id='#sect_1'>Lorem Ipsum</div>
-        <div id='#sect_2'>Lorem Ipsum</div>
+        <div id="sect_1">Lorem Ipsum</div>
+        <div id="sect_2">Lorem Ipsum</div>
       </la-akoma-ntoso>
       <la-gutter akoma-ntoso="#doc">
         <la-gutter-item anchor="#sect_1" active>Comment</la-gutter-item>
@@ -36,8 +36,8 @@ describe('la-gutter', () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-akoma-ntoso id="doc">
-        <div id='#sect_1'>Lorem Ipsum</div>
-        <div id='#sect_2'>Lorem Ipsum</div>
+        <div id="sect_1">Lorem Ipsum</div>
+        <div id="sect_2">Lorem Ipsum</div>
       </la-akoma-ntoso>
       <la-gutter akoma-ntoso="#doc">
         <la-gutter-item anchor="#sect_1">Comment</la-gutter-item>
@@ -60,8 +60,8 @@ describe('la-gutter', () => {
     const page = await newE2EPage();
     await page.setContent(`
       <la-akoma-ntoso id="doc">
-        <div id='#sect_1'>Lorem Ipsum</div>
-        <div id='#sect_2'>Lorem Ipsum</div>
+        <div id="sect_1">Lorem Ipsum</div>
+        <div id="sect_2">Lorem Ipsum</div>
       </la-akoma-ntoso>
       <la-gutter akoma-ntoso="#doc">
         <la-gutter-item anchor="#sect_1">Comment</la-gutter-item>
