@@ -134,7 +134,7 @@ export class GutterLayout {
       if (anchor) {
         this.anchors.set(item, anchor);
       }
-      item.style.display = anchor ? 'block' : 'none';
+      item.style.display = anchor ? '' : 'none';
     }
   }
 

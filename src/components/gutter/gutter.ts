@@ -131,7 +131,8 @@ export class Gutter {
    */
   @Method()
   async activateNextItem () {
-    const items = this.layout ? this.layout.sortItems([...this.items()]) : [];
+    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
+
     if (items.length === 1) {
       items[0].active = true;
       return items[0];
@@ -155,7 +156,8 @@ export class Gutter {
    */
   @Method()
   async activatePrevItem () {
-    const items = this.layout ? this.layout.sortItems([...this.items()]) : [];
+    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
+
     if (items.length === 1) {
       items[0].active = true;
       return items[0];
@@ -173,5 +175,9 @@ export class Gutter {
 
   items (): NodeListOf<HTMLLaGutterItemElement> {
     return this.el.querySelectorAll('la-gutter-item');
+  }
+
+  getVisibleItems (): HTMLLaGutterItemElement[] {
+    return [...this.items()].filter(i => i.style.display !== 'none');
   }
 }
