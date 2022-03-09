@@ -131,21 +131,24 @@ export class Gutter {
    */
   @Method()
   async activateNextItem () {
-    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
+    let nextActiveItem = null;
+    if (this.el.querySelector('la-gutter-item[active]')) {
+      const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
 
-    if (items.length === 1) {
-      items[0].active = true;
-      return items[0];
-    } else if (items.length > 1) {
-      const activeItemIndex = items.findIndex(item => item.active);
-      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === items.length - 1
-        ? items[0]
-        : items[activeItemIndex + 1];
-      nextActiveItem.active = true;
-      return nextActiveItem;
+      if (items.length === 1) {
+        items[0].active = true;
+        return items[0];
+      } else if (items.length > 1) {
+        const activeItemIndex = items.findIndex(item => item.active);
+        nextActiveItem = activeItemIndex === -1 || activeItemIndex === items.length - 1
+          ? items[0]
+          : items[activeItemIndex + 1];
+        nextActiveItem.active = true;
+      }
     } else {
-      return null;
+      nextActiveItem = this.getNextBestActiveItem(true);
     }
+    return nextActiveItem;
   }
 
   /**
@@ -156,21 +159,24 @@ export class Gutter {
    */
   @Method()
   async activatePrevItem () {
-    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
-
-    if (items.length === 1) {
-      items[0].active = true;
-      return items[0];
-    } else if (items.length > 1) {
-      const activeItemIndex = items.findIndex(item => item.active);
-      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === 0
-        ? items[items.length - 1]
-        : items[activeItemIndex - 1];
-      nextActiveItem.active = true;
-      return nextActiveItem;
+    const nextActiveItem = null;
+    if (this.el.querySelector('la-gutter-item[active]')) {
+      const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
+      if (items.length === 1) {
+        items[0].active = true;
+        return items[0];
+      } else if (items.length > 1) {
+        const activeItemIndex = items.findIndex(item => item.active);
+        const nextActiveItem = activeItemIndex === -1 || activeItemIndex === 0
+          ? items[items.length - 1]
+          : items[activeItemIndex - 1];
+        nextActiveItem.active = true;
+        return nextActiveItem;
+      }
     } else {
-      return null;
+      this.getNextBestActiveItem(false);
     }
+    return nextActiveItem;
   }
 
   items (): NodeListOf<HTMLLaGutterItemElement> {
@@ -179,5 +185,29 @@ export class Gutter {
 
   getVisibleItems (): HTMLLaGutterItemElement[] {
     return [...this.items()].filter(i => i.style.display !== 'none');
+  }
+
+  getNextBestActiveItem (next: Boolean) {
+    let nextActiveItem;
+    const isInVp = (el: HTMLLaGutterItemElement) => {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+      );
+    };
+    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
+    const itemsInVp = items.filter(item => isInVp(item));
+    if (itemsInVp.length) {
+      nextActiveItem = itemsInVp[0];
+    } else {
+      nextActiveItem = next ? items[0] : items[items.length - 1];
+    }
+
+    nextActiveItem.active = true;
+    return nextActiveItem;
   }
 }
