@@ -199,8 +199,8 @@ export class Gutter {
 
       );
     };
-    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
-    const itemsInVp = items.filter(item => isInVp(item));
+    const items: HTMLLaGutterItemElement[] = this.layout ? this.getVisibleItems() : [];
+    const itemsInVp = this.layout ? this.layout.sortItems(items.filter(item => isInVp(item))) : [];
     if (itemsInVp.length) {
       nextActiveItem = itemsInVp[0];
     } else {
