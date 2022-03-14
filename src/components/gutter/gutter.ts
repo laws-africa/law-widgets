@@ -1,7 +1,7 @@
 import { Component, Element, Prop, Listen, Method, Event, EventEmitter } from '@stencil/core';
+import { getAkomaNtosoElement } from '../../utils/linking';
 import { GutterLayout } from './layout';
 import debounce from 'lodash/debounce';
-import { getAkomaNtosoElement } from '../../utils/linking';
 
 @Component({
   tag: 'la-gutter',
