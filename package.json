@@ -64,5 +64,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/laws-africa/la-web-components.git"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
