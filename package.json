@@ -29,7 +29,7 @@
   "dependencies": {
     "@stencil/core": "^2.14.0",
     "@stencil/sass": "^1.5.0",
-    "indigo-web": "^8.1.0",
+    "indigo-web": "^8.1.1",
     "tippy.js": "^6.3.2",
     "typescript": "^4.5.2"
   },
