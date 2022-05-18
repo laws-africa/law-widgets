@@ -187,6 +187,17 @@ export const JudgmentKE = (props) => html`
 
       </div>
     </div>
+      <table class="akn-table" id="arguments__table_1" data-eid="arguments__table_1">
+        <tbody><tr class="akn-tr">
+          <th class="akn-th"><span class="akn-p" id="arguments__table_1__p_1" data-eid="arguments__table_1__p_1">Heading 1</span></th>
+          <th class="akn-th"><span class="akn-p" id="arguments__table_1__p_2" data-eid="arguments__table_1__p_2">Heading 2</span></th>
+        </tr>
+        <tr class="akn-tr">
+          <td class="akn-td"><span class="akn-p" id="arguments__table_1__p_3" data-eid="arguments__table_1__p_3">Content 1</span></td>
+          <td class="akn-td"><span class="akn-p" id="arguments__table_1__p_4" data-eid="arguments__table_1__p_4">Content 2</span></td>
+        </tr>
+        </tbody>
+      </table>
       <div id="judgmentBody" class="akn-judgmentBody"><div id="arguments" class="akn-arguments">
         <div class="akn-paragraph" id="arguments__para_1" data-eid="arguments__para_1">
           <span class="akn-num">1.</span><span class="akn-content"><span class="akn-p" id="arguments__para_1__p_1" data-eid="arguments__para_1__p_1">By a Notice of motion dated 25<sup class="akn-sup">th</sup> January 2021, the defendant prays that this suit be dismissed or struck out and that the costs of this suit including the costs of the application be paid by the Plaintiff to the defendant.</span></span>
