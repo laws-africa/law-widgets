@@ -542,17 +542,6 @@ la-akoma-ntoso[frbr-country^=ke][frbr-type=judgment] em {
   font-style: normal;
   text-decoration: underline;
 }
-la-akoma-ntoso[frbr-country^=ke][frbr-type=judgment] table {
-  border-width: 0px;
-}
-la-akoma-ntoso[frbr-country^=ke][frbr-type=judgment] table th,
-la-akoma-ntoso[frbr-country^=ke][frbr-type=judgment] table td {
-  border-left-width: 0px;
-  border-top-width: 0px;
-}
-la-akoma-ntoso[frbr-country^=ke][frbr-type=judgment] table tbody + tbody {
-  border-top-width: 0px;
-}
 la-akoma-ntoso[frbr-country^=ke][frbr-type=judgment] .akn-header {
   padding-top: 1.6em;
   padding-bottom: 3.2em;
