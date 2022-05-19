@@ -24,17 +24,12 @@ There are three methods for using these web components:
 
 ### Script tag
 
-- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/gh/laws-africa/la-web-components@0.7.1-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/npm/@lawsafrica/web-components@0.7.2-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
-- Run `npm install @laws-africa/web-components --save`
+- Run `npm install @lawsafrica/web-components --save`
 - Put a script tag similar to this `<script type="module" src="node_modules/@laws-africa/web-components/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
-
-### In a stencil-starter app
-- Run `npm install @laws-africa/web-components --save`
-- Add an import to the npm packages `import @laws-africa;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
 # Development
