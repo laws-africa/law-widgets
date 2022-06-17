@@ -358,17 +358,20 @@ la-akoma-ntoso .akn-crossHeading {
 }
 la-akoma-ntoso .akn-subsection,
 la-akoma-ntoso .akn-paragraph,
+la-akoma-ntoso .akn-subrule,
 la-akoma-ntoso .akn-subparagraph {
   padding-left: 3em;
   margin-bottom: 0.8em;
 }
 la-akoma-ntoso .akn-subsection.akn--no-indent,
 la-akoma-ntoso .akn-paragraph.akn--no-indent,
+la-akoma-ntoso .akn-subrule.akn--no-indent,
 la-akoma-ntoso .akn-subparagraph.akn--no-indent {
   padding-left: 0px;
 }
 la-akoma-ntoso .akn-subsection > .akn-num,
 la-akoma-ntoso .akn-paragraph > .akn-num,
+la-akoma-ntoso .akn-subrule > .akn-num,
 la-akoma-ntoso .akn-subparagraph > .akn-num {
   display: block;
   float: left;
@@ -377,6 +380,7 @@ la-akoma-ntoso .akn-subparagraph > .akn-num {
 }
 la-akoma-ntoso .akn-subsection > .akn-heading,
 la-akoma-ntoso .akn-paragraph > .akn-heading,
+la-akoma-ntoso .akn-subrule > .akn-heading,
 la-akoma-ntoso .akn-subparagraph > .akn-heading {
   font-size: inherit;
   text-align: inherit;
