@@ -11,6 +11,7 @@ These are web components, so they work in any major framework or with no framewo
 ### Content components
 
 * [la-akoma-ntoso](src/components/akoma-ntoso/)
+* [la-akoma-ntoso-portion](src/components/akoma-ntoso-portion/)
 * [la-gutter](src/components/gutter/)
 
 ### Behaviour components

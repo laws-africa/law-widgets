@@ -67,6 +67,50 @@ let AkomaNtoso = class extends HTMLElement$1 {
   static get style() { return akomaNtosoCss; }
 };
 
+let AkomaNtosoPortion = class extends HTMLElement$1 {
+  constructor() {
+    super();
+    this.__registerHost();
+    /**
+     * Provider URL (advanced usage only).
+     */
+    this.provider = 'https://services.lawsafrica.com/v1';
+  }
+  partnerChanged() {
+    this.loadContent();
+  }
+  providerChanged() {
+    this.loadContent();
+  }
+  frbrUriChanged() {
+    this.loadContent();
+  }
+  async loadContent() {
+    this.ensurePartner();
+    if (this.frbrUri && this.provider) {
+      const url = this.provider + '/p/' + this.partner + '/e/portion' + this.frbrUri;
+      const resp = await fetch(url);
+      if (resp.ok) {
+        this.el.innerHTML = await resp.text();
+      }
+    }
+  }
+  ensurePartner() {
+    if (!this.partner) {
+      this.partner = document.location.hostname.replace(/^www\./, '');
+    }
+  }
+  componentWillLoad() {
+    this.loadContent();
+  }
+  get el() { return this; }
+  static get watchers() { return {
+    "partner": ["partnerChanged"],
+    "provider": ["providerChanged"],
+    "frbrUri": ["frbrUriChanged"]
+  }; }
+};
+
 function getAkomaNtosoElement(component, selector) {
   if (selector) {
     return selector instanceof HTMLElement ? selector : component.ownerDocument.querySelector(selector);
@@ -4604,6 +4648,7 @@ let TocItem = class extends HTMLElement$1 {
 };
 
 const LaAkomaNtoso = /*@__PURE__*/proxyCustomElement(AkomaNtoso, [0,"la-akoma-ntoso",{"frbrExpressionUri":[1537,"frbr-expression-uri"],"frbrCountry":[1537,"frbr-country"],"frbrType":[1537,"frbr-type"],"frbrSubtype":[1537,"frbr-subtype"],"frbrAuthor":[1537,"frbr-author"],"frbrDate":[1537,"frbr-date"],"frbrNumber":[1537,"frbr-number"],"frbrExpressionDate":[1537,"frbr-expression-date"],"frbrLanguage":[1537,"frbr-language"]}]);
+const LaAkomaNtosoPortion = /*@__PURE__*/proxyCustomElement(AkomaNtosoPortion, [0,"la-akoma-ntoso-portion",{"frbrUri":[1,"frbr-uri"],"partner":[1],"provider":[1]}]);
 const LaDecorateInternalRefs = /*@__PURE__*/proxyCustomElement(DecorateInternalRefs, [0,"la-decorate-internal-refs",{"akomaNtoso":[1,"akoma-ntoso"],"popups":[4],"flag":[4]}]);
 const LaDecorateTerms = /*@__PURE__*/proxyCustomElement(DecorateTerms, [0,"la-decorate-terms",{"akomaNtoso":[1,"akoma-ntoso"],"popupDefinitions":[4,"popup-definitions"],"linkTerms":[4,"link-terms"]}]);
 const LaGutter = /*@__PURE__*/proxyCustomElement(Gutter, [0,"la-gutter",{"akomaNtoso":[1,"akoma-ntoso"]},[[0,"laItemChanged","itemChanged"],[0,"click","clicked"]]]);
@@ -4615,6 +4660,7 @@ const defineCustomElements = (opts) => {
   if (typeof customElements !== 'undefined') {
     [
       LaAkomaNtoso,
+  LaAkomaNtosoPortion,
   LaDecorateInternalRefs,
   LaDecorateTerms,
   LaGutter,
@@ -4630,4 +4676,4 @@ const defineCustomElements = (opts) => {
   }
 };
 
-export { LaAkomaNtoso, LaDecorateInternalRefs, LaDecorateTerms, LaGutter, LaGutterItem, LaTableOfContents, LaTableOfContentsController, LaTocItem, defineCustomElements };
+export { LaAkomaNtoso, LaAkomaNtosoPortion, LaDecorateInternalRefs, LaDecorateTerms, LaGutter, LaGutterItem, LaTableOfContents, LaTableOfContentsController, LaTocItem, defineCustomElements };
