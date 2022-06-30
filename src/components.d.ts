@@ -82,13 +82,25 @@ export namespace Components {
          */
         "akomaNtoso"?: string | HTMLElement;
         /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch": boolean;
+        /**
           * If `true`, internal refs will be flagged with in icon to be more visible.
          */
         "flag": boolean;
         /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
           * If `true`, the content of internal ref targets will be shown as popups.
          */
         "popups": boolean;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider": string;
     }
     interface LaDecorateTerms {
         /**
@@ -353,13 +365,25 @@ declare namespace LocalJSX {
          */
         "akomaNtoso"?: string | HTMLElement;
         /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch"?: boolean;
+        /**
           * If `true`, internal refs will be flagged with in icon to be more visible.
          */
         "flag"?: boolean;
         /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
           * If `true`, the content of internal ref targets will be shown as popups.
          */
         "popups"?: boolean;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider"?: string;
     }
     interface LaDecorateTerms {
         /**

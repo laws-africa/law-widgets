@@ -2,6 +2,20 @@ import { Component, Prop, Element, Watch } from '@stencil/core';
 import { AkomaNtosoTarget } from '../../utils/linking';
 import tippy, { Instance as Tippy } from 'tippy.js';
 
+/**
+ * Remove the existing portion (if any) of frbrUri, and add the new portion to it.
+ */
+function addPortion (frbrUri: string, portion: string) {
+  const ix = frbrUri.indexOf('~');
+  if (ix > -1) {
+    frbrUri = frbrUri.slice(0, ix);
+  }
+
+  if (!frbrUri.endsWith('/')) frbrUri = frbrUri + '/';
+
+  return frbrUri + portion;
+}
+
 @Component({
   tag: 'la-decorate-internal-refs',
   styleUrl: 'decorate-internal-refs.scss'
@@ -31,6 +45,14 @@ export class DecorateInternalRefs {
    * If `true`, internal refs will be flagged with in icon to be more visible.
    */
   @Prop() flag: boolean = false;
+
+  /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
+  @Prop({ reflect: true, mutable: true }) partner?: string;
+
+  /** Provider URL for fetching content (advanced usage only). */
+  @Prop() provider = 'https://services.lawsafrica.com/v1';
 
   componentWillLoad () {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
@@ -80,18 +102,47 @@ export class DecorateInternalRefs {
     });
   }
 
-  onTrigger (tippy: Tippy) {
+  async onTrigger (tippy: Tippy) {
     if (this.akomaNtosoElement) {
       const href: string = tippy.reference.getAttribute('href') || '';
+      let html: string | undefined = '';
       const provision: HTMLElement | null = this.akomaNtosoElement.querySelector(href);
 
       if (provision) {
+        html = provision.outerHTML;
+      } else if (this.fetch) {
+        // try fetching it remotely
+        html = await this.fetchContent(href.slice(1));
+      }
+
+      if (html) {
         tippy.setContent(`
         <div>
-          <div class="tippy-content__body"><la-akoma-ntoso>${provision.outerHTML}</la-akoma-ntoso></div>
+          <div class="tippy-content__body"><la-akoma-ntoso>${html}</la-akoma-ntoso></div>
         </div>`
         );
       }
+    }
+  }
+
+  async fetchContent (elementId: string) {
+    this.ensurePartner();
+
+    if (this.provider && this.akomaNtosoElement) {
+      const frbrUri = this.akomaNtosoElement.getAttribute('frbr-expression-uri');
+      if (frbrUri) {
+        const url = this.provider + '/p/' + this.partner + '/e/portion' + addPortion(frbrUri, '~' + elementId);
+        const resp = await fetch(url);
+        if (resp.ok) {
+          return await resp.text();
+        }
+      }
+    }
+  }
+
+  ensurePartner () {
+    if (!this.partner) {
+      this.partner = document.location.hostname.replace(/^www\./, '');
     }
   }
 }
