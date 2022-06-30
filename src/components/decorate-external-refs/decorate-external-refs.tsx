@@ -8,10 +8,10 @@ import tippy, { Instance as Tippy } from 'tippy.js';
 })
 export class DecorateExternalRefs {
   // The akn content element being decorated
+  protected akomaNtosoElement?: HTMLElement | null;
 
   protected tippies: Tippy[] = [];
   protected tippyContainer?: HTMLElement;
-  protected akn?: HTMLElement | null;
 
   @Element() el!: HTMLElement;
 
@@ -41,7 +41,7 @@ export class DecorateExternalRefs {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
       this.componentDidLoad();
     });
-    this.akn = target.getElement();
+    this.akomaNtosoElement = target.getElement();
     this.tippyContainer = document.createElement('div');
     this.tippyContainer.className = 'la-decorate-external-refs__popup';
     document.body.appendChild(this.tippyContainer);
@@ -59,15 +59,15 @@ export class DecorateExternalRefs {
     }
     this.tippies = [];
 
-    if (this.akn && popups) {
+    if (this.akomaNtosoElement && popups) {
       this.createPopups();
     }
   }
 
   createPopups () {
-    if (this.akn) {
+    if (this.akomaNtosoElement) {
       // @ts-ignore
-      this.tippies = tippy(this.akn.querySelectorAll('a.akn-ref[data-href^="/akn/"]'), {
+      this.tippies = tippy(this.akomaNtosoElement.querySelectorAll('a.akn-ref[data-href^="/akn/"]'), {
         appendTo: () => this.tippyContainer,
         allowHTML: true,
         hideOnClick: true,

@@ -1,6 +1,6 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
 import { renameElement } from '../../utils/utils';
-import { getAkomaNtosoElement } from '../../utils/linking';
+import { AkomaNtosoTarget } from '../../utils/linking';
 import tippy, { Instance as Tippy } from 'tippy.js';
 
 @Component({
@@ -22,7 +22,6 @@ export class DecorateTerms {
    * to the containing la-akoma-ntoso element, if any, otherwise the first
    * `la-akoma-ntoso` element on the page.
    */
-  // TODO: should  we be watching this? What if it changes?
   @Prop() akomaNtoso?: string | HTMLElement;
 
   /**
@@ -36,8 +35,10 @@ export class DecorateTerms {
   @Prop() linkTerms: boolean = false;
 
   componentWillLoad () {
-    // TODO: watch for changes to the akn content?
-    this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
+    const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
+      this.componentDidLoad();
+    });
+    this.akomaNtosoElement = target.getElement();
     this.tippyContainer = document.createElement('div');
     this.tippyContainer.className = 'la-decorate-terms__popup';
     document.body.appendChild(this.tippyContainer);
@@ -84,7 +85,7 @@ export class DecorateTerms {
 
   createPopups () {
     // @ts-ignore
-    this.tippies = tippy('.akn-term', {
+    this.tippies = tippy(this.akomaNtosoElement.querySelectorAll('.akn-term'), {
       appendTo: () => this.tippyContainer,
       allowHTML: true,
       content: '',
