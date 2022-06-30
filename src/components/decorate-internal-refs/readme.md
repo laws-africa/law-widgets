@@ -10,24 +10,37 @@ references with a flag, and by showing the contents of the target of the interna
 
 ### Html
 
-Place this element inside an `<la-akoma-ntoso>` element:
+Use `<la-akoma-ntoso>` to wrap Akoma Ntoso content.
 
 ```html
 <la-akoma-ntoso>
-  <la-decorate-internal-refs flag popups></la-decorate-internal-refs>
-
-  {{ html }}
+  {{ your_akoma_ntoso_html }}
 </la-akoma-ntoso>
 ```
 
-Alternatively place it elsewhere and provide a selector to identify the `<la-akoma-ntoso>` element:
+Specify the expression FRBR URI to include tradition-specific formatting, or set
+`frbr-country` or other `frbr-*` attributes accordingly.
 
 ```html
-<la-decorate-internal-refs flag popups akoma-ntoso="#doc"></la-decorate-internal-refs>
+<la-akoma-ntoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
+  {{ your_akoma_ntoso_html }}
+</la-akoma-ntoso>
+```
 
-<la-akoma-ntoso id="doc">
-  {{ html }}
-</la-akoma-ntosoi>
+```html
+<la-akoma-ntoso frbr-country="ke" frbr-language="swa">
+  {{ your_akoma_ntoso_html }}
+</la-akoma-ntoso>
+```
+
+Laws.Africa partners can fetch content from Laws.Africa using the `fetch` attribute.
+If your partner code is not the same as your website's domain name, then also specify
+your partner code in `partner`.
+
+```html
+<la-akoma-ntoso fetch partner="example.com" expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
+  {{ your_akoma_ntoso_html }}
+</la-akoma-ntoso>
 ```
 
 

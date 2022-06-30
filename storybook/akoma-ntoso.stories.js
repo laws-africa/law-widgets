@@ -1475,3 +1475,26 @@ export const StructureReal = (props) => html`
 StructureReal.args = {
   class: 'show-structure'
 };
+
+export const Fetch = (props) => html`
+  <la-decorate-external-refs popups flag akoma-ntoss="#akn-fetch"></la-decorate-external-refs>
+  <la-akoma-ntoso
+    .frbrExpressionUri=${props.frbrExpressionUri}
+    .frbrCountry=${props.frbrCountry}
+    .frbrType=${props.frbrType}
+    .frbrSubtype=${props.frbrSubtype}
+    .frbrAuthor=${props.frbrAuthor}
+    .frbrDate=${props.frbrDate}
+    .frbrNumber=${props.frbrNumber}
+    .frbrExpressionDate=${props.frbrExpressionDate}
+    .frbrLanguage=${props.frbrLanguage}
+    .partner="${props.partner}"
+    .provider="${props.provider}"
+    ?fetch=${props.fetch}
+    id="akn-fetch"
+  >
+  </la-akoma-ntoso>
+`;
+Fetch.args = {
+  fetch: true
+};

@@ -10,6 +10,10 @@ import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-con
 export namespace Components {
     interface LaAkomaNtoso {
         /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch": boolean;
+        /**
           * The emanating actor, unless implicitly deducible by the document type (e.g., acts and bills do not usually require actor, while ministerial decrees and European legislation do)
          */
         "frbrAuthor"?: string;
@@ -45,16 +49,28 @@ export namespace Components {
           * Type of document  - For legislation – Acts, Regulations, Statutory Instruments, and the like – use `act`.  - For case law, use `judgment`.  - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
          */
         "frbrType"?: string;
-    }
-    interface LaAkomaNtosoPortion {
         /**
-          * Full Akoma Ntoso FRBR Expression and portion URI of the portion to fetch.
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
          */
-        "frbrUri"?: string;
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider": string;
+    }
+    interface LaDecorateExternalRefs {
+        /**
+          * CSS selector for the la-akoma-ntoso element or HTMLELement that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+         */
+        "akomaNtoso"?: string | HTMLElement;
         /**
           * Partner code provided by Laws.Africa. Defaults to the hostname of your website.
          */
         "partner"?: string;
+        /**
+          * If `true`, the content of external ref targets will be shown as popups.
+         */
+        "popups": boolean;
         /**
           * Provider URL (advanced usage only).
          */
@@ -202,11 +218,11 @@ declare global {
         prototype: HTMLLaAkomaNtosoElement;
         new (): HTMLLaAkomaNtosoElement;
     };
-    interface HTMLLaAkomaNtosoPortionElement extends Components.LaAkomaNtosoPortion, HTMLStencilElement {
+    interface HTMLLaDecorateExternalRefsElement extends Components.LaDecorateExternalRefs, HTMLStencilElement {
     }
-    var HTMLLaAkomaNtosoPortionElement: {
-        prototype: HTMLLaAkomaNtosoPortionElement;
-        new (): HTMLLaAkomaNtosoPortionElement;
+    var HTMLLaDecorateExternalRefsElement: {
+        prototype: HTMLLaDecorateExternalRefsElement;
+        new (): HTMLLaDecorateExternalRefsElement;
     };
     interface HTMLLaDecorateInternalRefsElement extends Components.LaDecorateInternalRefs, HTMLStencilElement {
     }
@@ -252,7 +268,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "la-akoma-ntoso": HTMLLaAkomaNtosoElement;
-        "la-akoma-ntoso-portion": HTMLLaAkomaNtosoPortionElement;
+        "la-decorate-external-refs": HTMLLaDecorateExternalRefsElement;
         "la-decorate-internal-refs": HTMLLaDecorateInternalRefsElement;
         "la-decorate-terms": HTMLLaDecorateTermsElement;
         "la-gutter": HTMLLaGutterElement;
@@ -264,6 +280,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface LaAkomaNtoso {
+        /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch"?: boolean;
         /**
           * The emanating actor, unless implicitly deducible by the document type (e.g., acts and bills do not usually require actor, while ministerial decrees and European legislation do)
          */
@@ -300,16 +320,28 @@ declare namespace LocalJSX {
           * Type of document  - For legislation – Acts, Regulations, Statutory Instruments, and the like – use `act`.  - For case law, use `judgment`.  - For other documents – Policies, Memoranda of Understanding, Yearbooks, Press Releases, and the like – use `doc`.
          */
         "frbrType"?: string;
-    }
-    interface LaAkomaNtosoPortion {
         /**
-          * Full Akoma Ntoso FRBR Expression and portion URI of the portion to fetch.
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
          */
-        "frbrUri"?: string;
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider"?: string;
+    }
+    interface LaDecorateExternalRefs {
+        /**
+          * CSS selector for the la-akoma-ntoso element or HTMLELement that will be decorated. Defaults to the containing la-akoma-ntoso element, if any, otherwise the first `la-akoma-ntoso` element on the page.
+         */
+        "akomaNtoso"?: string | HTMLElement;
         /**
           * Partner code provided by Laws.Africa. Defaults to the hostname of your website.
          */
         "partner"?: string;
+        /**
+          * If `true`, the content of external ref targets will be shown as popups.
+         */
+        "popups"?: boolean;
         /**
           * Provider URL (advanced usage only).
          */
@@ -441,7 +473,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "la-akoma-ntoso": LaAkomaNtoso;
-        "la-akoma-ntoso-portion": LaAkomaNtosoPortion;
+        "la-decorate-external-refs": LaDecorateExternalRefs;
         "la-decorate-internal-refs": LaDecorateInternalRefs;
         "la-decorate-terms": LaDecorateTerms;
         "la-gutter": LaGutter;
@@ -456,7 +488,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "la-akoma-ntoso": LocalJSX.LaAkomaNtoso & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoElement>;
-            "la-akoma-ntoso-portion": LocalJSX.LaAkomaNtosoPortion & JSXBase.HTMLAttributes<HTMLLaAkomaNtosoPortionElement>;
+            "la-decorate-external-refs": LocalJSX.LaDecorateExternalRefs & JSXBase.HTMLAttributes<HTMLLaDecorateExternalRefsElement>;
             "la-decorate-internal-refs": LocalJSX.LaDecorateInternalRefs & JSXBase.HTMLAttributes<HTMLLaDecorateInternalRefsElement>;
             "la-decorate-terms": LocalJSX.LaDecorateTerms & JSXBase.HTMLAttributes<HTMLLaDecorateTermsElement>;
             "la-gutter": LocalJSX.LaGutter & JSXBase.HTMLAttributes<HTMLLaGutterElement>;

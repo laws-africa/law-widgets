@@ -21,6 +21,7 @@
     "HTMLElement": true,
     "Element": true,
     "HTMLInputElement": true,
-    "fetch": true
+    "fetch": true,
+    "MutationObserver": true
   }
 }

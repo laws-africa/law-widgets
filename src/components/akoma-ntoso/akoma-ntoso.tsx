@@ -1,4 +1,4 @@
-import { Component, Prop, Watch } from '@stencil/core';
+import { Component, Element, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'la-akoma-ntoso',
@@ -44,6 +44,26 @@ export class AkomaNtoso {
   /** The human language code in which the Expression is drafted */
   @Prop({ reflect: true, mutable: true }) frbrLanguage?: string;
 
+  /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
+  @Prop({ reflect: true, mutable: true }) partner?: string;
+
+  /** Provider URL for fetching content (advanced usage only). */
+  @Prop() provider = 'https://services.lawsafrica.com/v1';
+
+  @Element() el!: HTMLElement;
+
+  @Watch('provider')
+  providerChanged () {
+    this.fetchContent();
+  }
+
+  @Watch('fetch')
+  fetchChanged () {
+    this.fetchContent();
+  }
+
   @Watch('frbrExpressionUri')
   parseFrbrExpressionUri (newValue: string) {
     /*eslint-disable */
@@ -84,6 +104,26 @@ export class AkomaNtoso {
           }
         }
       });
+    }
+
+    this.fetchContent();
+  }
+
+  async fetchContent () {
+    this.ensurePartner();
+
+    if (this.fetch && this.frbrExpressionUri && this.provider) {
+      const url = this.provider + '/p/' + this.partner + '/e/portion' + this.frbrExpressionUri;
+      const resp = await fetch(url);
+      if (resp.ok) {
+        this.el.innerHTML = await resp.text();
+      }
+    }
+  }
+
+  ensurePartner () {
+    if (!this.partner) {
+      this.partner = document.location.hostname.replace(/^www\./, '');
     }
   }
 
