@@ -10,14 +10,20 @@
 </head>
 <body>
 
+<la-table-of-contents-controller
+  frbr-expression-uri="/akn/za/act/1996/constitution/eng@1996-12-18/"
+  partner="laws.africa"
+  fetch
+  provider="http://localhost:8000/v1"
+></la-table-of-contents-controller>
+
 <la-decorate-external-refs akoma-ntoso="#akn" popups></la-decorate-external-refs>
-<la-decorate-internal-refs akoma-ntoso="#akn" popups fetch provider="http://localhost:8000/v1" partner="laws.africa"></la-decorate-internal-refs>
+<la-decorate-internal-refs akoma-ntoso="#akn" popups flag fetch partner="laws.africa"></la-decorate-internal-refs>
 
 <la-akoma-ntoso
   id="akn"
-  frbr-expression-uri="/akn/za/act/1996/constitution/eng@1996-12-18/~chp_4"
+  frbr-expression-uri="/akn/za/act/1996/constitution/eng@1996-12-18/~chp_4__sec_44"
   fetch
-  provider="http://localhost:8000/v1"
   partner="laws.africa"
 ></la-akoma-ntoso>
 

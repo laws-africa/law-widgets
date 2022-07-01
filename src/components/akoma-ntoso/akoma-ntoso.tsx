@@ -55,12 +55,8 @@ export class AkomaNtoso {
   @Element() el!: HTMLElement;
 
   @Watch('provider')
-  providerChanged () {
-    this.fetchContent();
-  }
-
   @Watch('fetch')
-  fetchChanged () {
+  refetch () {
     this.fetchContent();
   }
 

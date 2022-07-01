@@ -85,7 +85,7 @@ export class DecorateExternalRefs {
     // TODO: if there's nothing, don't show the popup
     // TODO: delay showing until we have content
 
-    const content = await this.loadContent(frbrUri);
+    const content = await this.fetchContent(frbrUri);
     if (content) {
       tippy.setContent(`
         <div>
@@ -101,7 +101,7 @@ export class DecorateExternalRefs {
     }
   }
 
-  async loadContent (frbrUri: string) {
+  async fetchContent (frbrUri: string) {
     this.ensurePartner();
 
     if (frbrUri && this.provider) {

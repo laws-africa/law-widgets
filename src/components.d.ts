@@ -154,9 +154,25 @@ export namespace Components {
          */
         "expandAll": () => Promise<void>;
         /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch": boolean;
+        /**
+          * Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set.
+         */
+        "frbrExpressionUri"?: string;
+        /**
           * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items": TOCItem[] | string;
+        /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider": string;
         /**
           * value to filter items by item title
          */
@@ -172,6 +188,14 @@ export namespace Components {
          */
         "expandAllBtnClasses": string;
         /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch": boolean;
+        /**
+          * Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set.
+         */
+        "frbrExpressionUri"?: string;
+        /**
           * If true, hides clear title filter button
          */
         "hideClearTitleFilterButton": boolean;
@@ -179,6 +203,14 @@ export namespace Components {
           * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items": TOCItem[] | string;
+        /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider": string;
         /**
           * Additional classes added to title filter button
          */
@@ -425,9 +457,25 @@ declare namespace LocalJSX {
     }
     interface LaTableOfContents {
         /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch"?: boolean;
+        /**
+          * Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set.
+         */
+        "frbrExpressionUri"?: string;
+        /**
           * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items"?: TOCItem[] | string;
+        /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider"?: string;
         /**
           * value to filter items by item title
          */
@@ -443,6 +491,14 @@ declare namespace LocalJSX {
          */
         "expandAllBtnClasses"?: string;
         /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch"?: boolean;
+        /**
+          * Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set.
+         */
+        "frbrExpressionUri"?: string;
+        /**
           * If true, hides clear title filter button
          */
         "hideClearTitleFilterButton"?: boolean;
@@ -450,6 +506,14 @@ declare namespace LocalJSX {
           * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items"?: TOCItem[] | string;
+        /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider"?: string;
         /**
           * Additional classes added to title filter button
          */
