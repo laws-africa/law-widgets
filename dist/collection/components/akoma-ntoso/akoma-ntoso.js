@@ -1,5 +1,14 @@
-import { Component, Prop, Watch } from '@stencil/core';
+import { Component, Element, Prop, Watch } from '@stencil/core';
 export class AkomaNtoso {
+  constructor() {
+    /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+    this.fetch = false;
+    /** Provider URL for fetching content (advanced usage only). */
+    this.provider = 'https://services.lawsafrica.com/v1';
+  }
+  refetch() {
+    this.fetchContent();
+  }
   parseFrbrExpressionUri(newValue) {
     /*eslint-disable */
     const ex = '^(/(?<prefix>akn))/(?<country>[a-z]{2})(-(?<locality>[^/]+))?/(?<doctype>[^/]+)(/(?<subtype>[^0-9][^/]*))?(/(?<actor>[^0-9][^/]*))?/(?<date>[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?)/(?<number>[^/]+)(/(((?<language>[a-z]{3})(?<expression_date>[@:][^/]*)?(/!?(?<expression_component>[^/]+?)?(/(?<expression_subcomponent>[^.]+))?)?(\.(?<format>[a-z0-9]+))?)|!?(?<work_component>[^/]+)))?$';
@@ -47,6 +56,22 @@ export class AkomaNtoso {
           }
         }
       });
+    }
+    this.fetchContent();
+  }
+  async fetchContent() {
+    this.ensurePartner();
+    if (this.fetch && this.frbrExpressionUri && this.provider) {
+      const url = this.provider + '/p/' + this.partner + '/e/portion' + this.frbrExpressionUri;
+      const resp = await fetch(url);
+      if (resp.ok) {
+        this.el.innerHTML = await resp.text();
+      }
+    }
+  }
+  ensurePartner() {
+    if (!this.partner) {
+      this.partner = document.location.hostname.replace(/^www\./, '');
     }
   }
   componentWillLoad() {
@@ -213,9 +238,69 @@ export class AkomaNtoso {
       },
       "attribute": "frbr-language",
       "reflect": true
+    },
+    "fetch": {
+      "type": "boolean",
+      "mutable": true,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set."
+      },
+      "attribute": "fetch",
+      "reflect": true,
+      "defaultValue": "false"
+    },
+    "partner": {
+      "type": "string",
+      "mutable": true,
+      "complexType": {
+        "original": "string",
+        "resolved": "string | undefined",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`."
+      },
+      "attribute": "partner",
+      "reflect": true
+    },
+    "provider": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Provider URL for fetching content (advanced usage only)."
+      },
+      "attribute": "provider",
+      "reflect": false,
+      "defaultValue": "'https://services.lawsafrica.com/v1'"
     }
   }; }
+  static get elementRef() { return "el"; }
   static get watchers() { return [{
+      "propName": "provider",
+      "methodName": "refetch"
+    }, {
+      "propName": "fetch",
+      "methodName": "refetch"
+    }, {
       "propName": "frbrExpressionUri",
       "methodName": "parseFrbrExpressionUri"
     }]; }

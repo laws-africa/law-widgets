@@ -11,6 +11,10 @@ export class TableOfContents {
      * value to filter items by item title
      * */
     this.titleFilter = '';
+    /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+    this.fetch = false;
+    /** Provider URL for fetching content (advanced usage only). */
+    this.provider = 'https://services.lawsafrica.com/v1';
     this.filteredItems = null;
     this.innerItems = [];
   }
@@ -22,9 +26,29 @@ export class TableOfContents {
       this.innerItems = [...newValue];
     }
   }
+  refetch() {
+    this.fetchContent();
+  }
+  async fetchContent() {
+    this.ensurePartner();
+    if (this.fetch && this.frbrExpressionUri && this.provider) {
+      const url = this.provider + '/p/' + this.partner + '/e/we/toc.json' + this.frbrExpressionUri;
+      const resp = await fetch(url);
+      if (resp.ok) {
+        // @ts-ignore
+        this.innerItems = (await resp.json()).toc;
+      }
+    }
+  }
+  ensurePartner() {
+    if (!this.partner) {
+      this.partner = document.location.hostname.replace(/^www\./, '');
+    }
+  }
   componentWillLoad() {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
+    this.fetchContent();
   }
   /**
    * Expands all items
@@ -157,6 +181,76 @@ export class TableOfContents {
       "attribute": "title-filter",
       "reflect": false,
       "defaultValue": "''"
+    },
+    "frbrExpressionUri": {
+      "type": "string",
+      "mutable": true,
+      "complexType": {
+        "original": "string",
+        "resolved": "string | undefined",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set."
+      },
+      "attribute": "frbr-expression-uri",
+      "reflect": true
+    },
+    "fetch": {
+      "type": "boolean",
+      "mutable": true,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set."
+      },
+      "attribute": "fetch",
+      "reflect": true,
+      "defaultValue": "false"
+    },
+    "partner": {
+      "type": "string",
+      "mutable": true,
+      "complexType": {
+        "original": "string",
+        "resolved": "string | undefined",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`."
+      },
+      "attribute": "partner",
+      "reflect": true
+    },
+    "provider": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Provider URL for fetching content (advanced usage only)."
+      },
+      "attribute": "provider",
+      "reflect": false,
+      "defaultValue": "'https://services.lawsafrica.com/v1'"
     }
   }; }
   static get states() { return {
@@ -201,6 +295,15 @@ export class TableOfContents {
   static get watchers() { return [{
       "propName": "items",
       "methodName": "parseItemsProp"
+    }, {
+      "propName": "provider",
+      "methodName": "refetch"
+    }, {
+      "propName": "frbrExpressionUri",
+      "methodName": "refetch"
+    }, {
+      "propName": "fetch",
+      "methodName": "refetch"
     }, {
       "propName": "titleFilter",
       "methodName": "titleFilterChanged"

@@ -8,10 +8,10 @@ export const LaAkomaNtoso: {
   new (): LaAkomaNtoso;
 };
 
-interface LaAkomaNtosoPortion extends Components.LaAkomaNtosoPortion, HTMLElement {}
-export const LaAkomaNtosoPortion: {
-  prototype: LaAkomaNtosoPortion;
-  new (): LaAkomaNtosoPortion;
+interface LaDecorateExternalRefs extends Components.LaDecorateExternalRefs, HTMLElement {}
+export const LaDecorateExternalRefs: {
+  prototype: LaDecorateExternalRefs;
+  new (): LaDecorateExternalRefs;
 };
 
 interface LaDecorateInternalRefs extends Components.LaDecorateInternalRefs, HTMLElement {}
