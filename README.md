@@ -24,7 +24,7 @@ There are three methods for using these web components:
 
 ### Script tag
 
-- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/npm/@lawsafrica/web-components@0.7.2-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/npm/@lawsafrica/web-components@0.7.3-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
