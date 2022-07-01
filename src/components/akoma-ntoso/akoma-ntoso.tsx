@@ -1,4 +1,5 @@
 import { Component, Element, Prop, Watch } from '@stencil/core';
+import { PROVIDER, getPartner } from '../../utils/services';
 
 @Component({
   tag: 'la-akoma-ntoso',
@@ -50,7 +51,7 @@ export class AkomaNtoso {
   @Prop({ reflect: true, mutable: true }) partner?: string;
 
   /** Provider URL for fetching content (advanced usage only). */
-  @Prop() provider = 'https://services.lawsafrica.com/v1';
+  @Prop() provider = PROVIDER;
 
   @Element() el!: HTMLElement;
 
@@ -119,7 +120,7 @@ export class AkomaNtoso {
 
   ensurePartner () {
     if (!this.partner) {
-      this.partner = document.location.hostname.replace(/^www\./, '');
+      this.partner = getPartner();
     }
   }
 

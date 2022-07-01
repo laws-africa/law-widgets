@@ -1,5 +1,6 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
 import { AkomaNtosoTarget } from '../../utils/linking';
+import { PROVIDER, getPartner } from '../../utils/services';
 import tippy, { Instance as Tippy } from 'tippy.js';
 
 @Component({
@@ -35,7 +36,7 @@ export class DecorateExternalRefs {
   /**
    * Provider URL (advanced usage only).
    */
-  @Prop() provider = 'https://services.lawsafrica.com/v1';
+  @Prop() provider = PROVIDER;
 
   componentWillLoad () {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
@@ -97,7 +98,7 @@ export class DecorateExternalRefs {
 
   ensurePartner () {
     if (!this.partner) {
-      this.partner = document.location.hostname.replace(/^www\./, '');
+      this.partner = getPartner();
     }
   }
 

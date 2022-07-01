@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Component, Prop, h, Host, State, Element } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
+import { PROVIDER } from '../../utils/services';
 import debounce from 'lodash/debounce';
 
 @Component({
@@ -51,7 +52,7 @@ export class TableOfContentsController {
   /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
   @Prop({ reflect: true, mutable: true }) partner?: string;
   /** Provider URL for fetching content (advanced usage only). */
-  @Prop() provider = 'https://services.lawsafrica.com/v1';
+  @Prop() provider = PROVIDER;
 
   @State() titleFilter: string = '';
   @Element() el!: HTMLElement;

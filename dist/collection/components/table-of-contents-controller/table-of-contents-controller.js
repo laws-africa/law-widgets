@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Component, Prop, h, Host, State, Element } from '@stencil/core';
+import { PROVIDER } from '../../utils/services';
 import debounce from 'lodash/debounce';
 export class TableOfContentsController {
   constructor() {
@@ -35,7 +36,7 @@ export class TableOfContentsController {
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
-    this.provider = 'https://services.lawsafrica.com/v1';
+    this.provider = PROVIDER;
     this.titleFilter = '';
     this.handleTitleChange = debounce((e) => {
       this.titleFilter = e.target.value;
@@ -284,7 +285,7 @@ export class TableOfContentsController {
       },
       "attribute": "provider",
       "reflect": false,
-      "defaultValue": "'https://services.lawsafrica.com/v1'"
+      "defaultValue": "PROVIDER"
     }
   }; }
   static get states() { return {

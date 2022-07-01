@@ -1,5 +1,6 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
 import { AkomaNtosoTarget } from '../../utils/linking';
+import { PROVIDER, getPartner } from '../../utils/services';
 import tippy from 'tippy.js';
 export class DecorateExternalRefs {
   constructor() {
@@ -11,7 +12,7 @@ export class DecorateExternalRefs {
     /**
      * Provider URL (advanced usage only).
      */
-    this.provider = 'https://services.lawsafrica.com/v1';
+    this.provider = PROVIDER;
   }
   componentWillLoad() {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
@@ -63,7 +64,7 @@ export class DecorateExternalRefs {
   }
   ensurePartner() {
     if (!this.partner) {
-      this.partner = document.location.hostname.replace(/^www\./, '');
+      this.partner = getPartner();
     }
   }
   async fetchContent(frbrUri) {
@@ -156,7 +157,7 @@ export class DecorateExternalRefs {
       },
       "attribute": "provider",
       "reflect": false,
-      "defaultValue": "'https://services.lawsafrica.com/v1'"
+      "defaultValue": "PROVIDER"
     }
   }; }
   static get elementRef() { return "el"; }

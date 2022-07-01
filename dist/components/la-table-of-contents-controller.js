@@ -1,4 +1,5 @@
 import { HTMLElement, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { P as PROVIDER } from './services.js';
 import { d as debounce_1 } from './debounce.js';
 import { d as defineCustomElement$3 } from './table-of-contents.js';
 import { d as defineCustomElement$2 } from './toc-item.js';
@@ -41,7 +42,7 @@ let TableOfContentsController = class extends HTMLElement {
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
-    this.provider = 'https://services.lawsafrica.com/v1';
+    this.provider = PROVIDER;
     this.titleFilter = '';
     this.handleTitleChange = debounce_1((e) => {
       this.titleFilter = e.target.value;

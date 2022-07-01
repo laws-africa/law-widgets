@@ -1,5 +1,6 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
 import { AkomaNtosoTarget } from '../../utils/linking';
+import { PROVIDER, getPartner } from '../../utils/services';
 import tippy from 'tippy.js';
 /**
  * Remove the existing portion (if any) of frbrUri, and add the new portion to it.
@@ -27,7 +28,7 @@ export class DecorateInternalRefs {
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
-    this.provider = 'https://services.lawsafrica.com/v1';
+    this.provider = PROVIDER;
   }
   componentWillLoad() {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
@@ -104,7 +105,7 @@ export class DecorateInternalRefs {
   }
   ensurePartner() {
     if (!this.partner) {
-      this.partner = document.location.hostname.replace(/^www\./, '');
+      this.partner = getPartner();
     }
   }
   static get is() { return "la-decorate-internal-refs"; }
@@ -223,7 +224,7 @@ export class DecorateInternalRefs {
       },
       "attribute": "provider",
       "reflect": false,
-      "defaultValue": "'https://services.lawsafrica.com/v1'"
+      "defaultValue": "PROVIDER"
     }
   }; }
   static get elementRef() { return "el"; }
