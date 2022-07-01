@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+import { PROVIDER, getPartner } from '../../utils/services';
 
 /**
  * An item in the table of contents. Each item must have a `title` attribute (which may be `null`),
@@ -33,7 +34,7 @@ export class TableOfContents {
   /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
   @Prop({ reflect: true, mutable: true }) partner?: string;
   /** Provider URL for fetching content (advanced usage only). */
-  @Prop() provider = 'https://services.lawsafrica.com/v1';
+  @Prop() provider = PROVIDER;
 
   @State() filteredItems: Set<TOCItem> | null = null;
 
@@ -72,7 +73,7 @@ export class TableOfContents {
 
   ensurePartner () {
     if (!this.partner) {
-      this.partner = document.location.hostname.replace(/^www\./, '');
+      this.partner = getPartner();
     }
   }
 

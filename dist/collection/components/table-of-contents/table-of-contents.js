@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+import { PROVIDER, getPartner } from '../../utils/services';
 export class TableOfContents {
   constructor() {
     /**
@@ -14,7 +15,7 @@ export class TableOfContents {
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
-    this.provider = 'https://services.lawsafrica.com/v1';
+    this.provider = PROVIDER;
     this.filteredItems = null;
     this.innerItems = [];
   }
@@ -42,7 +43,7 @@ export class TableOfContents {
   }
   ensurePartner() {
     if (!this.partner) {
-      this.partner = document.location.hostname.replace(/^www\./, '');
+      this.partner = getPartner();
     }
   }
   componentWillLoad() {
@@ -250,7 +251,7 @@ export class TableOfContents {
       },
       "attribute": "provider",
       "reflect": false,
-      "defaultValue": "'https://services.lawsafrica.com/v1'"
+      "defaultValue": "PROVIDER"
     }
   }; }
   static get states() { return {

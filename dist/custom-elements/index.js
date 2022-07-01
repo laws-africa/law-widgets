@@ -4575,7 +4575,7 @@ let TableOfContents = class extends HTMLElement$1 {
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
-    this.provider = 'https://services.lawsafrica.com/v1';
+    this.provider = PROVIDER;
     this.filteredItems = null;
     this.innerItems = [];
   }
@@ -4603,7 +4603,7 @@ let TableOfContents = class extends HTMLElement$1 {
   }
   ensurePartner() {
     if (!this.partner) {
-      this.partner = document.location.hostname.replace(/^www\./, '');
+      this.partner = getPartner();
     }
   }
   componentWillLoad() {
