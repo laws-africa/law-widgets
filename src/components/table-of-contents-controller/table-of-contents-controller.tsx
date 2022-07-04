@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Component, Prop, h, Host, State, Element } from '@stencil/core';
 import { TOCItem } from '../table-of-contents/table-of-contents';
+import { PROVIDER } from '../../utils/services';
 import debounce from 'lodash/debounce';
 
 @Component({
@@ -43,6 +44,15 @@ export class TableOfContentsController {
    * Additional CSS classes added to the search filter input
    * */
   @Prop() titleFilterInputClasses: string = '';
+
+  /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
+  @Prop({ reflect: true, mutable: true }) frbrExpressionUri?: string;
+  /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
+  @Prop({ reflect: true, mutable: true }) partner?: string;
+  /** Provider URL for fetching content (advanced usage only). */
+  @Prop() provider = PROVIDER;
 
   @State() titleFilter: string = '';
   @Element() el!: HTMLElement;
@@ -100,7 +110,14 @@ export class TableOfContentsController {
           </button>
         </div>
 
-        <la-table-of-contents items={this.items} titleFilter={this.titleFilter}>
+        <la-table-of-contents
+          items={this.items}
+          titleFilter={this.titleFilter}
+          fetch={this.fetch}
+          provider={this.provider}
+          partner={this.partner}
+          frbr-expression-uri={this.frbrExpressionUri}
+        >
           <span slot="append">
             <slot name="append"></slot>
           </span>

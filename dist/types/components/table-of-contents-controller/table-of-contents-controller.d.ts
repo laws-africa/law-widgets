@@ -30,6 +30,14 @@ export declare class TableOfContentsController {
    * Additional CSS classes added to the search filter input
    * */
   titleFilterInputClasses: string;
+  /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
+  frbrExpressionUri?: string;
+  /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+  fetch: boolean;
+  /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
+  partner?: string;
+  /** Provider URL for fetching content (advanced usage only). */
+  provider: string;
   titleFilter: string;
   el: HTMLElement;
   handleTitleChange: import("lodash").DebouncedFunc<(e: Event) => void>;

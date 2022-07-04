@@ -1,4 +1,5 @@
 import { HTMLElement, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { P as PROVIDER } from './services.js';
 import { d as debounce_1 } from './debounce.js';
 import { d as defineCustomElement$3 } from './table-of-contents.js';
 import { d as defineCustomElement$2 } from './toc-item.js';
@@ -38,6 +39,10 @@ let TableOfContentsController = class extends HTMLElement {
      * Additional CSS classes added to the search filter input
      * */
     this.titleFilterInputClasses = '';
+    /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+    this.fetch = false;
+    /** Provider URL for fetching content (advanced usage only). */
+    this.provider = PROVIDER;
     this.titleFilter = '';
     this.handleTitleChange = debounce_1((e) => {
       this.titleFilter = e.target.value;
@@ -61,7 +66,7 @@ let TableOfContentsController = class extends HTMLElement {
       }
       return (h("button", { class: `search__clear-btn ${this.titleFilterClearBtnClasses}`, type: "button", onClick: () => this.clearTitleFilter(), disabled: !this.titleFilter }, h("slot", { name: "clear-title-filter-icon" }, "\u2715")));
     };
-    return (h(Host, null, h("div", { class: "search" }, h("input", { class: `search__input ${this.titleFilterInputClasses}`, value: this.titleFilter, placeholder: this.titleFilterPlaceholder, onInput: e => this.handleTitleChange(e) }), renderHideClearFilterButton()), h("div", { class: "toggle" }, h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, "Expand All"), h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, "Collapse All")), h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter }, h("span", { slot: "append" }, h("slot", { name: "append" })), h("span", { slot: "prepend" }, h("slot", { name: "prepend" })), h("span", { slot: "expand-icon" }, h("slot", { name: "expand-icon" })), h("span", { slot: "collapse-icon" }, h("slot", { name: "collapse-icon" })))));
+    return (h(Host, null, h("div", { class: "search" }, h("input", { class: `search__input ${this.titleFilterInputClasses}`, value: this.titleFilter, placeholder: this.titleFilterPlaceholder, onInput: e => this.handleTitleChange(e) }), renderHideClearFilterButton()), h("div", { class: "toggle" }, h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, "Expand All"), h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, "Collapse All")), h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri }, h("span", { slot: "append" }, h("slot", { name: "append" })), h("span", { slot: "prepend" }, h("slot", { name: "prepend" })), h("span", { slot: "expand-icon" }, h("slot", { name: "expand-icon" })), h("span", { slot: "collapse-icon" }, h("slot", { name: "collapse-icon" })))));
   }
   get el() { return this; }
   static get style() { return tableOfContentsControllerCss; }
@@ -74,6 +79,10 @@ TableOfContentsController = /*@__PURE__*/ proxyCustomElement(TableOfContentsCont
     "expandAllBtnClasses": [1, "expand-all-btn-classes"],
     "collapseAllBtnClasses": [1, "collapse-all-btn-classes"],
     "titleFilterInputClasses": [1, "title-filter-input-classes"],
+    "frbrExpressionUri": [1537, "frbr-expression-uri"],
+    "fetch": [1540],
+    "partner": [1537],
+    "provider": [1],
     "titleFilter": [32]
   }]);
 function defineCustomElement$1() {

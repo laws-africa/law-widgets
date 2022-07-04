@@ -8,6 +8,12 @@ export const LaAkomaNtoso: {
   new (): LaAkomaNtoso;
 };
 
+interface LaDecorateExternalRefs extends Components.LaDecorateExternalRefs, HTMLElement {}
+export const LaDecorateExternalRefs: {
+  prototype: LaDecorateExternalRefs;
+  new (): LaDecorateExternalRefs;
+};
+
 interface LaDecorateInternalRefs extends Components.LaDecorateInternalRefs, HTMLElement {}
 export const LaDecorateInternalRefs: {
   prototype: LaDecorateInternalRefs;

@@ -37,6 +37,16 @@ export declare class AkomaNtoso {
   frbrExpressionDate?: string;
   /** The human language code in which the Expression is drafted */
   frbrLanguage?: string;
+  /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+  fetch: boolean;
+  /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
+  partner?: string;
+  /** Provider URL for fetching content (advanced usage only). */
+  provider: string;
+  el: HTMLElement;
+  refetch(): void;
   parseFrbrExpressionUri(newValue: string): void;
+  fetchContent(): Promise<void>;
+  ensurePartner(): void;
   componentWillLoad(): void;
 }

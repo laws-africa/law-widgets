@@ -2,7 +2,6 @@ import { html } from 'lit-html';
 import { Gutter } from '../dist/collection/components/gutter/gutter';
 import { argTypesForComponent } from './utils';
 import { createRef, ref } from 'lit-html/directives/ref';
-import items from './toc.json';
 
 export default {
   title: 'Library/la-gutter',

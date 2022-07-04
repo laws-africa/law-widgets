@@ -20,6 +20,8 @@
     "jest": true,
     "HTMLElement": true,
     "Element": true,
-    "HTMLInputElement": true
+    "HTMLInputElement": true,
+    "fetch": true,
+    "MutationObserver": true
   }
 }

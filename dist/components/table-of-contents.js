@@ -1,4 +1,5 @@
 import { HTMLElement, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { P as PROVIDER, g as getPartner } from './services.js';
 import { d as defineCustomElement$1 } from './toc-item.js';
 
 let TableOfContents = class extends HTMLElement {
@@ -14,6 +15,10 @@ let TableOfContents = class extends HTMLElement {
      * value to filter items by item title
      * */
     this.titleFilter = '';
+    /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+    this.fetch = false;
+    /** Provider URL for fetching content (advanced usage only). */
+    this.provider = PROVIDER;
     this.filteredItems = null;
     this.innerItems = [];
   }
@@ -25,9 +30,29 @@ let TableOfContents = class extends HTMLElement {
       this.innerItems = [...newValue];
     }
   }
+  refetch() {
+    this.fetchContent();
+  }
+  async fetchContent() {
+    this.ensurePartner();
+    if (this.fetch && this.frbrExpressionUri && this.provider) {
+      const url = this.provider + '/p/' + this.partner + '/e/we/toc.json' + this.frbrExpressionUri;
+      const resp = await fetch(url);
+      if (resp.ok) {
+        // @ts-ignore
+        this.innerItems = (await resp.json()).toc;
+      }
+    }
+  }
+  ensurePartner() {
+    if (!this.partner) {
+      this.partner = getPartner();
+    }
+  }
   componentWillLoad() {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
+    this.fetchContent();
   }
   /**
    * Expands all items
@@ -116,12 +141,19 @@ let TableOfContents = class extends HTMLElement {
   get el() { return this; }
   static get watchers() { return {
     "items": ["parseItemsProp"],
+    "provider": ["refetch"],
+    "frbrExpressionUri": ["refetch"],
+    "fetch": ["refetch"],
     "titleFilter": ["titleFilterChanged"]
   }; }
 };
 TableOfContents = /*@__PURE__*/ proxyCustomElement(TableOfContents, [4, "la-table-of-contents", {
     "items": [1],
     "titleFilter": [1, "title-filter"],
+    "frbrExpressionUri": [1537, "frbr-expression-uri"],
+    "fetch": [1540],
+    "partner": [1537],
+    "provider": [1],
     "filteredItems": [32],
     "innerItems": [32],
     "expandAll": [64],

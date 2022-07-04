@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+import { PROVIDER, getPartner } from '../../utils/services';
 
 /**
  * An item in the table of contents. Each item must have a `title` attribute (which may be `null`),
@@ -26,6 +27,15 @@ export class TableOfContents {
    * */
   @Prop() titleFilter: string = '';
 
+  /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
+  @Prop({ reflect: true, mutable: true }) frbrExpressionUri?: string;
+  /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
+  @Prop({ reflect: true, mutable: true }) partner?: string;
+  /** Provider URL for fetching content (advanced usage only). */
+  @Prop() provider = PROVIDER;
+
   @State() filteredItems: Set<TOCItem> | null = null;
 
   @State() innerItems: TOCItem[] = []
@@ -41,9 +51,36 @@ export class TableOfContents {
     }
   }
 
+  @Watch('provider')
+  @Watch('frbrExpressionUri')
+  @Watch('fetch')
+  refetch () {
+    this.fetchContent();
+  }
+
+  async fetchContent () {
+    this.ensurePartner();
+
+    if (this.fetch && this.frbrExpressionUri && this.provider) {
+      const url = this.provider + '/p/' + this.partner + '/e/we/toc.json' + this.frbrExpressionUri;
+      const resp = await fetch(url);
+      if (resp.ok) {
+        // @ts-ignore
+        this.innerItems = (await resp.json()).toc;
+      }
+    }
+  }
+
+  ensurePartner () {
+    if (!this.partner) {
+      this.partner = getPartner();
+    }
+  }
+
   componentWillLoad () {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
+    this.fetchContent();
   }
 
   /**

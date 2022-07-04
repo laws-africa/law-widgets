@@ -55,10 +55,14 @@ THis example demos the following:
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                                                                                                               | Type                  | Default |
-| ------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------- |
-| `items`       | `items`        | JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[] \| string` | `[]`    |
-| `titleFilter` | `title-filter` | value to filter items by item title                                                                                                                                                                       | `string`              | `''`    |
+| Property            | Attribute             | Description                                                                                                                                                                                               | Type                  | Default     |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| `fetch`             | `fetch`               | Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.                                                                                 | `boolean`             | `false`     |
+| `frbrExpressionUri` | `frbr-expression-uri` | Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set.                                                                                                           | `string \| undefined` | `undefined` |
+| `items`             | `items`               | JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`). | `TOCItem[] \| string` | `[]`        |
+| `partner`           | `partner`             | Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.                                                                                                          | `string \| undefined` | `undefined` |
+| `provider`          | `provider`            | Provider URL for fetching content (advanced usage only).                                                                                                                                                  | `string`              | `PROVIDER`  |
+| `titleFilter`       | `title-filter`        | value to filter items by item title                                                                                                                                                                       | `string`              | `''`        |
 
 
 ## Methods

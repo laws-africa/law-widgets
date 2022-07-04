@@ -1,6 +1,21 @@
 import { Component, Prop, Element, Watch } from '@stencil/core';
-import { getAkomaNtosoElement } from '../../utils/linking';
+import { AkomaNtosoTarget } from '../../utils/linking';
+import { PROVIDER, getPartner } from '../../utils/services';
 import tippy, { Instance as Tippy } from 'tippy.js';
+
+/**
+ * Remove the existing portion (if any) of frbrUri, and add the new portion to it.
+ */
+function addPortion (frbrUri: string, portion: string) {
+  const ix = frbrUri.indexOf('~');
+  if (ix > -1) {
+    frbrUri = frbrUri.slice(0, ix);
+  }
+
+  if (!frbrUri.endsWith('/')) frbrUri = frbrUri + '/';
+
+  return frbrUri + portion;
+}
 
 @Component({
   tag: 'la-decorate-internal-refs',
@@ -20,7 +35,6 @@ export class DecorateInternalRefs {
    * to the containing la-akoma-ntoso element, if any, otherwise the first
    * `la-akoma-ntoso` element on the page.
    */
-  // TODO: should we be watching this? What if it changes?
   @Prop() akomaNtoso?: string | HTMLElement;
 
   /**
@@ -33,9 +47,19 @@ export class DecorateInternalRefs {
    */
   @Prop() flag: boolean = false;
 
+  /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
+  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
+  @Prop({ reflect: true, mutable: true }) partner?: string;
+
+  /** Provider URL for fetching content (advanced usage only). */
+  @Prop() provider = PROVIDER;
+
   componentWillLoad () {
-    // TODO: watch for changes to the akn content?
-    this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
+    const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
+      this.componentDidLoad();
+    });
+    this.akomaNtosoElement = target.getElement();
     this.tippyContainer = document.createElement('div');
     this.tippyContainer.className = 'la-decorate-internal-refs__popup';
     document.body.appendChild(this.tippyContainer);
@@ -79,18 +103,47 @@ export class DecorateInternalRefs {
     });
   }
 
-  onTrigger (tippy: Tippy) {
+  async onTrigger (tippy: Tippy) {
     if (this.akomaNtosoElement) {
       const href: string = tippy.reference.getAttribute('href') || '';
+      let html: string | undefined = '';
       const provision: HTMLElement | null = this.akomaNtosoElement.querySelector(href);
 
       if (provision) {
+        html = provision.outerHTML;
+      } else if (this.fetch) {
+        // try fetching it remotely
+        html = await this.fetchContent(href.slice(1));
+      }
+
+      if (html) {
         tippy.setContent(`
         <div>
-          <div class="tippy-content__body"><la-akoma-ntoso>${provision.outerHTML}</la-akoma-ntoso></div>
+          <div class="tippy-content__body"><la-akoma-ntoso>${html}</la-akoma-ntoso></div>
         </div>`
         );
       }
+    }
+  }
+
+  async fetchContent (elementId: string) {
+    this.ensurePartner();
+
+    if (this.provider && this.akomaNtosoElement) {
+      const frbrUri = this.akomaNtosoElement.getAttribute('frbr-expression-uri');
+      if (frbrUri) {
+        const url = this.provider + '/p/' + this.partner + '/e/portion' + addPortion(frbrUri, '~' + elementId);
+        const resp = await fetch(url);
+        if (resp.ok) {
+          return await resp.text();
+        }
+      }
+    }
+  }
+
+  ensurePartner () {
+    if (!this.partner) {
+      this.partner = getPartner();
     }
   }
 }
