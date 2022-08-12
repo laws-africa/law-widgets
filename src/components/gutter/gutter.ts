@@ -10,6 +10,7 @@ import debounce from 'lodash/debounce';
 export class Gutter {
   // The akn content element being decorated
   protected akomaNtosoElement?: HTMLElement | null;
+  protected containerElement?: HTMLElement | null;
 
   protected layout?: GutterLayout;
   protected resizeObserver?: ResizeObserver;
@@ -27,11 +28,28 @@ export class Gutter {
   // TODO: should  we be watching this? What if it changes?
   @Prop() akomaNtoso?: string | HTMLElement;
 
+  /**
+   * CSS selector or HTMLElement that is an container element of la-gutter. When an activation method is called (`activatePrevItem`
+   * or `activeNextItem`) and there is no la-gutter-item with a property of `active`, la-gutter will intelligently
+   * choose to add an `active` property to the best possible `la-gutter-item`. The container element's threshold is calculated
+   * to determine the next `la-gutter-item` with the property `active`.
+   */
+  @Prop() container?: string | HTMLElement;
+
   @Element() el!: HTMLElement;
 
   componentWillLoad () {
     // TODO: watch for changes to the akn content?
     this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
+    if (this.container) {
+      let containerElement: HTMLElement | null;
+      if (this.container instanceof HTMLElement) {
+        containerElement = this.container;
+      } else {
+        containerElement = this.el.closest(this.container);
+      }
+      this.containerElement = containerElement;
+    }
 
     // setup a debounced function to trigger a layout run.
     this.queueLayout = debounce(this.layoutItems.bind(this), this.debounceDelay);
@@ -131,21 +149,24 @@ export class Gutter {
    */
   @Method()
   async activateNextItem () {
-    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
-
-    if (items.length === 1) {
-      items[0].active = true;
-      return items[0];
-    } else if (items.length > 1) {
-      const activeItemIndex = items.findIndex(item => item.active);
-      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === items.length - 1
-        ? items[0]
-        : items[activeItemIndex + 1];
-      nextActiveItem.active = true;
-      return nextActiveItem;
+    let nextActiveItem: HTMLLaGutterItemElement | null = null;
+    if (this.el.querySelector('la-gutter-item[active]')) {
+      const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
+      if (items.length === 1) {
+        nextActiveItem = items[0];
+      } else if (items.length > 1) {
+        const activeItemIndex = items.findIndex(item => item.active);
+        nextActiveItem = activeItemIndex === items.length - 1
+          ? items[0]
+          : items[activeItemIndex + 1];
+      }
     } else {
-      return null;
+      nextActiveItem = this.getNextBestActiveItem(true);
     }
+    if (nextActiveItem) {
+      nextActiveItem.active = true;
+    }
+    return nextActiveItem;
   }
 
   /**
@@ -156,21 +177,24 @@ export class Gutter {
    */
   @Method()
   async activatePrevItem () {
-    const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
-
-    if (items.length === 1) {
-      items[0].active = true;
-      return items[0];
-    } else if (items.length > 1) {
-      const activeItemIndex = items.findIndex(item => item.active);
-      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === 0
-        ? items[items.length - 1]
-        : items[activeItemIndex - 1];
-      nextActiveItem.active = true;
-      return nextActiveItem;
+    let nextActiveItem: HTMLLaGutterItemElement | null = null;
+    if (this.el.querySelector('la-gutter-item[active]')) {
+      const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
+      if (items.length === 1) {
+        nextActiveItem = items[0];
+      } else if (items.length > 1) {
+        const activeItemIndex = items.findIndex(item => item.active);
+        nextActiveItem = activeItemIndex === 0
+          ? items[items.length - 1]
+          : items[activeItemIndex - 1];
+      }
     } else {
-      return null;
+      nextActiveItem = this.getNextBestActiveItem(false);
     }
+    if (nextActiveItem) {
+      nextActiveItem.active = true;
+    }
+    return nextActiveItem;
   }
 
   items (): NodeListOf<HTMLLaGutterItemElement> {
@@ -179,5 +203,52 @@ export class Gutter {
 
   getVisibleItems (): HTMLLaGutterItemElement[] {
     return [...this.items()].filter(i => i.style.display !== 'none');
+  }
+
+  getNextBestActiveItem (next: Boolean) {
+    let nextActiveItem = null;
+    const items: { item: HTMLLaGutterItemElement; top: number }[] = this.layout
+      ? this.getVisibleItems().map(i => {
+        return {
+          item: i,
+          top: parseFloat(i.style.top.replace('px', ''))
+        };
+      })
+      : [];
+
+    if (items.length > 0) {
+      const threshold = this.containerElement ? this.containerElement.scrollTop : window.scrollY;
+
+      // sort by position; for 'prev', reverse them
+      items.sort((a, b) => a.top - b.top);
+      if (!next) items.reverse();
+
+      // if nothing matches, this is our default
+      nextActiveItem = items[0].item;
+
+      if (next) {
+        // for 'next', find the first annotation (top-down) below the scroll threshold
+        for (const item of items) {
+          if (item.top > threshold) {
+            // activate this item
+            nextActiveItem = item.item;
+            break;
+          }
+        }
+
+        // nothing matched, start at the top
+      } else {
+        // for 'prev', find the first annotation (bottom-up) above the scroll threshold
+        for (const item of items) {
+          if (item.top < threshold) {
+            // activate this item
+            nextActiveItem = item.item;
+            break;
+          }
+        }
+      }
+    }
+
+    return nextActiveItem;
   }
 }
