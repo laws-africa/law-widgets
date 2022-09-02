@@ -97,3 +97,4 @@ npm test
 Copyright 2021 Laws.Africa.
 
 Licensed under [GNU LGPLv3](LICENSE).
+
