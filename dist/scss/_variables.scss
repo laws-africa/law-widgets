@@ -10,10 +10,10 @@ $akn-elements-subflow: (
 
 // Display names for AKN elements, possibly abbreviated
 $akn-element-names: (
-  "attachment": "attachment",
   "abbr": "abbr",
   "alinea": "alinea",
   "article": "article",
+  "attachment": "attachment",
   "authorialNote": "footnote",
   "blockList": "items",
   "book": "book",
@@ -25,9 +25,12 @@ $akn-element-names: (
   "embeddedStructure": "quote",
   "hcontainer": "hcontainer",
   "indent": "indent",
+  "intro": "intro",
   "item": "item",
   "level": "level",
   "list": "list",
+  "listIntroduction": "listIntro",
+  "listWrapUp": "listWrapUp",
   "paragraph": "para",
   "part": "part",
   "point": "point",
@@ -51,6 +54,7 @@ $akn-element-names: (
   "tome": "tome",
   "transitional": "transitional",
   "ul": "bullets",
+  "wrapUp": "wrapUp",
 );
 
 $akn-structure-hier-start-colour: #EF9A9A;
