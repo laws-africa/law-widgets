@@ -1,28 +1,40 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
-    "declaration": false,
+    "declaration": true,
     "experimentalDecorators": true,
-    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "dom",
-      "dom.iterable",
       "es2017"
     ],
+    "module": "es2015",
     "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es2017",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "jsx": "react",
-    "jsxFactory": "h"
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "pretty": true,
+    "removeComments": false,
+    "strictPropertyInitialization": false,
+    "target": "es2017",
+    "baseUrl": ".",
+    "paths": {
+      "@musangowope/cool-components/hydrate": [
+        "./core/hydrate"
+      ],
+      "@musangowope/cool-components": [
+        "./core"
+      ],
+      "@musangowope/cool-components-react": [
+        "./react"
+      ],
+      "@musangowope/cool-components-vue": [
+        "./vue"
+      ]
+    }
+  }
 }

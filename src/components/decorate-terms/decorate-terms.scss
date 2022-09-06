@@ -1,7 +1,0 @@
-@use 'sass:meta';
-
-.la-decorate-terms__popup {
-  @include meta.load-css('~tippy.js/dist/tippy.css');
-  @include meta.load-css('~tippy.js/themes/light-border.css');
-  @include meta.load-css('../../styles/tippy');
-}
