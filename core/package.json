@@ -1,6 +1,6 @@
 {
-  "name": "@musangowope/cool-components",
-  "version": "7.0.10",
+  "name": "@laws-africa/law-widgets",
+  "version": "0.0.1",
   "description": "Base components for Ionic",
   "keywords": [
     "ionic",
@@ -119,10 +119,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/musangowope/stencil-monoropo-starter.git"
+    "url": "git+git@github.com:laws-africa/la-web-components.git"
   },
   "bugs": {
-    "url": "https://github.com/musangowope/stencil-monoropo-starter/issues"
+    "url": "https://github.com/laws-africa/la-web-components/issues"
   },
   "homepage": "https://ionicframework.com/",
   "jest": {
@@ -133,5 +133,5 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "1bc138b4b0dfd277b63a44f38e71702545d6d154"
+  "gitHead": "7d726350cee76a7e4d17ab0bd195271adbbcabad"
 }

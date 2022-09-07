@@ -1,4 +1,4 @@
-import { JSX } from '@musangowope/cool-components/components';
+import { JSX } from '@laws-africa/law-widgets/components';
 export declare const IonActionSheet: import("vue").FunctionalComponent<JSX.IonActionSheet & import("./vue-component-lib/utils").InputProps, {}>;
 export declare const IonAlert: import("vue").FunctionalComponent<JSX.IonAlert & import("./vue-component-lib/utils").InputProps, {}>;
 export declare const IonApp: import("vue").FunctionalComponent<JSX.IonApp & import("./vue-component-lib/utils").InputProps, {}>;

@@ -5,33 +5,166 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TOCItem } from "./components/table-of-contents/table-of-contents";
+import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-contents";
 export namespace Components {
-    interface HelloWorld {
+    interface LaTableOfContents {
+        /**
+          * Collapses all items
+         */
+        "collapseAll": () => Promise<void>;
+        /**
+          * Expands all items
+         */
+        "expandAll": () => Promise<void>;
+        /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch": boolean;
+        /**
+          * Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set.
+         */
+        "frbrExpressionUri"?: string;
+        /**
+          * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+         */
+        "items": TOCItem[] | string;
+        /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider": string;
+        /**
+          * value to filter items by item title
+         */
+        "titleFilter": string;
+    }
+    interface LaTocItem {
+        /**
+          * HTML displayed after item title
+         */
+        "appendHtml": string;
+        /**
+          * HTML displayed in toggle button when item is not expanded
+         */
+        "collapseIconHtml": string;
+        /**
+          * HTML displayed in toggle button when item is expanded
+         */
+        "expandIconHtml": string;
+        /**
+          * If true, `item` `children`, and the collapsed icon are shown but expanded icon is hidden. If false, the `item` `children` and collapsed icon are hidden but the expanded icon is show
+         */
+        "expanded": boolean;
+        /**
+          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
+         */
+        "filteredItems": Set<TOCItem1> | null;
+        /**
+          * Item used to build the table of contents
+         */
+        "item": TOCItem1;
+        /**
+          * HTML displayed before item title
+         */
+        "prependHtml": string;
     }
 }
+export interface LaTocItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLaTocItemElement;
+}
 declare global {
-    interface HTMLHelloWorldElement extends Components.HelloWorld, HTMLStencilElement {
+    interface HTMLLaTableOfContentsElement extends Components.LaTableOfContents, HTMLStencilElement {
     }
-    var HTMLHelloWorldElement: {
-        prototype: HTMLHelloWorldElement;
-        new (): HTMLHelloWorldElement;
+    var HTMLLaTableOfContentsElement: {
+        prototype: HTMLLaTableOfContentsElement;
+        new (): HTMLLaTableOfContentsElement;
+    };
+    interface HTMLLaTocItemElement extends Components.LaTocItem, HTMLStencilElement {
+    }
+    var HTMLLaTocItemElement: {
+        prototype: HTMLLaTocItemElement;
+        new (): HTMLLaTocItemElement;
     };
     interface HTMLElementTagNameMap {
-        "hello-world": HTMLHelloWorldElement;
+        "la-table-of-contents": HTMLLaTableOfContentsElement;
+        "la-toc-item": HTMLLaTocItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface HelloWorld {
+    interface LaTableOfContents {
+        /**
+          * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
+         */
+        "fetch"?: boolean;
+        /**
+          * Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set.
+         */
+        "frbrExpressionUri"?: string;
+        /**
+          * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+         */
+        "items"?: TOCItem[] | string;
+        /**
+          * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
+         */
+        "partner"?: string;
+        /**
+          * Provider URL for fetching content (advanced usage only).
+         */
+        "provider"?: string;
+        /**
+          * value to filter items by item title
+         */
+        "titleFilter"?: string;
+    }
+    interface LaTocItem {
+        /**
+          * HTML displayed after item title
+         */
+        "appendHtml"?: string;
+        /**
+          * HTML displayed in toggle button when item is not expanded
+         */
+        "collapseIconHtml"?: string;
+        /**
+          * HTML displayed in toggle button when item is expanded
+         */
+        "expandIconHtml"?: string;
+        /**
+          * If true, `item` `children`, and the collapsed icon are shown but expanded icon is hidden. If false, the `item` `children` and collapsed icon are hidden but the expanded icon is show
+         */
+        "expanded"?: boolean;
+        /**
+          * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
+         */
+        "filteredItems"?: Set<TOCItem1> | null;
+        /**
+          * Item used to build the table of contents
+         */
+        "item"?: TOCItem1;
+        "onItemRendered"?: (event: LaTocItemCustomEvent<any>) => void;
+        "onItemTitleClicked"?: (event: LaTocItemCustomEvent<any>) => void;
+        /**
+          * HTML displayed before item title
+         */
+        "prependHtml"?: string;
     }
     interface IntrinsicElements {
-        "hello-world": HelloWorld;
+        "la-table-of-contents": LaTableOfContents;
+        "la-toc-item": LaTocItem;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "hello-world": LocalJSX.HelloWorld & JSXBase.HTMLAttributes<HTMLHelloWorldElement>;
+            "la-table-of-contents": LocalJSX.LaTableOfContents & JSXBase.HTMLAttributes<HTMLLaTableOfContentsElement>;
+            "la-toc-item": LocalJSX.LaTocItem & JSXBase.HTMLAttributes<HTMLLaTocItemElement>;
         }
     }
 }

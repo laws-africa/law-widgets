@@ -3,7 +3,7 @@ module.exports = {
   transform: {
     "^.+\\.vue$": "@vue/vue3-jest"
   },
-  transformIgnorePatterns: ['/node_modules/(?!ionicons|@stencil/core|@musangowope/cool-components|@musangowope/cool-components-vue|@musangowope/cool-components-vue-router)'],
+  transformIgnorePatterns: ['/node_modules/(?!ionicons|@stencil/core|@laws-africa/law-widgets|@laws-africa/law-widgets-vue|@laws-africa/law-widgets-vue-router)'],
   globals: {
     "ts-jest": {
       diagnostics: {

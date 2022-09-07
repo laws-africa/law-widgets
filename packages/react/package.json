@@ -1,7 +1,7 @@
 {
-  "name": "@musangowope/cool-components-react",
-  "version": "7.0.10",
-  "description": "React specific wrapper for @musangowope/cool-components",
+  "name": "@laws-africa/law-widgets-react",
+  "version": "0.0.1",
+  "description": "React specific wrapper for @laws-africa/law-widgets",
   "keywords": [
     "stencil",
     "framework",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/musangowope/stencil-monoropo-starter.git"
+    "url": "git+git@github.com:laws-africa/la-web-components.git"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
@@ -38,7 +38,7 @@
     "css/"
   ],
   "dependencies": {
-    "@musangowope/cool-components": "^7.0.10",
+    "@laws-africa/law-widgets": "^0.0.1",
     "ionicons": "^6.0.2",
     "tslib": "*"
   },
@@ -92,8 +92,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "bugs": {
-    "url": "https://github.com/musangowope/stencil-monoropo-starter/issues"
+    "url": "https://github.com/laws-africa/la-web-components/issues"
   },
-  "homepage": "https://github.com/musangowope/stencil-monoropo-starter#readme",
-  "author": "musangowope"
+  "homepage": "https://github.com/laws-africa/la-web-components#readme",
+  "author": "musangowope",
+  "gitHead": "7d726350cee76a7e4d17ab0bd195271adbbcabad"
 }

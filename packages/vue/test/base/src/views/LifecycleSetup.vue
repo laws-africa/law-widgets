@@ -42,7 +42,7 @@ import {
   onIonViewDidEnter,
   onIonViewWillLeave,
   onIonViewDidLeave
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { ref } from 'vue';
 const onWillEnter = ref(0);
 const onDidEnter = ref(0);

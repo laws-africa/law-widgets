@@ -17,5 +17,5 @@ export default {
       sourcemap: true
     }
   ],
-  external: id => external.includes(id) || id.startsWith('@musangowope/cool-components') || id.startsWith('ionicons')
+  external: id => external.includes(id) || id.startsWith('@laws-africa/law-widgets') || id.startsWith('ionicons')
 };

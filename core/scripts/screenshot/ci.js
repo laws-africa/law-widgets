@@ -5,7 +5,7 @@ const S3 = require('aws-sdk/clients/s3');
 const execa = require('execa');
 const stream = require('stream');
 
-const BUILD_URL = 'https://github.com/musangowope/stencil-monoropo-starter/commit/';
+const BUILD_URL = 'https://github.com/laws-africa/la-web-components/commit/';
 const S3_BUCKET = 'screenshot.ionicframework.com';
 const s3 = new S3({ apiVersion: '2006-03-01' });
 

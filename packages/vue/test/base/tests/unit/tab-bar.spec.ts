@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { createRouter, createWebHistory } from '@musangowope/cool-components-vue-router';
-import { IonicVue, IonApp, IonRouterOutlet, IonPage, IonTabs, IonTabBar } from '@musangowope/cool-components-vue';
+import { createRouter, createWebHistory } from '@laws-africa/law-widgets-vue-router';
+import { IonicVue, IonApp, IonRouterOutlet, IonPage, IonTabs, IonTabBar } from '@laws-africa/law-widgets-vue';
 
 const App = {
   components: { IonApp, IonRouterOutlet },
@@ -115,7 +115,7 @@ describe('ion-tab-bar', () => {
     expect(tabsInner.children[0].tagName).toEqual('ION-ROUTER-OUTLET');
   });
 
-  // Verifies the fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22642
+  // Verifies the fix for https://github.com/laws-africa/la-web-components-framework/issues/22642
   it('should not fail on non tab button elements', async () => {
     const Tabs = {
       components: { IonPage, IonTabs, IonTabBar, IonRouterOutlet },

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { createRouter, createWebHistory } from '@musangowope/cool-components-vue-router';
-import { IonicVue, IonApp, IonRouterOutlet, IonTabs, IonPage } from '@musangowope/cool-components-vue';
+import { createRouter, createWebHistory } from '@laws-africa/law-widgets-vue-router';
+import { IonicVue, IonApp, IonRouterOutlet, IonTabs, IonPage } from '@laws-africa/law-widgets-vue';
 import { defineComponent } from 'vue';
 import { waitForRouter } from './utils';
 

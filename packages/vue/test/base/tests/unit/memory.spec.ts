@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { createRouter, createMemoryHistory } from '@musangowope/cool-components-vue-router';
+import { createRouter, createMemoryHistory } from '@laws-africa/law-widgets-vue-router';
 import {
   IonContent,
   IonHeader,
@@ -9,7 +9,7 @@ import {
   IonApp,
   IonRouterOutlet,
   IonPage,
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { waitForRouter } from './utils';
 
 const App = {

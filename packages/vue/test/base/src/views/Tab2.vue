@@ -33,7 +33,7 @@
     IonToolbar,
     IonTitle,
     IonContent
-  } from '@musangowope/cool-components-vue';
+  } from '@laws-africa/law-widgets-vue';
 
   export default {
     components: {

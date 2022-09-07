@@ -1,0 +1,49 @@
+la-toc-item {
+  * {
+    box-sizing: border-box;
+  }
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .indented {
+    width: 1.4em;
+    height: 1.4em;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .content__action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .content__action__title {
+    flex-grow: 1;
+  }
+
+  .content__children {
+    display: none;
+  }
+
+  &[expanded] > .content > .content__children {
+    display: inherit;
+  }
+
+  &.excluded {
+    display: none;
+  }
+
+  .indented__toggle-btn {
+    cursor: pointer;
+    display: inline-block;
+    // mimic button styles
+    font-size: smaller;
+    text-align: center;
+    padding: 1px 6px;
+  }
+}

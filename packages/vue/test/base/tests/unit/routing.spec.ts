@@ -1,5 +1,5 @@
 import { enableAutoUnmount, mount } from '@vue/test-utils';
-import { createRouter, createWebHistory } from '@musangowope/cool-components-vue-router';
+import { createRouter, createWebHistory } from '@laws-africa/law-widgets-vue-router';
 import {
   IonicVue,
   IonApp,
@@ -10,7 +10,7 @@ import {
   IonTabButton,
   IonLabel,
   useIonRouter
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import { waitForRouter } from './utils';
 
@@ -197,7 +197,7 @@ describe('Routing', () => {
     expect(leaveHook).toBeCalled();
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22492
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22492
   it('should show correct view when replacing', async () => {
     const Tabs = {
       components: { IonPage, IonTabs, IonTabBar, IonTabButton, IonLabel, IonRouterOutlet },
@@ -279,7 +279,7 @@ describe('Routing', () => {
     expect(wrapper.findComponent(Tab2).exists()).toBe(false);
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/23043
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/23043
   it('should show the latest props passed to a route', async () => {
     const Page1 = {
       ...BasePage,
@@ -328,7 +328,7 @@ describe('Routing', () => {
     expect(cmpAgain[0].props()).toEqual({ title: 'xyz' });
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/23043
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/23043
   it('should call the props function again when params change', async () => {
     const Page1 = {
       ...BasePage,
@@ -383,7 +383,7 @@ describe('Routing', () => {
     expect(cmpAgain[0].props()).toEqual({ title: 'abc Title' });
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/pull/23189
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/pull/23189
   it('should update props on a parameterized url', async () => {
     const Page = {
       name: 'Page',
@@ -471,7 +471,7 @@ describe('Routing', () => {
     expect(beforeRouteEnterSpy).toHaveBeenCalledTimes(2);
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24109
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24109
   it('canGoBack() should return the correct value', async () => {
     const Page = {
       components: { IonPage },
@@ -523,7 +523,7 @@ describe('Routing', () => {
     expect(ionRouter.canGoBack()).toEqual(false);
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24109
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24109
   it('canGoBack() should return the correct value when using router.go', async () => {
     const Page = {
       components: { IonPage },

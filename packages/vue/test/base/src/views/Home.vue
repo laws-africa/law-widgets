@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts">
-import { IonButtons, IonBackButton, IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@musangowope/cool-components-vue';
+import { IonButtons, IonBackButton, IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@laws-africa/law-widgets-vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

@@ -1,7 +1,7 @@
 {
-  "name": "@musangowope/cool-components-vue",
-  "version": "7.0.10",
-  "description": "Vue specific wrapper for @musangowope/cool-components",
+  "name": "@laws-africa/law-widgets-vue",
+  "version": "0.0.1",
+  "description": "Vue specific wrapper for @laws-africa/law-widgets",
   "scripts": {
     "prepublishOnly": "npm run build",
     "lint": "echo add linter",
@@ -27,7 +27,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/musangowope/stencil-monoropo-starter.git"
+    "url": "git+git@github.com:laws-africa/la-web-components.git"
   },
   "keywords": [
     "ionic",
@@ -46,9 +46,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/musangowope/stencil-monoropo-starter/issues"
+    "url": "https://github.com/laws-africa/la-web-components/issues"
   },
-  "homepage": "https://github.com/musangowope/stencil-monoropo-starter#readme",
+  "homepage": "https://github.com/laws-africa/la-web-components#readme",
   "devDependencies": {
     "@babel/types": "^7.18.4",
     "@stencil/core": "^1.17.0",
@@ -61,7 +61,7 @@
     "vue-router": "^4.0.16"
   },
   "dependencies": {
-    "@musangowope/cool-components": "^7.0.10",
+    "@laws-africa/law-widgets": "^0.0.1",
     "ionicons": "^6.0.2"
   },
   "vetur": {
@@ -77,5 +77,5 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "1bc138b4b0dfd277b63a44f38e71702545d6d154"
+  "gitHead": "7d726350cee76a7e4d17ab0bd195271adbbcabad"
 }

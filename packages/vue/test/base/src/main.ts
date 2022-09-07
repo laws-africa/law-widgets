@@ -2,23 +2,23 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 
-import { IonicVue } from '@musangowope/cool-components-vue';
+import { IonicVue } from '@laws-africa/law-widgets-vue';
 
 /* Core CSS required for Ionic components to work properly */
-import '@musangowope/cool-components-vue/css/core.css';
+import '@laws-africa/law-widgets-vue/css/core.css';
 
 /* Basic CSS for apps built with Ionic */
-import '@musangowope/cool-components-vue/css/normalize.css';
-import '@musangowope/cool-components-vue/css/structure.css';
-import '@musangowope/cool-components-vue/css/typography.css';
+import '@laws-africa/law-widgets-vue/css/normalize.css';
+import '@laws-africa/law-widgets-vue/css/structure.css';
+import '@laws-africa/law-widgets-vue/css/typography.css';
 
 /* Optional CSS utils that can be commented out */
-import '@musangowope/cool-components-vue/css/padding.css';
-import '@musangowope/cool-components-vue/css/float-elements.css';
-import '@musangowope/cool-components-vue/css/text-alignment.css';
-import '@musangowope/cool-components-vue/css/text-transformation.css';
-import '@musangowope/cool-components-vue/css/flex-utils.css';
-import '@musangowope/cool-components-vue/css/display.css';
+import '@laws-africa/law-widgets-vue/css/padding.css';
+import '@laws-africa/law-widgets-vue/css/float-elements.css';
+import '@laws-africa/law-widgets-vue/css/text-alignment.css';
+import '@laws-africa/law-widgets-vue/css/text-transformation.css';
+import '@laws-africa/law-widgets-vue/css/flex-utils.css';
+import '@laws-africa/law-widgets-vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';

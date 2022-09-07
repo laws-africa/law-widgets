@@ -23,16 +23,16 @@
     "target": "es2017",
     "baseUrl": ".",
     "paths": {
-      "@musangowope/cool-components/hydrate": [
+      "@laws-africa/law-widgets/hydrate": [
         "./core/hydrate"
       ],
-      "@musangowope/cool-components": [
+      "@laws-africa/law-widgets": [
         "./core"
       ],
-      "@musangowope/cool-components-react": [
+      "@laws-africa/law-widgets-react": [
         "./react"
       ],
-      "@musangowope/cool-components-vue": [
+      "@laws-africa/law-widgets-vue": [
         "./vue"
       ]
     }

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { IonApp, IonRouterOutlet, useIonRouter } from '@musangowope/cool-components-vue';
+import { IonApp, IonRouterOutlet, useIonRouter } from '@laws-africa/law-widgets-vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

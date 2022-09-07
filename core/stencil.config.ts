@@ -14,14 +14,14 @@ export const config: Config = {
   ],
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: '@musangowope/cool-components',
+      componentCorePackage: '@laws-africa/law-widgets',
       includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,
       proxiesFile: '../packages/react/src/components/proxies.ts',
     }),
     vueOutputTarget({
-      componentCorePackage: '@musangowope/cool-components',
+      componentCorePackage: '@laws-africa/law-widgets',
       includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,
@@ -30,7 +30,7 @@ export const config: Config = {
     {
       type: 'docs-vscode',
       file: 'dist/html.html-data.json',
-      sourceCodeBaseUrl: 'https://github.com/musangowope/stencil-monoropo-starter/tree/main/core/',
+      sourceCodeBaseUrl: 'https://github.com/laws-africa/la-web-components/tree/main/core/',
     },
     {
       type: 'dist',

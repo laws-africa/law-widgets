@@ -1,4 +1,4 @@
-# @musangowope/cool-components
+# @laws-africa/law-widgets
 
 [Ionic](https://ionicframework.com/) is an open source App Development Framework that makes it easy to build top quality Native and Progressive Web Apps with web technologies.
 
@@ -23,9 +23,9 @@ The Ionic Core package contains the Web Components that make up the reusable UI 
 Easiest way to start using Ionic Core is by adding a script tag to the CDN:
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@musangowope/cool-components/dist/ionic/ionic.esm.js"></script>
-<script nomodule src="https://cdn.jsdelivr.net/npm/@musangowope/cool-components/dist/ionic/ionic.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@musangowope/cool-components/css/ionic.bundle.css" rel="stylesheet">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@laws-africa/law-widgets/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@laws-africa/law-widgets/dist/ionic/ionic.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@laws-africa/law-widgets/css/ionic.bundle.css" rel="stylesheet">
 ```
 
 Any Ionic component added to the webpage will automatically load. This includes writing the component tag directly in HTML, or using JavaScript such as `document.createElement('ion-toggle')`.
@@ -35,20 +35,20 @@ Additionally, within this package is a `dist/ionic.js` file and accompanying `di
 
 ## Framework Bindings
 
-The `@musangowope/cool-components` package can be used in simple HTML, or by vanilla JavaScript without any framework at all. Ionic also has packages that make it easier to integrate Ionic into a framework's traditional ecosystem and patterns. (However, at the lowest-level framework bindings are still just using Ionic Core and Web Components).
+The `@laws-africa/law-widgets` package can be used in simple HTML, or by vanilla JavaScript without any framework at all. Ionic also has packages that make it easier to integrate Ionic into a framework's traditional ecosystem and patterns. (However, at the lowest-level framework bindings are still just using Ionic Core and Web Components).
 
 * [@musangowope/angular](https://www.npmjs.com/package/@musangowope/angular)
 
 
 ## Custom Elements Build (Experimental)
 
-In addition to the default, self lazy-loading components built by Stencil, this package also comes with each component exported as a stand-alone custom element within `@musangowope/cool-components/components`. Each component extends `HTMLElement`, and does not lazy-load itself. Instead, this package is useful for projects already using a bundler such as Webpack or Rollup. While all components are available to be imported, the custom elements build also ensures bundlers only import what's used, and tree-shakes any unused components.
+In addition to the default, self lazy-loading components built by Stencil, this package also comes with each component exported as a stand-alone custom element within `@laws-africa/law-widgets/components`. Each component extends `HTMLElement`, and does not lazy-load itself. Instead, this package is useful for projects already using a bundler such as Webpack or Rollup. While all components are available to be imported, the custom elements build also ensures bundlers only import what's used, and tree-shakes any unused components.
 
 Below is an example of importing `ion-badge`, and initializing Ionic so it is able to correctly load the "mode", such as Material Design or iOS. Additionally, the `initialize({...})` function can receive the Ionic config.
 
 ```typescript
-import { defineCustomElement } from "@musangowope/cool-components/components/ion-badge.js";
-import { initialize } from "@musangowope/cool-components/components";
+import { defineCustomElement } from "@laws-africa/law-widgets/components/ion-badge.js";
+import { initialize } from "@laws-africa/law-widgets/components";
 
 // Initializes the Ionic config and `mode` behavior
 initialize();
@@ -57,15 +57,15 @@ initialize();
 defineCustomElement();
 ```
 
-Notice how we import from `@musangowope/cool-components/components` as opposed to `@musangowope/cool-components`. This helps bundlers pull in only the code that is needed.
+Notice how we import from `@laws-africa/law-widgets/components` as opposed to `@laws-africa/law-widgets`. This helps bundlers pull in only the code that is needed.
 
 The `defineCustomElement` function will automatically define the component as well as any child components that may be required.
 
 For example, if you wanted to use `ion-modal`, you would do the following:
 
 ```typescript
-import { defineCustomElement } from "@musangowope/cool-components/components/ion-modal.js";
-import { initialize } from "@musangowope/cool-components/components";
+import { defineCustomElement } from "@laws-africa/law-widgets/components/ion-modal.js";
+import { initialize } from "@laws-africa/law-widgets/components";
 
 // Initializes the Ionic config and `mode` behavior
 initialize();
@@ -81,8 +81,8 @@ The `defineCustomElement` function will define `ion-modal`, but it will also def
 When using an overlay controller, developers will need to define the overlay component before it can be used. Below is an example of using `modalController`:
 
 ```typescript
-import { defineCustomElement } from '@musangowope/cool-components/components/ion-modal.js';
-import { initialize, modalController } from '@musangowope/cool-components/components';
+import { defineCustomElement } from '@laws-africa/law-widgets/components/ion-modal.js';
+import { initialize, modalController } from '@laws-africa/law-widgets/components';
 
 initialize();
 defineCustomElement();

@@ -58,7 +58,7 @@ import {
   IonPage,
   IonTitle,
   IonToolbar
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 

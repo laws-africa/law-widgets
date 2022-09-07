@@ -21,7 +21,7 @@ import {
   IonTitle,
   IonToolbar,
   modalController
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { defineComponent } from 'vue';
 import NavChild from '@/components/NavChild.vue';
 

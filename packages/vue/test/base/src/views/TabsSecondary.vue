@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { IonTabBar, IonTabButton, IonTabs, IonContent, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@musangowope/cool-components-vue';
+import { IonTabBar, IonTabButton, IonTabs, IonContent, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@laws-africa/law-widgets-vue';
 import { ellipse, square, triangle } from 'ionicons/icons';
 
 export default {

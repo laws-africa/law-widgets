@@ -1,4 +1,4 @@
-import { loadingController } from '@musangowope/cool-components-vue';
+import { loadingController } from '@laws-africa/law-widgets-vue';
 import {
   NavigationGuardNext,
   RouteLocationNormalized
