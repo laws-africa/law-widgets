@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { createRouter, createWebHistory } from '@musangowope/cool-components-vue-router';
-import { IonicVue, IonApp, IonRouterOutlet, IonPage, IonTabs, IonTabBar, IonTabButton, IonLabel } from '@musangowope/cool-components-vue';
+import { createRouter, createWebHistory } from '@laws-africa/law-widgets-vue-router';
+import { IonicVue, IonApp, IonRouterOutlet, IonPage, IonTabs, IonTabBar, IonTabButton, IonLabel } from '@laws-africa/law-widgets-vue';
 import { waitForRouter } from './utils';
 
 const App = {

@@ -46,7 +46,7 @@ describe('Routing', () => {
     cy.ionPageDoesNotExist('routingchild')
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22359
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22359
   it('should navigate to multiple pages that match the same parameterized route', () => {
     cy.visit('http://localhost:8080/routing');
 
@@ -62,7 +62,7 @@ describe('Routing', () => {
     cy.get('[data-pageid=routingparameter-xyz] #parameter-value').should('have.text', 'xyz');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22359
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22359
   it('should handle parameterized urls properly', () => {
     cy.visit('http://localhost:8080/routing');
 
@@ -74,7 +74,7 @@ describe('Routing', () => {
     cy.ionPageVisible('routingparameterview');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22324
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22324
   it('should show correct view when navigating back from parameterized page to query string page', () => {
     cy.visit('http://localhost:8080/routing');
     cy.get('#route-params').click();
@@ -89,7 +89,7 @@ describe('Routing', () => {
     cy.ionPageVisible('routing');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22359
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22359
   it('should work properly with async navigation guards', () => {
     cy.visit('http://localhost:8080');
     cy.get('#delayed-redirect').click();
@@ -105,7 +105,7 @@ describe('Routing', () => {
     cy.ionPageDoesNotExist('routing');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22412
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22412
   it('should correctly replace route in a component', () => {
     cy.visit('http://localhost:8080/routing?ionic:mode=ios');
 
@@ -118,7 +118,7 @@ describe('Routing', () => {
     cy.ionPageVisible('navigation');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22654
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22654
   it('should show correct view when navigating between parameter urls', () => {
     cy.visit('http://localhost:8080/nested');
 
@@ -146,7 +146,7 @@ describe('Routing', () => {
     cy.ionPageDoesNotExist('folder');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22658
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22658
   it('should select correct leaving view when navigating between parameter urls', () => {
     cy.visit('http://localhost:8080');
 
@@ -175,7 +175,7 @@ describe('Routing', () => {
     cy.ionPageHidden('routingparameter-000');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22528
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22528
   it('should not show ion-back-button when replacing to root page', () => {
     cy.visit('http://localhost:8080');
 
@@ -190,7 +190,7 @@ describe('Routing', () => {
     cy.ionBackButtonHidden('home');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22662
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22662
   it('should push a new instance of a parameterized page so there is a transition', () => {
     cy.visit('http://localhost:8080');
 
@@ -333,7 +333,7 @@ describe('Routing', () => {
     cy.ionPageDoesNotExist('routingparameter-abc');
   })
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/23987
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/23987
   it('should choose correct view when navigating back', () => {
     cy.visit('http://localhost:8080');
 
@@ -378,7 +378,7 @@ describe('Routing', () => {
     cy.ionPageDoesNotExist('routingchild');
   })
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24226
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24226
   it('should correctly replace a route after popping', () => {
     cy.visit('http://localhost:8080');
 
@@ -399,7 +399,7 @@ describe('Routing', () => {
     cy.ionPageHidden('inputs');
   })
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/23873
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/23873
   it('should correctly show pages after going back to defaultHref page', () => {
     cy.visit('http://localhost:8080/default-href');
 

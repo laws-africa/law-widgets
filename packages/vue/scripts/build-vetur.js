@@ -1,4 +1,4 @@
-const DocsJson = require('@musangowope/cool-components/dist/docs.json');
+const DocsJson = require('@laws-africa/law-widgets/dist/docs.json');
 const fs = require('fs');
 const { paramCase } = require('change-case');
 

@@ -1,2 +1,21 @@
 
-hello-world,shadow
+la-table-of-contents,none
+la-table-of-contents,prop,fetch,boolean,false,false,true
+la-table-of-contents,prop,frbrExpressionUri,string | undefined,undefined,false,true
+la-table-of-contents,prop,items,TOCItem[] | string,[],false,false
+la-table-of-contents,prop,partner,string | undefined,undefined,false,true
+la-table-of-contents,prop,provider,string,PROVIDER,false,false
+la-table-of-contents,prop,titleFilter,string,'',false,false
+la-table-of-contents,method,collapseAll,collapseAll() => Promise<void>
+la-table-of-contents,method,expandAll,expandAll() => Promise<void>
+
+la-toc-item,none
+la-toc-item,prop,appendHtml,string,'',false,false
+la-toc-item,prop,collapseIconHtml,string,'',false,false
+la-toc-item,prop,expandIconHtml,string,'',false,false
+la-toc-item,prop,expanded,boolean,true,false,true
+la-toc-item,prop,filteredItems,Set<TOCItem> | null,null,false,false
+la-toc-item,prop,item,TOCItem,{},false,false
+la-toc-item,prop,prependHtml,string,'',false,false
+la-toc-item,event,itemRendered,any,true
+la-toc-item,event,itemTitleClicked,any,true

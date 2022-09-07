@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { IonButton, IonTabBar, IonTabButton, IonTabs, IonContent, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@musangowope/cool-components-vue';
+import { IonButton, IonTabBar, IonTabButton, IonTabs, IonContent, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@laws-africa/law-widgets-vue';
 import { ellipse, square, triangle, shield } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
 import { ref, defineComponent } from 'vue';

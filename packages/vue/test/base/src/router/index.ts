@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from '@musangowope/cool-components-vue-router';
+import { createRouter, createWebHistory } from '@laws-africa/law-widgets-vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Home from '@/views/Home.vue'
 import { DelayGuard } from '@/guards/Delay';

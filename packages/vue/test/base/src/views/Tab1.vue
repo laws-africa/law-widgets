@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { IonButtons, IonBackButton, IonPage, IonHeader, IonItem, IonLabel, IonToolbar, IonTitle, IonContent } from '@musangowope/cool-components-vue';
+import { IonButtons, IonBackButton, IonPage, IonHeader, IonItem, IonLabel, IonToolbar, IonTitle, IonContent } from '@laws-africa/law-widgets-vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
 export default  {

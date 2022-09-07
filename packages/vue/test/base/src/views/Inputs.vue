@@ -128,7 +128,7 @@ import {
   IonTitle,
   IonToggle,
   IonToolbar
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({

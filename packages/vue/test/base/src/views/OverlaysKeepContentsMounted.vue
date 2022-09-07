@@ -47,7 +47,7 @@ import {
   IonToolbar,
   IonModal,
   IonPopover,
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { defineComponent } from 'vue';
 import ModalContent from '@/components/ModalContent.vue';
 import PopoverContent from '@/components/PopoverContent.vue';

@@ -13,8 +13,8 @@
     "sync": "sh ./scripts/sync.sh"
   },
   "dependencies": {
-    "@musangowope/cool-components-vue": "^6.0.12",
-    "@musangowope/cool-components-vue-router": "^6.0.12",
+    "@laws-africa/law-widgets-vue": "^6.0.12",
+    "@laws-africa/law-widgets-vue-router": "^6.0.12",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },

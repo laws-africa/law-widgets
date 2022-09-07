@@ -28,7 +28,7 @@ import {
   IonContent,
   IonPage,
   IonRouterOutlet,
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

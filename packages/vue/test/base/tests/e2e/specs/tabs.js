@@ -71,7 +71,7 @@ describe('Tabs', () => {
     cy.ionPageDoesNotExist('tab1childtwo');
   })
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24934
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24934
   it('should return to tab root when clicking tab button', () => {
     cy.visit('http://localhost:8080/tabs')
 
@@ -93,7 +93,7 @@ describe('Tabs', () => {
     cy.ionPageDoesNotExist('tab1chilone');
   })
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24934
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24934
   it('should return to tab root after replacing history', () => {
     cy.visit('http://localhost:8080/tabs')
 
@@ -166,7 +166,7 @@ describe('Tabs', () => {
     cy.ionPageVisible('tab2');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22344
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22344
   it('should show tab 1 when redirecting from tab 3', () => {
     cy.visit('http://localhost:8080/tabs/tab3');
 
@@ -175,7 +175,7 @@ describe('Tabs', () => {
     cy.ionPageVisible('tabs');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22307
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22307
   it('should select correct tab after going back', () => {
     cy.visit('http://localhost:8080/tabs-secondary/tab1');
 
@@ -200,7 +200,7 @@ describe('Tabs', () => {
     cy.ionPageHidden('tab1-secondary');
   });
 
-  // Verifies 1 of 2 fixes for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22519
+  // Verifies 1 of 2 fixes for https://github.com/laws-africa/la-web-components-framework/issues/22519
   it('should show correct tab when switching between tabbed and non-tabbed contexts', () => {
     cy.visit('http://localhost:8080/routing');
 
@@ -222,7 +222,7 @@ describe('Tabs', () => {
     cy.ionPageHidden('tab2');
   });
 
-  // Verifies 1 of 2 fixes for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22519
+  // Verifies 1 of 2 fixes for https://github.com/laws-africa/la-web-components-framework/issues/22519
   it('should not create a new tabs instance when switching between tabbed and non-tabbed contexts', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -239,7 +239,7 @@ describe('Tabs', () => {
     cy.ionPageVisible('tabs');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22597
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22597
   it('should deselect old tab button when going to a tab that does not have a tab button', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -252,7 +252,7 @@ describe('Tabs', () => {
     cy.get('ion-tab-button#tab-button-tab1').should('not.have.class', 'tab-selected');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/23101
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/23101
   it('should return to previous tab instance when using the ion-back-button', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -273,7 +273,7 @@ describe('Tabs', () => {
     cy.ionPageVisible('tab1');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/23087
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/23087
   it('should return to correct view and url when going back from child page after switching tabs', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -296,7 +296,7 @@ describe('Tabs', () => {
     cy.url().should('include', '/tabs/tab1');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/22847
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/22847
   it('should support dynamic tabs', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -317,7 +317,7 @@ describe('Tabs', () => {
     cy.get('ion-tab-button#tab-button-tab4').should('have.class', 'tab-selected');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/23699
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/23699
   it('should preserve query string when switching tabs', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -338,7 +338,7 @@ describe('Tabs', () => {
     cy.url().should('include', '/tabs/tab1/child-one?key=value');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24353
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24353
   it('should handle clicking tab multiple times without query string', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -361,7 +361,7 @@ describe('Tabs', () => {
     cy.ionPageHidden('tab1');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24332
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24332
   it('should not unmount tab 1 when leaving tabs context', () => {
     cy.visit('http://localhost:8080/tabs');
     cy.ionPageVisible('tab1');
@@ -388,7 +388,7 @@ describe('Tabs', () => {
     cy.ionPageHidden('tab1');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24654
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24654
   it('should not error when going back to a tabs view from a non tabs view', () => {
     cy.visit('http://localhost:8080/tabs');
 
@@ -414,7 +414,7 @@ describe('Tabs', () => {
     cy.ionPageVisible('tabs');
   })
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24432
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24432
   it('should properly reset location history when switching tabs after going back', () => {
     cy.visit('http://localhost:8080/tabs');
 
@@ -435,7 +435,7 @@ describe('Tabs', () => {
     cy.ionPageDoesNotExist('tab2');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24432
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24432
   it('should correctly replace a route in a child tab route', () => {
     cy.visit('http://localhost:8080/tabs');
 
@@ -448,7 +448,7 @@ describe('Tabs', () => {
     cy.ionPageDoesNotExist('tab1childone');
   })
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24859
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24859
   it('should go back to the root page after navigating between tab and non tab outlets', () => {
     cy.visit('http://localhost:8080');
 
@@ -478,7 +478,7 @@ describe('Tabs', () => {
     cy.ionPageDoesNotExist('tabs');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24936
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24936
   it('should correctly go back after changing tabs', () => {
     cy.visit('http://localhost:8080/tabs/tab1');
 
@@ -507,7 +507,7 @@ describe('Tabs', () => {
     cy.ionPageDoesNotExist('tab1childone');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/24303
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/24303
   it('should correctly perform router.go without errors after navigating into tabs', () => {
     cy.visit('http://localhost:8080/');
 
@@ -536,7 +536,7 @@ describe('Tabs', () => {
     cy.ionPageHidden('tab1');
   });
 
-  // Verifies fix for https://github.com/musangowope/stencil-monoropo-starter-framework/issues/25255
+  // Verifies fix for https://github.com/laws-africa/la-web-components-framework/issues/25255
   it('should not error when going back to root tab multiple times', () => {
     cy.visit('http://localhost:8080/tabs');
 

@@ -12,10 +12,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/musangowope/stencil-monoropo-starter-docs.git"
+    "url": "git+https://github.com/laws-africa/la-web-components-docs.git"
   },
   "bugs": {
-    "url": "https://github.com/musangowope/stencil-monoropo-starter-docs/issues"
+    "url": "https://github.com/laws-africa/la-web-components-docs/issues"
   },
   "scripts": {
     "prepublishOnly": "echo noop"

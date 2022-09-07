@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@musangowope/cool-components-vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@laws-africa/law-widgets-vue';
 
 export default {
   components: {

@@ -157,7 +157,7 @@ import {
   modalController,
   popoverController,
   toastController
-} from '@musangowope/cool-components-vue';
+} from '@laws-africa/law-widgets-vue';
 import { defineComponent, ref } from 'vue';
 import { trash, share, caretForwardCircle, heart, close } from 'ionicons/icons';
 import ModalContent from '@/components/ModalContent.vue';
