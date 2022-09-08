@@ -8,7 +8,7 @@ import { apiSpecGenerator } from './scripts/api-spec-generator';
 
 export const config: Config = {
   autoprefixCss: true,
-  namespace: 'Ionic',
+  namespace: 'Law Widgets',
   plugins: [
     sass()
   ],
