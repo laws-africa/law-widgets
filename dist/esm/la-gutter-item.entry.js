@@ -1,8 +1,8 @@
-import { r as registerInstance, c as createEvent } from './index-769d63d0.js';
+import { r as registerInstance, c as createEvent } from './index-cb6a05df.js';
 
 const gutterItemCss = "la-gutter-item{display:block}";
 
-let GutterItem = class {
+const GutterItem = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.laItemChanged = createEvent(this, "laItemChanged", 7);

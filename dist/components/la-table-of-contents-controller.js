@@ -1,4 +1,4 @@
-import { HTMLElement, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { P as PROVIDER } from './services.js';
 import { d as debounce_1 } from './debounce.js';
 import { d as defineCustomElement$3 } from './table-of-contents.js';
@@ -6,7 +6,7 @@ import { d as defineCustomElement$2 } from './toc-item.js';
 
 const tableOfContentsControllerCss = "la-table-of-contents-controller *{-webkit-box-sizing:border-box;box-sizing:border-box}la-table-of-contents-controller .search{width:100%;margin-bottom:5px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;position:relative}la-table-of-contents-controller .search__input{-ms-flex:1;flex:1}la-table-of-contents-controller .search__clear-btn{position:absolute;top:0;right:0;height:100%}la-table-of-contents-controller .toggle{margin-bottom:5px}la-table-of-contents-controller .toggle__expand-all-btn{margin-right:5px}";
 
-let TableOfContentsController = class extends HTMLElement {
+const TableOfContentsController = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -70,8 +70,7 @@ let TableOfContentsController = class extends HTMLElement {
   }
   get el() { return this; }
   static get style() { return tableOfContentsControllerCss; }
-};
-TableOfContentsController = /*@__PURE__*/ proxyCustomElement(TableOfContentsController, [4, "la-table-of-contents-controller", {
+}, [4, "la-table-of-contents-controller", {
     "items": [1],
     "titleFilterPlaceholder": [1, "title-filter-placeholder"],
     "hideClearTitleFilterButton": [4, "hide-clear-title-filter-button"],
