@@ -8,7 +8,7 @@ import { apiSpecGenerator } from './scripts/api-spec-generator';
 
 export const config: Config = {
   autoprefixCss: true,
-  namespace: 'Law Widgets',
+  namespace: 'LawWidgets',
   plugins: [
     sass()
   ],
@@ -48,7 +48,7 @@ export const config: Config = {
     },
     {
       type: 'docs-json',
-      file: '../docs/core.json'
+      file: 'src/docs.json'
     },
     {
       type: 'dist-hydrate-script'
