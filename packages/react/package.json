@@ -1,15 +1,12 @@
 {
   "name": "@laws-africa/law-widgets-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React specific wrapper for @laws-africa/law-widgets",
   "keywords": [
     "stencil",
     "framework",
     "react",
-    "app",
-    "hybrid",
-    "webapp",
-    "pwa"
+    "app"
   ],
   "license": "MIT",
   "repository": {
