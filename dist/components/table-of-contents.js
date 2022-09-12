@@ -1,8 +1,8 @@
-import { HTMLElement, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { P as PROVIDER, g as getPartner } from './services.js';
 import { d as defineCustomElement$1 } from './toc-item.js';
 
-let TableOfContents = class extends HTMLElement {
+const TableOfContents = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -146,8 +146,7 @@ let TableOfContents = class extends HTMLElement {
     "fetch": ["refetch"],
     "titleFilter": ["titleFilterChanged"]
   }; }
-};
-TableOfContents = /*@__PURE__*/ proxyCustomElement(TableOfContents, [4, "la-table-of-contents", {
+}, [4, "la-table-of-contents", {
     "items": [1],
     "titleFilter": [1, "title-filter"],
     "frbrExpressionUri": [1537, "frbr-expression-uri"],

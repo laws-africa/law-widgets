@@ -1,4 +1,4 @@
-import { HTMLElement, proxyCustomElement } from '@stencil/core/internal/client';
+import { proxyCustomElement, HTMLElement } from '@stencil/core/internal/client';
 import { A as AkomaNtosoTarget } from './linking.js';
 import { P as PROVIDER, g as getPartner } from './services.js';
 import { t as tippy } from './tippy.esm.js';
@@ -17,7 +17,7 @@ function addPortion(frbrUri, portion) {
     frbrUri = frbrUri + '/';
   return frbrUri + portion;
 }
-let DecorateInternalRefs = class extends HTMLElement {
+const DecorateInternalRefs = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -119,8 +119,7 @@ let DecorateInternalRefs = class extends HTMLElement {
     "popups": ["changePopups"]
   }; }
   static get style() { return decorateInternalRefsCss; }
-};
-DecorateInternalRefs = /*@__PURE__*/ proxyCustomElement(DecorateInternalRefs, [0, "la-decorate-internal-refs", {
+}, [0, "la-decorate-internal-refs", {
     "akomaNtoso": [1, "akoma-ntoso"],
     "popups": [4],
     "flag": [4],

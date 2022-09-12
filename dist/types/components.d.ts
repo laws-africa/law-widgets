@@ -202,7 +202,7 @@ export namespace Components {
         /**
           * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
-        "items": TOCItem[] | string;
+        "items": TOCItem1[] | string;
         /**
           * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
          */
@@ -244,16 +244,28 @@ export namespace Components {
         /**
           * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
          */
-        "filteredItems": Set<TOCItem> | null;
+        "filteredItems": Set<TOCItem1> | null;
         /**
           * Item used to build the table of contents
          */
-        "item": TOCItem;
+        "item": TOCItem1;
         /**
           * HTML displayed before item title
          */
         "prependHtml": string;
     }
+}
+export interface LaGutterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLaGutterElement;
+}
+export interface LaGutterItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLaGutterItemElement;
+}
+export interface LaTocItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLaTocItemElement;
 }
 declare global {
     interface HTMLLaAkomaNtosoElement extends Components.LaAkomaNtoso, HTMLStencilElement {
@@ -439,7 +451,7 @@ declare namespace LocalJSX {
         /**
           * Event emitted when `this.layout` has finished.
          */
-        "onLayoutComplete"?: (event: CustomEvent<void>) => void;
+        "onLayoutComplete"?: (event: LaGutterCustomEvent<void>) => void;
     }
     interface LaGutterItem {
         /**
@@ -453,7 +465,7 @@ declare namespace LocalJSX {
         /**
           * Event emitted when the state (`active`) of the item changes. Used by `la-gutter` to re-layout its items.
          */
-        "onLaItemChanged"?: (event: CustomEvent<void>) => void;
+        "onLaItemChanged"?: (event: LaGutterItemCustomEvent<void>) => void;
     }
     interface LaTableOfContents {
         /**
@@ -505,7 +517,7 @@ declare namespace LocalJSX {
         /**
           * JSON value of array of items or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
-        "items"?: TOCItem[] | string;
+        "items"?: TOCItem1[] | string;
         /**
           * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
          */
@@ -547,13 +559,13 @@ declare namespace LocalJSX {
         /**
           * Array of items filtered by titleQuery used in la-toc-item to determine with item is shown or not
          */
-        "filteredItems"?: Set<TOCItem> | null;
+        "filteredItems"?: Set<TOCItem1> | null;
         /**
           * Item used to build the table of contents
          */
-        "item"?: TOCItem;
-        "onItemRendered"?: (event: CustomEvent<any>) => void;
-        "onItemTitleClicked"?: (event: CustomEvent<any>) => void;
+        "item"?: TOCItem1;
+        "onItemRendered"?: (event: LaTocItemCustomEvent<any>) => void;
+        "onItemTitleClicked"?: (event: LaTocItemCustomEvent<any>) => void;
         /**
           * HTML displayed before item title
          */

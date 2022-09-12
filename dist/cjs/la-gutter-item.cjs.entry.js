@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-f343b6fc.js');
+const index = require('./index-f97f231d.js');
 
 const gutterItemCss = "la-gutter-item{display:block}";
 
-let GutterItem = class {
+const GutterItem = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.laItemChanged = index.createEvent(this, "laItemChanged", 7);

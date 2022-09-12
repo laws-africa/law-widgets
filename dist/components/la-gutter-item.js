@@ -1,8 +1,8 @@
-import { HTMLElement, createEvent, proxyCustomElement } from '@stencil/core/internal/client';
+import { proxyCustomElement, HTMLElement, createEvent } from '@stencil/core/internal/client';
 
 const gutterItemCss = "la-gutter-item{display:block}";
 
-let GutterItem = class extends HTMLElement {
+const GutterItem = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -26,8 +26,7 @@ let GutterItem = class extends HTMLElement {
     "anchor": ["anchorChanged"]
   }; }
   static get style() { return gutterItemCss; }
-};
-GutterItem = /*@__PURE__*/ proxyCustomElement(GutterItem, [0, "la-gutter-item", {
+}, [0, "la-gutter-item", {
     "anchor": [1],
     "active": [1540]
   }, [[0, "click", "onClick"]]]);
