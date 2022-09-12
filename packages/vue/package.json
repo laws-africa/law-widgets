@@ -1,6 +1,6 @@
 {
   "name": "@laws-africa/law-widgets-vue",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Vue specific wrapper for @laws-africa/law-widgets",
   "scripts": {
     "prepublishOnly": "npm run build",
