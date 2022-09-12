@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+
 import { PROVIDER, getPartner } from '../../utils/services';
 
 /**
@@ -25,12 +26,12 @@ export class TableOfContents {
   /**
    * value to filter items by item title
    * */
-  @Prop() titleFilter: string = '';
+  @Prop() titleFilter = '';
 
   /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
   @Prop({ reflect: true, mutable: true }) frbrExpressionUri?: string;
   /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
-  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  @Prop({ reflect: true, mutable: true }) fetch = false;
   /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
   @Prop({ reflect: true, mutable: true }) partner?: string;
   /** Provider URL for fetching content (advanced usage only). */
