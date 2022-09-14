@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["resize-observer-browser", "node"],
     "strict": true,
     "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
