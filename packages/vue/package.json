@@ -61,7 +61,10 @@
     "vue-router": "^4.0.16"
   },
   "dependencies": {
-    "@laws-africa/law-widgets": "^0.0.1",
+    "@laws-africa/law-widgets": "^1.0.0",
+    "@types/node": "^18.7.18",
+    "@types/resize-observer-browser": "^0.1.7",
+    "indigo-web": "^1.0.0",
     "ionicons": "^6.0.2"
   },
   "vetur": {
