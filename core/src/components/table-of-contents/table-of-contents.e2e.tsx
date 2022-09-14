@@ -1,4 +1,6 @@
-import { E2EElement, newE2EPage } from '@stencil/core/testing';
+import type { E2EElement} from '@stencil/core/testing';
+import { newE2EPage } from '@stencil/core/testing';
+
 import data from './fixtures.json';
 
 const onlyShowsCertainItem = (items: any[], itemToShowIndex: number) => {

@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 
 import { TableOfContentsController } from '../../../dist/collection/components/table-of-contents-controller/table-of-contents-controller';
 import { argTypesForComponent } from '../../utils/utils';
-import items from '../table-of-contents/toc.json';
+import data from '../table-of-contents/fixtures.json';
 
 import './styles.css';
 
@@ -13,7 +13,7 @@ export default {
 
 const Template = (props) =>
   html`<la-table-of-contents-controller
-    .items='${items}'
+    .items='${data.nested_toc_list}'
     .expandAllBtnClasses=${props.expandAllBtnClasses}
     .collapseAllBtnClasses=${props.collapseAllBtnClasses}
     .titleFilterInputClasses=${props.titleFilterInputClasses}
