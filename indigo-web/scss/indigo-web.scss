@@ -1,0 +1,14 @@
+/*
+ * Indigo Web CSS for Akoma Ntoso
+ *
+ * Copyright 2016 AfricanLII
+ * Licensed under the MIT license
+ */
+
+@import "variables";
+@import "mixins";
+
+.akoma-ntoso {
+  @include indigo-web;
+  @include traditions;
+}

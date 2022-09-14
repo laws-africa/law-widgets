@@ -1,0 +1,44 @@
+PREFACE
+
+Text in the preface.
+
+PREAMBLE
+
+Text in the preamble.
+
+BODY
+
+CHAPTER 1 - A Chapter Heading
+
+1. Section One
+
+(1) Subsection 1 with a list of sub-paragraphs:
+
+    (a) sub 1(1)(a)
+
+    (b) sub 1(1)(a)
+
+(2) Subsection 2 with plain text.
+
+CROSSHEADING A crossheading
+
+2. Section Two
+
+Text without sub-paragraphs.
+
+3. Section three
+
+Intro text.
+
+(1) Subsection 1 with a list of sub-paragraphs:
+
+    (a) sub 1(1)(a)
+    (b) sub 1(1)(a)
+
+Wrap-up text.
+
+(2) Subsection 2 with plain text.
+
+4. Inlines
+
+An [[editorial remark]].
