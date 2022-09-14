@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
+
+@import "indigo-web/scss/mixins";
+@import "indigo-web/scss/variables";
+@import "variables";
+@import "structure";
+
+la-akoma-ntoso {
+  display: block;
+
+  &.flash-target {
+    @keyframes fadeout {
+      from { background-color: yellow; }
+      to { background-color: unset; }
+    }
+
+    :target {
+      animation: fadeout 2s;
+    }
+  }
+
+  // all AKN styling from indigo-web
+  @include indigo-web;
+
+  // traditions
+  &[frbr-country^="ke"] { @include tradition-ke; }
+  &[frbr-country^="na"] { @include tradition-na; }
+  &[frbr-country^="pl"] { @include tradition-pl; }
+
+  // structural markup
+  &.show-structure,
+  &.show-structure-hier { @include show-structure-hier; }
+
+  &.show-structure,
+  &.show-structure-block { @include show-structure-block; }
+
+  &.show-structure,
+  &.show-structure-inline { @include show-structure-inline; }
+
+  &.show-structure,
+  &.show-structure-subflow { @include show-structure-subflow; }
+
+  &.show-structure,
+  &.show-structure-doc-container { @include show-structure-doc-container; }
+}
