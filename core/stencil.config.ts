@@ -10,7 +10,9 @@ export const config: Config = {
   autoprefixCss: true,
   namespace: 'LawWidgets',
   plugins: [
-    sass()
+    sass({
+      includePaths: ['./node_modules']
+    })
   ],
   outputTargets: [
     reactOutputTarget({
@@ -28,11 +30,6 @@ export const config: Config = {
       proxiesFile: '../packages/vue/src/proxies.ts',
     }),
     {
-      type: 'docs-vscode',
-      file: 'dist/html.html-data.json',
-      sourceCodeBaseUrl: 'https://github.com/laws-africa/la-web-components/tree/main/core/',
-    },
-    {
       type: 'dist',
       esmLoaderPath: '../loader'
     },
@@ -46,10 +43,11 @@ export const config: Config = {
       }],
       includeGlobalScripts: false
     },
-    {
-      type: 'docs-json',
-      file: 'src/docs.json'
-    },
+    // TODO: Establish how to use this for docs
+    // {
+    //   type: 'docs-json',
+    //   file: 'src/docs.json'
+    // },
     {
       type: 'dist-hydrate-script'
     },
