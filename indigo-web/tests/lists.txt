@@ -1,0 +1,9 @@
+BODY
+
+A paragraph with a list.
+
+BULLETS
+  * item 1
+  * multi-line
+    item
+  * item 3

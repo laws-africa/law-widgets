@@ -1,0 +1,22 @@
+BODY
+
+PARA 1.
+
+  Text with{{^{{FOOTNOTE 1}}}} a footnote.
+
+  FOOTNOTE 1
+    The footnote content.
+
+  Some text after the footnote.
+
+PARA 2.
+
+  Text with{{^{{FOOTNOTE 1}}}} consecutive{{^{{FOOTNOTE 2}}}} footnotes.
+
+  FOOTNOTE 1
+    Footnote content 1.
+
+  FOOTNOTE 2
+    Footnote content 2.
+
+  Some text after the footnote
