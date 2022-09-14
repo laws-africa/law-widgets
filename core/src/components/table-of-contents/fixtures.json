@@ -1,181 +1,199 @@
 {
-  "num": "",
-  "heading": "",
-  "element": {},
-  "type": "akomaNtoso",
-  "id": null,
-  "selected": false,
-  "issues": [],
-  "issues_title": "",
-  "issues_description": "",
-  "issues_severity": "",
-  "title": "Entire document",
-  "index": 0,
-  "children": [
+  "nested_toc_list": [
     {
       "num": "",
       "heading": "",
       "element": {},
-      "type": "preface",
+      "type": "akomaNtoso",
       "id": null,
       "selected": false,
       "issues": [],
       "issues_title": "",
       "issues_description": "",
       "issues_severity": "",
-      "title": "Preface",
-      "index": 1
-    },
-    {
-      "num": "",
-      "heading": "",
-      "element": {},
-      "type": "preamble",
-      "id": null,
-      "selected": false,
-      "issues": [],
-      "issues_title": "",
-      "issues_description": "",
-      "issues_severity": "",
-      "title": "Preamble",
-      "index": 2
-    },
-    {
-      "num": "1",
-      "heading": "",
-      "element": {},
-      "type": "chapter",
-      "id": "chp_1",
-      "selected": false,
-      "issues": [],
-      "issues_title": "",
-      "issues_description": "",
-      "issues_severity": "",
-      "title": "Ch. 1 – ",
-      "index": 3,
-      "append_icon": "😝",
+      "title": "Entire document",
+      "index": 0,
       "children": [
         {
-          "num": "A",
+          "num": "",
           "heading": "",
           "element": {},
-          "type": "part",
-          "id": "chp_1__part_A",
+          "type": "preface",
+          "id": null,
           "selected": false,
           "issues": [],
           "issues_title": "",
           "issues_description": "",
           "issues_severity": "",
-          "title": "Part A",
-          "index": 4,
+          "title": "Preface",
+          "index": 1
+        },
+        {
+          "num": "",
+          "heading": "",
+          "element": {},
+          "type": "preamble",
+          "id": null,
+          "selected": false,
+          "issues": [],
+          "issues_title": "",
+          "issues_description": "",
+          "issues_severity": "",
+          "title": "Preamble",
+          "index": 2
+        },
+        {
+          "num": "1",
+          "heading": "",
+          "element": {},
+          "type": "chapter",
+          "id": "chp_1",
+          "selected": false,
+          "issues": [],
+          "issues_title": "",
+          "issues_description": "",
+          "issues_severity": "",
+          "title": "Ch. 1 – ",
+          "index": 3,
+          "append_icon": "😝",
           "children": [
             {
-              "num": "1.",
+              "num": "A",
               "heading": "",
               "element": {},
-              "type": "section",
-              "id": "sec_1",
+              "type": "part",
+              "id": "chp_1__part_A",
               "selected": false,
               "issues": [],
               "issues_title": "",
               "issues_description": "",
               "issues_severity": "",
-              "title": "1. ",
-              "index": 5
+              "title": "Part A",
+              "index": 4,
+              "children": [
+                {
+                  "num": "1.",
+                  "heading": "",
+                  "element": {},
+                  "type": "section",
+                  "id": "sec_1",
+                  "selected": false,
+                  "issues": [],
+                  "issues_title": "",
+                  "issues_description": "",
+                  "issues_severity": "",
+                  "title": "1. ",
+                  "index": 5
+                },
+                {
+                  "num": "3.",
+                  "heading": "",
+                  "element": {},
+                  "type": "section",
+                  "id": "sec_3",
+                  "selected": false,
+                  "issues": [],
+                  "issues_title": "",
+                  "issues_description": "",
+                  "issues_severity": "",
+                  "title": "3. ",
+                  "index": 6
+                }
+              ]
             },
             {
-              "num": "3.",
+              "num": "B",
               "heading": "",
               "element": {},
-              "type": "section",
-              "id": "sec_3",
+              "type": "part",
+              "id": "chp_1__part_B",
               "selected": false,
+              "append_icon": "🥶",
               "issues": [],
               "issues_title": "",
               "issues_description": "",
               "issues_severity": "",
-              "title": "3. ",
-              "index": 6
+              "title": "Part B",
+              "index": 7,
+              "children": [
+                {
+                  "num": "5.",
+                  "heading": "",
+                  "element": {},
+                  "type": "section",
+                  "id": "sec_5",
+                  "selected": false,
+                  "issues": [],
+                  "issues_title": "",
+                  "issues_description": "",
+                  "issues_severity": "",
+                  "title": "5. ",
+                  "index": 8
+                }
+              ]
             }
           ]
         },
         {
-          "num": "B",
+          "num": "2",
           "heading": "",
           "element": {},
-          "type": "part",
-          "id": "chp_1__part_B",
+          "type": "chapter",
+          "id": "chp_2",
           "selected": false,
-          "append_icon": "🥶",
           "issues": [],
           "issues_title": "",
           "issues_description": "",
           "issues_severity": "",
-          "title": "Part B",
-          "index": 7,
+          "title": "Ch. 2 – ",
+          "index": 9,
           "children": [
             {
-              "num": "5.",
+              "num": "6.",
               "heading": "",
               "element": {},
               "type": "section",
-              "id": "sec_5",
+              "id": "sec_6",
               "selected": false,
               "issues": [],
               "issues_title": "",
               "issues_description": "",
               "issues_severity": "",
-              "title": "5. ",
-              "index": 8
+              "title": "6. ",
+              "index": 10
+            },
+            {
+              "num": "7.",
+              "heading": "",
+              "element": {},
+              "type": "section",
+              "id": "sec_7",
+              "selected": false,
+              "issues": [],
+              "issues_title": "",
+              "issues_description": "",
+              "issues_severity": "",
+              "title": "7. ",
+              "index": 11,
+              "append_icon": "😱"
             }
           ]
         }
       ]
+    }
+  ],
+  "simple_toc_list": [
+    {
+      "id": "item-one",
+      "title": "Item One"
     },
     {
-      "num": "2",
-      "heading": "",
-      "element": {},
-      "type": "chapter",
-      "id": "chp_2",
-      "selected": false,
-      "issues": [],
-      "issues_title": "",
-      "issues_description": "",
-      "issues_severity": "",
-      "title": "Ch. 2 – ",
-      "index": 9,
-      "children": [
-        {
-          "num": "6.",
-          "heading": "",
-          "element": {},
-          "type": "section",
-          "id": "sec_6",
-          "selected": false,
-          "issues": [],
-          "issues_title": "",
-          "issues_description": "",
-          "issues_severity": "",
-          "title": "6. ",
-          "index": 10
-        },
-        {
-          "num": "7.",
-          "heading": "",
-          "element": {},
-          "type": "section",
-          "id": "sec_7",
-          "selected": false,
-          "issues": [],
-          "issues_title": "",
-          "issues_description": "",
-          "issues_severity": "",
-          "title": "7. ",
-          "index": 11,
-          "append_icon": "😱"
-        }
-      ]
+      "id": "item-two",
+      "title": "Item Two"
+    },
+    {
+      "id": "item-three",
+      "title": "Item Three"
     }
   ]
 }

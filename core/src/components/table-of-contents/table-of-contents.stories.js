@@ -4,14 +4,14 @@ import { ref, createRef } from 'lit-html/directives/ref';
 import { TableOfContents } from '../../../dist/collection/components/table-of-contents/table-of-contents';
 import { argTypesForComponent } from '../../utils/utils';
 
-import items from './toc.json';
+import data from './fixtures.json';
 
 export default {
   title: 'Library/la-table-of-contents',
   argTypes: argTypesForComponent(TableOfContents)
 };
 
-const Template = () => html`<la-table-of-contents .items='${items}'>`;
+const Template = () => html`<la-table-of-contents .items='${data.nested_toc_list}'>`;
 
 export const Default = Template.bind({});
 Default.args = {};
@@ -28,7 +28,7 @@ export const TitleFilter = () => {
         <input placeholder="search by title" @input="${handleChange}" />
       </div>
       <br />
-      <la-table-of-contents .items='${items}' ${ref(componentRef)}>
+      <la-table-of-contents .items='${data.nested_toc_list}' ${ref(componentRef)}>
     </div>
   `;
 };
@@ -44,13 +44,13 @@ export const ExpandCollapseAll = () => {
         <button @click='${collapseAll}'>Collapse All</button>
       </div>
       <br />
-      <la-table-of-contents .items='${items}' ${ref(componentRef)}>
+      <la-table-of-contents .items='${data.nested_toc_list}' ${ref(componentRef)}>
     </div>
   `;
 };
 
 export const CustomExpandCollapseIcons = () => html`
-  <la-table-of-contents .items='${items}'>
+  <la-table-of-contents .items='${data.nested_toc_list}'>
     <span slot="expand-icon">➡️</span>
     <span slot="collapse-icon">⬇️</span>
   </la-table-of-contents>
@@ -70,7 +70,7 @@ export const TocItemRenderedEvtDemo = () => {
     }
   };
   return html`
-    <la-table-of-contents .items='${items}' @itemRendered=${handleItemRender}/>
+    <la-table-of-contents .items='${data.nested_toc_list}' @itemRendered=${handleItemRender}/>
   `;
 };
 
