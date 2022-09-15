@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { Component, Prop, h, Host, State, Element } from '@stencil/core';
-import { TOCItem } from '../table-of-contents/table-of-contents';
-import { PROVIDER } from '../../utils/services';
 import debounce from 'lodash/debounce';
+
+import { PROVIDER } from '../../utils/services';
+import type { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-table-of-contents-controller',
@@ -18,43 +19,43 @@ export class TableOfContentsController {
   /**
    * Placeholder for search title filter
    * */
-  @Prop() titleFilterPlaceholder: string = 'Search the table of contents';
+  @Prop() titleFilterPlaceholder = 'Search the table of contents';
 
   /**
    * If true, hides clear title filter button
    */
-  @Prop() hideClearTitleFilterButton: boolean = false;
+  @Prop() hideClearTitleFilterButton = false;
 
   /**
    * Additional classes added to title filter button
    */
-  @Prop() titleFilterClearBtnClasses: string = '';
+  @Prop() titleFilterClearBtnClasses = '';
 
   /**
    * Additional classes added to Expand all button
    * */
-  @Prop() expandAllBtnClasses: string = '';
+  @Prop() expandAllBtnClasses = '';
 
   /**
    * Additional classes added to Collapse all button
    * */
-  @Prop() collapseAllBtnClasses: string = '';
+  @Prop() collapseAllBtnClasses = '';
 
   /**
    * Additional CSS classes added to the search filter input
    * */
-  @Prop() titleFilterInputClasses: string = '';
+  @Prop() titleFilterInputClasses = '';
 
   /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
   @Prop({ reflect: true, mutable: true }) frbrExpressionUri?: string;
   /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
-  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  @Prop({ reflect: true, mutable: true }) fetch = false;
   /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
   @Prop({ reflect: true, mutable: true }) partner?: string;
   /** Provider URL for fetching content (advanced usage only). */
   @Prop() provider = PROVIDER;
 
-  @State() titleFilter: string = '';
+  @State() titleFilter = '';
   @Element() el!: HTMLElement;
 
   handleTitleChange = debounce((e: Event) => {
