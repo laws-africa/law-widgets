@@ -1,0 +1,32 @@
+/*Example demo styling for la-table-of-contents, la-table-of-contents-controller and la-toc-item stories*/
+.custom-expand-all-btn {
+  background-color: blue;
+  color: white;
+}
+
+.custom-collapse-all-btn {
+  background-color: gold;
+  color: white;
+}
+
+.custom-search-filter {
+  background-color: darkgray;
+  color: white;
+  border: none;
+}
+
+.clear-btn {
+  background-color: green;
+  color: white;
+}
+
+la-toc-item.selected > .content > .content__action {
+  background-color: blue;
+  color: white;
+}
+
+la-gutter-item {
+  border: 1px solid grey;
+  background-color: white;
+  padding: 5px;
+}

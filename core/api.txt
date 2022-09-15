@@ -1,4 +1,49 @@
 
+la-akoma-ntoso,none
+la-akoma-ntoso,prop,fetch,boolean,false,false,true
+la-akoma-ntoso,prop,frbrAuthor,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrCountry,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrDate,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrExpressionDate,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrExpressionUri,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrLanguage,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrNumber,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrSubtype,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,frbrType,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,partner,string | undefined,undefined,false,true
+la-akoma-ntoso,prop,provider,string,PROVIDER,false,false
+
+la-decorate-external-refs,none
+la-decorate-external-refs,prop,akomaNtoso,HTMLElement | string | undefined,undefined,false,false
+la-decorate-external-refs,prop,partner,string | undefined,undefined,false,false
+la-decorate-external-refs,prop,popups,boolean,false,false,false
+la-decorate-external-refs,prop,provider,string,PROVIDER,false,false
+
+la-decorate-internal-refs,none
+la-decorate-internal-refs,prop,akomaNtoso,HTMLElement | string | undefined,undefined,false,false
+la-decorate-internal-refs,prop,fetch,boolean,false,false,true
+la-decorate-internal-refs,prop,flag,boolean,false,false,false
+la-decorate-internal-refs,prop,partner,string | undefined,undefined,false,true
+la-decorate-internal-refs,prop,popups,boolean,false,false,false
+la-decorate-internal-refs,prop,provider,string,PROVIDER,false,false
+
+la-decorate-terms,none
+la-decorate-terms,prop,akomaNtoso,HTMLElement | string | undefined,undefined,false,false
+la-decorate-terms,prop,linkTerms,boolean,false,false,false
+la-decorate-terms,prop,popupDefinitions,boolean,false,false,false
+
+la-gutter,none
+la-gutter,prop,akomaNtoso,HTMLElement | string | undefined,undefined,false,false
+la-gutter,method,activateNextItem,activateNextItem() => Promise<HTMLLaGutterItemElement | null>
+la-gutter,method,activatePrevItem,activatePrevItem() => Promise<HTMLLaGutterItemElement | null>
+la-gutter,method,layoutItems,layoutItems() => Promise<void>
+la-gutter,event,layoutComplete,void,true
+
+la-gutter-item,none
+la-gutter-item,prop,active,boolean,false,false,true
+la-gutter-item,prop,anchor,HTMLElement | string | undefined,undefined,false,false
+la-gutter-item,event,laItemChanged,void,true
+
 la-table-of-contents,none
 la-table-of-contents,prop,fetch,boolean,false,false,true
 la-table-of-contents,prop,frbrExpressionUri,string | undefined,undefined,false,true
@@ -8,6 +53,19 @@ la-table-of-contents,prop,provider,string,PROVIDER,false,false
 la-table-of-contents,prop,titleFilter,string,'',false,false
 la-table-of-contents,method,collapseAll,collapseAll() => Promise<void>
 la-table-of-contents,method,expandAll,expandAll() => Promise<void>
+
+la-table-of-contents-controller,none
+la-table-of-contents-controller,prop,collapseAllBtnClasses,string,'',false,false
+la-table-of-contents-controller,prop,expandAllBtnClasses,string,'',false,false
+la-table-of-contents-controller,prop,fetch,boolean,false,false,true
+la-table-of-contents-controller,prop,frbrExpressionUri,string | undefined,undefined,false,true
+la-table-of-contents-controller,prop,hideClearTitleFilterButton,boolean,false,false,false
+la-table-of-contents-controller,prop,items,TOCItem[] | string,[],false,false
+la-table-of-contents-controller,prop,partner,string | undefined,undefined,false,true
+la-table-of-contents-controller,prop,provider,string,PROVIDER,false,false
+la-table-of-contents-controller,prop,titleFilterClearBtnClasses,string,'',false,false
+la-table-of-contents-controller,prop,titleFilterInputClasses,string,'',false,false
+la-table-of-contents-controller,prop,titleFilterPlaceholder,string,'Search the table of contents',false,false
 
 la-toc-item,none
 la-toc-item,prop,appendHtml,string,'',false,false

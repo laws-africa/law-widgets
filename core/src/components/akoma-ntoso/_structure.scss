@@ -1,0 +1,139 @@
+@function yiq-is-light($color, $threshold: 190) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+
+  $yiq: (($red*299) + ($green*587) + ($blue*114)) / 1000;
+
+  @return if($yiq >= $threshold, true, false);
+}
+
+@mixin show-block-structure($colour, $name) {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: $akn-structure-spacing;
+  border-left: 2px solid $colour;
+
+  &::before {
+    content: $name;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    color: if(yiq-is-light($colour), black, white);
+    background-color: $colour;
+
+    border-top-right-radius: 5px;
+    padding: 0px 4px;
+
+    font-family: sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+}
+
+@mixin show-inline-structure($colour, $name) {
+  background-color: rgba(red($colour), green($colour), blue($colour), 0.4);
+  position: relative;
+
+  &:hover::before {
+    content: $name;
+
+    color: if(yiq-is-light($colour), black, white);
+    background-color: $colour;
+
+    position: absolute;
+    top: -1.4em;
+    left: 0px;
+
+    border-top-right-radius: 5px;
+    padding: 0px 4px;
+
+    font-family: sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+@mixin show-structure-hier {
+  @for $i from 1 through length($akn-elements-hier) {
+    $elem: nth($akn-elements-hier, $i);
+    .akn-#{$elem} {
+      @include show-block-structure(adjust-hue($akn-structure-hier-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
+    }
+  }
+
+  // include hcontainer name if not "hcontainer"
+  .akn-hcontainer:not([data-name="hcontainer"])::before {
+    content: "#{to-upper-case(map-get($akn-element-names, 'hcontainer'))} - " attr(data-name) !important;
+  }
+
+  // HACK
+  // we indent these numbered elements using padding, and so we need to take into account their existing
+  // padding when adding the structure-derived padding
+  .akn-subsection,
+  .akn-paragraph,
+  .akn-subparagraph,
+  .akn-blockList > .akn-item {
+    // to complicate matters further, the hier element should actually NOT have padding if it has .akn--no-indent
+    &:not(.akn--no-indent) {
+      padding-left: calc($akn-para-indent + $akn-structure-spacing);
+    }
+  }
+}
+
+@mixin show-structure-block {
+  @for $i from 1 through length($akn-elements-block) {
+    $elem: nth($akn-elements-block, $i);
+    // showing p makes things too busy and confusing
+    @if ($elem != 'p') {
+      .akn-#{$elem} {
+        @include show-block-structure(adjust-hue($akn-structure-block-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
+      }
+    }
+  }
+
+  .akn--table-container {
+    @include show-block-structure($akn-structure-block-start-colour, map-get($akn-element-names, "table"));
+  }
+}
+
+@mixin show-structure-inline {
+  @for $i from 1 through length($akn-elements-inline) {
+    $elem: nth($akn-elements-inline, $i);
+    .akn-#{$elem} {
+      @include show-inline-structure(adjust-hue($akn-structure-inline-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
+    }
+  }
+
+  .akn-abbr {
+    &:hover::before {
+      content: "#{to-upper-case(map-get($akn-element-names, 'abbr'))} - " attr(title);
+      text-transform: none;
+    }
+  }
+}
+
+@mixin show-structure-subflow {
+  @for $i from 1 through length($akn-elements-subflow) {
+    $elem: nth($akn-elements-subflow, $i);
+    .akn-#{$elem} {
+      @include show-block-structure(adjust-hue($akn-structure-subflow-start-colour, ($i - 1) * 60deg), map-get($akn-element-names, $elem));
+    }
+  }
+}
+
+@mixin show-structure-doc-container {
+  @for $i from 1 through length($akn-elements-doc-container) {
+    $elem: nth($akn-elements-doc-container, $i);
+    .akn-#{$elem} {
+      @include show-block-structure(adjust-hue($akn-structure-doc-container-start-colour, ($i - 1) * 60deg), map-get($akn-element-names, $elem));
+    }
+  }
+}

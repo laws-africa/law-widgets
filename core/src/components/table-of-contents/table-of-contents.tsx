@@ -1,6 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+
+import {Components} from "../../components";
 import { PROVIDER, getPartner } from '../../utils/services';
+
+import LaTocItem = Components.LaTocItem;
 
 /**
  * An item in the table of contents. Each item must have a `title` attribute (which may be `null`),
@@ -25,12 +29,12 @@ export class TableOfContents {
   /**
    * value to filter items by item title
    * */
-  @Prop() titleFilter: string = '';
+  @Prop() titleFilter = '';
 
   /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
   @Prop({ reflect: true, mutable: true }) frbrExpressionUri?: string;
   /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
-  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  @Prop({ reflect: true, mutable: true }) fetch = false;
   /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
   @Prop({ reflect: true, mutable: true }) partner?: string;
   /** Provider URL for fetching content (advanced usage only). */
@@ -81,6 +85,10 @@ export class TableOfContents {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
+  }
+
+  componentDidLoad() {
+    this.insertAppendPrependIcons();
   }
 
   /**
@@ -157,33 +165,43 @@ export class TableOfContents {
     this.expandAll();
   }
 
+  getSlotHTML(selector: string) {
+    const element = this.el.querySelector(selector);
+    /**
+     * If slots originate from `la-table-of-contents`, query for slot html is
+     * `this.el.querySelector("[slot]").innerHTML`
+     * If slot originate from `la-table-of-contents-controller` query for slot html is
+     * `this.el.querySelector("[slot] [slot]").innerHTML`
+     * */
+
+    // Slots originating from la-table-of-content-controller
+    if (element?.querySelector(selector)) {
+      return element.querySelector(selector)?.innerHTML || '';
+    }
+
+    // Slots originating from la-table-of-content
+    return element?.innerHTML || '';
+  }
+
+  insertAppendPrependIcons() {
+    // Insert append and prepend icons to ALL la-toc-items if using slot syntax
+    const prepend = this.getSlotHTML("[slot='prepend']");
+    const append = this.getSlotHTML("[slot='append']");
+    const tocItems: LaTocItem[] = Array.from(this.el.querySelectorAll('la-toc-item'));
+     tocItems.forEach(item => {
+       item.prependHtml = prepend;
+       item.appendHtml = append;
+     })
+  }
+
   render () {
     const renderTOCItem = (item: TOCItem) => {
-      const getSlotHTML = (selector: string) => {
-        const element = this.el.querySelector(selector);
-        /**
-         * If slots originate from `la-table-of-contents`, query for slot html is
-         * `this.el.querySelector("[slot]").innerHTML`
-         * If slot originate from `la-table-of-contents-controller` query for slot html is
-         * `this.el.querySelector("[slot] [slot]").innerHTML`
-         * */
-        if (element?.querySelector(selector)) {
-          return element.querySelector(selector)?.innerHTML || '';
-        }
-        return element?.innerHTML || '';
-      };
-
-      const prepend = getSlotHTML("[slot='prepend']");
-      const append = getSlotHTML("[slot='append']");
-
-      const expandIcon = getSlotHTML("[slot='expand-icon']");
-      const collapseIcon = getSlotHTML("[slot='collapse-icon']");
+      const expandIcon = this.getSlotHTML("[slot='expand-icon']");
+      const collapseIcon = this.getSlotHTML("[slot='collapse-icon']");
       return (
         <la-toc-item
           item={item}
           filteredItems={this.filteredItems}
-          prependHtml={prepend}
-          appendHtml={append}
           expandIconHtml={expandIcon}
           collapseIconHtml={collapseIcon}
         ></la-toc-item>
