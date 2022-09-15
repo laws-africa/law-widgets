@@ -57,7 +57,7 @@ export const CustomExpandCollapseIcons = () => html`
 `;
 
 export const PrependAndAppend = () => html`
-  <la-table-of-contents .items='${items}'>
+  <la-table-of-contents .items='${data.nested_toc_list}'>
     <span slot="prepend">🚨️</span>
     <span slot="append">🤷🏾</span>
   </la-table-of-contents>
@@ -83,15 +83,15 @@ export const TocItemTitleClickedEvtDemo = () => {
     e.target.querySelector('.content__action__title').removeAttribute('href');
   };
   const handleItemTitleClick = (e) => {
-    const items = e.target.closest('la-table-of-contents').querySelectorAll('la-toc-item');
-    for (const item of items) {
+    const items = Array.from(e.target.closest('la-table-of-contents').querySelectorAll('la-toc-item'));
+    items.forEach(item => {
       item.classList.remove('selected');
-    }
+    })
     e.target.classList.add('selected');
   };
 
   return html`
-    <la-table-of-contents .items='${items}'
+    <la-table-of-contents .items='${data.nested_toc_list}'
         @itemRendered='${handleItemRendered}'
         @itemTitleClicked=${handleItemTitleClick}
     />
