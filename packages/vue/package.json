@@ -6,7 +6,6 @@
     "prepublishOnly": "npm run build",
     "lint": "echo add linter",
     "lint.fix": "npm run lint -- --fix",
-    "test": "jest",
     "build": "npm run clean && npm run copy && npm run compile",
     "bundle": "rollup --config rollup.config.js",
     "clean": "rimraf dist dist-transpiled",
