@@ -1,4 +1,5 @@
 import { newE2EPage } from '@stencil/core/testing';
+
 import data from '../table-of-contents/fixtures.json';
 
 const props = {
