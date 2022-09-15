@@ -47,7 +47,7 @@ ClearSearchFilterButton.args = {
 };
 
 export const CustomClearFilterButtonIcon = () => {
-  return html`<la-table-of-contents-controller .titleFilterClearable=${true} .items='${items}'>
+  return html`<la-table-of-contents-controller .titleFilterClearable=${true} .items='${data.nested_toc_list}'>
                   <span slot='clear-title-filter-icon'>
                     ❌
                   </span>
