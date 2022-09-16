@@ -1,10 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
 
-import {Components} from "../../components";
 import { PROVIDER, getPartner } from '../../utils/services';
-
-import LaTocItem = Components.LaTocItem;
 
 /**
  * An item in the table of contents. Each item must have a `title` attribute (which may be `null`),
@@ -87,10 +84,6 @@ export class TableOfContents {
     this.fetchContent();
   }
 
-  componentDidLoad() {
-    this.insertAppendPrependIcons();
-  }
-
   /**
    * Expands all items
    */
@@ -165,39 +158,28 @@ export class TableOfContents {
     this.expandAll();
   }
 
-  getSlotHTML(selector: string) {
-    const element = this.el.querySelector(selector);
-    /**
-     * If slots originate from `la-table-of-contents`, query for slot html is
-     * `this.el.querySelector("[slot]").innerHTML`
-     * If slot originate from `la-table-of-contents-controller` query for slot html is
-     * `this.el.querySelector("[slot] [slot]").innerHTML`
-     * */
-
-    // Slots originating from la-table-of-content-controller
-    if (element?.querySelector(selector)) {
-      return element.querySelector(selector)?.innerHTML || '';
-    }
-
-    // Slots originating from la-table-of-content
-    return element?.innerHTML || '';
-  }
-
-  insertAppendPrependIcons() {
-    // Insert append and prepend icons to ALL la-toc-items if using slot syntax
-    const prepend = this.getSlotHTML("[slot='prepend']");
-    const append = this.getSlotHTML("[slot='append']");
-    const tocItems: LaTocItem[] = Array.from(this.el.querySelectorAll('la-toc-item'));
-     tocItems.forEach(item => {
-       item.prependHtml = prepend;
-       item.appendHtml = append;
-     })
-  }
-
   render () {
     const renderTOCItem = (item: TOCItem) => {
-      const expandIcon = this.getSlotHTML("[slot='expand-icon']");
-      const collapseIcon = this.getSlotHTML("[slot='collapse-icon']");
+      const getSlotHTML = (selector: string) => {
+        const element = this.el.querySelector(selector);
+        /**
+         * If slots originate from `la-table-of-contents`, query for slot html is
+         * `this.el.querySelector("[slot]").innerHTML`
+         * If slot originate from `la-table-of-contents-controller` query for slot html is
+         * `this.el.querySelector("[slot] [slot]").innerHTML`
+         * */
+
+        // Slots originating from la-table-of-content-controller
+        if (element?.querySelector(selector)) {
+          return element.querySelector(selector)?.innerHTML || '';
+        }
+
+        // Slots originating from la-table-of-content
+        return element?.innerHTML || '';
+      }
+
+      const expandIcon = getSlotHTML("[slot='expand-icon']");
+      const collapseIcon = getSlotHTML("[slot='collapse-icon']");
       return (
         <la-toc-item
           item={item}
@@ -211,8 +193,6 @@ export class TableOfContents {
     return (
       <Host>
         <div style={{ display: 'none' }}>
-          <slot name="append"></slot>
-          <slot name="prepend"></slot>
           <slot name="expand-icon"></slot>
           <slot name="collapse-icon"></slot>
         </div>
