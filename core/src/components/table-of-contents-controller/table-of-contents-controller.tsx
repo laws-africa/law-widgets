@@ -119,12 +119,6 @@ export class TableOfContentsController {
           partner={this.partner}
           frbr-expression-uri={this.frbrExpressionUri}
         >
-          <span slot="append">
-            <slot name="append"></slot>
-          </span>
-          <span slot="prepend">
-            <slot name="prepend"></slot>
-          </span>
           <span slot="expand-icon">
             <slot name="expand-icon"></slot>
           </span>
