@@ -18,7 +18,7 @@ alongside support for React, and Vue.
 ## Getting started
 At the root of project in your terminal, run `npm install`
 
-[Lerna]() is used to managing and publishing packages in this repo.
+[Lerna](https://lerna.js.org/) is used to managing and publishing packages in this repo.
 
 **Installing and symlinking dependencies via Lerna**
 
