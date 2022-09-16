@@ -56,13 +56,6 @@ export const CustomExpandCollapseIcons = () => html`
   </la-table-of-contents>
 `;
 
-export const PrependAndAppend = () => html`
-  <la-table-of-contents .items='${data.nested_toc_list}'>
-    <span slot="prepend">🚨️</span>
-    <span slot="append">🤷🏾</span>
-  </la-table-of-contents>
-`;
-
 export const TocItemRenderedEvtDemo = () => {
   const handleItemRender = (e) => {
     if (e.target.item.append_icon) {
