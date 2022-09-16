@@ -1,113 +1,85 @@
-# @laws-africa/law-widgets
+![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)
 
-[Ionic](https://ionicframework.com/) is an open source App Development Framework that makes it easy to build top quality Native and Progressive Web Apps with web technologies.
+# Law Widgets web component library (beta)
 
-The Ionic Core package contains the Web Components that make up the reusable UI building blocks of Ionic Framework. These components are designed to be used in traditional frontend view libraries/frameworks (such as [Stencil](https://stenciljs.com/), React, Angular, or Vue), or on their own through traditional JavaScript in the browser.
+This is a collection of web components for formatting and adding interactivity to Akoma Ntoso documents.
 
+These are web components, so they work in any major framework or with no framework at all.
 
-## Features
+## Components
 
-* Tiny, highly optimized components built with [Stencil](https://stenciljs.com/)
-* Styling for both iOS and Material Design
-* No build or compiling required
-* Simply add the static files to any project
-* Lazy-loaded components without configuration
-* Asynchronous rendering
-* Theming through CSS Variables
+### Content components
 
+* [la-akoma-ntoso](src/components/akoma-ntoso/)
+* [la-gutter](src/components/gutter/)
 
-## How to use
+### Behaviour components
 
-### Vanilla HTML
+* [la-decorate-internal-refs](src/components/decorate-internal-refs)
+* [la-decorate-terms](src/components/decorate-terms)
 
-Easiest way to start using Ionic Core is by adding a script tag to the CDN:
+## Using these component
 
-```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@laws-africa/law-widgets/dist/ionic/ionic.esm.js"></script>
-<script nomodule src="https://cdn.jsdelivr.net/npm/@laws-africa/law-widgets/dist/ionic/ionic.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@laws-africa/law-widgets/css/ionic.bundle.css" rel="stylesheet">
+There are three methods for using these web components:
+
+### Script tag
+
+- Put a script tag similar to this `<script type="module" src="https://cdn.jsdelivr.net/npm/@lawsafrica/web-components@0.7.3-beta/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Then you can use the element anywhere in your template, JSX, html etc
+
+### Node Modules
+- Run `npm install @lawsafrica/web-components --save`
+- Put a script tag similar to this `<script type="module" src="node_modules/@laws-africa/web-components/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Then you can use the element anywhere in your template, JSX, html etc
+
+# Development
+
+Clone this repository and run:
+
+```bash
+npm install
 ```
 
-Any Ionic component added to the webpage will automatically load. This includes writing the component tag directly in HTML, or using JavaScript such as `document.createElement('ion-toggle')`.
+Need help? Check out the [Stencil docs](https://stenciljs.com/docs/my-first-component).
 
-Additionally, within this package is a `dist/ionic.js` file and accompanying `dist/ionic/` directory. These are the same files which are used by the CDN, and they're available in this package so they can be apart of an app's local development.
+## Using Storybook
 
+Development is easiest using Storybook for testing.
 
-## Framework Bindings
+Run these commands in separate terminals:
 
-The `@laws-africa/law-widgets` package can be used in simple HTML, or by vanilla JavaScript without any framework at all. Ionic also has packages that make it easier to integrate Ionic into a framework's traditional ecosystem and patterns. (However, at the lowest-level framework bindings are still just using Ionic Core and Web Components).
-
-* [@musangowope/angular](https://www.npmjs.com/package/@musangowope/angular)
-
-
-## Custom Elements Build (Experimental)
-
-In addition to the default, self lazy-loading components built by Stencil, this package also comes with each component exported as a stand-alone custom element within `@laws-africa/law-widgets/components`. Each component extends `HTMLElement`, and does not lazy-load itself. Instead, this package is useful for projects already using a bundler such as Webpack or Rollup. While all components are available to be imported, the custom elements build also ensures bundlers only import what's used, and tree-shakes any unused components.
-
-Below is an example of importing `ion-badge`, and initializing Ionic so it is able to correctly load the "mode", such as Material Design or iOS. Additionally, the `initialize({...})` function can receive the Ionic config.
-
-```typescript
-import { defineCustomElement } from "@laws-africa/law-widgets/components/ion-badge.js";
-import { initialize } from "@laws-africa/law-widgets/components";
-
-// Initializes the Ionic config and `mode` behavior
-initialize();
-
-//  Defines the `ion-badge` web component
-defineCustomElement();
+```bash
+npx stencil build --watch
 ```
 
-Notice how we import from `@laws-africa/law-widgets/components` as opposed to `@laws-africa/law-widgets`. This helps bundlers pull in only the code that is needed.
-
-The `defineCustomElement` function will automatically define the component as well as any child components that may be required.
-
-For example, if you wanted to use `ion-modal`, you would do the following:
-
-```typescript
-import { defineCustomElement } from "@laws-africa/law-widgets/components/ion-modal.js";
-import { initialize } from "@laws-africa/law-widgets/components";
-
-// Initializes the Ionic config and `mode` behavior
-initialize();
-
-//  Defines the `ion-modal` and child `ion-backdrop` web components.
-defineCustomElement();
+```bash
+npm run storybook
 ```
 
-The `defineCustomElement` function will define `ion-modal`, but it will also define `ion-backdrop`, which is a component that `ion-modal` uses internally.
+To build Storybook for static use (not yet tested):
 
-### Using Overlay Controllers
-
-When using an overlay controller, developers will need to define the overlay component before it can be used. Below is an example of using `modalController`:
-
-```typescript
-import { defineCustomElement } from '@laws-africa/law-widgets/components/ion-modal.js';
-import { initialize, modalController } from '@laws-africa/law-widgets/components';
-
-initialize();
-defineCustomElement();
-
-const showModal = async () => {
-  const modal = await modalController.create({ ... });
-  
-  ...
-}
+```bash
+npm run build-storybook
 ```
 
-## How to contribute
+## Building for production
 
-[Check out the CONTRIBUTE guide](/.github/CONTRIBUTING.md)
+To build the component for production, run:
 
-## Related
+```bash
+npm run build
+```
 
-* [Ionic Documentation](https://ionicframework.com/docs/)
-* [Ionic Forum](https://forum.ionicframework.com/)
-* [Ionicons](http://ionicons.com/)
-* [Stencil](https://stenciljs.com/)
-* [Stencil Worldwide Slack](https://stencil-worldwide.herokuapp.com/)
-* [Capacitor](https://capacitor.ionicframework.com/)
+## Running tests
 
+To run the unit tests for the components, run:
 
-## License
+```bash
+npm test
+```
 
-* [MIT](https://raw.githubusercontent.com/ionic-team/ionic/master/LICENSE)
+# Copyright and license
+
+Copyright 2022 Laws.Africa.
+
+Licensed under [GNU LGPLv3](LICENSE).
