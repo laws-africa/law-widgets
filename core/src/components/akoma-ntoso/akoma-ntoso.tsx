@@ -1,4 +1,5 @@
 import { Component, Element, Prop, Watch } from '@stencil/core';
+
 import { PROVIDER, getPartner } from '../../utils/services';
 
 @Component({
@@ -46,7 +47,7 @@ export class AkomaNtoso {
   @Prop({ reflect: true, mutable: true }) frbrLanguage?: string;
 
   /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
-  @Prop({ reflect: true, mutable: true }) fetch: boolean = false;
+  @Prop({ reflect: true, mutable: true }) fetch = false;
   /** Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`. */
   @Prop({ reflect: true, mutable: true }) partner?: string;
 
