@@ -30,7 +30,6 @@ THis example demos the following:
   const laTocElement = document.querySelector('la-table-of-contents');
   const items = [
     {
-      id: null,
       title: 'Entire document',
       children: [
         {
