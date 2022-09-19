@@ -1,5 +1,5 @@
 module.exports = {
-  ...require('@musangowope/prettier-config'),
+  ...require('@laws-africa/prettier-config'),
   overrides: [
     {
       files: ['**/*.scss'],
