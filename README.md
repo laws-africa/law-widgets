@@ -8,11 +8,12 @@ alongside support for React, and Vue.
 
 ### Packages `v1.0.0`
 
-| Project | Package                                                                        | Documentation                           |
-| ------- |--------------------------------------------------------------------------------|-----------------------------------------|
-| **Core** | [`@laws-africa/law-widgets`](https://www.npmjs.com/package/@ionic/core)        | [`README.md`](core/README.md)           
-| **Vue** | [`@laws-africa/law-widgets-vue`](https://www.npmjs.com/package/@ionic/vue)     | [`README.md`](packages/vue/README.md)   
-| **React** | [`@laws-africa/law-widgets-react`](https://www.npmjs.com/package/@ionic/react) | [`README.md`](packages/react/README.md) 
+| Project        | Package                                                                                           | Description                                                                                                    | Documentation                           |
+|----------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **Indigo Web** | [`@laws-africa/indigo-web`](https://www.npmjs.com/package/@laws-africa/indigo-web)                | Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org). | [`README.md`](indigo-web/README.md)     
+| **Core**       | [`@laws-africa/law-widgets`](https://www.npmjs.com/package/@laws-africa/law-widgets)              | Web components library built for Akoma Ntoso documents                                                         | [`README.md`](core/README.md)                                                                                   
+| **Vue**        | [`@laws-africa/law-widgets-vue`](https://www.npmjs.com/package/@laws-africa/law-widgets-vue)      | Vue wrapper component library of `@laws-africa/law-widgets`                                                    | [`README.md`](packages/vue/README.md)                                                                          
+| **React**      | [`@laws-africa/law-widgets-react`](https://www.npmjs.com/package/@laws-africa//law-widgets-react) | React wrapper component library of `@laws-africa/law-widgets`                                                  | [`README.md`](packages/react/README.md)                                                                        
 
 
 ## Getting started
@@ -31,5 +32,5 @@ In the terminal, run `lerna run test`.
 
 ## Building packages and publishing
 - To build packages run `lerna run build`
-- To build packages run `lerna publish`
+- To publish packages run `lerna publish --conventional-commits`
 
