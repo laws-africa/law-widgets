@@ -12,6 +12,7 @@ export const config: Config = {
     })
   ],
   outputTargets: [
+    { type: 'docs-readme' },
     reactOutputTarget({
       componentCorePackage: '@laws-africa/law-widgets',
       includeImportCustomElements: true,
