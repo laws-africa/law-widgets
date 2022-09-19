@@ -10,13 +10,16 @@ These are web components, so they work in any major framework or with no framewo
 
 ### Content components
 
-* [la-akoma-ntoso](src/components/akoma-ntoso/)
-* [la-gutter](src/components/gutter/)
+* [la-akoma-ntoso](src/components/akoma-ntoso/readme.md)
+* [la-gutter](src/components/gutter/readme.md)
+* [la-table-of-contents](src/components/table-of-contents/readme.md)
+* [la-table-of-contents-controller](src/components/table-of-contents-controller/readme.md)
 
 ### Behaviour components
 
-* [la-decorate-internal-refs](src/components/decorate-internal-refs)
-* [la-decorate-terms](src/components/decorate-terms)
+* [la-decorate-internal-refs](src/components/decorate-internal-refs/readme.md)
+* [la-decorate-external-refs](src/components/decorate-external-refs/readme.md)
+* [la-decorate-terms](src/components/decorate-terms/readme.md)
 
 ## Using these component
 
@@ -56,12 +59,6 @@ npx stencil build --watch
 npm run storybook
 ```
 
-To build Storybook for static use (not yet tested):
-
-```bash
-npm run build-storybook
-```
-
 ## Building for production
 
 To build the component for production, run:
@@ -75,7 +72,7 @@ npm run build
 To run the unit tests for the components, run:
 
 ```bash
-npm test
+npm run test
 ```
 
 # Copyright and license
