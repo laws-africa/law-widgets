@@ -9,7 +9,7 @@
     "build": "npm run clean && npm run copy && npm run compile",
     "bundle": "rollup --config rollup.config.js",
     "clean": "rimraf dist dist-transpiled",
-    "compile": "npm run tsc",
+    "compile": "npm run tsc && rollup -c",
     "tsc": "tsc -p .",
     "build.web-types": "node ./scripts/build-web-types.js",
     "build.vetur": "node ./scripts/build-vetur.js",
