@@ -1,17 +1,17 @@
-# @laws-africa/law-widgets-react
+# @lawsafrica/law-widgets-react
 <hr>
 
-React wrapper component library build from [`@law-africa/law-widgets`](../../core/README.md)
+React wrapper component library build from [`@lawsafrica/law-widgets`](../../core/README.md)
 
 ## Installation
 **npm**
 ```bash
-npm install @laws-africa/law-widgets-react
+npm install @lawsafrica/law-widgets-react
 ```
 
 **yarn**
 ```bash
-yarn add @laws-africa/law-widgets-react
+yarn add @lawsafrica/law-widgets-react
 ```
 
 ## Getting started
@@ -19,7 +19,7 @@ yarn add @laws-africa/law-widgets-react
 Here is a basic example of how to use `LaTableOfContents` in React:
 
 ```js
-import { LaTableOfContents } from "@laws-africa/law-widgets-react";
+import { LaTableOfContents } from "@lawsafrica/law-widgets-react";
 
 function App() {
   const items = [

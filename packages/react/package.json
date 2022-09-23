@@ -1,7 +1,7 @@
 {
-  "name": "@laws-africa/law-widgets-react",
+  "name": "@lawsafrica/law-widgets-react",
   "version": "1.0.0",
-  "description": "React specific wrapper for @laws-africa/law-widgets",
+  "description": "React specific wrapper for @lawsafrica/law-widgets",
   "keywords": [
     "stencil",
     "framework",
@@ -35,7 +35,7 @@
     "css/"
   ],
   "dependencies": {
-    "@laws-africa/law-widgets": "^1.0.0",
+    "@lawsafrica/law-widgets": "^1.0.0",
     "@types/node": "^18.7.18",
     "@types/resize-observer-browser": "^0.1.7",
     "indigo-web": "^1.0.0",

@@ -17,11 +17,11 @@ if (version) {
 const srcPath = path.join(__dirname, 'cdn-loader.js');
 let scriptContent = fs.readFileSync(srcPath, 'utf-8');
 
-// https://unpkg.com/@laws-africa/law-widgets@latest/dist/ionic.js
+// https://unpkg.com/@lawsafrica/law-widgets@latest/dist/ionic.js
 
 scriptContent = scriptContent.replace(
   /__CDN_LOADER_URL__/g,
-  'https://cdn.jsdelivr.net/npm/@laws-africa/law-widgets' + version
+  'https://cdn.jsdelivr.net/npm/@lawsafrica/law-widgets' + version
 );
 
 fs.writeFileSync(path.join(__dirname, '..', 'loader', 'cdn.js'), scriptContent);
