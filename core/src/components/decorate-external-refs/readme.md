@@ -10,8 +10,6 @@ showing a summary of the reference in a popup.
 
 ### Html
 
-## Vanilla HTML
-
 Place this element inside an `<la-akoma-ntoso>` element:
 
 ```html
@@ -31,9 +29,9 @@ Alternatively place it elsewhere and provide a selector to identify the `<la-ako
 </la-akoma-ntosoi>
 ```
 
-## React
+### Basic React example
 ```js
-import { LaDecorateExternalRefs, LaAkomaNtoso } from '@laws-africa/law-widgets-react'
+import { LaDecorateExternalRefs, LaAkomaNtoso } from '@lawsafrica/law-widgets-react'
 
 const App = () => (
   <div>
@@ -45,7 +43,7 @@ const App = () => (
 )
 ```
 
-## Vue3
+### Basic Vue3 example
 
 ```vue
 
@@ -59,7 +57,7 @@ const App = () => (
 </template>
 
 <script>
-import { LaAkomaNtoso, LaDecorateExternalRefs } from '@laws-africa/law-widgets-vue'
+import { LaAkomaNtoso, LaDecorateExternalRefs } from '@lawsafrica/law-widgets-vue'
 export default {
   components: {
     LaAkomaNtoso,
