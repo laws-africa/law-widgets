@@ -78,3 +78,6 @@ angular/test/build/
 packages/vue/test/build/
 
 .npmrc
+
+# apps (temporary ignore for now)
+apps/
