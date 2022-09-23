@@ -3,9 +3,17 @@ import { html } from 'lit-html';
 import { DecorateExternalRefs } from '../../../dist/collection/components/decorate-external-refs/decorate-external-refs';
 import { argTypesForComponent } from '../../utils/utils';
 
+import Readme from './readme.mdx'
+
 export default {
   title: 'Library/la-decorate-external-refs',
-  argTypes: argTypesForComponent(DecorateExternalRefs)
+  argTypes: argTypesForComponent(DecorateExternalRefs),
+  parameters: {
+    docs: {
+      page: Readme,
+      inlineStories: true,
+    }
+  }
 };
 
 const Template = () => html`
@@ -21,5 +29,5 @@ const Template = () => html`
   </la-akoma-ntoso>
 `;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {};
