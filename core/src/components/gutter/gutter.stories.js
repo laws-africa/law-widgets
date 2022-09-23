@@ -4,9 +4,16 @@ import { createRef, ref } from 'lit-html/directives/ref';
 import { Gutter } from '../../../dist/collection/components/gutter/gutter';
 import { argTypesForComponent } from '../../utils/utils';
 
+import Readme from './readme.mdx'
+
 export default {
   title: 'Library/la-gutter',
-  argTypes: argTypesForComponent(Gutter)
+  argTypes: argTypesForComponent(Gutter),
+  parameters: {
+    docs: {
+      page: Readme
+    }
+  }
 };
 
 const renderTemplate = ({ externalRef }) => html`
@@ -39,8 +46,8 @@ const renderTemplate = ({ externalRef }) => html`
 
 const Template = (props) => renderTemplate(props);
 
-export const Default = Template.bind({});
-Default.args = {};
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {};
 
 export const ActivateItemWithButtons = () => {
   const componentRef = createRef();
