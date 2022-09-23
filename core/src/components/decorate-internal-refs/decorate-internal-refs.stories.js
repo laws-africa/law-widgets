@@ -56,5 +56,5 @@ const Template = (props) => html`
   </la-akoma-ntoso>
 `;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {};
