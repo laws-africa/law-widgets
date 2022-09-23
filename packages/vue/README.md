@@ -1,3 +1,6 @@
-# @laws-africa/law-widgets-vue
+# @lawsafrica/law-widgets-vue
 
-Vue wrapper library build from `@monorepostarter/core`
+Vue3 component wrapper library built from [`@lawsafrica/law-widgets`](../../core/README.md)
+
+## Getting started
+

@@ -1,5 +1,5 @@
 {
-  "name": "@laws-africa/law-widgets/components",
+  "name": "@lawsafrica/law-widgets/components",
   "version": "0.0.0",
   "description": "Ionic Components exported as custom elements, extending HTMLElement.",
   "main": "./index.js",

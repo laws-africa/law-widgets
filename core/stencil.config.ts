@@ -14,14 +14,14 @@ export const config: Config = {
   outputTargets: [
     { type: 'docs-readme' },
     reactOutputTarget({
-      componentCorePackage: '@laws-africa/law-widgets',
+      componentCorePackage: '@lawsafrica/law-widgets',
       includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,
       proxiesFile: '../packages/react/src/components/proxies.ts',
     }),
     vueOutputTarget({
-      componentCorePackage: '@laws-africa/law-widgets',
+      componentCorePackage: '@lawsafrica/law-widgets',
       includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,
@@ -41,11 +41,6 @@ export const config: Config = {
       }],
       includeGlobalScripts: false
     },
-    // TODO: Establish how to use this for docs
-    // {
-    //   type: 'docs-json',
-    //   file: 'src/docs.json'
-    // },
     {
       type: 'dist-hydrate-script'
     }

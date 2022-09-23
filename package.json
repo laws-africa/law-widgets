@@ -1,7 +1,7 @@
 {
-  "name": "@laws-africa/law-widgets",
+  "name": "@lawsafrica/law-widgets",
   "private": false,
-  "description": "Monorepo for @laws-africa libraries. It is used mainly to execute build scripts. This package is not published to npm.",
+  "description": "Monorepo for @lawsafrica libraries. It is used mainly to execute build scripts. This package is not published to npm.",
   "devDependencies": {
     "lerna": "^5.3.0",
     "semver": "^5.5.0"

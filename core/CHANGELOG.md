@@ -344,7 +344,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [6.0.16](https://github.com/laws-africa/la-web-components/compare/v6.0.15...v6.0.16) (2022-04-08)
 
-**Note:** Version bump only for package @laws-africa/law-widgets
+**Note:** Version bump only for package @lawsafrica/law-widgets
 
 
 
@@ -365,7 +365,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [6.0.14](https://github.com/laws-africa/la-web-components/compare/v6.0.13...v6.0.14) (2022-03-30)
 
-**Note:** Version bump only for package @laws-africa/law-widgets
+**Note:** Version bump only for package @lawsafrica/law-widgets
 
 
 

@@ -12,7 +12,7 @@
   npm install
 
 
-Notice that `@laws-africa/law-widgets` lives in `core`.
+Notice that `@lawsafrica/law-widgets` lives in `core`.
 
 ### 3. Run `npm start`
 
