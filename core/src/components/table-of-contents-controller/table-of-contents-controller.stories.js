@@ -4,11 +4,18 @@ import { TableOfContentsController } from '../../../dist/collection/components/t
 import { argTypesForComponent } from '../../utils/utils';
 import data from '../table-of-contents/fixtures.json';
 
+import Readme from './readme.mdx'
+
 import './styles.css';
 
 export default {
   title: 'Library/la-table-of-contents-controller',
-  argTypes: argTypesForComponent(TableOfContentsController)
+  argTypes: argTypesForComponent(TableOfContentsController),
+  parameters: {
+    docs: {
+      page: Readme
+    }
+  }
 };
 
 const Template = (props) =>
@@ -22,8 +29,8 @@ const Template = (props) =>
     .titleFilterClearBtnClasses=${props.titleFilterClearBtnClasses}
   >`;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {};
 
 export const TitleFilterPlaceholder = Template.bind({});
 TitleFilterPlaceholder.args = {
@@ -36,8 +43,8 @@ ExpandCollapseAllClasses.args = {
   collapseAllBtnClasses: 'custom-collapse-all-btn'
 };
 
-export const SearchFilterClasses = Template.bind({});
-SearchFilterClasses.args = {
+export const TitleFilterClasses = Template.bind({});
+TitleFilterClasses.args = {
   titleFilterInputClasses: 'custom-search-filter'
 };
 
