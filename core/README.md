@@ -32,7 +32,7 @@ There are three methods for using these web components:
 
 ### Node Modules
 - Run `npm install @lawsafrica/web-components --save`
-- Put a script tag similar to this `<script type="module" src="node_modules/@laws-africa/web-components/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/web-components/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 # Development
@@ -52,7 +52,7 @@ Development is easiest using Storybook for testing.
 Run these commands in separate terminals:
 
 ```bash
-npx stencil build --watch
+npm run build.watch
 ```
 
 ```bash
