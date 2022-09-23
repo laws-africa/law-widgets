@@ -1,14 +1,15 @@
-## Vanilla HTML JS Implementation
-THis example demos the following:
+### Vanilla HTML JS Implementation
+
+This example demos the following:
+
 * Passing in data into `items` of `la-table-of-content` via js
 * Slot usage
 
 ```html
+
 <la-table-of-contents>
   <span slot='prepend'>🏆</span>
   <span slot='append'>🥙</span>
-  <span slot='expand-icon'>⬇️</span>
-  <span slot='collapse-icon'>⬆️</span>
 </la-table-of-contents>
 <script>
   const laTocElement = document.querySelector('la-table-of-contents');
@@ -31,5 +32,82 @@ THis example demos the following:
     },
   ];
   laTocElement.items = items;
+</script>
+```
+
+### Basic React example
+
+```js
+import React from 'react';
+import {LaTableOfContents} from '@lawsafrica/law-widgets-react'
+
+const App = () => {
+  const items = [
+    {
+      title: 'Entire document',
+      children: [
+        {
+          title: 'Ch. 1 – ',
+          children: [
+            {
+              title: 'Part B',
+            },
+          ],
+        },
+        {
+          title: 'Ch. 2 – ',
+        },
+      ],
+    },
+  ];
+
+  return (
+    <div>
+      <LaTableOfContents items={items}/>
+    </div>
+  );
+};
+
+export default App;
+```
+
+### Basic Vue3 example
+
+```vue
+
+<template>
+  <div>
+    <LaTableOfContent :items={items} />
+  </div>
+</template>
+
+<script>
+import { LaTableOfContents } from "@lawsafrica/law-widgets-vue";
+
+export default {
+  components: {
+    LaTableOfContents
+  },
+  data: () => ({
+    items: [
+      {
+        title: 'Entire document',
+        children: [
+          {
+            title: 'Ch. 1 – ',
+            children: [
+              {
+                title: 'Part B',
+              },
+            ],
+          },
+          {
+            title: 'Ch. 2 – ',
+          },
+        ],
+      },
+    ]
+  })
+}
 </script>
 ```

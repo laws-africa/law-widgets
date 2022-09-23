@@ -5,16 +5,22 @@ import { TableOfContents } from '../../../dist/collection/components/table-of-co
 import { argTypesForComponent } from '../../utils/utils';
 
 import data from './fixtures.json';
+import Readme from './readme.mdx'
 
 export default {
   title: 'Library/la-table-of-contents',
-  argTypes: argTypesForComponent(TableOfContents)
+  argTypes: argTypesForComponent(TableOfContents),
+  parameters: {
+    docs: {
+      page: Readme
+    }
+  }
 };
 
 const Template = () => html`<la-table-of-contents .items='${data.nested_toc_list}'>`;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {};
 
 export const TitleFilter = () => {
   const componentRef = createRef();
