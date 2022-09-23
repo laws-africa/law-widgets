@@ -32,6 +32,50 @@ Alternatively place it elsewhere and provide a selector to identify the `<la-ako
 </la-akoma-ntosoi>
 ```
 
+### Basic React example
+
+```js
+import { LaAkomaNtoso, LaDecorateTerms } from '@lawsafrica/law-widgets-react'
+
+const App = () => {
+  const akomaNtosoHTML = "..."  
+  return (
+    <div>
+      <LaDecorateTerms popup-definitions link-terms akoma-ntoso="#doc" />
+      <LaAkomaNtoso>
+        {akomaNtosoHTML}
+      </LaAkomaNtoso>
+    </div>
+  )
+  
+}
+```
+### Basic Vue3 example
+```vue
+
+<template>
+  <div>
+    <LaDecorateTerms popup-definitions link-terms akoma-ntoso="#doc" />
+    <LaAkomaNtoso>
+      {akomaNtosoHTML}
+    </LaAkomaNtoso>
+  </div>
+</template>
+
+<script>
+import { LaAkomaNtoso, LaDecorateTerms } from '@lawsafrica/law-widgets-vue'
+export default {
+  components: {
+    LaAkomaNtoso,
+    LaDecorateTerms
+  },
+  data: () => ({
+    akomaNtosoHTML: '...'
+  })
+}
+</script>
+```
+
 
 
 ## Properties
