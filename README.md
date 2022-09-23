@@ -10,13 +10,16 @@ alongside support for React, and Vue.
 
 | Project        | Package                                                                                           | Description                                                                                                    | Documentation                           |
 |----------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| **Indigo Web** | [`@laws-africa/indigo-web`](https://www.npmjs.com/package/@laws-africa/indigo-web)                | Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org). | [`README.md`](indigo-web/README.md)     
-| **Core**       | [`@laws-africa/law-widgets`](https://www.npmjs.com/package/@laws-africa/law-widgets)              | Web components library built for Akoma Ntoso documents                                                         | [`README.md`](core/README.md)                                                                                   
-| **Vue**        | [`@laws-africa/law-widgets-vue`](https://www.npmjs.com/package/@laws-africa/law-widgets-vue)      | Vue wrapper component library of `@laws-africa/law-widgets`                                                    | [`README.md`](packages/vue/README.md)                                                                          
-| **React**      | [`@laws-africa/law-widgets-react`](https://www.npmjs.com/package/@laws-africa//law-widgets-react) | React wrapper component library of `@laws-africa/law-widgets`                                                  | [`README.md`](packages/react/README.md)                                                                        
-
+| **Indigo Web** | [`@lawsafrica/indigo-web`](https://www.npmjs.com/package/@lawsafrica/indigo-web)                | Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org). | [`README.md`](indigo-web/README.md)     
+| **Core**       | [`@lawsafrica/law-widgets`](https://www.npmjs.com/package/@lawsafrica/law-widgets)              | Web components library built for Akoma Ntoso documents                                                         | [`README.md`](core/README.md)                                                                                   
+| **Vue**        | [`@lawsafrica/law-widgets-vue`](https://www.npmjs.com/package/@lawsafrica/law-widgets-vue)      | Vue wrapper component library of `@lawsafrica/law-widgets`                                                    | [`README.md`](packages/vue/README.md)                                                                          
+| **React**      | [`@lawsafrica/law-widgets-react`](https://www.npmjs.com/package/@lawsafrica//law-widgets-react) | React wrapper component library of `@lawsafrica/law-widgets`                                                  | [`README.md`](packages/react/README.md)                                                                        
 
 ## Getting started
+Click [here](core/README.md#components) to learn how to use our components.
+
+
+## Local development
 At the root of project in your terminal, run `npm install`
 
 [Lerna](https://lerna.js.org/) is used to managing and publishing packages in this repo.
