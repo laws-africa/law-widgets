@@ -1,7 +1,5 @@
 # la-akoma-ntoso
-
-Formats [Akoma Ntoso content](http://www.akomantoso.org/), optionally fetching it from Laws.Africa.
-
+Use `<la-akoma-ntoso>` to wrap Akoma Ntoso content.
 
 
 <!-- Auto Generated Below -->
@@ -10,10 +8,6 @@ Formats [Akoma Ntoso content](http://www.akomantoso.org/), optionally fetching i
 ## Usage
 
 ### Html
-
-## Vanilla HTML
-
-Use `<la-akoma-ntoso>` to wrap Akoma Ntoso content.
 
 ```html
 <la-akoma-ntoso>
@@ -48,32 +42,38 @@ your partner code in `partner`.
 
 
 
-## React
+### Basic React example
 ```js
-import { LaAkomaNtoso } from '@laws-africa/law-widgets-react'
-const Component = () => (
+import { LaAkomaNtoso } from '@lawsafrica/law-widgets-react'
+const Component = () => {
+  const akomaNtosoHTML = "..."
+  return (
     <div>
       <LaAkomaNtoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
-        // Akoma ntoso html
+        {akomaNtosoHTML}
       </LaAkomaNtoso>
     </div>
-)
+  )
+}
 ```
 
-## Vue
+### Basic Vue3 example
 ```vue
 <template>
   <LaAkomaNtoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
-    // Akoma ntoso html
+    {{akomaNtosoHTML}}
   </LaAkomaNtoso>
 </template>
 <script>
-import { LaAkomaNtoso } from '@laws-africa/law-widgets-vue'
+import { LaAkomaNtoso } from '@lawsafrica/law-widgets-vue'
 export default {
   name: 'Component',
   components: {
     LaAkomaNtoso
-  }
+  },
+  data: () => ({
+    akomaNtosoHTML: "..."
+  })
 }
 </script>
 ```

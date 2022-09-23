@@ -1,10 +1,19 @@
 import { html } from 'lit-html';
+
 import { AkomaNtoso } from '../../../dist/collection/components/akoma-ntoso/akoma-ntoso';
 import { argTypesForComponent } from '../../utils/utils';
 
+import Readme from "./readme.mdx"
+
+
 export default {
   title: 'Library/la-akoma-ntoso',
-  argTypes: argTypesForComponent(AkomaNtoso)
+  argTypes: argTypesForComponent(AkomaNtoso),
+  parameters: {
+    docs: {
+      page: Readme
+    }
+  }
 };
 
 const Template = props => html`
@@ -120,8 +129,8 @@ const Template = props => html`
   </la-akoma-ntoso>
 `;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {};
 
 export const FrbrCountryNA = Template.bind({});
 FrbrCountryNA.args = {
@@ -168,23 +177,14 @@ export const JudgmentKE = (props) => html`
             <div class="akn-div dotted">  </div>
             <div class="akn-div">Plaintiff</div>
           </div>
-
-
-
           <div class="akn-div parties-separator">and</div>
-
-
 
           <div class="akn-div party-listing">
             <div class="akn-div party-name">Middle East Bank Kenya Limited</div>
             <div class="akn-div dotted">  </div>
             <div class="akn-div">Defendant</div>
           </div>
-
-
         </div>
-
-
       </div>
     </div>
       <table class="akn-table" id="arguments__table_1" data-eid="arguments__table_1">
