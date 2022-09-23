@@ -23,16 +23,16 @@
     "target": "es2017",
     "baseUrl": ".",
     "paths": {
-      "@laws-africa/law-widgets/hydrate": [
+      "@lawsafrica/law-widgets/hydrate": [
         "./core/hydrate"
       ],
-      "@laws-africa/law-widgets": [
+      "@lawsafrica/law-widgets": [
         "./core"
       ],
-      "@laws-africa/law-widgets-react": [
+      "@lawsafrica/law-widgets-react": [
         "./react"
       ],
-      "@laws-africa/law-widgets-vue": [
+      "@lawsafrica/law-widgets-vue": [
         "./vue"
       ]
     }
