@@ -2,10 +2,17 @@ import { html } from "lit-html";
 
 import { DecorateInternalRefs } from '../../../dist/collection/components/decorate-internal-refs/decorate-internal-refs';
 import { argTypesForComponent } from "../../utils/utils";
+import Readme from "../decorate-internal-refs/readme.mdx";
 
 export default {
   title: 'Library/la-decorate-internal-refs',
-  argTypes: argTypesForComponent(DecorateInternalRefs)
+  argTypes: argTypesForComponent(DecorateInternalRefs),
+  parameters: {
+    docs: {
+      page: Readme,
+      inlineStories: true,
+    }
+  }
 };
 
 const Template = (props) => html`
