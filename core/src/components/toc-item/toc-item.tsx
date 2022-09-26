@@ -83,7 +83,7 @@ export class TocItem {
       if (this.expanded) {
         return this.collapseIconHtml ? <span innerHTML={this.collapseIconHtml}></span> : <span>▼</span>;
       }
-      return this.expandIconHtml ? <span innerHTML={this.expandIconHtml}></span> : <span>▶</span>;
+      return this.expandIconHtml ? <span innerHTML={this.expandIconHtml}></span> : <span>►</span>;
     };
 
     return (
