@@ -22,7 +22,7 @@ Click [here](core/README.md#components) to learn how to use our components.
 ## Local development
 At the root of project in your terminal, run `npm install`
 
-[Lerna](https://lerna.js.org/) is used to managing and publishing packages in this repo.
+[Lerna](https://lerna.js.org/) is used for managing and publishing packages in this repo.
 
 **Installing and symlinking dependencies via Lerna**
 
