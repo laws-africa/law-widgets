@@ -16,6 +16,5 @@ export default {
       preferConst: true,
       sourcemap: true
     }
-  ],
-  external: id => external.includes(id) || id.startsWith('@lawsafrica/law-widgets') || id.startsWith('ionicons')
+  ]
 };
