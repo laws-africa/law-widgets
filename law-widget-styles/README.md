@@ -1,6 +1,6 @@
 # Indigo Web
 
-[![Build Status](https://travis-ci.org/laws-africa/indigo-web.svg)](http://travis-ci.org/laws-africa/indigo-web)
+[![Build Status](https://travis-ci.org/laws-africa/law-widget-styles.svg)](http://travis-ci.org/laws-africa/law-widget-styles)
 
 Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org).
 They make Akoma Ntoso documents look beautiful.
@@ -19,21 +19,21 @@ Second, include the CSS as described below.
 
 Use the assets directly from the [jsDelivr](https://www.jsdelivr.com) CDN:
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/laws-africa/indigo-web@8.1.0/css/indigo-web.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/laws-africa/law-widget-styles@8.1.0/css/law-widget-styles.min.css">
 
 ### From your server
 
-Install indigo-web using npm:
+Install law-widget-styles using npm:
 
-    $ npm install indigo-web
+    $ npm install law-widget-styles
 
 Then use either the compiled CSS:
 
-    <link rel="stylesheet" type="text/css" href="indigo-web/css/indigo-web.min.css">
+    <link rel="stylesheet" type="text/css" href="law-widget-styles/css/law-widget-styles.min.css">
 
 Or use the SCSS files:
 
-    @import 'indigo-web/scss/indigo-web';
+    @import 'law-widget-styles/scss/law-widget-styles';
 
 ## Building
 
@@ -59,7 +59,7 @@ To run screenshot-based tests:
 * test: `npm run test`
 * commit your changes and merge them into master via a Pull Request
 * GitHub will build and commit the compiled CSS onto the master branch
-* tag and release a new release on the master branch using the [GitHub releases UI](https://github.com/laws-africa/indigo-web/releases/new)
+* tag and release a new release on the master branch using the [GitHub releases UI](https://github.com/laws-africa/law-widget-styles/releases/new)
 * GitHub will automatically publish the package to NPM
 
 # Version history
@@ -114,8 +114,8 @@ This version assumes AKN 3.0 documents from Indigo.
 
 ## 4.0.0 (21 April 2020)
 
-* BREAKING: akoma-ntoso.scss is now indigo-web.scss
-* BREAKING: akoma-ntoso.css is now indigo-web.css
+* BREAKING: akoma-ntoso.scss is now law-widget-styles.scss
+* BREAKING: akoma-ntoso.css is now law-widget-styles.css
 
 ## 3.13.0 (15 April 2020)
 

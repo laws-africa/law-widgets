@@ -8,12 +8,12 @@ alongside support for React, and Vue.
 
 ### Packages `v1.0.0`
 
-| Project        | Package                                                                                           | Description                                                                                                    | Documentation                           |
-|----------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| **Indigo Web** | [`@lawsafrica/indigo-web`](https://www.npmjs.com/package/@lawsafrica/indigo-web)                | Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org). | [`README.md`](indigo-web/README.md)     
-| **Core**       | [`@lawsafrica/law-widgets`](https://www.npmjs.com/package/@lawsafrica/law-widgets)              | Web components library built for Akoma Ntoso documents                                                         | [`README.md`](core/README.md)                                                                                   
-| **Vue**        | [`@lawsafrica/law-widgets-vue`](https://www.npmjs.com/package/@lawsafrica/law-widgets-vue)      | Vue wrapper component library of `@lawsafrica/law-widgets`                                                    | [`README.md`](packages/vue/README.md)                                                                          
-| **React**      | [`@lawsafrica/law-widgets-react`](https://www.npmjs.com/package/@lawsafrica//law-widgets-react) | React wrapper component library of `@lawsafrica/law-widgets`                                                  | [`README.md`](packages/react/README.md)                                                                        
+| Project               | Package                                                                                           | Description                                                                                                    | Documentation                           |
+|-----------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **Law Widget Styles** | [`@lawsafrica/law-widget-styles`](https://www.npmjs.com/package/@lawsafrica/law-widget-styles)                | Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org). | [`README.md`](law-widget-styles/README.md)     
+| **Core**              | [`@lawsafrica/law-widgets`](https://www.npmjs.com/package/@lawsafrica/law-widgets)              | Web components library built for Akoma Ntoso documents                                                         | [`README.md`](core/README.md)                                                                                   
+| **Vue**               | [`@lawsafrica/law-widgets-vue`](https://www.npmjs.com/package/@lawsafrica/law-widgets-vue)      | Vue wrapper component library of `@lawsafrica/law-widgets`                                                    | [`README.md`](packages/vue/README.md)                                                                          
+| **React**             | [`@lawsafrica/law-widgets-react`](https://www.npmjs.com/package/@lawsafrica//law-widgets-react) | React wrapper component library of `@lawsafrica/law-widgets`                                                  | [`README.md`](packages/react/README.md)                                                                        
 
 ## Getting started
 Click [here](core/README.md#components) to learn how to use our components.
@@ -26,9 +26,9 @@ At the root of project in your terminal, run `npm install`
 
 **Installing and symlinking dependencies via Lerna**
 
-Run `lerna bootstrap` in the terminal. This will npm install all the packages (`core`, `indigo-web`, `react`, `vue`), 
-and provide the necessary symlinking between packages. (i.e `core` has `indigo-web` as a dependency, hence Lerna will
-symlink `indigo-web`).
+Run `lerna bootstrap` in the terminal. This will npm install all the packages (`core`, `law-widget-styles`, `react`, `vue`), 
+and provide the necessary symlinking between packages. (i.e `core` has `law-widget-styles` as a dependency, hence Lerna will
+symlink `law-widget-styles`).
 
 ## Running tests 
 In the terminal, run `lerna run test`.
