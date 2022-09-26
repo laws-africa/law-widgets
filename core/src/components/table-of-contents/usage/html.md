@@ -111,3 +111,6 @@ export default {
 }
 </script>
 ```
+
+### Component stories
+Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-table-of-contents--basic-usage) for more interactive examples on Storybook JS
