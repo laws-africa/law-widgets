@@ -9,6 +9,8 @@ React wrapper component library build from [`@lawsafrica/law-widgets`](../../cor
 npm install @lawsafrica/law-widgets-react
 ```
 
+OR
+
 **yarn**
 ```bash
 yarn add @lawsafrica/law-widgets-react

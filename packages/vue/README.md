@@ -9,9 +9,18 @@ Vue3 component wrapper library built from [`@lawsafrica/law-widgets`](../../core
 npm install @lawsafrica/law-widgets-vue
 ```
 
+OR
+
 **yarn**
 ```bash
 yarn add @lawsafrica/law-widgets-vue
+```
+
+In the root of your vue project, create a file called `vue.config.js` and add the following code:
+```js
+module.exports = {
+  chainWebpack: config => config.resolve.symlinks(false)
+}
 ```
 
 ## Getting started
