@@ -1,6 +1,6 @@
 {
   "packages": [
-    "indigo-web",
+    "law-widget-styles",
     "core",
     "packages/*"
   ],
