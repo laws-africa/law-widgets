@@ -25,7 +25,7 @@ Use the assets directly from the [jsDelivr](https://www.jsdelivr.com) CDN:
 
 Install law-widget-styles using npm:
 
-    $ npm install law-widget-styles
+    $ npm install @lawsafrica/law-widget-styles
 
 Then use either the compiled CSS:
 
@@ -33,7 +33,7 @@ Then use either the compiled CSS:
 
 Or use the SCSS files:
 
-    @import 'law-widget-styles/scss/law-widget-styles';
+    @import '@lawsafrica/law-widget-styles/scss/law-widget-styles';
 
 ## Building
 
