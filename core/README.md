@@ -31,8 +31,8 @@ There are three methods for using these web components:
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
-- Run `npm install @lawsafrica/web-components --save`
-- Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/web-components/dist/la-web-components/la-web-components.esm.js"></script>` in the head of your index.html
+- Run `npm install @lawsafrica/law-widgets --save`
+- Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/law-widgets/dist/lawwidgets/lawwidgets.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 # Development
