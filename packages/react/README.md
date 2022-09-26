@@ -1,7 +1,7 @@
 # @lawsafrica/law-widgets-react
 <hr>
 
-React wrapper component library build from [`@lawsafrica/law-widgets`](../../core/README.md)
+React wrapper component library built from [`@lawsafrica/law-widgets`](../../core/README.md)
 
 ## Installation
 **npm**
