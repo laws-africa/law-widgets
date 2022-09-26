@@ -50,7 +50,21 @@ function App() {
 export default App;
 ```
 
-Click [here](../../core/README.md#Components) to view more examples
+## List of components
+View more examples of our various components.
+
+### Content components
+
+* [la-akoma-ntoso](../../core/src/components/akoma-ntoso/readme.md#basic-react-example)
+* [la-gutter](../../core/src/components/gutter/readme.md#basic-react-example)
+* [la-table-of-contents](../../core/src/components/table-of-contents/readme.md#basic-react-example)
+* [la-table-of-contents-controller](../../core/src/components/table-of-contents-controller/readme.md#basic-react-example)
+
+### Behaviour components
+
+* [la-decorate-internal-refs](../../core/src/components/decorate-internal-refs/readme.md#basic-react-example)
+* [la-decorate-external-refs](../../core/src/components/decorate-external-refs/readme.md#basic-react-example)
+* [la-decorate-terms](../../core/src/components/decorate-terms/readme.md#basic-react-example)
 
 
 
