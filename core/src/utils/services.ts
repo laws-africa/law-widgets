@@ -1,4 +1,4 @@
-export function getPartner () {
+export function getPartner() {
   return document.location.hostname.replace(/^www\./, '');
 }
 

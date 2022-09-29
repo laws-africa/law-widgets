@@ -8,7 +8,7 @@ import { GutterLayout } from './layout';
 
 @Component({
   tag: 'la-gutter',
-  styleUrl: 'gutter.scss'
+  styleUrl: 'gutter.scss',
 })
 export class Gutter {
   // The akn content element being decorated
@@ -32,7 +32,7 @@ export class Gutter {
 
   @Element() el!: HTMLElement;
 
-  componentWillLoad () {
+  componentWillLoad() {
     // TODO: watch for changes to the akn content?
     this.akomaNtosoElement = getAkomaNtosoElement(this.el, this.akomaNtoso);
 
@@ -44,12 +44,12 @@ export class Gutter {
     this.mutationObserver.observe(this.el, { childList: true });
   }
 
-  componentDidLoad () {
+  componentDidLoad() {
     this.setupLayout();
     this.layoutItems();
   }
 
-  disconnectedCallback () {
+  disconnectedCallback() {
     if (this.mutationObserver) {
       this.mutationObserver.disconnect();
     }
@@ -60,7 +60,7 @@ export class Gutter {
   }
 
   @Listen('laItemChanged')
-  itemChanged (event: CustomEvent) {
+  itemChanged(event: CustomEvent) {
     const target: HTMLLaGutterItemElement | null = event.target as HTMLLaGutterItemElement;
     if (target?.active) {
       // set all other items inactive. if there was a previously active item, this change will
@@ -71,13 +71,13 @@ export class Gutter {
   }
 
   @Listen('click')
-  clicked (event: MouseEvent) {
+  clicked(event: MouseEvent) {
     // a click in the gutter, outside of an item, deactivates all items
     const target: HTMLElement | null = event.target as HTMLElement;
     if (target && !target.closest('la-gutter-item')) {
-      Array.from(this.items()).forEach(item => {
+      Array.from(this.items()).forEach((item) => {
         item.active = false;
-      })
+      });
     }
   }
 
@@ -87,21 +87,22 @@ export class Gutter {
   @Event({
     eventName: 'layoutComplete',
     composed: true,
-    cancelable: true
-  }) layoutComplete!: EventEmitter<void>;
+    cancelable: true,
+  })
+  layoutComplete!: EventEmitter<void>;
 
   /**
    * Ensure all items except this one are set as inactive.
    */
-  setOtherItemsInactive (activeItem: HTMLLaGutterItemElement) {
-    Array.from(this.items()).forEach(item => {
+  setOtherItemsInactive(activeItem: HTMLLaGutterItemElement) {
+    Array.from(this.items()).forEach((item) => {
       if (item != activeItem) {
         item.active = false;
       }
-    })
+    });
   }
 
-  setupLayout () {
+  setupLayout() {
     if (this.akomaNtosoElement) {
       this.layout = new GutterLayout(this.akomaNtosoElement);
 
@@ -119,7 +120,7 @@ export class Gutter {
    * Layout the gutter items.
    */
   @Method()
-  async layoutItems () {
+  async layoutItems() {
     if (this.layout) {
       // @ts-ignore
       this.layout.layout([...this.items()]);
@@ -134,17 +135,16 @@ export class Gutter {
    * then the top-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
    */
   @Method()
-  async activateNextItem () {
+  async activateNextItem() {
     const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
 
     if (items.length === 1) {
       items[0].active = true;
       return items[0];
     } else if (items.length > 1) {
-      const activeItemIndex = items.findIndex(item => item.active);
-      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === items.length - 1
-        ? items[0]
-        : items[activeItemIndex + 1];
+      const activeItemIndex = items.findIndex((item) => item.active);
+      const nextActiveItem =
+        activeItemIndex === -1 || activeItemIndex === items.length - 1 ? items[0] : items[activeItemIndex + 1];
       nextActiveItem.active = true;
       return nextActiveItem;
     } else {
@@ -159,17 +159,16 @@ export class Gutter {
    * then the bottom-most item will be activated. If there is one item in the gutter that is not active, then that item will be activated.
    */
   @Method()
-  async activatePrevItem () {
+  async activatePrevItem() {
     const items: HTMLLaGutterItemElement[] = this.layout ? this.layout.sortItems(this.getVisibleItems()) : [];
 
     if (items.length === 1) {
       items[0].active = true;
       return items[0];
     } else if (items.length > 1) {
-      const activeItemIndex = items.findIndex(item => item.active);
-      const nextActiveItem = activeItemIndex === -1 || activeItemIndex === 0
-        ? items[items.length - 1]
-        : items[activeItemIndex - 1];
+      const activeItemIndex = items.findIndex((item) => item.active);
+      const nextActiveItem =
+        activeItemIndex === -1 || activeItemIndex === 0 ? items[items.length - 1] : items[activeItemIndex - 1];
       nextActiveItem.active = true;
       return nextActiveItem;
     } else {
@@ -177,12 +176,12 @@ export class Gutter {
     }
   }
 
-  items (): NodeListOf<HTMLLaGutterItemElement> {
+  items(): NodeListOf<HTMLLaGutterItemElement> {
     return this.el.querySelectorAll('la-gutter-item');
   }
 
-  getVisibleItems (): HTMLLaGutterItemElement[] {
+  getVisibleItems(): HTMLLaGutterItemElement[] {
     // @ts-ignore
-    return [...this.items()].filter(i => i.style.display !== 'none');
+    return [...this.items()].filter((i) => i.style.display !== 'none');
   }
 }

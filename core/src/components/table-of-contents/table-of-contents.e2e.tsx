@@ -1,4 +1,4 @@
-import type { E2EElement} from '@stencil/core/testing';
+import type { E2EElement } from '@stencil/core/testing';
 import { newE2EPage } from '@stencil/core/testing';
 
 import data from './fixtures.json';
@@ -6,7 +6,9 @@ import data from './fixtures.json';
 const onlyShowsCertainItem = (items: any[], itemToShowIndex: number) => {
   const itemToShow = items[itemToShowIndex];
   const excludedItems = items.filter((_, index) => index !== itemToShowIndex);
-  return !itemToShow.className.includes('excluded') && excludedItems.every(item => item.className.includes('excluded'));
+  return (
+    !itemToShow.className.includes('excluded') && excludedItems.every((item) => item.className.includes('excluded'))
+  );
 };
 
 describe('la-table-of-contents', () => {
@@ -19,7 +21,9 @@ describe('la-table-of-contents', () => {
 
   it('should render correct table of contents html for the given set items prop', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`);
+    await page.setContent(
+      `<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`
+    );
     const renderedItems = await page.findAll('la-table-of-contents la-toc-item .content__action__title');
 
     const dataMatchesDOMNodes = (items: E2EElement[], data: { title: any }[]) => {
@@ -33,7 +37,11 @@ describe('la-table-of-contents', () => {
 
   it('should filter on mount', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}' title-filter='Item One'></la-table-of-contents>`);
+    await page.setContent(
+      `<la-table-of-contents items='${JSON.stringify(
+        data.simple_toc_list
+      )}' title-filter='Item One'></la-table-of-contents>`
+    );
 
     const renderedItems = await page.findAll('la-table-of-contents la-toc-item');
     expect(onlyShowsCertainItem(renderedItems, 0)).toBe(true);
@@ -41,7 +49,9 @@ describe('la-table-of-contents', () => {
 
   it('should filter items on change of titleFilter prop', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`);
+    await page.setContent(
+      `<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`
+    );
 
     await page.$eval('la-table-of-contents', (component: any) => {
       component.titleFilter = 'Item Two';
@@ -71,14 +81,14 @@ describe('la-table-of-contents', () => {
     });
     await page.waitForChanges();
     const itemsOfEmptyString = await page.findAll('la-table-of-contents la-toc-item');
-    expect(itemsOfEmptyString.every(item => item.classList.contains('excluded'))).toBe(false);
+    expect(itemsOfEmptyString.every((item) => item.classList.contains('excluded'))).toBe(false);
 
     await page.$eval('la-table-of-contents', (component: any) => {
       component.titleFilter = '       ';
     });
     await page.waitForChanges();
     const itemsOfSpacedString = await page.findAll('la-table-of-contents la-toc-item');
-    expect(itemsOfSpacedString.every(item => item.classList.contains('excluded'))).toBe(false);
+    expect(itemsOfSpacedString.every((item) => item.classList.contains('excluded'))).toBe(false);
   });
 
   it('should have filtering that is case insensitive', async () => {
@@ -124,7 +134,9 @@ describe('la-table-of-contents', () => {
 
   it('should render expanded items on mount', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`);
+    await page.setContent(
+      `<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`
+    );
     const items = await page.findAll('la-table-of-contents la-toc-item');
     for (const item of items) {
       const expanded = await item.getProperty('expanded');
@@ -134,7 +146,9 @@ describe('la-table-of-contents', () => {
 
   it('should have all items without expanded attribute when collapseAll method is called', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`);
+    await page.setContent(
+      `<la-table-of-contents items='${JSON.stringify(data.simple_toc_list)}'></la-table-of-contents>`
+    );
 
     const component = await page.find('la-table-of-contents');
     await component.callMethod('collapseAll');

@@ -14,7 +14,7 @@ export interface TOCItem {
 }
 
 @Component({
-  tag: 'la-table-of-contents'
+  tag: 'la-table-of-contents',
 })
 export class TableOfContents {
   /**
@@ -39,12 +39,12 @@ export class TableOfContents {
 
   @State() filteredItems: Set<TOCItem> | null = null;
 
-  @State() innerItems: TOCItem[] = []
+  @State() innerItems: TOCItem[] = [];
 
   @Element() el!: HTMLElement;
 
   @Watch('items')
-  parseItemsProp (newValue: any) {
+  parseItemsProp(newValue: any) {
     if (typeof newValue === 'string') {
       this.innerItems = JSON.parse(newValue);
     } else if (Array.isArray(newValue)) {
@@ -55,11 +55,11 @@ export class TableOfContents {
   @Watch('provider')
   @Watch('frbrExpressionUri')
   @Watch('fetch')
-  refetch () {
+  refetch() {
     this.fetchContent();
   }
 
-  async fetchContent () {
+  async fetchContent() {
     this.ensurePartner();
 
     if (this.fetch && this.frbrExpressionUri && this.provider) {
@@ -72,13 +72,13 @@ export class TableOfContents {
     }
   }
 
-  ensurePartner () {
+  ensurePartner() {
     if (!this.partner) {
       this.partner = getPartner();
     }
   }
 
-  componentWillLoad () {
+  componentWillLoad() {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
@@ -88,33 +88,33 @@ export class TableOfContents {
    * Expands all items
    */
   @Method()
-  async expandAll () {
-    Array.from(this.el.querySelectorAll('la-toc-item')).forEach(item => {
+  async expandAll() {
+    Array.from(this.el.querySelectorAll('la-toc-item')).forEach((item) => {
       // @ts-ignore
       item.expanded = true;
-    })
+    });
   }
 
   /**
    * Collapses all items
    */
   @Method()
-  async collapseAll () {
-    Array.from(this.el.querySelectorAll('la-toc-item')).forEach(item => {
+  async collapseAll() {
+    Array.from(this.el.querySelectorAll('la-toc-item')).forEach((item) => {
       // @ts-ignore
       item.expanded = false;
-    })
+    });
   }
 
   @Watch('titleFilter')
-  titleFilterChanged (filter: string) {
+  titleFilterChanged(filter: string) {
     if (filter) {
       const needle = filter.toLocaleLowerCase().trim();
       const filteredItems: Set<TOCItem> = new Set<TOCItem>();
 
       // recursively include all children
       // eslint-disable-next-line no-inner-declarations
-      function includeKids (item: TOCItem) {
+      function includeKids(item: TOCItem) {
         for (const child of item.children || []) {
           filteredItems.add(child);
           includeKids(child);
@@ -124,7 +124,7 @@ export class TableOfContents {
       // Recursive function that determines whether or not an item should be rendered.
       // An item is rendered if its title matches the filter, or any of its children should be rendered.
       // eslint-disable-next-line no-inner-declarations
-      function shouldInclude (item: TOCItem): boolean {
+      function shouldInclude(item: TOCItem): boolean {
         // this will be true if this item matches the search, or any child does
         let include: boolean = (item.title?.toLocaleLowerCase() || '').includes(needle);
 
@@ -158,7 +158,7 @@ export class TableOfContents {
     this.expandAll();
   }
 
-  render () {
+  render() {
     const renderTOCItem = (item: TOCItem) => {
       const getSlotHTML = (selector: string) => {
         const element = this.el.querySelector(selector);
@@ -176,7 +176,7 @@ export class TableOfContents {
 
         // Slots originating from la-table-of-content
         return element?.innerHTML || '';
-      }
+      };
 
       const expandIcon = getSlotHTML("[slot='expand-icon']");
       const collapseIcon = getSlotHTML("[slot='collapse-icon']");
@@ -196,7 +196,7 @@ export class TableOfContents {
           <slot name="expand-icon"></slot>
           <slot name="collapse-icon"></slot>
         </div>
-        <div class="toc-items">{this.innerItems.map(item => renderTOCItem(item))}</div>
+        <div class="toc-items">{this.innerItems.map((item) => renderTOCItem(item))}</div>
       </Host>
     );
   }

@@ -1,20 +1,19 @@
-const IonicConnector = require('./ionic');
-const fs = require('fs');
-const path = require('path');
 const S3 = require('aws-sdk/clients/s3');
 const execa = require('execa');
+const fs = require('fs');
+const path = require('path');
 const stream = require('stream');
+
+const IonicConnector = require('./ionic');
 
 const BUILD_URL = 'https://github.com/laws-africa/la-web-components/commit/';
 const S3_BUCKET = 'screenshot.ionicframework.com';
 const s3 = new S3({ apiVersion: '2006-03-01' });
 
-
 class CIScreenshotConnector extends IonicConnector {
-
   async initBuild(opts) {
     const { stdout: result } = await execa('git', ['log', '-1', '--format=%H%n%an <%ae>%n%ct%n%s']);
-    const [ sha1, author, timestamp, msg ] = result.split('\n');
+    const [sha1, author, timestamp, msg] = result.split('\n');
     const sha1short = sha1.slice(0, 7);
 
     opts.buildId = sha1short;
@@ -22,7 +21,7 @@ class CIScreenshotConnector extends IonicConnector {
     opts.buildAuthor = author;
     opts.buildUrl = BUILD_URL + sha1short;
     opts.previewUrl = `https://${S3_BUCKET}/${sha1short}`;
-    opts.buildTimestamp = (timestamp * 1000);
+    opts.buildTimestamp = timestamp * 1000;
 
     await super.initBuild(opts);
   }
@@ -56,7 +55,7 @@ class CIScreenshotConnector extends IonicConnector {
     const currentBuild = results.currentBuild;
 
     const timespan = this.logger.createTimeSpan(`publishing build started`);
-    const images = currentBuild.screenshots.map(screenshot => screenshot.image);
+    const images = currentBuild.screenshots.map((screenshot) => screenshot.image);
     const imageBatches = [];
 
     while (images.length > 0) {
@@ -64,7 +63,7 @@ class CIScreenshotConnector extends IonicConnector {
     }
 
     for (const batch of imageBatches) {
-      await Promise.all(batch.map(async image => this.uploadImage(image)));
+      await Promise.all(batch.map(async (image) => this.uploadImage(image)));
     }
 
     const buildBuffer = Buffer.from(JSON.stringify(currentBuild, undefined, 2));
@@ -86,7 +85,6 @@ class CIScreenshotConnector extends IonicConnector {
       uploads.push(
         s3.upload({ Bucket: S3_BUCKET, Key: key, Body: buildStream, ContentType: 'application/json' }).promise()
       );
-
     } else {
       // PR build
       // not updating master
@@ -118,7 +116,7 @@ class CIScreenshotConnector extends IonicConnector {
     let uploadPaths = [];
 
     const cssDir = path.join(appRoot, 'css');
-    fs.readdirSync(cssDir).forEach(cssFile => {
+    fs.readdirSync(cssDir).forEach((cssFile) => {
       uploadPaths.push(path.join(cssDir, cssFile));
     });
 
@@ -126,16 +124,16 @@ class CIScreenshotConnector extends IonicConnector {
 
     const distDir = path.join(appRoot, 'dist');
     const distIonicDir = path.join(distDir, 'ionic');
-    fs.readdirSync(distIonicDir).forEach(distIonicFile => {
+    fs.readdirSync(distIonicDir).forEach((distIonicFile) => {
       uploadPaths.push(path.join(distIonicDir, distIonicFile));
     });
 
     const distIonicSvgDir = path.join(distIonicDir, 'svg');
-    fs.readdirSync(distIonicSvgDir).forEach(distIonicSvgFile => {
+    fs.readdirSync(distIonicSvgDir).forEach((distIonicSvgFile) => {
       uploadPaths.push(path.join(distIonicSvgDir, distIonicSvgFile));
     });
 
-    results.currentBuild.screenshots.forEach(screenshot => {
+    results.currentBuild.screenshots.forEach((screenshot) => {
       const testDir = path.dirname(screenshot.testPath);
       const testIndexHtml = path.join(appRoot, testDir, 'index.html');
       if (!uploadPaths.includes(testIndexHtml)) {
@@ -143,7 +141,9 @@ class CIScreenshotConnector extends IonicConnector {
       }
     });
 
-    uploadPaths = uploadPaths.filter(p => p.endsWith('.js') || p.endsWith('.css') || p.endsWith('.html') || p.endsWith('.svg'));
+    uploadPaths = uploadPaths.filter(
+      (p) => p.endsWith('.js') || p.endsWith('.css') || p.endsWith('.html') || p.endsWith('.svg')
+    );
 
     const fileCount = uploadPaths.length;
 
@@ -153,25 +153,27 @@ class CIScreenshotConnector extends IonicConnector {
     }
 
     for (const batch of uploadBatches) {
-      await Promise.all(batch.map(async uploadPath => {
-        const stream = fs.createReadStream(uploadPath);
-        const relPath = path.relative(appRoot, uploadPath);
-        const key = `data/tests/${results.currentBuild.id}/${relPath}`;
+      await Promise.all(
+        batch.map(async (uploadPath) => {
+          const stream = fs.createReadStream(uploadPath);
+          const relPath = path.relative(appRoot, uploadPath);
+          const key = `data/tests/${results.currentBuild.id}/${relPath}`;
 
-        let contentType = 'text/plain';
-        if (uploadPath.endsWith('.js')) {
-          contentType = 'application/javascript'
-        } else if (uploadPath.endsWith('.css')) {
-          contentType = 'text/css'
-        } else if (uploadPath.endsWith('.html')) {
-          contentType = 'text/html'
-        } else if (uploadPath.endsWith('.svg')) {
-          contentType = 'image/svg+xml'
-        }
+          let contentType = 'text/plain';
+          if (uploadPath.endsWith('.js')) {
+            contentType = 'application/javascript';
+          } else if (uploadPath.endsWith('.css')) {
+            contentType = 'text/css';
+          } else if (uploadPath.endsWith('.html')) {
+            contentType = 'text/html';
+          } else if (uploadPath.endsWith('.svg')) {
+            contentType = 'image/svg+xml';
+          }
 
-        this.logger.debug(`uploading: ${key} ${contentType}`);
-        await s3.upload({ Bucket: S3_BUCKET, Key: key, Body: stream, ContentType: contentType }).promise();
-      }));
+          this.logger.debug(`uploading: ${key} ${contentType}`);
+          await s3.upload({ Bucket: S3_BUCKET, Key: key, Body: stream, ContentType: contentType }).promise();
+        })
+      );
     }
 
     timespan.finish(`uploading tests finished: ${fileCount} files`);
@@ -184,7 +186,6 @@ class CIScreenshotConnector extends IonicConnector {
       const ws = fs.createWriteStream(this.screenshotCacheFilePath);
       const p = `/data/compares/screenshot-cache.json?ts=${Date.now()}`;
       await this.downloadToStream(ws, p);
-
     } catch (e) {
       this.logger.debug(e);
     }
@@ -212,7 +213,6 @@ class CIScreenshotConnector extends IonicConnector {
 
     return cache;
   }
-
 }
 
 module.exports = CIScreenshotConnector;

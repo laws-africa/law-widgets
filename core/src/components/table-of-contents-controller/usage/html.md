@@ -1,12 +1,14 @@
 ### Vanilla HTML JS Implementation
+
 THis example demos the following:
-* Passing in data into `items` of `la-table-of-content-controller` via js
-* Slot usage
+
+- Passing in data into `items` of `la-table-of-content-controller` via js
+- Slot usage
 
 ```html
-<la-table-of-contents titleFilter='Ch. 2'>
-  <span slot='expand-icon'>⬇️</span>
-  <span slot='collapse-icon'>⬆️</span>
+<la-table-of-contents titleFilter="Ch. 2">
+  <span slot="expand-icon">⬇️</span>
+  <span slot="collapse-icon">⬆️</span>
 </la-table-of-contents>
 <script>
   const laTocElement = document.querySelector('la-table-of-contents');
@@ -37,7 +39,7 @@ THis example demos the following:
 
 ```js
 import React from 'react';
-import { LaTableOfContentsController } from '@lawsafrica/law-widgets-react'
+import { LaTableOfContentsController } from '@lawsafrica/law-widgets-react';
 
 const App = () => {
   const items = [
@@ -56,13 +58,11 @@ const App = () => {
           title: 'Ch. 2 – ',
         },
       ],
-    },   
-  ]
+    },
+  ];
   return (
     <div>
-      <LaTableOfContentsController 
-        items={items} 
-      />
+      <LaTableOfContentsController items={items} />
     </div>
   );
 };
@@ -73,7 +73,6 @@ export default App;
 ### Basic Vue3 example
 
 ```vue
-
 <template>
   <div>
     <LaTableOfContentsController :items="items" />
@@ -81,7 +80,7 @@ export default App;
 </template>
 
 <script>
-import {LaTableOfContentsController} from "@lawsafrica/law-widgets-vue";
+import { LaTableOfContentsController } from '@lawsafrica/law-widgets-vue';
 
 export default {
   data: () => ({
@@ -102,14 +101,15 @@ export default {
           },
         ],
       },
-    ]
+    ],
   }),
   components: {
-    LaTableOfContentsController
-  }
-}
+    LaTableOfContentsController,
+  },
+};
 </script>
 ```
 
 ### Component stories
+
 Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-table-of-contents-controller--basic-usage) for more interactive examples on Storybook JS

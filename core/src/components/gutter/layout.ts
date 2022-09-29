@@ -12,7 +12,7 @@ export class GutterLayout {
    * @param root root element for determining heights against. This MUST have a position style attribute,
    *             such as position: relative;
    */
-  constructor (root: HTMLElement) {
+  constructor(root: HTMLElement) {
     this.root = root;
     // vertical buffer between elements
     this.buffer = 10;
@@ -20,7 +20,7 @@ export class GutterLayout {
     this.anchors = new WeakMap();
   }
 
-  layout (items: HTMLLaGutterItemElement[]) {
+  layout(items: HTMLLaGutterItemElement[]) {
     this.updateAnchorsAndItems(items);
 
     // pre-calculate tops
@@ -30,7 +30,7 @@ export class GutterLayout {
     items = this.sortItems(items);
 
     // find the first item that is active
-    const activeItem: HTMLLaGutterItemElement | undefined = items.find(x => x.active);
+    const activeItem: HTMLLaGutterItemElement | undefined = items.find((x) => x.active);
 
     if (activeItem) {
       const ix = items.indexOf(activeItem);
@@ -55,14 +55,14 @@ export class GutterLayout {
     this.layoutDownwards(items, 0, 0);
   }
 
-  sortItems (items: HTMLLaGutterItemElement[]) {
+  sortItems(items: HTMLLaGutterItemElement[]) {
     return [...items].sort(this.compareItems.bind(this));
   }
 
   /**
    * Comparator that sorts items be ascending top value.
    */
-  compareItems (a: HTMLLaGutterItemElement, b: HTMLLaGutterItemElement): number {
+  compareItems(a: HTMLLaGutterItemElement, b: HTMLLaGutterItemElement): number {
     const anchorA: HTMLElement | undefined = this.anchors.get(a);
     const anchorB: HTMLElement | undefined = this.anchors.get(b);
 
@@ -92,7 +92,7 @@ export class GutterLayout {
     }
   }
 
-  layoutUpwards (items: HTMLLaGutterItemElement[], start: number, watermark: number) {
+  layoutUpwards(items: HTMLLaGutterItemElement[], start: number, watermark: number) {
     // layout the items from index start, going bottom to top
     for (let i = start; i >= 0; i--) {
       const item = items[i];
@@ -110,7 +110,7 @@ export class GutterLayout {
     }
   }
 
-  layoutDownwards (items: HTMLLaGutterItemElement[], start: number, watermark: number) {
+  layoutDownwards(items: HTMLLaGutterItemElement[], start: number, watermark: number) {
     // layout the items from index start, going top to bottom
     for (let i = start; i < items.length; i++) {
       const item = items[i];
@@ -126,7 +126,7 @@ export class GutterLayout {
     }
   }
 
-  updateAnchorsAndItems (items: HTMLLaGutterItemElement[]) {
+  updateAnchorsAndItems(items: HTMLLaGutterItemElement[]) {
     this.anchors = new WeakMap();
 
     for (const item of items) {
@@ -138,7 +138,7 @@ export class GutterLayout {
     }
   }
 
-  getItemAnchor (item: HTMLLaGutterItemElement): HTMLElement | null {
+  getItemAnchor(item: HTMLLaGutterItemElement): HTMLElement | null {
     if (item.anchor) {
       if (item.anchor instanceof HTMLElement) {
         return this.root.contains(item.anchor) ? item.anchor : null;
@@ -149,7 +149,7 @@ export class GutterLayout {
     return null;
   }
 
-  updateTops (items: HTMLLaGutterItemElement[]) {
+  updateTops(items: HTMLLaGutterItemElement[]) {
     this.tops = new WeakMap();
 
     for (const item of items) {
@@ -165,7 +165,7 @@ export class GutterLayout {
    * @param element
    * @returns {number}
    */
-  calculateTop (element: HTMLElement) {
+  calculateTop(element: HTMLElement) {
     let top = 0;
     let el: HTMLElement | null = element;
 

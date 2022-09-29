@@ -1,4 +1,4 @@
-export function getAkomaNtosoElement (component: Element, selector?: string | HTMLElement): HTMLElement | null {
+export function getAkomaNtosoElement(component: Element, selector?: string | HTMLElement): HTMLElement | null {
   if (selector) {
     return selector instanceof HTMLElement ? selector : component.ownerDocument.querySelector(selector);
   }
@@ -28,7 +28,11 @@ export class AkomaNtosoTarget {
   observer: MutationObserver | null;
   callback: TargetDomChangedCallback | null;
 
-  constructor (component: Element, selector: string | HTMLElement | undefined, callback: TargetDomChangedCallback | null) {
+  constructor(
+    component: Element,
+    selector: string | HTMLElement | undefined,
+    callback: TargetDomChangedCallback | null
+  ) {
     this.component = component;
     this.selector = selector;
     this.callback = callback;
@@ -45,13 +49,15 @@ export class AkomaNtosoTarget {
     }
   }
 
-  getElement (): HTMLElement | null {
+  getElement(): HTMLElement | null {
     return this.target;
   }
 
-  findElement (): HTMLElement | null {
+  findElement(): HTMLElement | null {
     if (this.selector) {
-      return this.selector instanceof HTMLElement ? this.selector : this.component.ownerDocument.querySelector(this.selector);
+      return this.selector instanceof HTMLElement
+        ? this.selector
+        : this.component.ownerDocument.querySelector(this.selector);
     }
 
     // try the nearest ancestor
@@ -66,7 +72,7 @@ export class AkomaNtosoTarget {
   }
 
   /** The target's dom changed */
-  targetDomChanged () {
+  targetDomChanged() {
     if (this.callback) this.callback();
   }
 }

@@ -7,7 +7,7 @@ import { renameElement } from '../../utils/utils';
 
 @Component({
   tag: 'la-decorate-terms',
-  styleUrl: 'decorate-terms.scss'
+  styleUrl: 'decorate-terms.scss',
 })
 export class DecorateTerms {
   // The akn content element being decorated
@@ -36,7 +36,7 @@ export class DecorateTerms {
    */
   @Prop() linkTerms = false;
 
-  componentWillLoad () {
+  componentWillLoad() {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
       this.componentDidLoad();
     });
@@ -46,7 +46,7 @@ export class DecorateTerms {
     document.body.appendChild(this.tippyContainer);
   }
 
-  componentDidLoad () {
+  componentDidLoad() {
     if (this.akomaNtosoElement) {
       this.setupDefinitions();
 
@@ -59,7 +59,7 @@ export class DecorateTerms {
   }
 
   @Watch('popupDefinitions')
-  changePopupDefinitions (popup: boolean) {
+  changePopupDefinitions(popup: boolean) {
     // remove existing popups
     for (const tippy of this.tippies) {
       tippy.destroy();
@@ -72,20 +72,20 @@ export class DecorateTerms {
   }
 
   // tag term definition containers
-  setupDefinitions () {
+  setupDefinitions() {
     if (this.akomaNtosoElement) {
-      Array.from(this.akomaNtosoElement.querySelectorAll<HTMLElement>('.akn-def[data-refersto]')).forEach(def => {
+      Array.from(this.akomaNtosoElement.querySelectorAll<HTMLElement>('.akn-def[data-refersto]')).forEach((def) => {
         const term = def.getAttribute('data-refersto')?.replace('#', '');
         const closest: HTMLElement | null = def.closest(this.defnContainers);
         if (closest && term) {
           closest.dataset.defines = def.dataset.refersto;
           closest.setAttribute('id', `defn-${term}`);
         }
-      })
+      });
     }
   }
 
-  createPopups () {
+  createPopups() {
     // @ts-ignore
     this.tippies = tippy(this.akomaNtosoElement.querySelectorAll('.akn-term'), {
       appendTo: () => this.tippyContainer,
@@ -95,11 +95,11 @@ export class DecorateTerms {
       interactive: true,
       maxWidth: 450,
       onTrigger: this.onTrigger.bind(this),
-      theme: 'light-border'
+      theme: 'light-border',
     });
   }
 
-  onTrigger (tippy: Tippy) {
+  onTrigger(tippy: Tippy) {
     const ref: HTMLElement = tippy.reference as HTMLElement;
     const defn: HTMLElement | null = this.getDefinition(ref);
 
@@ -108,12 +108,11 @@ export class DecorateTerms {
         <div>
           <div class="tippy-content__title">${ref.innerText}</div>
           <div class="tippy-content__body"><la-akoma-ntoso>${defn.outerHTML}</la-akoma-ntoso></div>
-        </div>`
-      );
+        </div>`);
     }
   }
 
-  getDefinition (reference: Element): HTMLElement | null {
+  getDefinition(reference: Element): HTMLElement | null {
     const term = reference.getAttribute('data-refersto');
     // find where the term is defined
     if (this.akomaNtosoElement) {
@@ -122,14 +121,14 @@ export class DecorateTerms {
     return null;
   }
 
-  makeTermLinks () {
+  makeTermLinks() {
     if (this.akomaNtosoElement) {
       this.akomaNtosoElement.classList.add('link-terms');
-      Array.from(this.akomaNtosoElement.querySelectorAll<HTMLElement>('.akn-term[data-refersto]')).forEach(term => {
+      Array.from(this.akomaNtosoElement.querySelectorAll<HTMLElement>('.akn-term[data-refersto]')).forEach((term) => {
         term = renameElement(term, 'a') as HTMLElement;
         const termId: string = (term.dataset.refersto || '').replace('#', '');
         term.setAttribute('href', `#defn-${termId}`);
-      })
+      });
     }
   }
 }

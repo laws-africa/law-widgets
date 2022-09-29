@@ -21,46 +21,43 @@ Alternatively place it elsewhere and provide a selector to identify the `<la-ako
 ### Basic React example
 
 ```js
-import { LaAkomaNtoso, LaDecorateTerms } from '@lawsafrica/law-widgets-react'
+import { LaAkomaNtoso, LaDecorateTerms } from '@lawsafrica/law-widgets-react';
 
 const App = () => {
-  const akomaNtosoHTML = "..."  
+  const akomaNtosoHTML = '...';
   return (
     <div>
       <LaDecorateTerms popup-definitions link-terms akoma-ntoso="#doc" />
-      <LaAkomaNtoso>
-        {akomaNtosoHTML}
-      </LaAkomaNtoso>
+      <LaAkomaNtoso>{akomaNtosoHTML}</LaAkomaNtoso>
     </div>
-  )
-  
-}
+  );
+};
 ```
-### Basic Vue3 example
-```vue
 
+### Basic Vue3 example
+
+```vue
 <template>
   <div>
     <LaDecorateTerms popup-definitions link-terms akoma-ntoso="#doc" />
-    <LaAkomaNtoso>
-      {akomaNtosoHTML}
-    </LaAkomaNtoso>
+    <LaAkomaNtoso> {akomaNtosoHTML} </LaAkomaNtoso>
   </div>
 </template>
 
 <script>
-import { LaAkomaNtoso, LaDecorateTerms } from '@lawsafrica/law-widgets-vue'
+import { LaAkomaNtoso, LaDecorateTerms } from '@lawsafrica/law-widgets-vue';
 export default {
   components: {
     LaAkomaNtoso,
-    LaDecorateTerms
+    LaDecorateTerms,
   },
   data: () => ({
-    akomaNtosoHTML: '...'
-  })
-}
+    akomaNtosoHTML: '...',
+  }),
+};
 </script>
 ```
 
 ### Component stories
+
 Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-decorate-terms--basic-usage) for more interactive examples on Storybook JS

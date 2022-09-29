@@ -1,7 +1,8 @@
+const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
+
 const hydrate = require('../../hydrate');
-const domino = require('domino');
 
 let prerenderCount = 0;
 
@@ -13,7 +14,6 @@ async function prerenderPage(srcIndexFilePath) {
     await prerenderHydrated(srcIndexFilePath);
     await prerenderDomino(srcIndexFilePath);
     console.log(srcIndexFilePath, ` ${Date.now() - start}ms`);
-
   } catch (e) {
     console.error(`Failed:`, srcIndexFilePath, ` ${Date.now() - start}ms`);
     throw e;
@@ -27,10 +27,10 @@ async function prerenderStatic(srcIndexFilePath) {
 
   const results = await hydrate.renderToString(srcHtml, {
     prettyHtml: true,
-    removeScripts: true
+    removeScripts: true,
   });
-  if (results.diagnostics.some(d => d.type === 'error')) {
-    throw new Error('staticResults:\n'  + results.diagnostics.map(d => d.messageText).join('\n'));
+  if (results.diagnostics.some((d) => d.type === 'error')) {
+    throw new Error('staticResults:\n' + results.diagnostics.map((d) => d.messageText).join('\n'));
   }
   fs.writeFileSync(staticFilePath, results.html);
 
@@ -45,10 +45,10 @@ async function prerenderHydrated(srcIndexFilePath) {
   const srcHtml = fs.readFileSync(srcIndexFilePath, 'utf-8');
   const hydratedFilePath = path.join(dirPath, 'prerender-hydrated.html');
   const results = await hydrate.renderToString(srcHtml, {
-    prettyHtml: true
+    prettyHtml: true,
   });
-  if (results.diagnostics.some(d => d.type === 'error')) {
-    throw new Error('hydrateResults:\n' + staticResults.diagnostics.map(d => d.messageText).join('\n'));
+  if (results.diagnostics.some((d) => d.type === 'error')) {
+    throw new Error('hydrateResults:\n' + staticResults.diagnostics.map((d) => d.messageText).join('\n'));
   }
   fs.writeFileSync(hydratedFilePath, results.html);
   prerenderCount++;
@@ -60,8 +60,8 @@ async function prerenderDomino(srcIndexFilePath) {
   const dominoFilePath = path.join(dirPath, 'prerender-domino.html');
   const dominoDoc = domino.createDocument(srcHtml, true);
   const results = await hydrate.hydrateDocument(dominoDoc);
-  if (results.diagnostics.some(d => d.type === 'error')) {
-    throw new Error('dominoResults:\n' + staticResults.diagnostics.map(d => d.messageText).join('\n'));
+  if (results.diagnostics.some((d) => d.type === 'error')) {
+    throw new Error('dominoResults:\n' + staticResults.diagnostics.map((d) => d.messageText).join('\n'));
   }
   const dominoHtml = dominoDoc.documentElement.outerHTML;
   fs.writeFileSync(dominoFilePath, dominoHtml);
@@ -134,7 +134,6 @@ async function prerenderDir(dirPath) {
 
     if (stat.isDirectory() && item !== 'spec') {
       await prerenderDir(itemPath);
-
     } else {
       if (item === 'index.html' && dirPath.includes('test')) {
         await prerenderPage(itemPath);
@@ -146,21 +145,18 @@ async function prerenderDir(dirPath) {
 async function run() {
   const start = Date.now();
   try {
-
     let p = process.argv[2];
     if (p) {
       const s = fs.statSync(p);
       if (s.isDirectory()) {
-        await prerenderDir(p)
+        await prerenderDir(p);
       } else {
         await prerenderPage(p);
       }
-
     } else {
       p = path.join(__dirname, '..', '..', 'src', 'components');
       await prerenderDir(p);
     }
-
   } catch (e) {
     console.error(e);
   }
