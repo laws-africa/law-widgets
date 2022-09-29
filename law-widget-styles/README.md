@@ -19,7 +19,7 @@ Second, include the CSS as described below.
 
 Use the assets directly from the [jsDelivr](https://www.jsdelivr.com) CDN:
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/laws-africa/law-widget-styles@8.1.0/css/law-widget-styles.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@laws-africa/law-widget-styles@1.0.0/css/law-widget-styles.min.css">
 
 ### From your server
 
