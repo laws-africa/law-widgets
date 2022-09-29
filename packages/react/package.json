@@ -8,7 +8,7 @@
     "react",
     "app"
   ],
-  "license": "MIT",
+  "license": "LGPL-3.0-or-later",
   "repository": {
     "type": "git",
     "url": "git+git@github.com:laws-africa/la-web-components.git"

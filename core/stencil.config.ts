@@ -63,6 +63,6 @@ export const config: Config = {
       '@utils/logging': ['<rootDir>/src/utils/logging'],
     },
   },
-  preamble: '(C) Ionic http://ionicframework.com - MIT License',
+  preamble: '(C) Law Widgets https://laws.africa - MIT License',
   enableCache: true,
 };
