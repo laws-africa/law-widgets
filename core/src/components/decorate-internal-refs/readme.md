@@ -30,8 +30,9 @@ Alternatively place it elsewhere and provide a selector to identify the `<la-ako
 ```
 
 ### Basic React example
+
 ```js
-import { LaDecorateInternalRefs, LaAkomaNtoso } from '@lawsafrica/law-widgets-react'
+import { LaDecorateInternalRefs, LaAkomaNtoso } from '@lawsafrica/law-widgets-react';
 
 const App = () => (
   <div>
@@ -40,13 +41,12 @@ const App = () => (
       // Akoma ntoso html
     </LaAkomaNtoso>
   </div>
-)
+);
 ```
 
 ### Basic Vue3 example
 
 ```vue
-
 <template>
   <div>
     <LaAkomaNtoso>
@@ -57,18 +57,18 @@ const App = () => (
 </template>
 
 <script>
-import { LaAkomaNtoso, LaDecorateInternalRefs } from '@lawsafrica/law-widgets-vue'
+import { LaAkomaNtoso, LaDecorateInternalRefs } from '@lawsafrica/law-widgets-vue';
 export default {
   components: {
     LaAkomaNtoso,
-    LaDecorateInternalRefs
-    
-  }
-}
+    LaDecorateInternalRefs,
+  },
+};
 </script>
 ```
 
 ### Component stories
+
 Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-decorate-internal-refs--basic-usage) for more interactive examples on Storybook JS
 
 

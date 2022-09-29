@@ -1,4 +1,3 @@
-
 // the unpkg link cannot use "latest" in the url
 // so this script is to keep the link updated
 // with the latest

@@ -6,7 +6,7 @@ import type { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-toc-item',
-  styleUrl: 'toc-item.scss'
+  styleUrl: 'toc-item.scss',
 })
 export class TocItem {
   /**
@@ -47,7 +47,7 @@ export class TocItem {
 
   root: HTMLElement | undefined;
 
-  toggle () {
+  toggle() {
     this.expanded = !this.expanded;
   }
 
@@ -55,7 +55,7 @@ export class TocItem {
     eventName: 'itemRendered',
     composed: true,
     cancelable: true,
-    bubbles: true
+    bubbles: true,
   })
   itemRendered!: EventEmitter;
 
@@ -63,11 +63,11 @@ export class TocItem {
     eventName: 'itemTitleClicked',
     composed: true,
     cancelable: true,
-    bubbles: true
+    bubbles: true,
   })
   itemTitleClicked!: EventEmitter;
 
-  componentDidRender () {
+  componentDidRender() {
     this.itemRendered.emit();
   }
 
@@ -75,8 +75,8 @@ export class TocItem {
     this.itemTitleClicked.emit(e);
   };
 
-  render () {
-    const isParent = !!(this.item.children?.length);
+  render() {
+    const isParent = !!this.item.children?.length;
     const showItem = !this.filteredItems || this.filteredItems.has(this.item);
 
     const renderToggleBtnInner = () => {
@@ -89,13 +89,11 @@ export class TocItem {
     return (
       <Host {...(isParent ? { parent: isParent } : {})} class={`${!showItem ? 'excluded' : ''}`}>
         <div class="indented">
-          {isParent
-            ? (
+          {isParent ? (
             <div class="indented__toggle-btn" role="button" onClick={() => this.toggle()}>
               {renderToggleBtnInner()}
             </div>
-              )
-            : null}
+          ) : null}
         </div>
 
         <div class="content">
@@ -115,7 +113,7 @@ export class TocItem {
                     expandIconHtml={this.expandIconHtml}
                     collapseIconHtml={this.collapseIconHtml}
                   ></la-toc-item>
-              ))
+                ))
               : null}
           </div>
         </div>

@@ -7,7 +7,7 @@ import type { TOCItem } from '../table-of-contents/table-of-contents';
 
 @Component({
   tag: 'la-table-of-contents-controller',
-  styleUrl: 'table-of-contents-controller.scss'
+  styleUrl: 'table-of-contents-controller.scss',
 })
 export class TableOfContentsController {
   /**
@@ -62,29 +62,31 @@ export class TableOfContentsController {
     this.titleFilter = (e.target as HTMLInputElement).value;
   }, 300);
 
-  clearTitleFilter () {
+  clearTitleFilter() {
     this.titleFilter = '';
   }
 
-  async expandAll () {
+  async expandAll() {
     const tocElement = this.el.querySelector('la-table-of-contents');
     tocElement?.expandAll();
   }
 
-  async collapseAll () {
+  async collapseAll() {
     const tocElement = this.el.querySelector('la-table-of-contents');
     tocElement?.collapseAll();
   }
 
-  render () {
+  render() {
     const renderHideClearFilterButton = () => {
       if (this.hideClearTitleFilterButton) {
         return null;
       }
       return (
-        <button class={`search__clear-btn ${this.titleFilterClearBtnClasses}`}
-                type="button" onClick={() => this.clearTitleFilter()}
-                disabled={!this.titleFilter}
+        <button
+          class={`search__clear-btn ${this.titleFilterClearBtnClasses}`}
+          type="button"
+          onClick={() => this.clearTitleFilter()}
+          disabled={!this.titleFilter}
         >
           <slot name="clear-title-filter-icon">✕</slot>
         </button>
@@ -98,15 +100,23 @@ export class TableOfContentsController {
             class={`search__input ${this.titleFilterInputClasses}`}
             value={this.titleFilter}
             placeholder={this.titleFilterPlaceholder}
-            onInput={e => this.handleTitleChange(e)}
+            onInput={(e) => this.handleTitleChange(e)}
           />
           {renderHideClearFilterButton()}
         </div>
         <div class="toggle">
-          <button type="button" class={`toggle__expand-all-btn ${this.expandAllBtnClasses}`} onClick={() => this.expandAll()}>
+          <button
+            type="button"
+            class={`toggle__expand-all-btn ${this.expandAllBtnClasses}`}
+            onClick={() => this.expandAll()}
+          >
             Expand All
           </button>
-          <button type="button" class={`toggle__collapse-all-btn ${this.collapseAllBtnClasses}`} onClick={() => this.collapseAll()}>
+          <button
+            type="button"
+            class={`toggle__collapse-all-btn ${this.collapseAllBtnClasses}`}
+            onClick={() => this.collapseAll()}
+          >
             Collapse All
           </button>
         </div>

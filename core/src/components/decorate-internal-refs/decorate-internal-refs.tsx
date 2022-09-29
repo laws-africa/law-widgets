@@ -8,7 +8,7 @@ import { PROVIDER, getPartner } from '../../utils/services';
 /**
  * Remove the existing portion (if any) of frbrUri, and add the new portion to it.
  */
-function addPortion (frbrUri: string, portion: string) {
+function addPortion(frbrUri: string, portion: string) {
   const ix = frbrUri.indexOf('~');
   if (ix > -1) {
     frbrUri = frbrUri.slice(0, ix);
@@ -21,7 +21,7 @@ function addPortion (frbrUri: string, portion: string) {
 
 @Component({
   tag: 'la-decorate-internal-refs',
-  styleUrl: 'decorate-internal-refs.scss'
+  styleUrl: 'decorate-internal-refs.scss',
 })
 export class DecorateInternalRefs {
   // The akn content element being decorated
@@ -57,7 +57,7 @@ export class DecorateInternalRefs {
   /** Provider URL for fetching content (advanced usage only). */
   @Prop() provider = PROVIDER;
 
-  componentWillLoad () {
+  componentWillLoad() {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
       this.componentDidLoad();
     });
@@ -67,20 +67,20 @@ export class DecorateInternalRefs {
     document.body.appendChild(this.tippyContainer);
   }
 
-  componentDidLoad () {
+  componentDidLoad() {
     this.changeFlag(this.flag);
     this.changePopups(this.popups);
   }
 
   @Watch('flag')
-  changeFlag (flag: boolean) {
+  changeFlag(flag: boolean) {
     if (this.akomaNtosoElement) {
       this.akomaNtosoElement.classList.toggle('flag-internal-refs', flag);
     }
   }
 
   @Watch('popups')
-  changePopups (popups: boolean) {
+  changePopups(popups: boolean) {
     // remove existing popups
     for (const tippy of this.tippies) {
       tippy.destroy();
@@ -92,7 +92,7 @@ export class DecorateInternalRefs {
     }
   }
 
-  createPopups () {
+  createPopups() {
     // @ts-ignore
     this.tippies = tippy('a.akn-ref[href^="#"]', {
       appendTo: () => this.tippyContainer,
@@ -101,11 +101,11 @@ export class DecorateInternalRefs {
       interactive: true,
       maxWidth: 450,
       onTrigger: this.onTrigger.bind(this),
-      theme: 'light-border'
+      theme: 'light-border',
     });
   }
 
-  async onTrigger (tippy: Tippy) {
+  async onTrigger(tippy: Tippy) {
     if (this.akomaNtosoElement) {
       const href: string = tippy.reference.getAttribute('href') || '';
       let html: string | null = '';
@@ -122,13 +122,12 @@ export class DecorateInternalRefs {
         tippy.setContent(`
         <div>
           <div class="tippy-content__body"><la-akoma-ntoso>${html}</la-akoma-ntoso></div>
-        </div>`
-        );
+        </div>`);
       }
     }
   }
 
-  async fetchContent (elementId: string) {
+  async fetchContent(elementId: string) {
     this.ensurePartner();
 
     if (this.provider && this.akomaNtosoElement) {
@@ -144,7 +143,7 @@ export class DecorateInternalRefs {
     return null;
   }
 
-  ensurePartner () {
+  ensurePartner() {
     if (!this.partner) {
       this.partner = getPartner();
     }

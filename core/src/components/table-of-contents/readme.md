@@ -3,9 +3,9 @@
 This component is an interactive table of contents generated from data passed in the `items` prop. The features of
 this component are the following:
 
-* Expanding and collapsing table of contents items.
-* Viewing table of content items as a tree. Showing all table of content items and nested items if they exist.  
-* Programmatically filtering table of content items by item `title`.
+- Expanding and collapsing table of contents items.
+- Viewing table of content items as a tree. Showing all table of content items and nested items if they exist.
+- Programmatically filtering table of content items by item `title`.
 
 <!-- Auto Generated Below -->
 
@@ -18,14 +18,13 @@ this component are the following:
 
 This example demos the following:
 
-* Passing in data into `items` of `la-table-of-content` via js
-* Slot usage
+- Passing in data into `items` of `la-table-of-content` via js
+- Slot usage
 
 ```html
-
 <la-table-of-contents>
-  <span slot='prepend'>🏆</span>
-  <span slot='append'>🥙</span>
+  <span slot="prepend">🏆</span>
+  <span slot="append">🥙</span>
 </la-table-of-contents>
 <script>
   const laTocElement = document.querySelector('la-table-of-contents');
@@ -55,7 +54,7 @@ This example demos the following:
 
 ```js
 import React from 'react';
-import {LaTableOfContents} from '@lawsafrica/law-widgets-react'
+import { LaTableOfContents } from '@lawsafrica/law-widgets-react';
 
 const App = () => {
   const items = [
@@ -79,7 +78,7 @@ const App = () => {
 
   return (
     <div>
-      <LaTableOfContents items={items}/>
+      <LaTableOfContents items={items} />
     </div>
   );
 };
@@ -90,19 +89,18 @@ export default App;
 ### Basic Vue3 example
 
 ```vue
-
 <template>
   <div>
-    <LaTableOfContent :items={items} />
+    <LaTableOfContent :items="{ items }" />
   </div>
 </template>
 
 <script>
-import { LaTableOfContents } from "@lawsafrica/law-widgets-vue";
+import { LaTableOfContents } from '@lawsafrica/law-widgets-vue';
 
 export default {
   components: {
-    LaTableOfContents
+    LaTableOfContents,
   },
   data: () => ({
     items: [
@@ -122,13 +120,14 @@ export default {
           },
         ],
       },
-    ]
-  })
-}
+    ],
+  }),
+};
 </script>
 ```
 
 ### Component stories
+
 Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-table-of-contents--basic-usage) for more interactive examples on Storybook JS
 
 

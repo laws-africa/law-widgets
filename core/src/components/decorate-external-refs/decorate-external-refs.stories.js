@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { DecorateExternalRefs } from '../../../dist/collection/components/decorate-external-refs/decorate-external-refs';
 import { argTypesForComponent } from '../../utils/utils';
 
-import Readme from './readme.mdx'
+import Readme from './readme.mdx';
 
 export default {
   title: 'Library/la-decorate-external-refs',
@@ -12,8 +12,8 @@ export default {
     docs: {
       page: Readme,
       inlineStories: true,
-    }
-  }
+    },
+  },
 };
 
 const Template = () => html`

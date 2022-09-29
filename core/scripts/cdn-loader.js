@@ -1,8 +1,9 @@
+exports.applyPolyfills = function () {
+  return Promise.resolve();
+};
 
-exports.applyPolyfills = function() { return Promise.resolve() };
-
-exports.defineCustomElements = function(_, opts) {
-  return new Promise(function(resolve, reject) {
+exports.defineCustomElements = function (_, opts) {
+  return new Promise(function (resolve, reject) {
     if (typeof document !== 'undefined') {
       opts = opts || {};
       var mod = document.createElement('script');
@@ -27,4 +28,4 @@ exports.defineCustomElements = function(_, opts) {
       resolve();
     }
   });
-}
+};

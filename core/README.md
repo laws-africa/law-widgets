@@ -10,16 +10,16 @@ These are web components, so they work in any major framework or with no framewo
 
 ### Content components
 
-* [la-akoma-ntoso](src/components/akoma-ntoso/readme.md)
-* [la-gutter](src/components/gutter/readme.md)
-* [la-table-of-contents](src/components/table-of-contents/readme.md)
-* [la-table-of-contents-controller](src/components/table-of-contents-controller/readme.md)
+- [la-akoma-ntoso](src/components/akoma-ntoso/readme.md)
+- [la-gutter](src/components/gutter/readme.md)
+- [la-table-of-contents](src/components/table-of-contents/readme.md)
+- [la-table-of-contents-controller](src/components/table-of-contents-controller/readme.md)
 
 ### Behaviour components
 
-* [la-decorate-internal-refs](src/components/decorate-internal-refs/readme.md)
-* [la-decorate-external-refs](src/components/decorate-external-refs/readme.md)
-* [la-decorate-terms](src/components/decorate-terms/readme.md)
+- [la-decorate-internal-refs](src/components/decorate-internal-refs/readme.md)
+- [la-decorate-external-refs](src/components/decorate-external-refs/readme.md)
+- [la-decorate-terms](src/components/decorate-terms/readme.md)
 
 ## Using these component
 
@@ -31,6 +31,7 @@ There are three methods for using these web components:
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
+
 - Run `npm install @lawsafrica/law-widgets --save`
 - Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/law-widgets/dist/lawwidgets/lawwidgets.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc

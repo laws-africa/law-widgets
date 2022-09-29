@@ -10,8 +10,12 @@ la-akoma-ntoso {
 
   &.flash-target {
     @keyframes fadeout {
-      from { background-color: yellow; }
-      to { background-color: unset; }
+      from {
+        background-color: yellow;
+      }
+      to {
+        background-color: unset;
+      }
     }
 
     :target {
@@ -23,23 +27,39 @@ la-akoma-ntoso {
   @include law-widget-styles;
 
   // traditions
-  &[frbr-country^="ke"] { @include tradition-ke; }
-  &[frbr-country^="na"] { @include tradition-na; }
-  &[frbr-country^="pl"] { @include tradition-pl; }
+  &[frbr-country^="ke"] {
+    @include tradition-ke;
+  }
+  &[frbr-country^="na"] {
+    @include tradition-na;
+  }
+  &[frbr-country^="pl"] {
+    @include tradition-pl;
+  }
 
   // structural markup
   &.show-structure,
-  &.show-structure-hier { @include show-structure-hier; }
+  &.show-structure-hier {
+    @include show-structure-hier;
+  }
 
   &.show-structure,
-  &.show-structure-block { @include show-structure-block; }
+  &.show-structure-block {
+    @include show-structure-block;
+  }
 
   &.show-structure,
-  &.show-structure-inline { @include show-structure-inline; }
+  &.show-structure-inline {
+    @include show-structure-inline;
+  }
 
   &.show-structure,
-  &.show-structure-subflow { @include show-structure-subflow; }
+  &.show-structure-subflow {
+    @include show-structure-subflow;
+  }
 
   &.show-structure,
-  &.show-structure-doc-container { @include show-structure-doc-container; }
+  &.show-structure-doc-container {
+    @include show-structure-doc-container;
+  }
 }

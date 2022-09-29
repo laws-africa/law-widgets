@@ -7,7 +7,7 @@ import { PROVIDER, getPartner } from '../../utils/services';
 
 @Component({
   tag: 'la-decorate-external-refs',
-  styleUrl: 'decorate-external-refs.scss'
+  styleUrl: 'decorate-external-refs.scss',
 })
 export class DecorateExternalRefs {
   // The akn content element being decorated
@@ -40,7 +40,7 @@ export class DecorateExternalRefs {
    */
   @Prop() provider = PROVIDER;
 
-  componentWillLoad () {
+  componentWillLoad() {
     const target = new AkomaNtosoTarget(this.el, this.akomaNtoso, () => {
       this.componentDidLoad();
     });
@@ -50,12 +50,12 @@ export class DecorateExternalRefs {
     document.body.appendChild(this.tippyContainer);
   }
 
-  componentDidLoad () {
+  componentDidLoad() {
     this.changePopups(this.popups);
   }
 
   @Watch('popups')
-  changePopups (popups: boolean) {
+  changePopups(popups: boolean) {
     // remove existing popups
     for (const tippy of this.tippies) {
       tippy.destroy();
@@ -67,7 +67,7 @@ export class DecorateExternalRefs {
     }
   }
 
-  createPopups () {
+  createPopups() {
     if (this.akomaNtosoElement) {
       // @ts-ignore
       this.tippies = tippy(this.akomaNtosoElement.querySelectorAll('a.akn-ref[data-href^="/akn/"]'), {
@@ -77,12 +77,12 @@ export class DecorateExternalRefs {
         interactive: true,
         maxWidth: 450,
         onTrigger: this.onTrigger.bind(this),
-        theme: 'light-border'
+        theme: 'light-border',
       });
     }
   }
 
-  async onTrigger (tippy: Tippy) {
+  async onTrigger(tippy: Tippy) {
     const frbrUri: string = tippy.reference.getAttribute('data-href') || '';
 
     // TODO: if there's nothing, don't show the popup
@@ -93,18 +93,17 @@ export class DecorateExternalRefs {
       tippy.setContent(`
         <div>
           <div class="tippy-content__body">${content}</div>
-        </div>`
-      );
+        </div>`);
     }
   }
 
-  ensurePartner () {
+  ensurePartner() {
     if (!this.partner) {
       this.partner = getPartner();
     }
   }
 
-  async fetchContent (frbrUri: string) {
+  async fetchContent(frbrUri: string) {
     this.ensurePartner();
 
     if (frbrUri && this.provider) {

@@ -1,4 +1,4 @@
-export function argTypesForComponent (component: any) {
+export function argTypesForComponent(component: any) {
   const argTypes = { ...component.properties };
 
   for (const val of Object.values(argTypes)) {
@@ -15,21 +15,19 @@ export function argTypesForComponent (component: any) {
       // @ts-ignore
       name: val.type,
       // @ts-ignore
-      required: val.required
+      required: val.required,
     };
   }
 
   return argTypes;
 }
 
-
-
 /**
  * Rename element to a different HTML element, copying attributes and children.
  * @param el
  * @param name
  */
-export function renameElement (el: Element, name: string): Element {
+export function renameElement(el: Element, name: string): Element {
   const newEl: HTMLElement = document.createElement(name);
 
   for (let i = 0; i < el.attributes.length; i++) {

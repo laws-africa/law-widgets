@@ -18,8 +18,9 @@ Alternatively place it elsewhere and provide a selector to identify the `<la-ako
 ```
 
 ### Basic React example
+
 ```js
-import { LaDecorateExternalRefs, LaAkomaNtoso } from '@lawsafrica/law-widgets-react'
+import { LaDecorateExternalRefs, LaAkomaNtoso } from '@lawsafrica/law-widgets-react';
 
 const App = () => (
   <div>
@@ -28,13 +29,12 @@ const App = () => (
       // Akoma ntoso html
     </LaAkomaNtoso>
   </div>
-)
+);
 ```
 
 ### Basic Vue3 example
 
 ```vue
-
 <template>
   <div>
     <LaAkomaNtoso>
@@ -45,16 +45,16 @@ const App = () => (
 </template>
 
 <script>
-import { LaAkomaNtoso, LaDecorateExternalRefs } from '@lawsafrica/law-widgets-vue'
+import { LaAkomaNtoso, LaDecorateExternalRefs } from '@lawsafrica/law-widgets-vue';
 export default {
   components: {
     LaAkomaNtoso,
-    LaDecorateExternalRefs
-    
-  }
-}
+    LaDecorateExternalRefs,
+  },
+};
 </script>
 ```
 
 ### Component stories
+
 Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-decorate-external-refs--basic-usage) for more interactive examples on Storybook JS

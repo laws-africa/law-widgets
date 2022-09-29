@@ -1,5 +1,6 @@
-import { AkomaNtoso } from './akoma-ntoso';
 import { newSpecPage } from '@stencil/core/testing';
+
+import { AkomaNtoso } from './akoma-ntoso';
 
 interface IExtraAttributes {
   [key: string]: any;
@@ -8,7 +9,7 @@ interface IExtraAttributes {
 const createComponentWithUri = (page: any, extraAttributes: IExtraAttributes = {}) => {
   const component = page.doc.createElement('la-akoma-ntoso');
   component.frbrExpressionUri = '/akn/ke/act/by-law/2009/dogs/eng@2010-02-03';
-  Object.keys(extraAttributes).forEach(attr => {
+  Object.keys(extraAttributes).forEach((attr) => {
     component[attr] = extraAttributes[attr];
   });
   return component;
@@ -16,7 +17,7 @@ const createComponentWithUri = (page: any, extraAttributes: IExtraAttributes = {
 const createAknPage = async () => {
   return newSpecPage({
     components: [AkomaNtoso],
-    html: '<div></div>'
+    html: '<div></div>',
   });
 };
 
@@ -89,15 +90,14 @@ describe('la-akoma-ntoso', () => {
   });
 
   describe('single frbr attribute precedence over set frbr-expression-uri testing', () => {
-    it('if frbr-language is `fr` and frbr-expression-uri is `/akn/../eng@..` frbr-language should be `fr`',
-      async () => {
-        const page = await createAknPage();
-        const component = createComponentWithUri(page, {
-          frbrLanguage: 'fr'
-        });
-        page.root?.appendChild(component);
-        await page.waitForChanges();
-        expect(page.rootInstance.frbrLanguage).toBe('fr');
+    it('if frbr-language is `fr` and frbr-expression-uri is `/akn/../eng@..` frbr-language should be `fr`', async () => {
+      const page = await createAknPage();
+      const component = createComponentWithUri(page, {
+        frbrLanguage: 'fr',
       });
+      page.root?.appendChild(component);
+      await page.waitForChanges();
+      expect(page.rootInstance.frbrLanguage).toBe('fr');
+    });
   });
 });

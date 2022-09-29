@@ -4,7 +4,7 @@ import { PROVIDER, getPartner } from '../../utils/services';
 
 @Component({
   tag: 'la-akoma-ntoso',
-  styleUrl: 'akoma-ntoso.scss'
+  styleUrl: 'akoma-ntoso.scss',
 })
 export class AkomaNtoso {
   /**
@@ -58,18 +58,19 @@ export class AkomaNtoso {
 
   @Watch('provider')
   @Watch('fetch')
-  refetch () {
+  refetch() {
     this.fetchContent();
   }
 
   @Watch('frbrExpressionUri')
-  parseFrbrExpressionUri (newValue: string) {
+  parseFrbrExpressionUri(newValue: string) {
     /*eslint-disable */
-    const ex = '^(/(?<prefix>akn))/(?<country>[a-z]{2})(-(?<locality>[^/]+))?/(?<doctype>[^/]+)(/(?<subtype>[^0-9][^/]*))?(/(?<actor>[^0-9][^/]*))?/(?<date>[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?)/(?<number>[^/]+)(/(((?<language>[a-z]{3})(?<expression_date>[@:][^/]*)?(/!?(?<expression_component>[^/]+?)?(/(?<expression_subcomponent>[^.]+))?)?(\.(?<format>[a-z0-9]+))?)|!?(?<work_component>[^/]+)))?$';
+    const ex =
+      '^(/(?<prefix>akn))/(?<country>[a-z]{2})(-(?<locality>[^/]+))?/(?<doctype>[^/]+)(/(?<subtype>[^0-9][^/]*))?(/(?<actor>[^0-9][^/]*))?/(?<date>[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?)/(?<number>[^/]+)(/(((?<language>[a-z]{3})(?<expression_date>[@:][^/]*)?(/!?(?<expression_component>[^/]+?)?(/(?<expression_subcomponent>[^.]+))?)?(.(?<format>[a-z0-9]+))?)|!?(?<work_component>[^/]+)))?$';
     const regExp = new RegExp(ex, 'g');
     const output = regExp.exec(newValue);
     if (output?.groups) {
-      Object.keys(output.groups).forEach(key => {
+      Object.keys(output.groups).forEach((key) => {
         if (output.groups?.[key]) {
           switch (key) {
             case 'country':
@@ -92,8 +93,7 @@ export class AkomaNtoso {
               break;
             case 'expression_date':
               if (!this.frbrExpressionDate) {
-                this.frbrExpressionDate = output.groups[key].replace('@', '')
-                  .replace(':', '')
+                this.frbrExpressionDate = output.groups[key].replace('@', '').replace(':', '');
               }
               break;
             case 'language':
@@ -107,7 +107,7 @@ export class AkomaNtoso {
     this.fetchContent();
   }
 
-  async fetchContent () {
+  async fetchContent() {
     this.ensurePartner();
 
     if (this.fetch && this.frbrExpressionUri && this.provider) {
@@ -119,13 +119,13 @@ export class AkomaNtoso {
     }
   }
 
-  ensurePartner () {
+  ensurePartner() {
     if (!this.partner) {
       this.partner = getPartner();
     }
   }
 
-  componentWillLoad () {
+  componentWillLoad() {
     if (this.frbrExpressionUri) this.parseFrbrExpressionUri(this.frbrExpressionUri);
   }
 }

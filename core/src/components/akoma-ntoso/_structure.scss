@@ -3,7 +3,7 @@
   $green: green($color);
   $blue: blue($color);
 
-  $yiq: (($red*299) + ($green*587) + ($blue*114)) / 1000;
+  $yiq: (($red * 299) + ($green * 587) + ($blue * 114)) / 1000;
 
   @return if($yiq >= $threshold, true, false);
 }
@@ -65,13 +65,16 @@
   @for $i from 1 through length($akn-elements-hier) {
     $elem: nth($akn-elements-hier, $i);
     .akn-#{$elem} {
-      @include show-block-structure(adjust-hue($akn-structure-hier-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
+      @include show-block-structure(
+        adjust-hue($akn-structure-hier-start-colour, ($i - 1) * 10deg),
+        map-get($akn-element-names, $elem)
+      );
     }
   }
 
   // include hcontainer name if not "hcontainer"
   .akn-hcontainer:not([data-name="hcontainer"])::before {
-    content: "#{to-upper-case(map-get($akn-element-names, 'hcontainer'))} - " attr(data-name) !important;
+    content: "#{to-upper-case(map-get($akn-element-names, 'hcontainer'))} - "attr(data-name) !important;
   }
 
   // HACK
@@ -92,9 +95,12 @@
   @for $i from 1 through length($akn-elements-block) {
     $elem: nth($akn-elements-block, $i);
     // showing p makes things too busy and confusing
-    @if ($elem != 'p') {
+    @if ($elem != "p") {
       .akn-#{$elem} {
-        @include show-block-structure(adjust-hue($akn-structure-block-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
+        @include show-block-structure(
+          adjust-hue($akn-structure-block-start-colour, ($i - 1) * 10deg),
+          map-get($akn-element-names, $elem)
+        );
       }
     }
   }
@@ -108,13 +114,16 @@
   @for $i from 1 through length($akn-elements-inline) {
     $elem: nth($akn-elements-inline, $i);
     .akn-#{$elem} {
-      @include show-inline-structure(adjust-hue($akn-structure-inline-start-colour, ($i - 1) * 10deg), map-get($akn-element-names, $elem));
+      @include show-inline-structure(
+        adjust-hue($akn-structure-inline-start-colour, ($i - 1) * 10deg),
+        map-get($akn-element-names, $elem)
+      );
     }
   }
 
   .akn-abbr {
     &:hover::before {
-      content: "#{to-upper-case(map-get($akn-element-names, 'abbr'))} - " attr(title);
+      content: "#{to-upper-case(map-get($akn-element-names, 'abbr'))} - "attr(title);
       text-transform: none;
     }
   }
@@ -124,7 +133,10 @@
   @for $i from 1 through length($akn-elements-subflow) {
     $elem: nth($akn-elements-subflow, $i);
     .akn-#{$elem} {
-      @include show-block-structure(adjust-hue($akn-structure-subflow-start-colour, ($i - 1) * 60deg), map-get($akn-element-names, $elem));
+      @include show-block-structure(
+        adjust-hue($akn-structure-subflow-start-colour, ($i - 1) * 60deg),
+        map-get($akn-element-names, $elem)
+      );
     }
   }
 }
@@ -133,7 +145,10 @@
   @for $i from 1 through length($akn-elements-doc-container) {
     $elem: nth($akn-elements-doc-container, $i);
     .akn-#{$elem} {
-      @include show-block-structure(adjust-hue($akn-structure-doc-container-start-colour, ($i - 1) * 60deg), map-get($akn-element-names, $elem));
+      @include show-block-structure(
+        adjust-hue($akn-structure-doc-container-start-colour, ($i - 1) * 60deg),
+        map-get($akn-element-names, $elem)
+      );
     }
   }
 }

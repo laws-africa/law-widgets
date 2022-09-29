@@ -19,7 +19,9 @@ describe('la-table-of-contents-controller', () => {
 
   it('should append css classes to title filter search based on titleFilterInputClasses prop set', async () => {
     const page = await newE2EPage();
-    await page.setContent('<la-table-of-contents-controller title-filter-input-classes="input-class"></la-table-of-contents-controller>');
+    await page.setContent(
+      '<la-table-of-contents-controller title-filter-input-classes="input-class"></la-table-of-contents-controller>'
+    );
     const titleFilter = await page.find('la-table-of-contents-controller .search__input');
     expect(titleFilter.classList.contains('input-class')).toBe(true);
   });
@@ -27,7 +29,9 @@ describe('la-table-of-contents-controller', () => {
   it('should set custom placeholder to title filter search based on titleFilterPlaceholder prop set', async () => {
     const page = await newE2EPage();
     const customPlaceholder = 'custom-placeholder';
-    await page.setContent(`<la-table-of-contents-controller title-filter-placeholder='${customPlaceholder}'></la-table-of-contents-controller>`);
+    await page.setContent(
+      `<la-table-of-contents-controller title-filter-placeholder='${customPlaceholder}'></la-table-of-contents-controller>`
+    );
     const titleFilter = await page.find('la-table-of-contents-controller .search__input');
     const placeholder = await titleFilter.getProperty('placeholder');
     expect(placeholder).toBe(customPlaceholder);
@@ -102,7 +106,9 @@ describe('la-table-of-contents-controller', () => {
 
   it('should not render clear filter button if prop `hideClearTitleFilterButton` is set to true', async () => {
     const page = await newE2EPage();
-    await page.setContent('<la-table-of-contents-controller hide-clear-title-filter-button></la-table-of-contents-controller>');
+    await page.setContent(
+      '<la-table-of-contents-controller hide-clear-title-filter-button></la-table-of-contents-controller>'
+    );
     const input = await page.find('la-table-of-contents-controller .search__clear-btn');
     expect(input).toBe(null);
   });

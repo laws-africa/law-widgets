@@ -1,22 +1,16 @@
 ```html
-<la-akoma-ntoso>
-  {{ your_akoma_ntoso_html }}
-</la-akoma-ntoso>
+<la-akoma-ntoso> {{ your_akoma_ntoso_html }} </la-akoma-ntoso>
 ```
 
 Specify the expression FRBR URI to include tradition-specific formatting, or set
 `frbr-country` or other `frbr-*` attributes accordingly.
 
 ```html
-<la-akoma-ntoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
-  {{ your_akoma_ntoso_html }}
-</la-akoma-ntoso>
+<la-akoma-ntoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@"> {{ your_akoma_ntoso_html }} </la-akoma-ntoso>
 ```
 
 ```html
-<la-akoma-ntoso frbr-country="ke" frbr-language="swa">
-  {{ your_akoma_ntoso_html }}
-</la-akoma-ntoso>
+<la-akoma-ntoso frbr-country="ke" frbr-language="swa"> {{ your_akoma_ntoso_html }} </la-akoma-ntoso>
 ```
 
 Laws.Africa partners can fetch content from Laws.Africa using the `fetch` attribute.
@@ -29,42 +23,42 @@ your partner code in `partner`.
 </la-akoma-ntoso>
 ```
 
-
-
 ### Basic React example
+
 ```js
-import { LaAkomaNtoso } from '@lawsafrica/law-widgets-react'
+import { LaAkomaNtoso } from '@lawsafrica/law-widgets-react';
 const Component = () => {
-  const akomaNtosoHTML = "..."
+  const akomaNtosoHTML = '...';
   return (
     <div>
-      <LaAkomaNtoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
-        {akomaNtosoHTML}
-      </LaAkomaNtoso>
+      <LaAkomaNtoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">{akomaNtosoHTML}</LaAkomaNtoso>
     </div>
-  )
-}
+  );
+};
 ```
 
 ### Basic Vue3 example
+
 ```vue
 <template>
   <LaAkomaNtoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
-    {{akomaNtosoHTML}}
+    {{ akomaNtosoHTML }}
   </LaAkomaNtoso>
 </template>
 <script>
-import { LaAkomaNtoso } from '@lawsafrica/law-widgets-vue'
+import { LaAkomaNtoso } from '@lawsafrica/law-widgets-vue';
 export default {
   name: 'Component',
   components: {
-    LaAkomaNtoso
+    LaAkomaNtoso,
   },
   data: () => ({
-    akomaNtosoHTML: "..."
-  })
-}
+    akomaNtosoHTML: '...',
+  }),
+};
 </script>
 ```
+
 ### Component stories
+
 Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-akoma-ntoso--basic-usage) for more interactive examples on Storybook JS

@@ -1,7 +1,5 @@
 # la-toc-item
 
-
-
 <!-- Auto Generated Below -->
 
 

@@ -1,4 +1,3 @@
-
 ## Build
 
 ### 1. Clone ionic
@@ -8,9 +7,8 @@
 
 ### 2. Run `npm install`
 
-  cd core
-  npm install
-
+cd core
+npm install
 
 Notice that `@lawsafrica/law-widgets` lives in `core`.
 
@@ -32,8 +30,7 @@ As changes are made in an editor to source files, the e2e app will live-reload.
 
 1. `npm start` allows you to modify the components and have live reloading, just like another ionic app.
 
-2. When everything looks good, run  `npm run validate` to verify the tests linter and production build passes.
-
+2. When everything looks good, run `npm run validate` to verify the tests linter and production build passes.
 
 # Deploy
 

@@ -12,11 +12,7 @@
     "jsx": "react",
     "jsxFactory": "h",
     "resolveJsonModule": true,
-    "lib": [
-      "dom",
-      "es2017",
-      "es2020"
-    ],
+    "lib": ["dom", "es2017", "es2020"],
     "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -33,14 +29,6 @@
       "@utils/test": ["src/utils/test/utils"]
     }
   },
-  "include": [
-    "src",
-    "node_modules/@stencil/core/compiler/lib.dom.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/test/**/*.spec.ts",
-    "**/test/**/*.spec.tsx",
-    "**/test/**/e2e.ts"
-  ]
+  "include": ["src", "node_modules/@stencil/core/compiler/lib.dom.d.ts"],
+  "exclude": ["node_modules", "**/test/**/*.spec.ts", "**/test/**/*.spec.tsx", "**/test/**/e2e.ts"]
 }

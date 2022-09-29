@@ -5,8 +5,6 @@ A gutter item inside an `<la-gutter>`.
 A gutter item must be linked to an anchor element inside the `<la-akoma-ntoso>` element
 using the `anchor` attribute. The gutter item is positioned horizontally alongside its anchor element.
 
-
-
 <!-- Auto Generated Below -->
 
 
