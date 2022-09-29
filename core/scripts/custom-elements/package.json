@@ -1,7 +1,7 @@
 {
   "name": "@lawsafrica/law-widgets/components",
   "version": "0.0.0",
-  "description": "Ionic Components exported as custom elements, extending HTMLElement.",
+  "description": "This is a collection of web components for formatting and adding interactivity to Akoma Ntoso documents",
   "main": "./index.js",
   "types": "./custom-elements.d.ts",
   "private": true,
