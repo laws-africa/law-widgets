@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [ 12.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -24,3 +24,5 @@ jobs:
           npm ci
           npx lerna bootstrap
           npx lerna run test
+        env:
+          FORCE_COLOR: true
