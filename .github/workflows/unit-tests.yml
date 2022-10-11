@@ -1,28 +1,29 @@
 name: Unit tests
+
 on:
   push:
     branches:
       - "*"
 
 jobs:
-  checks:
+  test:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
 
-      - name: "Use NodeJS 14"
-        uses: actions/setup-node@v2
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: | # Install and link dependencies
-          npm ci
-          npx lerna bootstrap
+          run: | # Install and link dependencies
+            npm ci
+            npx lerna bootstrap
 
-      - name: Run tests # Run tests of all packages
-        run: npx lerna exec npm run test
+            - name: Run tests # Run tests of all packages
+              run: npx lerna exec npm run test
