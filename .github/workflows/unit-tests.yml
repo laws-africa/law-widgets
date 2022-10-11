@@ -23,4 +23,4 @@ jobs:
       - run: | # Install and link dependencies
           npm ci
           npx lerna bootstrap
-          npx lerna exec npm run test
+          npx lerna run test
