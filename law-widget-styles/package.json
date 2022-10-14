@@ -8,7 +8,6 @@
     "/scss"
   ],
   "scripts": {
-    "test": "jest",
     "build": "sass --style compressed scss/law-widget-styles.scss css/law-widget-styles.min.css && sass scss/law-widget-styles.scss css/law-widget-styles.css"
   },
   "repository": {
