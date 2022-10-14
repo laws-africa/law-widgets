@@ -33,7 +33,13 @@ symlink `law-widget-styles`).
 ## Running tests 
 In the terminal, run `lerna run test`.
 
-## Building packages and publishing
-- To build packages run `lerna run build`
-- To publish packages run `lerna publish --conventional-commits`
+## Building packages
+In the terminal, run `lerna run build`.
 
+## Releasing and publishing packages
+- Once you have merged your feature into master, run `lerna version --conventional-commits` in the terminal.
+- You will be prompted with semvar options for updating the packages. (`major`, `minor`, `patch` etc.)
+- Select an option and an automatic tagged commit will occur and the changelog for the packages will be updated.
+- Create a new release [here](https://github.com/laws-africa/la-web-components/releases/new). Use the tag that was pushed
+  for your release.
+- Upon creating a release, a new version of the packages will be published on `npm`.
