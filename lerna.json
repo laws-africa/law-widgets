@@ -1,0 +1,9 @@
+{
+  "packages": [
+    "law-widget-styles",
+    "core",
+    "packages/*"
+  ],
+  "version": "1.0.0",
+  "changelogPreset": "conventional-changelog"
+}

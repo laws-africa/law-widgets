@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "types": ["resize-observer-browser"],
+    "strict": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "assumeChangesOnlyAffectDirectDependencies": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "resolveJsonModule": true,
+    "lib": ["dom", "es2017", "es2020"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": ".tmp",
+    "pretty": true,
+    "removeComments": false,
+    "target": "es2017",
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["src/utils/*"],
+      "@utils/test": ["src/utils/test/utils"]
+    }
+  },
+  "include": ["src", "node_modules/@stencil/core/compiler/lib.dom.d.ts"],
+  "exclude": ["node_modules", "**/test/**/*.spec.ts", "**/test/**/*.spec.tsx", "**/test/**/e2e.ts"]
+}

@@ -1,0 +1,24 @@
+.tippy-content {
+  padding: 0;
+}
+
+.tippy-content__title {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ebebeb;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+  background-color: #f7f7f7;
+}
+
+.tippy-content__body {
+  padding: 0.5rem 0.75rem;
+  background-color: white;
+}
+
+.tippy-content la-akoma-ntoso {
+  max-height: 40vh;
+  overflow-y: auto;
+}

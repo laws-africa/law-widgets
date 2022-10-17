@@ -1,0 +1,18 @@
+@use "sass:meta";
+@import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
+
+.la-decorate-internal-refs__popup {
+  @include meta.load-css("~tippy.js/dist/tippy.css");
+  @include meta.load-css("~tippy.js/themes/light-border.css");
+  @include meta.load-css("../../styles/tippy");
+}
+
+la-akoma-ntoso.flag-internal-refs .akn-ref[href^="#"]::after {
+  content: "\F02E";
+  font-family: "Font Awesome 5 Free";
+  font-size: 0.8em;
+  font-style: normal;
+  font-weight: 900;
+  color: #9c27b0;
+  padding-left: 0.1em;
+}
