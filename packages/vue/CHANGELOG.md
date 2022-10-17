@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.0.1 (2022-10-17)</small>
+
+**Note:** Version bump only for package @lawsafrica/law-widgets-vue
+
+
+
+
+
 ## 1.0.0 (2022-10-17)
 
 * add instruction for vue/README.md ([4aae1b9](https://github.com/laws-africa/la-web-components/commit/4aae1b9))
