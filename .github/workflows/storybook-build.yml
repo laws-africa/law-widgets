@@ -22,10 +22,12 @@ jobs:
           node-version: '16'
 
       - name: Install all dependencies
-        run: npm ci
+        run: | # Install and link dependencies
+          npm ci
+          npx lerna bootstrap
 
-      - name: Build
-        run: cd ./core && npm run build
+      - name: Build Law Widget Styles
+        run: cd ./law-widget-styles && npm run build
 
       - name: Build storybook
         run: cd ./core && npm run build-storybook
