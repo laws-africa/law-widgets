@@ -30,7 +30,7 @@ jobs:
         run: cd ./law-widget-styles && npm run build
 
       - name: Build storybook
-        run: cd core && npm run build-storybook
+        run: cd core && npm run build && npm run build-storybook
 
       - name: Push
         uses: EndBug/add-and-commit@v7
