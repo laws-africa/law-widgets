@@ -37,5 +37,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: storybook-static/
-          SINGLE_COMMIT: true
+          FOLDER: storybook-static
