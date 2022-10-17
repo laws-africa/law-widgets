@@ -3,6 +3,7 @@
   "private": false,
   "description": "Monorepo for @lawsafrica libraries. It is used mainly to execute build scripts. This package is not published to npm.",
   "devDependencies": {
+    "conventional-changelog-cli": "^2.2.2",
     "lerna": "^5.3.0",
     "semver": "^5.5.0"
   },
