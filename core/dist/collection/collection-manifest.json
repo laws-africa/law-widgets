@@ -1,0 +1,20 @@
+{
+  "entries": [
+    "./components/table-of-contents/table-of-contents.js",
+    "./components/akoma-ntoso/akoma-ntoso.js",
+    "./components/decorate-external-refs/decorate-external-refs.js",
+    "./components/decorate-internal-refs/decorate-internal-refs.js",
+    "./components/decorate-terms/decorate-terms.js",
+    "./components/gutter/gutter.js",
+    "./components/gutter-item/gutter-item.js",
+    "./components/table-of-contents-controller/table-of-contents-controller.js",
+    "./components/toc-item/toc-item.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.17.4",
+    "typescriptVersion": "4.5.4"
+  },
+  "collections": [],
+  "bundles": []
+}
