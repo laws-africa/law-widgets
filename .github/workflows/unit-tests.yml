@@ -6,13 +6,18 @@ on:
       - "*"
 
 jobs:
-  run_tests:
+  test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npx lerna bootstrap
       - run: npx lerna run test
