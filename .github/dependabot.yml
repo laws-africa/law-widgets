@@ -6,6 +6,21 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/core"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "npm"
+      directory: "/law-widget-styles"
+      schedule:
+        interval: "daily"
+
+  - package-ecosystem: "npm"
+      directory: "/packages/react"
+      schedule:
+        interval: "daily"
+
+  - package-ecosystem: "npm"
+      directory: "/packages/vue"
+      schedule:
+        interval: "daily"
