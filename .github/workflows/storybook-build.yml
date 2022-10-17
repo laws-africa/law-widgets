@@ -17,9 +17,9 @@ jobs:
           # use a token that has admin perms to bypass direct commits to master
           token: ${{ secrets.LA_ACTIONS_TOKEN }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Install all dependencies
         run: npm ci
