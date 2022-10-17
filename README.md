@@ -37,9 +37,11 @@ In the terminal, run `lerna run test`.
 In the terminal, run `lerna run build`.
 
 ## Releasing and publishing packages
-- Once you have merged your feature into master, run `lerna version --conventional-commits` in the terminal.
-- You will be prompted with semvar options for updating the packages. (`major`, `minor`, `patch` etc.)
-- Select an option and an automatic tagged commit will occur and the changelog for the packages will be updated.
-- Create a new release [here](https://github.com/laws-africa/la-web-components/releases/new). Use the tag that was pushed
+
+- Once you have merged your feature into master, run `lerna version VERSION_NUMBER --conventional-commits` (
+  e.g `lerna version 1.0.1 --conventional-commits`) in the terminal.
+- An automatic tagged commit will occur and the changelog for the packages will be updated.
+- Create a new release [here](https://github.com/laws-africa/la-web-components/releases/new). Use the tag that was
+  pushed
   for your release.
 - Upon creating a release, a new version of the packages will be published on `npm`.
