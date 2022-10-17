@@ -32,12 +32,6 @@ jobs:
       - name: Build storybook
         run: cd ./core && npm run build && npm run build-storybook
 
-      - name: Push
-        uses: EndBug/add-and-commit@v7
-        with:
-          add: 'core/dist --force'
-          message: 'Add built artefacts'
-
       - name: Publish Storybook
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
