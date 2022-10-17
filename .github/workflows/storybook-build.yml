@@ -22,9 +22,9 @@ jobs:
           node-version: '14'
 
       - name: Install all dependencies
-          run: | # Install and link dependencies
-            npm ci
-            npx lerna bootstrap
+        run: | # Install and link dependencies
+          npm ci
+          npx lerna bootstrap
 
       - name: Build Law Widget Styles
         run: cd ./law-widget-styles && npm run build
