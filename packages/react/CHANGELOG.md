@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.0.2 (2022-10-19)</small>
+
+**Note:** Version bump only for package @lawsafrica/law-widgets-react
+
+
+
+
+
 ## <small>1.0.1 (2022-10-17)</small>
 
 **Note:** Version bump only for package @lawsafrica/law-widgets-react

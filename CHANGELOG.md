@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.0.2 (2022-10-19)</small>
+
+* core/stencil.config.ts: add treeshakable out distribution ([547ce8c](https://github.com/laws-africa/la-web-components/commit/547ce8c))
+
+
+
+
+
 ## <small>1.0.1 (2022-10-17)</small>
 
 * law-widget-styles/package.json: add private false and publishConfig ([7b874c3](https://github.com/laws-africa/la-web-components/commit/7b874c3))
