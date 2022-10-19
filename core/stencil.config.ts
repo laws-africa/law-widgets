@@ -31,6 +31,15 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
+    // Standard treeshaking output in dist (dist/components)
+    {
+      type: 'dist-custom-elements',
+      generateTypeDeclarations: true,
+    },
+    /*
+    * Used to generate components directory in core root. components directory
+    * is used by packages/react and packages/vue when running the build command
+    * */
     {
       type: 'dist-custom-elements',
       dir: 'components',
