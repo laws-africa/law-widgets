@@ -40,7 +40,7 @@ jobs:
       - name: Push
         uses: EndBug/add-and-commit@v7
         with:
-          add: 'dist --force'
+          add: 'core/dist --force'
           message: 'Add built artefacts'
 
       - name: Publish Storybook
@@ -48,5 +48,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: core/storybook-static/
+          FOLDER: core/storybook-static
           SINGLE_COMMIT: true
