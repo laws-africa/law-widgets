@@ -37,16 +37,9 @@ jobs:
           npm run build
           npm run build-storybook
 
-      - name: Push
-        uses: EndBug/add-and-commit@v7
-        with:
-          add: 'core/dist --force'
-          message: 'Add built artefacts'
-
       - name: Publish Storybook
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: core/storybook-static
-          SINGLE_COMMIT: true
