@@ -1,0 +1,3 @@
+/*! For license information please see 20.20d54e18.iframe.bundle.js.LICENSE.txt */
+(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{"./dist/esm-es5/services-b5707fc1.js":function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"P",(function(){return PROVIDER})),__webpack_require__.d(__webpack_exports__,"g",(function(){return getPartner}));__webpack_require__("./node_modules/core-js/modules/es.string.replace.js"),__webpack_require__("./node_modules/core-js/modules/es.regexp.exec.js");function getPartner(){return document.location.hostname.replace(/^www\./,"")}var PROVIDER="https://services.lawsafrica.com/v1"}}]);
+//# sourceMappingURL=20.20d54e18.iframe.bundle.js.map
