@@ -6,7 +6,7 @@ Specify the expression FRBR URI to include tradition-specific formatting, or set
 `frbr-country` or other `frbr-*` attributes accordingly.
 
 ```html
-<la-akoma-ntoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@"> {{ your_akoma_ntoso_html }} </la-akoma-ntoso>
+<la-akoma-ntoso frbr-expression-uri="/akn/za/act/1996/constitution/eng@"> {{ your_akoma_ntoso_html }} </la-akoma-ntoso>
 ```
 
 ```html
@@ -18,9 +18,7 @@ If your partner code is not the same as your website's domain name, then also sp
 your partner code in `partner`.
 
 ```html
-<la-akoma-ntoso fetch partner="example.com" expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
-  {{ your_akoma_ntoso_html }}
-</la-akoma-ntoso>
+<la-akoma-ntoso fetch partner="example.com" frbr-expression-uri="/akn/za/act/1996/constitution/eng@"></la-akoma-ntoso>
 ```
 
 ### Basic React example
@@ -31,7 +29,7 @@ const Component = () => {
   const akomaNtosoHTML = '...';
   return (
     <div>
-      <LaAkomaNtoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">{akomaNtosoHTML}</LaAkomaNtoso>
+      <LaAkomaNtoso frbr-expression-uri="/akn/za/act/1996/constitution/eng@">{akomaNtosoHTML}</LaAkomaNtoso>
     </div>
   );
 };
@@ -41,7 +39,7 @@ const Component = () => {
 
 ```vue
 <template>
-  <LaAkomaNtoso expression-frbr-uri="/akn/za/act/1996/constitution/eng@">
+  <LaAkomaNtoso frbr-expression-uri="/akn/za/act/1996/constitution/eng@">
     {{ akomaNtosoHTML }}
   </LaAkomaNtoso>
 </template>
