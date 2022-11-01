@@ -3,11 +3,11 @@
     // scroll tables horizontally on small screens
     max-width: 100%;
     overflow-y: auto;
+    margin-bottom: $akn-section-spacing;
   }
 
   table {
     width: 100%;
-    margin-bottom: $akn-section-spacing;
     border: $akn-table-border-width solid $akn-table-border-colour;
     border-collapse: collapse;
 
