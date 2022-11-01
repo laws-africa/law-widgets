@@ -4,14 +4,14 @@ $la-gutter-padding: 0.5rem;
   display: flex;
   flex-direction: row;
 
-  la-akoma-ntoso {
+  &> la-akoma-ntoso {
     flex: 80%;
     max-width: 80%;
     position: relative;
     padding-right: $la-gutter-padding;
   }
 
-  la-gutter {
+  &> la-gutter {
     flex: 20%;
     max-width: 20%;
     position: relative;
