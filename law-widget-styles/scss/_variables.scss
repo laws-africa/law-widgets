@@ -33,6 +33,11 @@ $akn-elements-hier: (
   "alinea", "article", "book", "chapter", "clause", "division", "hcontainer", "indent", "level", "list", "paragraph",
   "part", "point", "proviso", "rule", "section", "subchapter", "subclause", "subdivision", "sublist", "subparagraph",
   "subpart", "subrule", "subsection", "subtitle", "title", "tome", "transitional",
+  // speech hierarchical
+  "address", "adjournment", "administrationOfOath", "answer", "communication", "debateSection", "declarationOfVote",
+  "ministerialStatements", "nationalInterest", "noticesOfMotion", "oralStatements", "papers", "personalStatements",
+  "petitions", "pointOfOrder", "prayers", "proceduralMotions", "question", "questions", "resolutions", "rollCall",
+  "speech", "speechGroup", "writtenStatements",
   // semi-hierarchical
   "crossHeading"
 );
@@ -41,6 +46,8 @@ $akn-elements-hier: (
 $akn-elements-block: (
   "blockContainer", "block", "blockList", "conclusions", "coverPage", "foreign", "item", "ol", "p", "preamble",
   "preface", "tblock", "toc", "ul"
+  // speech blocks
+  "from", "narrative", "scene", "summary"
 );
 
 // AKN document containers
