@@ -456,10 +456,10 @@ la-akoma-ntoso .akn-embeddedStructure .akn-embeddedStructure--startQuote {
 la-akoma-ntoso .akn--table-container {
   max-width: 100%;
   overflow-y: auto;
+  margin-bottom: 1.6em;
 }
 la-akoma-ntoso table {
   width: 100%;
-  margin-bottom: 1.6em;
   border: 1px solid #ddd;
   border-collapse: collapse;
 }

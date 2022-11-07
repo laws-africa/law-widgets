@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: row;
 }
-.la-akoma-ntoso-with-gutter la-akoma-ntoso {
+.la-akoma-ntoso-with-gutter > la-akoma-ntoso {
   flex: 80%;
   max-width: 80%;
   position: relative;
   padding-right: 0.5rem;
 }
-.la-akoma-ntoso-with-gutter la-gutter {
+.la-akoma-ntoso-with-gutter > la-gutter {
   flex: 20%;
   max-width: 20%;
   position: relative;

@@ -1,4 +1,4 @@
-name: Compile and commit to dist
+name: Build
 
 on:
   push:
@@ -26,15 +26,19 @@ jobs:
           npm ci
           npx lerna bootstrap
 
-      - name: Build Law Widget Styles
+      - name: Build
         run: |
-          cd ./law-widget-styles
-          npm run build
+          npx lerna run build
+
+      - name: Push build artefacts
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'core/dist/ law-widget-styles/css/law-widget-styles.* --force'
+          message: 'Built artefacts'
 
       - name: Build storybook
         run: | # Build storybook
           cd ./core
-          npm run build
           npm run build-storybook
 
       - name: Publish Storybook
