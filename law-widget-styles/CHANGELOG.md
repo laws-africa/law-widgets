@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.0 (2022-11-08)
+
+* Built artefacts ([563758c](https://github.com/laws-africa/law-widget-styles/commit/563758c))
+* Built artefacts ([84b0e74](https://github.com/laws-africa/law-widget-styles/commit/84b0e74))
+* Move table margin onto container. Closes #193 ([b455c43](https://github.com/laws-africa/law-widget-styles/commit/b455c43)), closes [#193](https://github.com/laws-africa/law-widget-styles/issues/193)
+* speech hier and block elements ([2502bc2](https://github.com/laws-africa/law-widget-styles/commit/2502bc2))
+* Speech hier elements ([8b523f4](https://github.com/laws-africa/law-widget-styles/commit/8b523f4))
+
+
+
+
+
 ## <small>1.0.1 (2022-10-17)</small>
 
 * law-widget-styles/package.json: add private false and publishConfig ([7b874c3](https://github.com/laws-africa/law-widget-styles/commit/7b874c3))

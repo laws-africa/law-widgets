@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.0 (2022-11-08)
+
+* Remove old/unused scripts ([d9c20cd](https://github.com/laws-africa/la-web-components/commit/d9c20cd))
+
+
+
+
+
 ## <small>1.0.2 (2022-10-19)</small>
 
 **Note:** Version bump only for package @lawsafrica/law-widgets-vue

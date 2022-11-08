@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.0 (2022-11-08)
+
+* Add built artefacts ([0e3052d](https://github.com/laws-africa/law-widgets/commit/0e3052d))
+* Add built artefacts ([67b9a93](https://github.com/laws-africa/law-widgets/commit/67b9a93))
+* Build on commit to master ([ad91571](https://github.com/laws-africa/law-widgets/commit/ad91571))
+* Built artefacts ([563758c](https://github.com/laws-africa/law-widgets/commit/563758c))
+* Built artefacts ([96ded69](https://github.com/laws-africa/law-widgets/commit/96ded69))
+* Built artefacts ([f30005e](https://github.com/laws-africa/law-widgets/commit/f30005e))
+* Built artefacts ([84b0e74](https://github.com/laws-africa/law-widgets/commit/84b0e74))
+* bump endbug; don't build docs.json to prevent infinite build loop ([a2fab81](https://github.com/laws-africa/law-widgets/commit/a2fab81))
+* Fix docs; scope gutter formatting ([6752b55](https://github.com/laws-africa/law-widgets/commit/6752b55))
+* Move table margin onto container. Closes #193 ([b455c43](https://github.com/laws-africa/law-widgets/commit/b455c43)), closes [#193](https://github.com/laws-africa/law-widgets/issues/193)
+* Remove old/unused scripts ([d9c20cd](https://github.com/laws-africa/law-widgets/commit/d9c20cd))
+* remove push ([f3d8b4b](https://github.com/laws-africa/law-widgets/commit/f3d8b4b))
+* remove unused dist ([b020c8d](https://github.com/laws-africa/law-widgets/commit/b020c8d))
+* speech hier and block elements ([2502bc2](https://github.com/laws-africa/law-widgets/commit/2502bc2))
+* Speech hier elements ([8b523f4](https://github.com/laws-africa/law-widgets/commit/8b523f4))
+* storybook-build.yml: change add to core/dist --force ([9eaf99d](https://github.com/laws-africa/law-widgets/commit/9eaf99d))
+* storybook-build.yml: fix cd syntax from law-widget-styles to core ([c4c7a9f](https://github.com/laws-africa/law-widgets/commit/c4c7a9f))
+* storybook-build.yml: update folder reference of deploy ([094c1e9](https://github.com/laws-africa/law-widgets/commit/094c1e9))
+* storybook-build.yml: use | syntax ([49474bb](https://github.com/laws-africa/law-widgets/commit/49474bb))
+
+
+
+
+
 ## <small>1.0.2 (2022-10-19)</small>
 
 * core/stencil.config.ts: add treeshakable out distribution ([547ce8c](https://github.com/laws-africa/la-web-components/commit/547ce8c))

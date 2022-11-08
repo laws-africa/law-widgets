@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.0 (2022-11-08)
+
+* Add built artefacts ([0e3052d](https://github.com/laws-africa/la-web-components/commit/0e3052d))
+* Add built artefacts ([67b9a93](https://github.com/laws-africa/la-web-components/commit/67b9a93))
+* Built artefacts ([563758c](https://github.com/laws-africa/la-web-components/commit/563758c))
+* Built artefacts ([96ded69](https://github.com/laws-africa/la-web-components/commit/96ded69))
+* Built artefacts ([f30005e](https://github.com/laws-africa/la-web-components/commit/f30005e))
+* Built artefacts ([84b0e74](https://github.com/laws-africa/la-web-components/commit/84b0e74))
+* bump endbug; don't build docs.json to prevent infinite build loop ([a2fab81](https://github.com/laws-africa/la-web-components/commit/a2fab81))
+* Fix docs; scope gutter formatting ([6752b55](https://github.com/laws-africa/la-web-components/commit/6752b55))
+* Remove old/unused scripts ([d9c20cd](https://github.com/laws-africa/la-web-components/commit/d9c20cd))
+* Speech hier elements ([8b523f4](https://github.com/laws-africa/la-web-components/commit/8b523f4))
+
+
+
+
+
 ## <small>1.0.2 (2022-10-19)</small>
 
 * core/stencil.config.ts: add treeshakable out distribution ([547ce8c](https://github.com/laws-africa/la-web-components/commit/547ce8c))
