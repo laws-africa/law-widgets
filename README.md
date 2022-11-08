@@ -1,4 +1,3 @@
-
 ## Law Widgets
 
 Law Widgets is a monorepo that houses components libraries for formatting and adding interactivity to Akoma Ntoso documents.
@@ -6,7 +5,7 @@ Law Widgets is a monorepo that houses components libraries for formatting and ad
 Law Widgets is based on Web Components, which enables significant performance, usability, and feature improvements 
 alongside support for React, and Vue.
 
-### Packages `v1.0.0`
+### Packages
 
 | Project               | Package                                                                                           | Description                                                                                                    | Documentation                           |
 |-----------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------|
