@@ -3,10 +3,8 @@
   "version": "1.0.2",
   "description": "React specific wrapper for @lawsafrica/law-widgets",
   "keywords": [
-    "stencil",
-    "framework",
-    "react",
-    "app"
+    "akoma ntoso",
+    "react"
   ],
   "license": "LGPL-3.0-or-later",
   "repository": {
@@ -15,24 +13,20 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "npm run clean && npm run copy && npm run compile",
+    "build": "npm run clean && npm run compile",
     "clean": "rimraf dist && rimraf dist-transpiled && rimraf routing",
     "compile": "npm run tsc && rollup -c",
-    "release": "np --any-branch --yolo --no-release-draft",
     "lint": "tslint --project .",
     "lint.fix": "tslint --project . --fix",
     "tsc": "tsc -p .",
-    "copy": "node scripts/copy.js",
     "test.spec": "jest --ci",
-    "test.treeshake": "node scripts/treeshaking.js dist/index.esm.js",
-    "sync": "sh ./scripts/sync.sh"
+    "test.treeshake": "node scripts/treeshaking.js dist/index.esm.js"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist/",
-    "css/"
+    "dist/"
   ],
   "dependencies": {
     "@lawsafrica/law-widget-styles": "^1.0.1",

@@ -6,40 +6,26 @@
     "prepublishOnly": "npm run build",
     "lint": "echo add linter",
     "lint.fix": "npm run lint -- --fix",
-    "build": "npm run clean && npm run copy && npm run compile",
+    "build": "npm run clean && npm run compile",
     "bundle": "rollup --config rollup.config.js",
     "clean": "rimraf dist dist-transpiled",
     "compile": "npm run tsc && rollup -c",
     "tsc": "tsc -p .",
-    "build.web-types": "node ./scripts/build-web-types.js",
-    "copy": "node ./scripts/copy-css.js",
-    "copy.overlays": "node ./scripts/copy-overlays.js",
-    "sync": "sh ./scripts/sync.sh"
+    "build.web-types": "node ./scripts/build-web-types.js"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/types/index.d.ts",
   "files": [
-    "dist/",
-    "css/"
+    "dist/"
   ],
   "repository": {
     "type": "git",
     "url": "git+git@github.com:laws-africa/la-web-components.git"
   },
   "keywords": [
-    "ionic",
-    "framework",
-    "vue",
-    "mobile",
-    "app",
-    "hybrid",
-    "webapp",
-    "cordova",
-    "progressive",
-    "web",
-    "app",
-    "pwa"
+    "akoma ntoso",
+    "vue"
   ],
   "author": "Greg Kempe <greg@laws.africa>",
   "license": "LGPL-3.0-or-later",
