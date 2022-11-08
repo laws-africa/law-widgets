@@ -73,6 +73,18 @@ la-akoma-ntoso .akn-toc {
 la-akoma-ntoso .akn-ul {
   display: block;
 }
+la-akoma-ntoso .akn-from {
+  display: block;
+}
+la-akoma-ntoso .akn-narrative {
+  display: block;
+}
+la-akoma-ntoso .akn-scene {
+  display: block;
+}
+la-akoma-ntoso .akn-summary {
+  display: block;
+}
 la-akoma-ntoso .akn-preface,
 la-akoma-ntoso .akn-preamble {
   margin-bottom: 1.6em;
@@ -349,6 +361,102 @@ la-akoma-ntoso .akn-tome {
   margin-bottom: 1.6em;
 }
 la-akoma-ntoso .akn-transitional {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-address {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-adjournment {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-administrationOfOath {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-answer {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-communication {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-debateSection {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-declarationOfVote {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-ministerialStatements {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-nationalInterest {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-noticesOfMotion {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-oralStatements {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-papers {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-personalStatements {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-petitions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-pointOfOrder {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-prayers {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-proceduralMotions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-question {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-questions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-resolutions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-rollCall {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-speech {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-speechGroup {
+  display: block;
+  margin-bottom: 1.6em;
+}
+la-akoma-ntoso .akn-writtenStatements {
   display: block;
   margin-bottom: 1.6em;
 }
@@ -1255,19 +1363,523 @@ la-akoma-ntoso.show-structure .akn-transitional::before, la-akoma-ntoso.show-str
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-crossHeading, la-akoma-ntoso.show-structure-hier .akn-crossHeading {
+la-akoma-ntoso.show-structure .akn-address, la-akoma-ntoso.show-structure-hier .akn-address {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #d39aef;
+}
+la-akoma-ntoso.show-structure .akn-address::before, la-akoma-ntoso.show-structure-hier .akn-address::before {
+  content: "address";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #d39aef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-adjournment, la-akoma-ntoso.show-structure-hier .akn-adjournment {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #e19aef;
+}
+la-akoma-ntoso.show-structure .akn-adjournment::before, la-akoma-ntoso.show-structure-hier .akn-adjournment::before {
+  content: "adjournment";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #e19aef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-administrationOfOath, la-akoma-ntoso.show-structure-hier .akn-administrationOfOath {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #ef9aef;
+}
+la-akoma-ntoso.show-structure .akn-administrationOfOath::before, la-akoma-ntoso.show-structure-hier .akn-administrationOfOath::before {
+  content: "administrationOfOath";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #ef9aef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-answer, la-akoma-ntoso.show-structure-hier .akn-answer {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #ef9ae1;
+}
+la-akoma-ntoso.show-structure .akn-answer::before, la-akoma-ntoso.show-structure-hier .akn-answer::before {
+  content: "answer";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #ef9ae1;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-communication, la-akoma-ntoso.show-structure-hier .akn-communication {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #ef9ad3;
+}
+la-akoma-ntoso.show-structure .akn-communication::before, la-akoma-ntoso.show-structure-hier .akn-communication::before {
+  content: "communication";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #ef9ad3;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-debateSection, la-akoma-ntoso.show-structure-hier .akn-debateSection {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #ef9ac5;
+}
+la-akoma-ntoso.show-structure .akn-debateSection::before, la-akoma-ntoso.show-structure-hier .akn-debateSection::before {
+  content: "debateSection";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #ef9ac5;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-declarationOfVote, la-akoma-ntoso.show-structure-hier .akn-declarationOfVote {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #ef9ab6;
+}
+la-akoma-ntoso.show-structure .akn-declarationOfVote::before, la-akoma-ntoso.show-structure-hier .akn-declarationOfVote::before {
+  content: "declarationOfVote";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #ef9ab6;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-ministerialStatements, la-akoma-ntoso.show-structure-hier .akn-ministerialStatements {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #ef9aa8;
+}
+la-akoma-ntoso.show-structure .akn-ministerialStatements::before, la-akoma-ntoso.show-structure-hier .akn-ministerialStatements::before {
+  content: "ministerialStatements";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #ef9aa8;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-nationalInterest, la-akoma-ntoso.show-structure-hier .akn-nationalInterest {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #ef9a9a;
+}
+la-akoma-ntoso.show-structure .akn-nationalInterest::before, la-akoma-ntoso.show-structure-hier .akn-nationalInterest::before {
+  content: "nationalInterest";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #ef9a9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-noticesOfMotion, la-akoma-ntoso.show-structure-hier .akn-noticesOfMotion {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #efa89a;
+}
+la-akoma-ntoso.show-structure .akn-noticesOfMotion::before, la-akoma-ntoso.show-structure-hier .akn-noticesOfMotion::before {
+  content: "noticesOfMotion";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #efa89a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-oralStatements, la-akoma-ntoso.show-structure-hier .akn-oralStatements {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #efb69a;
+}
+la-akoma-ntoso.show-structure .akn-oralStatements::before, la-akoma-ntoso.show-structure-hier .akn-oralStatements::before {
+  content: "oralStatements";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #efb69a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-papers, la-akoma-ntoso.show-structure-hier .akn-papers {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #efc59a;
+}
+la-akoma-ntoso.show-structure .akn-papers::before, la-akoma-ntoso.show-structure-hier .akn-papers::before {
+  content: "papers";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #efc59a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-personalStatements, la-akoma-ntoso.show-structure-hier .akn-personalStatements {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #efd39a;
+}
+la-akoma-ntoso.show-structure .akn-personalStatements::before, la-akoma-ntoso.show-structure-hier .akn-personalStatements::before {
+  content: "personalStatements";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #efd39a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-petitions, la-akoma-ntoso.show-structure-hier .akn-petitions {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #efe19a;
+}
+la-akoma-ntoso.show-structure .akn-petitions::before, la-akoma-ntoso.show-structure-hier .akn-petitions::before {
+  content: "petitions";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #efe19a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-pointOfOrder, la-akoma-ntoso.show-structure-hier .akn-pointOfOrder {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #efef9a;
+}
+la-akoma-ntoso.show-structure .akn-pointOfOrder::before, la-akoma-ntoso.show-structure-hier .akn-pointOfOrder::before {
+  content: "pointOfOrder";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #efef9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-prayers, la-akoma-ntoso.show-structure-hier .akn-prayers {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #e1ef9a;
+}
+la-akoma-ntoso.show-structure .akn-prayers::before, la-akoma-ntoso.show-structure-hier .akn-prayers::before {
+  content: "prayers";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #e1ef9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-proceduralMotions, la-akoma-ntoso.show-structure-hier .akn-proceduralMotions {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #d3ef9a;
+}
+la-akoma-ntoso.show-structure .akn-proceduralMotions::before, la-akoma-ntoso.show-structure-hier .akn-proceduralMotions::before {
+  content: "proceduralMotions";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #d3ef9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-question, la-akoma-ntoso.show-structure-hier .akn-question {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #c5ef9a;
+}
+la-akoma-ntoso.show-structure .akn-question::before, la-akoma-ntoso.show-structure-hier .akn-question::before {
+  content: "question";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #c5ef9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-questions, la-akoma-ntoso.show-structure-hier .akn-questions {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #b6ef9a;
+}
+la-akoma-ntoso.show-structure .akn-questions::before, la-akoma-ntoso.show-structure-hier .akn-questions::before {
+  content: "questions";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #b6ef9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-resolutions, la-akoma-ntoso.show-structure-hier .akn-resolutions {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #a8ef9a;
+}
+la-akoma-ntoso.show-structure .akn-resolutions::before, la-akoma-ntoso.show-structure-hier .akn-resolutions::before {
+  content: "resolutions";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #a8ef9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-rollCall, la-akoma-ntoso.show-structure-hier .akn-rollCall {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aef9a;
+}
+la-akoma-ntoso.show-structure .akn-rollCall::before, la-akoma-ntoso.show-structure-hier .akn-rollCall::before {
+  content: "rollCall";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #9aef9a;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-speech, la-akoma-ntoso.show-structure-hier .akn-speech {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aefa8;
+}
+la-akoma-ntoso.show-structure .akn-speech::before, la-akoma-ntoso.show-structure-hier .akn-speech::before {
+  content: "speech";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #9aefa8;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-speechGroup, la-akoma-ntoso.show-structure-hier .akn-speechGroup {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aefb6;
+}
+la-akoma-ntoso.show-structure .akn-speechGroup::before, la-akoma-ntoso.show-structure-hier .akn-speechGroup::before {
+  content: "speechGroup";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #9aefb6;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-writtenStatements, la-akoma-ntoso.show-structure-hier .akn-writtenStatements {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aefc5;
+}
+la-akoma-ntoso.show-structure .akn-writtenStatements::before, la-akoma-ntoso.show-structure-hier .akn-writtenStatements::before {
+  content: "writtenStatements";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #9aefc5;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-crossHeading, la-akoma-ntoso.show-structure-hier .akn-crossHeading {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aefd3;
 }
 la-akoma-ntoso.show-structure .akn-crossHeading::before, la-akoma-ntoso.show-structure-hier .akn-crossHeading::before {
   content: "crossHeading";
   position: absolute;
   top: 0px;
   left: 0px;
-  color: white;
-  background-color: #d39aef;
+  color: black;
+  background-color: #9aefd3;
   border-top-right-radius: 5px;
   padding: 0px 4px;
   font-family: sans-serif;
@@ -1545,6 +2157,90 @@ la-akoma-ntoso.show-structure .akn-ul::before, la-akoma-ntoso.show-structure-blo
   left: 0px;
   color: black;
   background-color: #9ae8ef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-from, la-akoma-ntoso.show-structure-block .akn-from {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9adaef;
+}
+la-akoma-ntoso.show-structure .akn-from::before, la-akoma-ntoso.show-structure-block .akn-from::before {
+  content: "from";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #9adaef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-narrative, la-akoma-ntoso.show-structure-block .akn-narrative {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9accef;
+}
+la-akoma-ntoso.show-structure .akn-narrative::before, la-akoma-ntoso.show-structure-block .akn-narrative::before {
+  content: "narrative";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #9accef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-scene, la-akoma-ntoso.show-structure-block .akn-scene {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9abdef;
+}
+la-akoma-ntoso.show-structure .akn-scene::before, la-akoma-ntoso.show-structure-block .akn-scene::before {
+  content: "scene";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #9abdef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-summary, la-akoma-ntoso.show-structure-block .akn-summary {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aafef;
+}
+la-akoma-ntoso.show-structure .akn-summary::before, la-akoma-ntoso.show-structure-block .akn-summary::before {
+  content: "summary";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #9aafef;
   border-top-right-radius: 5px;
   padding: 0px 4px;
   font-family: sans-serif;

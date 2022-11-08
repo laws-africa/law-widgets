@@ -66,6 +66,18 @@
 .akoma-ntoso .akn-ul {
   display: block;
 }
+.akoma-ntoso .akn-from {
+  display: block;
+}
+.akoma-ntoso .akn-narrative {
+  display: block;
+}
+.akoma-ntoso .akn-scene {
+  display: block;
+}
+.akoma-ntoso .akn-summary {
+  display: block;
+}
 .akoma-ntoso .akn-preface,
 .akoma-ntoso .akn-preamble {
   margin-bottom: 1.6em;
@@ -342,6 +354,102 @@
   margin-bottom: 1.6em;
 }
 .akoma-ntoso .akn-transitional {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-address {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-adjournment {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-administrationOfOath {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-answer {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-communication {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-debateSection {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-declarationOfVote {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-ministerialStatements {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-nationalInterest {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-noticesOfMotion {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-oralStatements {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-papers {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-personalStatements {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-petitions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-pointOfOrder {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-prayers {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-proceduralMotions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-question {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-questions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-resolutions {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-rollCall {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-speech {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-speechGroup {
+  display: block;
+  margin-bottom: 1.6em;
+}
+.akoma-ntoso .akn-writtenStatements {
   display: block;
   margin-bottom: 1.6em;
 }
