@@ -208,6 +208,11 @@
   margin-top: 0.8em;
   font-style: italic;
 }
+.akoma-ntoso .akn-from {
+  float: left;
+  margin-right: 0.5em;
+  font-weight: bold;
+}
 .akoma-ntoso h1,
 .akoma-ntoso h2,
 .akoma-ntoso h3,
