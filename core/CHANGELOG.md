@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.1.1 (2022-11-25)</small>
+
+* add properties collapseAllBtnText and expandAllBtnText to toc-controller ([b1e5fb9](https://github.com/laws-africa/la-web-components/commit/b1e5fb9))
+* Built artefacts ([0cbfc0d](https://github.com/laws-africa/la-web-components/commit/0cbfc0d))
+* Built artefacts ([0256942](https://github.com/laws-africa/la-web-components/commit/0256942))
+* table-of-contents-controller.tsx: change defaults of expand and collapse text ([189be74](https://github.com/laws-africa/la-web-components/commit/189be74))
+* update readme ([0e49372](https://github.com/laws-africa/la-web-components/commit/0e49372))
+* build(deps): bump jsdom from 16.4.0 to 16.7.0 in /core ([a52ea03](https://github.com/laws-africa/la-web-components/commit/a52ea03))
+* build(deps): bump loader-utils from 1.4.0 to 1.4.1 in /core ([6042c6d](https://github.com/laws-africa/la-web-components/commit/6042c6d))
+
+
+
+
+
 ## 1.1.0 (2022-11-08)
 
 * Add built artefacts ([0e3052d](https://github.com/laws-africa/la-web-components/commit/0e3052d))

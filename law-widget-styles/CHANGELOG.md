@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.1.1 (2022-11-25)</small>
+
+* Built artefacts ([0256942](https://github.com/laws-africa/law-widget-styles/commit/0256942))
+* debate FROM styles ([50097bd](https://github.com/laws-africa/law-widget-styles/commit/50097bd))
+
+
+
+
+
 ## 1.1.0 (2022-11-08)
 
 * Built artefacts ([563758c](https://github.com/laws-africa/law-widget-styles/commit/563758c))
