@@ -44,12 +44,12 @@ export class TableOfContentsController {
   /**
    * Button text for expand all button
    * */
-  @Prop() expandAllBtnText = '';
+  @Prop() expandAllBtnText = 'Expand all';
 
   /**
    * Button text for collapse all button
    * */
-  @Prop() collapseAllBtnText = '';
+  @Prop() collapseAllBtnText = 'Collapse all';
 
   /**
    * Additional CSS classes added to the search filter input
@@ -120,14 +120,14 @@ export class TableOfContentsController {
             class={`toggle__expand-all-btn ${this.expandAllBtnClasses}`}
             onClick={() => this.expandAll()}
           >
-            {this.expandAllBtnText ? this.expandAllBtnText : 'Expand All'}
+            {this.expandAllBtnText}
           </button>
           <button
             type="button"
             class={`toggle__collapse-all-btn ${this.collapseAllBtnClasses}`}
             onClick={() => this.collapseAll()}
           >
-            {this.collapseAllBtnText ? this.collapseAllBtnText : 'Collapse All'}
+            {this.collapseAllBtnText}
           </button>
         </div>
 
