@@ -74,7 +74,7 @@
     "react-dom": "^18.2.0",
     "rollup": "^2.26.4",
     "sass": "^1.26.10",
-    "serve": "^13.0.2",
+    "serve": "^14.1.2",
     "storybook-readme": "^5.0.9",
     "stylelint": "^13.6.1",
     "stylelint-order": "^4.1.0",
