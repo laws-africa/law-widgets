@@ -33,6 +33,14 @@ export class TableOfContentsController {
      * */
     this.collapseAllBtnClasses = '';
     /**
+     * Button text for expand all button
+     * */
+    this.expandAllBtnText = 'Expand all';
+    /**
+     * Button text for collapse all button
+     * */
+    this.collapseAllBtnText = 'Collapse all';
+    /**
      * Additional CSS classes added to the search filter input
      * */
     this.titleFilterInputClasses = '';
@@ -69,8 +77,8 @@ export class TableOfContentsController {
         h("input", { class: `search__input ${this.titleFilterInputClasses}`, value: this.titleFilter, placeholder: this.titleFilterPlaceholder, onInput: (e) => this.handleTitleChange(e) }),
         renderHideClearFilterButton()),
       h("div", { class: "toggle" },
-        h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, "Expand All"),
-        h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, "Collapse All")),
+        h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, this.expandAllBtnText),
+        h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, this.collapseAllBtnText)),
       h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri },
         h("span", { slot: "expand-icon" },
           h("slot", { name: "expand-icon" })),
@@ -197,6 +205,42 @@ export class TableOfContentsController {
       "attribute": "collapse-all-btn-classes",
       "reflect": false,
       "defaultValue": "''"
+    },
+    "expandAllBtnText": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Button text for expand all button"
+      },
+      "attribute": "expand-all-btn-text",
+      "reflect": false,
+      "defaultValue": "'Expand all'"
+    },
+    "collapseAllBtnText": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Button text for collapse all button"
+      },
+      "attribute": "collapse-all-btn-text",
+      "reflect": false,
+      "defaultValue": "'Collapse all'"
     },
     "titleFilterInputClasses": {
       "type": "string",

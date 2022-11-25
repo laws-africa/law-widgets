@@ -26,6 +26,14 @@ export declare class TableOfContentsController {
    * */
   collapseAllBtnClasses: string;
   /**
+   * Button text for expand all button
+   * */
+  expandAllBtnText: string;
+  /**
+   * Button text for collapse all button
+   * */
+  collapseAllBtnText: string;
+  /**
    * Additional CSS classes added to the search filter input
    * */
   titleFilterInputClasses: string;

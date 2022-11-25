@@ -39,6 +39,14 @@ const TableOfContentsController = /*@__PURE__*/ proxyCustomElement(class extends
      * */
     this.collapseAllBtnClasses = '';
     /**
+     * Button text for expand all button
+     * */
+    this.expandAllBtnText = 'Expand all';
+    /**
+     * Button text for collapse all button
+     * */
+    this.collapseAllBtnText = 'Collapse all';
+    /**
      * Additional CSS classes added to the search filter input
      * */
     this.titleFilterInputClasses = '';
@@ -69,7 +77,7 @@ const TableOfContentsController = /*@__PURE__*/ proxyCustomElement(class extends
       }
       return (h("button", { class: `search__clear-btn ${this.titleFilterClearBtnClasses}`, type: "button", onClick: () => this.clearTitleFilter(), disabled: !this.titleFilter }, h("slot", { name: "clear-title-filter-icon" }, "\u2715")));
     };
-    return (h(Host, null, h("div", { class: "search" }, h("input", { class: `search__input ${this.titleFilterInputClasses}`, value: this.titleFilter, placeholder: this.titleFilterPlaceholder, onInput: (e) => this.handleTitleChange(e) }), renderHideClearFilterButton()), h("div", { class: "toggle" }, h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, "Expand All"), h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, "Collapse All")), h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri }, h("span", { slot: "expand-icon" }, h("slot", { name: "expand-icon" })), h("span", { slot: "collapse-icon" }, h("slot", { name: "collapse-icon" })))));
+    return (h(Host, null, h("div", { class: "search" }, h("input", { class: `search__input ${this.titleFilterInputClasses}`, value: this.titleFilter, placeholder: this.titleFilterPlaceholder, onInput: (e) => this.handleTitleChange(e) }), renderHideClearFilterButton()), h("div", { class: "toggle" }, h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, this.expandAllBtnText), h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, this.collapseAllBtnText)), h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri }, h("span", { slot: "expand-icon" }, h("slot", { name: "expand-icon" })), h("span", { slot: "collapse-icon" }, h("slot", { name: "collapse-icon" })))));
   }
   get el() { return this; }
   static get style() { return tableOfContentsControllerCss; }
@@ -80,6 +88,8 @@ const TableOfContentsController = /*@__PURE__*/ proxyCustomElement(class extends
     "titleFilterClearBtnClasses": [1, "title-filter-clear-btn-classes"],
     "expandAllBtnClasses": [1, "expand-all-btn-classes"],
     "collapseAllBtnClasses": [1, "collapse-all-btn-classes"],
+    "expandAllBtnText": [1, "expand-all-btn-text"],
+    "collapseAllBtnText": [1, "collapse-all-btn-text"],
     "titleFilterInputClasses": [1, "title-filter-input-classes"],
     "frbrExpressionUri": [1537, "frbr-expression-uri"],
     "fetch": [1540],
