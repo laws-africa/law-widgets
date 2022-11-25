@@ -184,9 +184,17 @@ export namespace Components {
          */
         "collapseAllBtnClasses": string;
         /**
+          * Button text for collapse all button
+         */
+        "collapseAllBtnText": string;
+        /**
           * Additional classes added to Expand all button
          */
         "expandAllBtnClasses": string;
+        /**
+          * Button text for expand all button
+         */
+        "expandAllBtnText": string;
         /**
           * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
          */
@@ -499,9 +507,17 @@ declare namespace LocalJSX {
          */
         "collapseAllBtnClasses"?: string;
         /**
+          * Button text for collapse all button
+         */
+        "collapseAllBtnText"?: string;
+        /**
           * Additional classes added to Expand all button
          */
         "expandAllBtnClasses"?: string;
+        /**
+          * Button text for expand all button
+         */
+        "expandAllBtnText"?: string;
         /**
           * Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set.
          */

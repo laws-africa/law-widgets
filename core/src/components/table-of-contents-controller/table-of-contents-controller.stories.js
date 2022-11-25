@@ -27,6 +27,8 @@ const Template = (props) =>
     .titleFilterPlaceholder=${props.titleFilterPlaceholder}
     .titleFilterClearable=${props.titleFilterClearable}
     .titleFilterClearBtnClasses=${props.titleFilterClearBtnClasses}
+    .collapseAllBtnText=${props.collapseAllBtnText}
+    .expandAllBtnText=${props.expandAllBtnText}
   ></la-table-of-contents-controller>`;
 
 export const BasicUsage = Template.bind({});
@@ -64,3 +66,10 @@ ClearSearchFilterButtonWithClass.args = {
   titleFilterClearable: true,
   titleFilterClearBtnClasses: 'clear-btn',
 };
+
+
+export const CustomExpandCollapseAllButtonText = Template.bind({});
+CustomExpandCollapseAllButtonText.args = {
+  collapseAllBtnText: "Custom expand text",
+  expandAllBtnText: "Custom collapse text"
+}
