@@ -271,6 +271,10 @@ export interface LaGutterItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLLaGutterItemElement;
 }
+export interface LaTableOfContentsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLaTableOfContentsElement;
+}
 export interface LaTocItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLLaTocItemElement;
@@ -488,6 +492,10 @@ declare namespace LocalJSX {
           * JSON value or string value parsed to array of items used to build the table of contents. Each item must have a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
          */
         "items"?: TOCItem[] | string;
+        /**
+          * Event emitted when items have changed.
+         */
+        "onItemsChanged"?: (event: LaTableOfContentsCustomEvent<void>) => void;
         /**
           * Partner code to use when fetching content from Laws.Africa. Defaults to the `location.hostname`.
          */

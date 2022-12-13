@@ -1,3 +1,4 @@
+import type { EventEmitter } from '../../stencil-public-runtime';
 /**
  * An item in the table of contents. Each item must have a `title` attribute (which may be `null`),
  * and a `children` attribute (which may be `null`).
@@ -28,6 +29,10 @@ export declare class TableOfContents {
   filteredItems: Set<TOCItem> | null;
   innerItems: TOCItem[];
   el: HTMLElement;
+  /**
+   * Event emitted when items have changed.
+   */
+  itemsChanged: EventEmitter<void>;
   parseItemsProp(newValue: any): void;
   refetch(): void;
   fetchContent(): Promise<void>;

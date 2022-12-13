@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+import type { EventEmitter} from '@stencil/core';
+import {Prop, h, Element, Method, Watch, State, Component, Host, Event} from '@stencil/core';
 
 import { PROVIDER, getPartner } from '../../utils/services';
 
@@ -43,6 +44,16 @@ export class TableOfContents {
 
   @Element() el!: HTMLElement;
 
+  /**
+   * Event emitted when items have changed.
+   */
+  @Event({
+    eventName: 'itemsChanged',
+    composed: true,
+    cancelable: true,
+  })
+  itemsChanged!: EventEmitter<void>;
+
   @Watch('items')
   parseItemsProp(newValue: any) {
     if (typeof newValue === 'string') {
@@ -50,6 +61,7 @@ export class TableOfContents {
     } else if (Array.isArray(newValue)) {
       this.innerItems = [...newValue];
     }
+    this.itemsChanged.emit();
   }
 
   @Watch('provider')

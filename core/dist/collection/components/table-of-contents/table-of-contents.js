@@ -1,8 +1,7 @@
 /*!
  * (C) Law Widgets https://laws.africa - MIT License
  */
-// eslint-disable-next-line no-unused-vars
-import { Prop, h, Element, Method, Watch, State, Component, Host } from '@stencil/core';
+import { Prop, h, Element, Method, Watch, State, Component, Host, Event } from '@stencil/core';
 import { PROVIDER, getPartner } from '../../utils/services';
 export class TableOfContents {
   constructor() {
@@ -29,6 +28,7 @@ export class TableOfContents {
     else if (Array.isArray(newValue)) {
       this.innerItems = [...newValue];
     }
+    this.itemsChanged.emit();
   }
   refetch() {
     this.fetchContent();
@@ -263,6 +263,22 @@ export class TableOfContents {
     "filteredItems": {},
     "innerItems": {}
   }; }
+  static get events() { return [{
+      "method": "itemsChanged",
+      "name": "itemsChanged",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "Event emitted when items have changed."
+      },
+      "complexType": {
+        "original": "void",
+        "resolved": "void",
+        "references": {}
+      }
+    }]; }
   static get methods() { return {
     "expandAll": {
       "complexType": {

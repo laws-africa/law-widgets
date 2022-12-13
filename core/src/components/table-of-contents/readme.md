@@ -144,6 +144,13 @@ Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-table-
 | `titleFilter`       | `title-filter`        | value to filter items by item title                                                                                                                                                                       | `string`              | `''`        |
 
 
+## Events
+
+| Event          | Description                            | Type                |
+| -------------- | -------------------------------------- | ------------------- |
+| `itemsChanged` | Event emitted when items have changed. | `CustomEvent<void>` |
+
+
 ## Methods
 
 ### `collapseAll() => Promise<void>`

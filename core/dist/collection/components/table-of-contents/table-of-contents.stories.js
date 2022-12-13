@@ -99,3 +99,16 @@ export const TocItemTitleClickedEvtDemo = () => {
     />
   `;
 };
+
+export const TocItemsChanged = () => {
+  const handleItemsChanged = () => {
+    alert('Using event to check if items are loaded')
+  };
+
+  return html`
+    <la-table-of-contents
+      .items="${data.nested_toc_list}"
+      @itemsChanged="${handleItemsChanged}"
+    />
+  `;
+};
