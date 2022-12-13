@@ -61,7 +61,7 @@ export class TableOfContents {
     } else if (Array.isArray(newValue)) {
       this.innerItems = [...newValue];
     }
-    this.itemsChanged.emit();
+    this.itemsChanged.emit(newValue);
   }
 
   @Watch('provider')
