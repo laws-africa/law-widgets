@@ -64,10 +64,14 @@ export class TableOfContents {
 
     if (this.fetch && this.frbrExpressionUri && this.provider) {
       const url = this.provider + '/p/' + this.partner + '/e/we/toc.json' + this.frbrExpressionUri;
-      const resp = await fetch(url);
-      if (resp.ok) {
-        // @ts-ignore
-        this.innerItems = (await resp.json()).toc;
+      try {
+        const resp = await fetch(url);
+        if (resp.ok) {
+          // @ts-ignore
+          this.innerItems = (await resp.json()).toc;
+        }
+      } catch (error) {
+        // ignore
       }
     }
   }
