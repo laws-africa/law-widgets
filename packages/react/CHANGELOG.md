@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.0 (2023-04-10)
+
+* build(deps-dev): bump @testing-library/jest-dom from 5.16.1 to 5.16.5 ([900359b](https://github.com/laws-africa/la-web-components/commit/900359b))
+* build(deps): bump ansi-regex in /packages/react ([56a3bc0](https://github.com/laws-africa/la-web-components/commit/56a3bc0))
+* build(deps): bump decode-uri-component in /packages/react ([b321659](https://github.com/laws-africa/la-web-components/commit/b321659))
+* build(deps): bump http-cache-semantics in /packages/react ([33e68cf](https://github.com/laws-africa/la-web-components/commit/33e68cf))
+* build(deps): bump json5 from 2.2.0 to 2.2.3 in /packages/react ([c726772](https://github.com/laws-africa/la-web-components/commit/c726772))
+* build(deps): bump minimatch from 3.0.4 to 3.1.2 in /packages/react ([b10f0c0](https://github.com/laws-africa/la-web-components/commit/b10f0c0))
+* build(deps): bump minimist from 1.2.5 to 1.2.8 in /packages/react ([eb6e30c](https://github.com/laws-africa/la-web-components/commit/eb6e30c))
+* build(deps): bump trim-newlines and meow in /packages/react ([17f8e18](https://github.com/laws-africa/la-web-components/commit/17f8e18))
+
+
+
+
+
 ## <small>1.1.1 (2022-11-25)</small>
 
 **Note:** Version bump only for package @lawsafrica/law-widgets-react

@@ -1,0 +1,35 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.2.0 (2023-04-10)
+
+* Built artefacts ([d8ea183](https://github.com/laws-africa/law-widgets/commit/d8ea183))
+* Catch 404s and other errors ([885e34c](https://github.com/laws-africa/law-widgets/commit/885e34c))
+* rename master to main ([2553b65](https://github.com/laws-africa/law-widgets/commit/2553b65))
+* update package-lock metadata ([a54a8a3](https://github.com/laws-africa/law-widgets/commit/a54a8a3))
+* build(deps-dev): bump @babel/core from 7.18.13 to 7.21.0 ([dbd116b](https://github.com/laws-africa/law-widgets/commit/dbd116b))
+* build(deps-dev): bump @testing-library/jest-dom from 5.16.1 to 5.16.5 ([900359b](https://github.com/laws-africa/law-widgets/commit/900359b))
+* build(deps-dev): bump jest-puppeteer from 6.0.2 to 6.2.0 ([236ac8e](https://github.com/laws-africa/law-widgets/commit/236ac8e))
+* build(deps): bump @sideway/formula in /law-widget-styles ([6e45f26](https://github.com/laws-africa/law-widgets/commit/6e45f26))
+* build(deps): bump @storybook/web-components from 6.5.10 to 6.5.16 ([f353057](https://github.com/laws-africa/law-widgets/commit/f353057))
+* build(deps): bump ansi-regex in /packages/react ([56a3bc0](https://github.com/laws-africa/law-widgets/commit/56a3bc0))
+* build(deps): bump decode-uri-component from 0.2.0 to 0.2.2 in /core ([2749615](https://github.com/laws-africa/law-widgets/commit/2749615))
+* build(deps): bump decode-uri-component in /packages/react ([b321659](https://github.com/laws-africa/law-widgets/commit/b321659))
+* build(deps): bump decode-uri-component in /packages/vue ([b9493d8](https://github.com/laws-africa/law-widgets/commit/b9493d8))
+* build(deps): bump deep-object-diff from 1.1.7 to 1.1.9 in /core ([7131416](https://github.com/laws-africa/law-widgets/commit/7131416))
+* build(deps): bump http-cache-semantics from 4.1.0 to 4.1.1 ([66caea7](https://github.com/laws-africa/law-widgets/commit/66caea7))
+* build(deps): bump http-cache-semantics in /packages/react ([33e68cf](https://github.com/laws-africa/law-widgets/commit/33e68cf))
+* build(deps): bump json5 from 1.0.1 to 1.0.2 ([ad18c88](https://github.com/laws-africa/law-widgets/commit/ad18c88))
+* build(deps): bump json5 from 1.0.1 to 1.0.2 in /core ([5e50527](https://github.com/laws-africa/law-widgets/commit/5e50527))
+* build(deps): bump json5 from 1.0.1 to 1.0.2 in /packages/vue ([d3df981](https://github.com/laws-africa/law-widgets/commit/d3df981))
+* build(deps): bump json5 from 2.2.0 to 2.2.3 in /law-widget-styles ([d1d1691](https://github.com/laws-africa/law-widgets/commit/d1d1691))
+* build(deps): bump json5 from 2.2.0 to 2.2.3 in /packages/react ([c726772](https://github.com/laws-africa/law-widgets/commit/c726772))
+* build(deps): bump loader-utils from 1.4.1 to 1.4.2 in /core ([9346838](https://github.com/laws-africa/law-widgets/commit/9346838))
+* build(deps): bump minimatch from 3.0.4 to 3.1.2 in /law-widget-styles ([83e45bd](https://github.com/laws-africa/law-widgets/commit/83e45bd))
+* build(deps): bump minimatch from 3.0.4 to 3.1.2 in /packages/react ([b10f0c0](https://github.com/laws-africa/law-widgets/commit/b10f0c0))
+* build(deps): bump minimatch from 3.0.4 to 3.1.2 in /packages/vue ([198620b](https://github.com/laws-africa/law-widgets/commit/198620b))
+* build(deps): bump minimist from 1.2.5 to 1.2.8 in /law-widget-styles ([d7d2f80](https://github.com/laws-africa/law-widgets/commit/d7d2f80))
+* build(deps): bump minimist from 1.2.5 to 1.2.8 in /packages/react ([eb6e30c](https://github.com/laws-africa/law-widgets/commit/eb6e30c))
+* build(deps): bump trim-newlines and meow in /packages/react ([17f8e18](https://github.com/laws-africa/law-widgets/commit/17f8e18))

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.0 (2023-04-10)
+
+* Built artefacts ([d8ea183](https://github.com/laws-africa/la-web-components/commit/d8ea183))
+* Catch 404s and other errors ([885e34c](https://github.com/laws-africa/la-web-components/commit/885e34c))
+* build(deps-dev): bump @babel/core from 7.18.13 to 7.21.0 ([dbd116b](https://github.com/laws-africa/la-web-components/commit/dbd116b))
+* build(deps): bump @storybook/web-components from 6.5.10 to 6.5.16 ([f353057](https://github.com/laws-africa/la-web-components/commit/f353057))
+* build(deps): bump decode-uri-component from 0.2.0 to 0.2.2 in /core ([2749615](https://github.com/laws-africa/la-web-components/commit/2749615))
+* build(deps): bump deep-object-diff from 1.1.7 to 1.1.9 in /core ([7131416](https://github.com/laws-africa/la-web-components/commit/7131416))
+* build(deps): bump json5 from 1.0.1 to 1.0.2 in /core ([5e50527](https://github.com/laws-africa/la-web-components/commit/5e50527))
+* build(deps): bump loader-utils from 1.4.1 to 1.4.2 in /core ([9346838](https://github.com/laws-africa/la-web-components/commit/9346838))
+
+
+
+
+
 ## <small>1.1.1 (2022-11-25)</small>
 
 * add properties collapseAllBtnText and expandAllBtnText to toc-controller ([b1e5fb9](https://github.com/laws-africa/la-web-components/commit/b1e5fb9))

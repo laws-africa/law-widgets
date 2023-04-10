@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.0 (2023-04-10)
+
+* build(deps): bump json5 from 1.0.1 to 1.0.2 in /packages/vue ([d3df981](https://github.com/laws-africa/la-web-components/commit/d3df981))
+* build(deps): bump minimatch from 3.0.4 to 3.1.2 in /packages/vue ([198620b](https://github.com/laws-africa/la-web-components/commit/198620b))
+
+
+
+
+
 ## <small>1.1.1 (2022-11-25)</small>
 
 **Note:** Version bump only for package @lawsafrica/law-widgets-vue
