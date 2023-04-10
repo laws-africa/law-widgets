@@ -7,12 +7,12 @@ alongside support for React, and Vue.
 
 ### Packages
 
-| Project               | Package                                                                                           | Description                                                                                                    | Documentation                           |
-|-----------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| **Law Widget Styles** | [`@lawsafrica/law-widget-styles`](https://www.npmjs.com/package/@lawsafrica/law-widget-styles)                | Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org). | [`README.md`](law-widget-styles/README.md)     
-| **Core**              | [`@lawsafrica/law-widgets`](https://www.npmjs.com/package/@lawsafrica/law-widgets)              | Web components library built for Akoma Ntoso documents                                                         | [`README.md`](core/README.md)                                                                                   
-| **Vue**               | [`@lawsafrica/law-widgets-vue`](https://www.npmjs.com/package/@lawsafrica/law-widgets-vue)      | Vue wrapper component library of `@lawsafrica/law-widgets`                                                    | [`README.md`](packages/vue/README.md)                                                                          
-| **React**             | [`@lawsafrica/law-widgets-react`](https://www.npmjs.com/package/@lawsafrica//law-widgets-react) | React wrapper component library of `@lawsafrica/law-widgets`                                                  | [`README.md`](packages/react/README.md)                                                                        
+| Project               | Package                                                                                         | Description                                                                                                    | Documentation                              |
+|-----------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------|
+| **Law Widget Styles** | [`@lawsafrica/law-widget-styles`](https://www.npmjs.com/package/@lawsafrica/law-widget-styles)  | Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org). | [`README.md`](law-widget-styles/README.md) |
+| **Core**              | [`@lawsafrica/law-widgets`](https://www.npmjs.com/package/@lawsafrica/law-widgets)              | Web components library built for Akoma Ntoso documents                                                         | [`README.md`](core/README.md)              |
+| **Vue**               | [`@lawsafrica/law-widgets-vue`](https://www.npmjs.com/package/@lawsafrica/law-widgets-vue)      | Vue wrapper component library of `@lawsafrica/law-widgets`                                                     | [`README.md`](packages/vue/README.md)      |
+| **React**             | [`@lawsafrica/law-widgets-react`](https://www.npmjs.com/package/@lawsafrica//law-widgets-react) | React wrapper component library of `@lawsafrica/law-widgets`                                                   | [`README.md`](packages/react/README.md)    |
 
 ## Getting started
 Click [here](core/README.md#components) to learn how to use our components.
