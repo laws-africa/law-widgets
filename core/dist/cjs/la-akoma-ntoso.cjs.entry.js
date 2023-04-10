@@ -74,9 +74,14 @@ const AkomaNtoso = class {
     this.ensurePartner();
     if (this.fetch && this.frbrExpressionUri && this.provider) {
       const url = this.provider + '/p/' + this.partner + '/e/portion' + this.frbrExpressionUri;
-      const resp = await fetch(url);
-      if (resp.ok) {
-        this.el.innerHTML = await resp.text();
+      try {
+        const resp = await fetch(url);
+        if (resp.ok) {
+          this.el.innerHTML = await resp.text();
+        }
+      }
+      catch (error) {
+        // ignore
       }
     }
   }

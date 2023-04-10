@@ -78,9 +78,14 @@ const DecorateExternalRefs = class {
     this.ensurePartner();
     if (frbrUri && this.provider) {
       const url = this.provider + '/p/' + this.partner + '/e/popup' + frbrUri;
-      const resp = await fetch(url);
-      if (resp.ok) {
-        return await resp.text();
+      try {
+        const resp = await fetch(url);
+        if (resp.ok) {
+          return await resp.text();
+        }
+      }
+      catch (error) {
+        // ignore
       }
     }
     return null;

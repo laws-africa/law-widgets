@@ -99,9 +99,14 @@ export class DecorateInternalRefs {
       const frbrUri = this.akomaNtosoElement.getAttribute('frbr-expression-uri');
       if (frbrUri) {
         const url = this.provider + '/p/' + this.partner + '/e/portion' + addPortion(frbrUri, '~' + elementId);
-        const resp = await fetch(url);
-        if (resp.ok) {
-          return await resp.text();
+        try {
+          const resp = await fetch(url);
+          if (resp.ok) {
+            return await resp.text();
+          }
+        }
+        catch (error) {
+          // ignore
         }
       }
     }
