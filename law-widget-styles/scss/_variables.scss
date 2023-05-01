@@ -42,6 +42,12 @@ $akn-elements-hier: (
   "crossHeading"
 );
 
+// generic hierarchical elements
+$akn-elements-generic-hier: (
+  "alinea", "indent", "level", "list", "paragraph", "point", "proviso", "rule",
+  "sublist", "subparagraph", "subrule", "subsection", "transitional"
+);
+
 // AKN block and block-like elements
 $akn-elements-block: (
   "blockContainer", "block", "blockList", "conclusions", "coverPage", "foreign", "item", "ol", "p", "preamble",
