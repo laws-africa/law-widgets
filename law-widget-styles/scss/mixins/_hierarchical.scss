@@ -14,7 +14,7 @@
 
   /* Indent list-like containers that have margin numbers.
      For the exception where these are not numbered, .akn--no-indent is applied to override the indent. */
-  @each $elem in $akn-elements-generic-hier {
+  @each $elem in $akn-elements-list-like {
     .akn-#{$elem} {
       padding-left: $akn-para-indent;
       margin-bottom: $akn-para-spacing;
