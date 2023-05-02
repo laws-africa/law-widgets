@@ -1,6 +1,4 @@
-# Indigo Web
-
-[![Build Status](https://travis-ci.org/laws-africa/law-widget-styles.svg)](http://travis-ci.org/laws-africa/law-widget-styles)
+# Law Widget Styles
 
 Stylesheets for use with HTML documents published using the [Indigo platform](https://indigo.readthedocs.org).
 They make Akoma Ntoso documents look beautiful.
@@ -48,21 +46,15 @@ To build changes manually:
 
 To run screenshot-based tests:
 
-* npm run test
+* `npm run test-images`
 
 ## Release process
 
-* update VERSION
-* update version in `package.json`
-* update version in URL in README
-* update Version History (below)
-* test: `npm run test`
-* commit your changes and merge them into master via a Pull Request
-* GitHub will build and commit the compiled CSS onto the master branch
-* tag and release a new release on the master branch using the [GitHub releases UI](https://github.com/laws-africa/law-widget-styles/releases/new)
-* GitHub will automatically publish the package to NPM
+* test: `npm run test-images` (these aren't run on GitHub because of font variations between OSes).
+* commit your changes and merge them into main via a Pull Request
+* See [Releasing and publishing packages](../README.md#releasing-and-publishing-packages) in the main repo.
 
-# Version history
+# Version history (no longer updated; see main repo)
 
 ## 8.1.1 (18 May 2022)
 * Show table border for Kenya (KE) AKN styles

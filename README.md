@@ -29,6 +29,8 @@ Run `lerna bootstrap` in the terminal. This will npm install all the packages (`
 and provide the necessary symlinking between packages. (i.e `core` has `law-widget-styles` as a dependency, hence Lerna will
 symlink `law-widget-styles`).
 
+Try prepending ``lerna`` with ``npx `` if you get ``command not found: lerna``.
+
 ## Running tests 
 In the terminal, run `lerna run test`.
 
@@ -37,10 +39,10 @@ In the terminal, run `lerna run build`.
 
 ## Releasing and publishing packages
 
-- Once you have merged your feature into master, run `lerna version VERSION_NUMBER --conventional-commits` (
+- Once you have merged your feature into main, run `lerna version VERSION_NUMBER --conventional-commits` (
   e.g `lerna version 1.0.1 --conventional-commits`) in the terminal.
 - An automatic tagged commit will occur and the changelog for the packages will be updated.
-- Create a new release [here](https://github.com/laws-africa/la-web-components/releases/new). Use the tag that was
+- Create a new release [here](https://github.com/laws-africa/law-widgets/releases/new). Use the tag that was
   pushed
   for your release.
 - Upon creating a release, a new version of the packages will be published on `npm`.
