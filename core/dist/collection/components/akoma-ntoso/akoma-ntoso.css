@@ -15,7 +15,6 @@ la-akoma-ntoso {
   /* Schedules and attachments */
   /* Indent list-like containers that have margin numbers.
      For the exception where these are not numbered, .akn--no-indent is applied to override the indent. */
-  /* lists (mostly used in definitions) */
   /* amendment markup */
   /* footnotes */
   /* quotes */
@@ -469,46 +468,304 @@ la-akoma-ntoso .akn-crossHeading {
   display: block;
   margin-bottom: 1.6em;
 }
-la-akoma-ntoso .akn-subsection,
-la-akoma-ntoso .akn-paragraph,
+la-akoma-ntoso .akn-alinea {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-alinea.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-alinea > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-alinea > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-alinea > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-indent {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-indent.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-indent > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-indent > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-indent > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-level {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-level.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-level > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-level > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-level > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-list {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-list.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-list > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-list > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-list > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-paragraph {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-paragraph.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-paragraph > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-paragraph > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-paragraph > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-point {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-point.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-point > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-point > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-point > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-proviso {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-proviso.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-proviso > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-proviso > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-proviso > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-rule {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-rule.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-rule > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-rule > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-rule > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-sublist {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-sublist.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-sublist > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-sublist > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-sublist > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
 la-akoma-ntoso .akn-subparagraph {
   padding-left: 3em;
   margin-bottom: 0.8em;
 }
-la-akoma-ntoso .akn-subsection.akn--no-indent,
-la-akoma-ntoso .akn-paragraph.akn--no-indent,
 la-akoma-ntoso .akn-subparagraph.akn--no-indent {
   padding-left: 0px;
 }
-la-akoma-ntoso .akn-subsection > .akn-num,
-la-akoma-ntoso .akn-paragraph > .akn-num,
 la-akoma-ntoso .akn-subparagraph > .akn-num {
   display: block;
   float: left;
   margin-left: -3em;
   margin-right: 0.25em;
 }
-la-akoma-ntoso .akn-subsection > .akn-heading,
-la-akoma-ntoso .akn-paragraph > .akn-heading,
 la-akoma-ntoso .akn-subparagraph > .akn-heading {
   font-size: inherit;
   text-align: inherit;
   line-height: inherit;
 }
-la-akoma-ntoso .akn-list > .akn-intro {
-  display: block;
+la-akoma-ntoso .akn-subparagraph > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-subrule {
+  padding-left: 3em;
   margin-bottom: 0.8em;
 }
-la-akoma-ntoso .akn-list > .akn-point {
-  display: block;
-  margin-left: 3em;
-  margin-bottom: 0.8em;
+la-akoma-ntoso .akn-subrule.akn--no-indent {
+  padding-left: 0px;
 }
-la-akoma-ntoso .akn-list > .akn-point > .akn-num {
+la-akoma-ntoso .akn-subrule > .akn-num {
   display: block;
   float: left;
   margin-left: -3em;
   margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-subrule > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-subrule > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-subsection {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-subsection.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-subsection > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-subsection > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-subsection > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
+}
+la-akoma-ntoso .akn-transitional {
+  padding-left: 3em;
+  margin-bottom: 0.8em;
+}
+la-akoma-ntoso .akn-transitional.akn--no-indent {
+  padding-left: 0px;
+}
+la-akoma-ntoso .akn-transitional > .akn-num {
+  display: block;
+  float: left;
+  margin-left: -3em;
+  margin-right: 0.25em;
+}
+la-akoma-ntoso .akn-transitional > .akn-heading {
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+}
+la-akoma-ntoso .akn-transitional > .akn-subheading {
+  text-align: start;
+  font-style: normal;
+  font-weight: bold;
 }
 la-akoma-ntoso .akn-br {
   display: block;
