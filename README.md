@@ -29,6 +29,8 @@ Run `lerna bootstrap` in the terminal. This will npm install all the packages (`
 and provide the necessary symlinking between packages. (i.e `core` has `law-widget-styles` as a dependency, hence Lerna will
 symlink `law-widget-styles`).
 
+Try prepending ``lerna`` with ``npx `` if you get ``command not found: lerna``.
+
 ## Running tests 
 In the terminal, run `lerna run test`.
 
