@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "sass --style compressed scss/law-widget-styles.scss css/law-widget-styles.min.css && sass scss/law-widget-styles.scss css/law-widget-styles.css",
-    "test": "jest"
+    "test-images": "jest"
   },
   "repository": {
     "type": "git",

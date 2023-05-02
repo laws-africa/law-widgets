@@ -56,7 +56,7 @@ To run screenshot-based tests:
 * update version in `package.json`
 * update version in URL in README
 * update Version History (below)
-* test: `npm run test`
+* test: `npm run test-images`
 * commit your changes and merge them into master via a Pull Request
 * GitHub will build and commit the compiled CSS onto the master branch
 * tag and release a new release on the master branch using the [GitHub releases UI](https://github.com/laws-africa/law-widget-styles/releases/new)
