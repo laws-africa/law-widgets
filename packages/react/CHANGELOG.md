@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 (2023-05-03)
+
+**Note:** Version bump only for package @lawsafrica/law-widgets-react
+
+
+
+
+
 ## 1.2.0 (2023-04-10)
 
 * build(deps-dev): bump @testing-library/jest-dom from 5.16.1 to 5.16.5 ([900359b](https://github.com/laws-africa/la-web-components/commit/900359b))

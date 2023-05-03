@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 (2023-05-03)
+
+* Built artefacts ([7e7a521](https://github.com/laws-africa/la-web-components/commit/7e7a521))
+
+
+
+
+
 ## 1.2.0 (2023-04-10)
 
 * Built artefacts ([d8ea183](https://github.com/laws-africa/la-web-components/commit/d8ea183))

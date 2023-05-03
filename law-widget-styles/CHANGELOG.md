@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 (2023-05-03)
+
+* add alineas to primary-styling ([9764fad](https://github.com/laws-africa/law-widget-styles/commit/9764fad))
+* add test script to npm package ([5fe5ed9](https://github.com/laws-africa/law-widget-styles/commit/5fe5ed9))
+* Delete VERSION ([c4cc14c](https://github.com/laws-africa/law-widget-styles/commit/c4cc14c))
+* lockfileVersion 2 ([9389aeb](https://github.com/laws-africa/law-widget-styles/commit/9389aeb))
+* new version ([49c7a65](https://github.com/laws-africa/law-widget-styles/commit/49c7a65))
+* rebuild maps after nuking an uncommitted comment ([c719b90](https://github.com/laws-africa/law-widget-styles/commit/c719b90))
+* refactor primary-styling test input for readability ([20d50a2](https://github.com/laws-africa/law-widget-styles/commit/20d50a2))
+* rename 'generic hier' to 'list-like' ([b3dd54f](https://github.com/laws-africa/law-widget-styles/commit/b3dd54f))
+* revert version change in package ([6881086](https://github.com/laws-africa/law-widget-styles/commit/6881086))
+* style all generic hierarchical elements the same way ([270d4b8](https://github.com/laws-africa/law-widget-styles/commit/270d4b8))
+* update package version too, docs tweaks ([783e3fd](https://github.com/laws-africa/law-widget-styles/commit/783e3fd))
+* update release process in readme on law-widget-styles ([b2a8a65](https://github.com/laws-africa/law-widget-styles/commit/b2a8a65))
+* update screenshot ([c8b8ef2](https://github.com/laws-africa/law-widget-styles/commit/c8b8ef2))
+* use test-images for the jest tests on law-widget-styles ([ff69b28](https://github.com/laws-africa/law-widget-styles/commit/ff69b28))
+
+
+
+
+
 ## 1.2.0 (2023-04-10)
 
 * build(deps-dev): bump jest-puppeteer from 6.0.2 to 6.2.0 ([236ac8e](https://github.com/laws-africa/law-widget-styles/commit/236ac8e))
