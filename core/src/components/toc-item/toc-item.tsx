@@ -106,16 +106,7 @@ export class TocItem {
             {this.appendHtml ? <div class="content__action__append" innerHTML={this.appendHtml}></div> : null}
           </div>
           <div class="content__children">
-            {this.item.children?.length
-              ? this.item.children.map((item: TOCItem) => (
-                  <la-toc-item
-                    item={item}
-                    filteredItems={this.filteredItems}
-                    expandIconHtml={this.expandIconHtml}
-                    collapseIconHtml={this.collapseIconHtml}
-                  ></la-toc-item>
-                ))
-              : null}
+            <slot />
           </div>
         </div>
       </Host>

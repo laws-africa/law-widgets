@@ -17,7 +17,7 @@ export default {
   },
 };
 
-const Template = () => html`<la-table-of-contents .items="${data.nested_toc_list}"></la-table-of-contents>`;
+const Template = () => html`<la-table-of-contents expanded="true" .items="${data.nested_toc_list}"></la-table-of-contents>`;
 
 export const BasicUsage = Template.bind({});
 BasicUsage.args = {};

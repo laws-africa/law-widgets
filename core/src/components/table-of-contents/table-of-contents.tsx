@@ -8,10 +8,10 @@ import { PROVIDER, getPartner } from '../../utils/services';
  * and a `children` attribute (which may be `null`).
  */
 export interface TOCItem {
-  [key: string]: any; // type for unknown keys.
   title?: string;
   id?: string;
   url?: string;
+  expanded?: boolean;
   children?: TOCItem[];
 }
 
@@ -23,7 +23,7 @@ export class TableOfContents {
    * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
    * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
    *
-   * Items may optionally have an id attribute and a url attribute, which are used to build the links for each item.
+   * Items may optionally have an id attribute and an url attribute, which are used to build the links for each item.
    * */
   @Prop() items: TOCItem[] | string = [];
 
@@ -32,7 +32,9 @@ export class TableOfContents {
    * */
   @Prop() titleFilter = '';
 
-  /** Should the table of contents be expanded when first created? */
+  /**
+   * Should items be expanded by default? This can be overridden by setting the expanded property for individual items.
+   * */
   @Prop() expanded = true;
 
   /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
@@ -49,6 +51,9 @@ export class TableOfContents {
   @State() innerItems: TOCItem[] = [];
 
   @Element() el!: HTMLElement;
+
+  protected expandIconHtml = '';
+  protected collapseIconHtml = '';
 
   @Watch('items')
   parseItemsProp(newValue: any) {
@@ -89,19 +94,30 @@ export class TableOfContents {
     }
   }
 
+  getSlotHTML(selector: string) {
+    const element = this.el.querySelector(selector);
+    /**
+     * If slots originate from `la-table-of-contents`, query for slot html is
+     * `this.el.querySelector("[slot]").innerHTML`
+     * If slot originate from `la-table-of-contents-controller` query for slot html is
+     * `this.el.querySelector("[slot] [slot]").innerHTML`
+     * */
+
+    // Slots originating from la-table-of-content-controller
+    if (element?.querySelector(selector)) {
+      return element.querySelector(selector)?.innerHTML || '';
+    }
+
+    // Slots originating from la-table-of-content
+    return element?.innerHTML || '';
+  }
+
   componentWillLoad() {
+    this.expandIconHtml = this.getSlotHTML("[slot='expand-icon']");
+    this.collapseIconHtml = this.getSlotHTML("[slot='collapse-icon']");
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
-  }
-
-  componentDidLoad() {
-    // expand or collapse when first loaded
-    if (this.expanded) {
-      this.expandAll();
-    } else {
-      this.collapseAll();
-    }
   }
 
   /**
@@ -178,46 +194,34 @@ export class TableOfContents {
     this.expandAll();
   }
 
+  /**
+   * Render items recursively. We render from the bottom up, allowing us to append children into their
+   * parents. Rendering recursively here rather than inside la-toc-item means we can make use of global
+   * configuration details without having to pass them down the tree.
+   */
+  renderItem(item: TOCItem) {
+    // render the children first, so we can add them to the parent
+    const kids = (item.children || []).map((child) => this.renderItem(child));
+    // if the item has an explicit expanded value, use that, otherwise use the tree's default value
+    const expanded = item.expanded === undefined ? this.expanded : item.expanded;
+
+    return <la-toc-item
+      item={item}
+      filteredItems={this.filteredItems}
+      expandIconHtml={this.expandIconHtml}
+      collapseIconHtml={this.collapseIconHtml}
+      expanded={expanded}
+    >{kids}</la-toc-item>;
+  }
+
   render() {
-    const renderTOCItem = (item: TOCItem) => {
-      const getSlotHTML = (selector: string) => {
-        const element = this.el.querySelector(selector);
-        /**
-         * If slots originate from `la-table-of-contents`, query for slot html is
-         * `this.el.querySelector("[slot]").innerHTML`
-         * If slot originate from `la-table-of-contents-controller` query for slot html is
-         * `this.el.querySelector("[slot] [slot]").innerHTML`
-         * */
-
-        // Slots originating from la-table-of-content-controller
-        if (element?.querySelector(selector)) {
-          return element.querySelector(selector)?.innerHTML || '';
-        }
-
-        // Slots originating from la-table-of-content
-        return element?.innerHTML || '';
-      };
-
-      const expandIcon = getSlotHTML("[slot='expand-icon']");
-      const collapseIcon = getSlotHTML("[slot='collapse-icon']");
-      return (
-        <la-toc-item
-          item={item}
-          filteredItems={this.filteredItems}
-          expandIconHtml={expandIcon}
-          collapseIconHtml={collapseIcon}
-          expanded={false}
-        ></la-toc-item>
-      );
-    };
-
     return (
       <Host>
         <div style={{ display: 'none' }}>
           <slot name="expand-icon"></slot>
           <slot name="collapse-icon"></slot>
         </div>
-        <div class="toc-items">{this.innerItems.map((item) => renderTOCItem(item))}</div>
+        {this.innerItems.map((item) => this.renderItem(item))}
       </Host>
     );
   }

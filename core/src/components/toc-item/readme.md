@@ -29,16 +29,10 @@
 ### Used by
 
  - [la-table-of-contents](../table-of-contents)
- - [la-toc-item](.)
-
-### Depends on
-
-- [la-toc-item](.)
 
 ### Graph
 ```mermaid
 graph TD;
-  la-toc-item --> la-toc-item
   la-table-of-contents --> la-toc-item
   style la-toc-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
