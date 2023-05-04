@@ -1864,16 +1864,6 @@ export const Structure = (props) => html`
                 ></span
               >
             </section>
-            <section class="akn-alinea" id="sec_15__subsec_1" data-eId="sec_15__subsec_1">
-              <span class="akn-num">1</span><span class="akn-heading">alinea heading</span
-            ><span class="akn-content"
-            ><span class="akn-p" id="sec_15__subsec_1__p_1" data-eId="sec_15__subsec_1__p_1"
-            >First line of subsection text</span
-            ><span class="akn-p" id="sec_15__subsec_1__p_2" data-eId="sec_15__subsec_1__p_2"
-            >Second line of subsection text</span
-            ></span
-            >
-            </section>
           </section>
           <span class="akn-title" id="title_16" data-eId="title_16"
             ><span class="akn-num">16</span><span class="akn-heading">title heading</span
