@@ -10,6 +10,8 @@ import { PROVIDER, getPartner } from '../../utils/services';
 export interface TOCItem {
   [key: string]: any; // type for unknown keys.
   title?: string;
+  id?: string;
+  url?: string;
   children?: TOCItem[];
 }
 
@@ -20,6 +22,8 @@ export class TableOfContents {
   /**
    * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
    * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+   *
+   * Items may optionally have an id attribute and a url attribute, which are used to build the links for each item.
    * */
   @Prop() items: TOCItem[] | string = [];
 
@@ -27,6 +31,9 @@ export class TableOfContents {
    * value to filter items by item title
    * */
   @Prop() titleFilter = '';
+
+  /** Should the table of contents be expanded when first created? */
+  @Prop() expanded = true;
 
   /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
   @Prop({ reflect: true, mutable: true }) frbrExpressionUri?: string;
@@ -86,6 +93,15 @@ export class TableOfContents {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
+  }
+
+  componentDidLoad() {
+    // expand or collapse when first loaded
+    if (this.expanded) {
+      this.expandAll();
+    } else {
+      this.collapseAll();
+    }
   }
 
   /**
@@ -190,6 +206,7 @@ export class TableOfContents {
           filteredItems={this.filteredItems}
           expandIconHtml={expandIcon}
           collapseIconHtml={collapseIcon}
+          expanded={false}
         ></la-toc-item>
       );
     };

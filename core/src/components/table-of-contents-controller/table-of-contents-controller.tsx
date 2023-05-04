@@ -51,6 +51,9 @@ export class TableOfContentsController {
    * */
   @Prop() collapseAllBtnText = 'Collapse all';
 
+  /** Should the table of contents be expanded when first created? */
+  @Prop() expanded = true;
+
   /**
    * Additional CSS classes added to the search filter input
    * */
@@ -138,6 +141,7 @@ export class TableOfContentsController {
           provider={this.provider}
           partner={this.partner}
           frbr-expression-uri={this.frbrExpressionUri}
+          expanded={this.expanded}
         >
           <span slot="expand-icon">
             <slot name="expand-icon"></slot>
