@@ -9,12 +9,16 @@ export class TableOfContents {
     /**
      * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
      * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+     *
+     * Items may optionally have an id attribute and a url attribute, which are used to build the links for each item.
      * */
     this.items = [];
     /**
      * value to filter items by item title
      * */
     this.titleFilter = '';
+    /** Should the table of contents be expanded when first created? */
+    this.expanded = true;
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
@@ -58,6 +62,15 @@ export class TableOfContents {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
+  }
+  componentDidLoad() {
+    // expand or collapse when first loaded
+    if (this.expanded) {
+      this.expandAll();
+    }
+    else {
+      this.collapseAll();
+    }
   }
   /**
    * Expands all items
@@ -143,7 +156,7 @@ export class TableOfContents {
       };
       const expandIcon = getSlotHTML("[slot='expand-icon']");
       const collapseIcon = getSlotHTML("[slot='collapse-icon']");
-      return (h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: expandIcon, collapseIconHtml: collapseIcon }));
+      return (h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: expandIcon, collapseIconHtml: collapseIcon, expanded: false }));
     };
     return (h(Host, null,
       h("div", { style: { display: 'none' } },
@@ -169,7 +182,7 @@ export class TableOfContents {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": "JSON value or string value parsed to array of items used to build the table of contents. Each item must have\na `title` attribute (which may be `null`), and a `children` attribute (which may be `null`)."
+        "text": "JSON value or string value parsed to array of items used to build the table of contents. Each item must have\na `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).\n\nItems may optionally have an id attribute and a url attribute, which are used to build the links for each item."
       },
       "attribute": "items",
       "reflect": false,
@@ -192,6 +205,24 @@ export class TableOfContents {
       "attribute": "title-filter",
       "reflect": false,
       "defaultValue": "''"
+    },
+    "expanded": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Should the table of contents be expanded when first created?"
+      },
+      "attribute": "expanded",
+      "reflect": false,
+      "defaultValue": "true"
     },
     "frbrExpressionUri": {
       "type": "string",

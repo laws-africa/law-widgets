@@ -47,6 +47,7 @@ export class TocItem {
     var _a, _b;
     const isParent = !!((_a = this.item.children) === null || _a === void 0 ? void 0 : _a.length);
     const showItem = !this.filteredItems || this.filteredItems.has(this.item);
+    const url = this.item.url || `#${this.item.id || ''}`;
     const renderToggleBtnInner = () => {
       if (this.expanded) {
         return this.collapseIconHtml ? h("span", { innerHTML: this.collapseIconHtml }) : h("span", null, "\u25BC");
@@ -58,7 +59,7 @@ export class TocItem {
       h("div", { class: "content" },
         h("div", { class: "content__action" },
           this.prependHtml ? h("div", { class: "content__action__prepend", innerHTML: this.prependHtml }) : null,
-          h("a", { href: `#${this.item.id || ''}`, class: "content__action__title", onClick: this.onItemTitleClick }, this.item.title),
+          h("a", { href: url, class: "content__action__title", onClick: this.onItemTitleClick }, this.item.title),
           this.appendHtml ? h("div", { class: "content__action__append", innerHTML: this.appendHtml }) : null),
         h("div", { class: "content__children" }, ((_b = this.item.children) === null || _b === void 0 ? void 0 : _b.length)
           ? this.item.children.map((item) => (h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: this.expandIconHtml, collapseIconHtml: this.collapseIconHtml })))

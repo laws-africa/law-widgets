@@ -57,13 +57,14 @@ const TocItem = class {
     var _a, _b;
     const isParent = !!((_a = this.item.children) === null || _a === void 0 ? void 0 : _a.length);
     const showItem = !this.filteredItems || this.filteredItems.has(this.item);
+    const url = this.item.url || `#${this.item.id || ''}`;
     const renderToggleBtnInner = () => {
       if (this.expanded) {
         return this.collapseIconHtml ? index.h("span", { innerHTML: this.collapseIconHtml }) : index.h("span", null, "\u25BC");
       }
       return this.expandIconHtml ? index.h("span", { innerHTML: this.expandIconHtml }) : index.h("span", null, "\u25BA");
     };
-    return (index.h(index.Host, Object.assign({}, (isParent ? { parent: isParent } : {}), { class: `${!showItem ? 'excluded' : ''}` }), index.h("div", { class: "indented" }, isParent ? (index.h("div", { class: "indented__toggle-btn", role: "button", onClick: () => this.toggle() }, renderToggleBtnInner())) : null), index.h("div", { class: "content" }, index.h("div", { class: "content__action" }, this.prependHtml ? index.h("div", { class: "content__action__prepend", innerHTML: this.prependHtml }) : null, index.h("a", { href: `#${this.item.id || ''}`, class: "content__action__title", onClick: this.onItemTitleClick }, this.item.title), this.appendHtml ? index.h("div", { class: "content__action__append", innerHTML: this.appendHtml }) : null), index.h("div", { class: "content__children" }, ((_b = this.item.children) === null || _b === void 0 ? void 0 : _b.length)
+    return (index.h(index.Host, Object.assign({}, (isParent ? { parent: isParent } : {}), { class: `${!showItem ? 'excluded' : ''}` }), index.h("div", { class: "indented" }, isParent ? (index.h("div", { class: "indented__toggle-btn", role: "button", onClick: () => this.toggle() }, renderToggleBtnInner())) : null), index.h("div", { class: "content" }, index.h("div", { class: "content__action" }, this.prependHtml ? index.h("div", { class: "content__action__prepend", innerHTML: this.prependHtml }) : null, index.h("a", { href: url, class: "content__action__title", onClick: this.onItemTitleClick }, this.item.title), this.appendHtml ? index.h("div", { class: "content__action__append", innerHTML: this.appendHtml }) : null), index.h("div", { class: "content__children" }, ((_b = this.item.children) === null || _b === void 0 ? void 0 : _b.length)
       ? this.item.children.map((item) => (index.h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: this.expandIconHtml, collapseIconHtml: this.collapseIconHtml })))
       : null))));
   }

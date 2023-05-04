@@ -33,6 +33,8 @@ export declare class TableOfContentsController {
    * Button text for collapse all button
    * */
   collapseAllBtnText: string;
+  /** Should the table of contents be expanded when first created? */
+  expanded: boolean;
   /**
    * Additional CSS classes added to the search filter input
    * */

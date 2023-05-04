@@ -47,6 +47,8 @@ const TableOfContentsController = class {
      * Button text for collapse all button
      * */
     this.collapseAllBtnText = 'Collapse all';
+    /** Should the table of contents be expanded when first created? */
+    this.expanded = true;
     /**
      * Additional CSS classes added to the search filter input
      * */
@@ -78,7 +80,7 @@ const TableOfContentsController = class {
       }
       return (index.h("button", { class: `search__clear-btn ${this.titleFilterClearBtnClasses}`, type: "button", onClick: () => this.clearTitleFilter(), disabled: !this.titleFilter }, index.h("slot", { name: "clear-title-filter-icon" }, "\u2715")));
     };
-    return (index.h(index.Host, null, index.h("div", { class: "search" }, index.h("input", { class: `search__input ${this.titleFilterInputClasses}`, value: this.titleFilter, placeholder: this.titleFilterPlaceholder, onInput: (e) => this.handleTitleChange(e) }), renderHideClearFilterButton()), index.h("div", { class: "toggle" }, index.h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, this.expandAllBtnText), index.h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, this.collapseAllBtnText)), index.h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri }, index.h("span", { slot: "expand-icon" }, index.h("slot", { name: "expand-icon" })), index.h("span", { slot: "collapse-icon" }, index.h("slot", { name: "collapse-icon" })))));
+    return (index.h(index.Host, null, index.h("div", { class: "search" }, index.h("input", { class: `search__input ${this.titleFilterInputClasses}`, value: this.titleFilter, placeholder: this.titleFilterPlaceholder, onInput: (e) => this.handleTitleChange(e) }), renderHideClearFilterButton()), index.h("div", { class: "toggle" }, index.h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, this.expandAllBtnText), index.h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, this.collapseAllBtnText)), index.h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri, expanded: this.expanded }, index.h("span", { slot: "expand-icon" }, index.h("slot", { name: "expand-icon" })), index.h("span", { slot: "collapse-icon" }, index.h("slot", { name: "collapse-icon" })))));
   }
   get el() { return index.getElement(this); }
 };

@@ -40,6 +40,8 @@ export class TableOfContentsController {
      * Button text for collapse all button
      * */
     this.collapseAllBtnText = 'Collapse all';
+    /** Should the table of contents be expanded when first created? */
+    this.expanded = true;
     /**
      * Additional CSS classes added to the search filter input
      * */
@@ -79,7 +81,7 @@ export class TableOfContentsController {
       h("div", { class: "toggle" },
         h("button", { type: "button", class: `toggle__expand-all-btn ${this.expandAllBtnClasses}`, onClick: () => this.expandAll() }, this.expandAllBtnText),
         h("button", { type: "button", class: `toggle__collapse-all-btn ${this.collapseAllBtnClasses}`, onClick: () => this.collapseAll() }, this.collapseAllBtnText)),
-      h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri },
+      h("la-table-of-contents", { items: this.items, titleFilter: this.titleFilter, fetch: this.fetch, provider: this.provider, partner: this.partner, "frbr-expression-uri": this.frbrExpressionUri, expanded: this.expanded },
         h("span", { slot: "expand-icon" },
           h("slot", { name: "expand-icon" })),
         h("span", { slot: "collapse-icon" },
@@ -241,6 +243,24 @@ export class TableOfContentsController {
       "attribute": "collapse-all-btn-text",
       "reflect": false,
       "defaultValue": "'Collapse all'"
+    },
+    "expanded": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Should the table of contents be expanded when first created?"
+      },
+      "attribute": "expanded",
+      "reflect": false,
+      "defaultValue": "true"
     },
     "titleFilterInputClasses": {
       "type": "string",

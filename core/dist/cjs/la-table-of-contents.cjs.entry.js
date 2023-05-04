@@ -14,12 +14,16 @@ const TableOfContents = class {
     /**
      * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
      * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+     *
+     * Items may optionally have an id attribute and a url attribute, which are used to build the links for each item.
      * */
     this.items = [];
     /**
      * value to filter items by item title
      * */
     this.titleFilter = '';
+    /** Should the table of contents be expanded when first created? */
+    this.expanded = true;
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
@@ -63,6 +67,15 @@ const TableOfContents = class {
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
+  }
+  componentDidLoad() {
+    // expand or collapse when first loaded
+    if (this.expanded) {
+      this.expandAll();
+    }
+    else {
+      this.collapseAll();
+    }
   }
   /**
    * Expands all items
@@ -148,7 +161,7 @@ const TableOfContents = class {
       };
       const expandIcon = getSlotHTML("[slot='expand-icon']");
       const collapseIcon = getSlotHTML("[slot='collapse-icon']");
-      return (index.h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: expandIcon, collapseIconHtml: collapseIcon }));
+      return (index.h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: expandIcon, collapseIconHtml: collapseIcon, expanded: false }));
     };
     return (index.h(index.Host, null, index.h("div", { style: { display: 'none' } }, index.h("slot", { name: "expand-icon" }), index.h("slot", { name: "collapse-icon" })), index.h("div", { class: "toc-items" }, this.innerItems.map((item) => renderTOCItem(item)))));
   }

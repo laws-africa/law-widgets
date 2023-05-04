@@ -12,12 +12,16 @@ const TableOfContents = /*@__PURE__*/ proxyCustomElement(class extends HTMLEleme
     /**
      * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
      * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
+     *
+     * Items may optionally have an id attribute and a url attribute, which are used to build the links for each item.
      * */
     this.items = [];
     /**
      * value to filter items by item title
      * */
     this.titleFilter = '';
+    /** Should the table of contents be expanded when first created? */
+    this.expanded = true;
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
     /** Provider URL for fetching content (advanced usage only). */
@@ -61,6 +65,15 @@ const TableOfContents = /*@__PURE__*/ proxyCustomElement(class extends HTMLEleme
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
+  }
+  componentDidLoad() {
+    // expand or collapse when first loaded
+    if (this.expanded) {
+      this.expandAll();
+    }
+    else {
+      this.collapseAll();
+    }
   }
   /**
    * Expands all items
@@ -146,7 +159,7 @@ const TableOfContents = /*@__PURE__*/ proxyCustomElement(class extends HTMLEleme
       };
       const expandIcon = getSlotHTML("[slot='expand-icon']");
       const collapseIcon = getSlotHTML("[slot='collapse-icon']");
-      return (h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: expandIcon, collapseIconHtml: collapseIcon }));
+      return (h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: expandIcon, collapseIconHtml: collapseIcon, expanded: false }));
     };
     return (h(Host, null, h("div", { style: { display: 'none' } }, h("slot", { name: "expand-icon" }), h("slot", { name: "collapse-icon" })), h("div", { class: "toc-items" }, this.innerItems.map((item) => renderTOCItem(item)))));
   }
@@ -161,6 +174,7 @@ const TableOfContents = /*@__PURE__*/ proxyCustomElement(class extends HTMLEleme
 }, [4, "la-table-of-contents", {
     "items": [1],
     "titleFilter": [1, "title-filter"],
+    "expanded": [4],
     "frbrExpressionUri": [1537, "frbr-expression-uri"],
     "fetch": [1540],
     "partner": [1537],
