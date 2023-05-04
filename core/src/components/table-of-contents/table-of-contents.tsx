@@ -10,7 +10,7 @@ import { PROVIDER, getPartner } from '../../utils/services';
 export interface TOCItem {
   title?: string;
   id?: string;
-  url?: string;
+  href?: string;
   expanded?: boolean;
   children?: TOCItem[];
 }
@@ -23,7 +23,7 @@ export class TableOfContents {
    * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
    * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
    *
-   * Items may optionally have an id attribute and an url attribute, which are used to build the links for each item.
+   * Items may optionally have an id attribute and an href attribute, which are used to build the links for each item.
    * */
   @Prop() items: TOCItem[] | string = [];
 
