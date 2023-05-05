@@ -10,14 +10,16 @@ export class TableOfContents {
      * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
      * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
      *
-     * Items may optionally have an id attribute and a url attribute, which are used to build the links for each item.
+     * Items may optionally have an id attribute and an href attribute, which are used to build the links for each item.
      * */
     this.items = [];
     /**
      * value to filter items by item title
      * */
     this.titleFilter = '';
-    /** Should the table of contents be expanded when first created? */
+    /**
+     * Should items be expanded by default? This can be overridden by setting the expanded property for individual items.
+     * */
     this.expanded = true;
     /** Fetch content from Laws.Africa services? Requires a Laws.Africa partnership and the frbrExpressionUri property to be set. */
     this.fetch = false;
@@ -25,6 +27,8 @@ export class TableOfContents {
     this.provider = PROVIDER;
     this.filteredItems = null;
     this.innerItems = [];
+    this.expandIconHtml = '';
+    this.collapseIconHtml = '';
   }
   parseItemsProp(newValue) {
     if (typeof newValue === 'string') {
@@ -58,19 +62,28 @@ export class TableOfContents {
       this.partner = getPartner();
     }
   }
+  getSlotHTML(selector) {
+    var _a;
+    const element = this.el.querySelector(selector);
+    /**
+     * If slots originate from `la-table-of-contents`, query for slot html is
+     * `this.el.querySelector("[slot]").innerHTML`
+     * If slot originate from `la-table-of-contents-controller` query for slot html is
+     * `this.el.querySelector("[slot] [slot]").innerHTML`
+     * */
+    // Slots originating from la-table-of-content-controller
+    if (element === null || element === void 0 ? void 0 : element.querySelector(selector)) {
+      return ((_a = element.querySelector(selector)) === null || _a === void 0 ? void 0 : _a.innerHTML) || '';
+    }
+    // Slots originating from la-table-of-content
+    return (element === null || element === void 0 ? void 0 : element.innerHTML) || '';
+  }
   componentWillLoad() {
+    this.expandIconHtml = this.getSlotHTML("[slot='expand-icon']");
+    this.collapseIconHtml = this.getSlotHTML("[slot='collapse-icon']");
     this.parseItemsProp(this.items);
     this.titleFilterChanged(this.titleFilter);
     this.fetchContent();
-  }
-  componentDidLoad() {
-    // expand or collapse when first loaded
-    if (this.expanded) {
-      this.expandAll();
-    }
-    else {
-      this.collapseAll();
-    }
   }
   /**
    * Expands all items
@@ -136,33 +149,24 @@ export class TableOfContents {
     }
     this.expandAll();
   }
+  /**
+   * Render items recursively. We render from the bottom up, allowing us to append children into their
+   * parents. Rendering recursively here rather than inside la-toc-item means we can make use of global
+   * configuration details without having to pass them down the tree.
+   */
+  renderItem(item) {
+    // render the children first, so we can add them to the parent
+    const kids = (item.children || []).map((child) => this.renderItem(child));
+    // if the item has an explicit expanded value, use that, otherwise use the tree's default value
+    const expanded = item.expanded === undefined ? this.expanded : item.expanded;
+    return h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: this.expandIconHtml, collapseIconHtml: this.collapseIconHtml, expanded: expanded }, kids);
+  }
   render() {
-    const renderTOCItem = (item) => {
-      const getSlotHTML = (selector) => {
-        var _a;
-        const element = this.el.querySelector(selector);
-        /**
-         * If slots originate from `la-table-of-contents`, query for slot html is
-         * `this.el.querySelector("[slot]").innerHTML`
-         * If slot originate from `la-table-of-contents-controller` query for slot html is
-         * `this.el.querySelector("[slot] [slot]").innerHTML`
-         * */
-        // Slots originating from la-table-of-content-controller
-        if (element === null || element === void 0 ? void 0 : element.querySelector(selector)) {
-          return ((_a = element.querySelector(selector)) === null || _a === void 0 ? void 0 : _a.innerHTML) || '';
-        }
-        // Slots originating from la-table-of-content
-        return (element === null || element === void 0 ? void 0 : element.innerHTML) || '';
-      };
-      const expandIcon = getSlotHTML("[slot='expand-icon']");
-      const collapseIcon = getSlotHTML("[slot='collapse-icon']");
-      return (h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: expandIcon, collapseIconHtml: collapseIcon, expanded: false }));
-    };
     return (h(Host, null,
       h("div", { style: { display: 'none' } },
         h("slot", { name: "expand-icon" }),
         h("slot", { name: "collapse-icon" })),
-      h("div", { class: "toc-items" }, this.innerItems.map((item) => renderTOCItem(item)))));
+      this.innerItems.map((item) => this.renderItem(item))));
   }
   static get is() { return "la-table-of-contents"; }
   static get properties() { return {
@@ -182,7 +186,7 @@ export class TableOfContents {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": "JSON value or string value parsed to array of items used to build the table of contents. Each item must have\na `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).\n\nItems may optionally have an id attribute and a url attribute, which are used to build the links for each item."
+        "text": "JSON value or string value parsed to array of items used to build the table of contents. Each item must have\na `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).\n\nItems may optionally have an id attribute and an href attribute, which are used to build the links for each item."
       },
       "attribute": "items",
       "reflect": false,
@@ -218,7 +222,7 @@ export class TableOfContents {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": "Should the table of contents be expanded when first created?"
+        "text": "Should items be expanded by default? This can be overridden by setting the expanded property for individual items."
       },
       "attribute": "expanded",
       "reflect": false,

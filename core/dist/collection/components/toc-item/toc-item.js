@@ -44,10 +44,10 @@ export class TocItem {
     this.itemRendered.emit();
   }
   render() {
-    var _a, _b;
+    var _a;
     const isParent = !!((_a = this.item.children) === null || _a === void 0 ? void 0 : _a.length);
     const showItem = !this.filteredItems || this.filteredItems.has(this.item);
-    const url = this.item.url || `#${this.item.id || ''}`;
+    const href = this.item.href || `#${this.item.id || ''}`;
     const renderToggleBtnInner = () => {
       if (this.expanded) {
         return this.collapseIconHtml ? h("span", { innerHTML: this.collapseIconHtml }) : h("span", null, "\u25BC");
@@ -59,11 +59,10 @@ export class TocItem {
       h("div", { class: "content" },
         h("div", { class: "content__action" },
           this.prependHtml ? h("div", { class: "content__action__prepend", innerHTML: this.prependHtml }) : null,
-          h("a", { href: url, class: "content__action__title", onClick: this.onItemTitleClick }, this.item.title),
+          h("a", { href: href, class: "content__action__title", onClick: this.onItemTitleClick }, this.item.title),
           this.appendHtml ? h("div", { class: "content__action__append", innerHTML: this.appendHtml }) : null),
-        h("div", { class: "content__children" }, ((_b = this.item.children) === null || _b === void 0 ? void 0 : _b.length)
-          ? this.item.children.map((item) => (h("la-toc-item", { item: item, filteredItems: this.filteredItems, expandIconHtml: this.expandIconHtml, collapseIconHtml: this.collapseIconHtml })))
-          : null))));
+        h("div", { class: "content__children" },
+          h("slot", null)))));
   }
   static get is() { return "la-toc-item"; }
   static get originalStyleUrls() { return {

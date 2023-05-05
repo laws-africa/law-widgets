@@ -3,10 +3,10 @@
  * and a `children` attribute (which may be `null`).
  */
 export interface TOCItem {
-  [key: string]: any;
   title?: string;
   id?: string;
-  url?: string;
+  href?: string;
+  expanded?: boolean;
   children?: TOCItem[];
 }
 export declare class TableOfContents {
@@ -14,14 +14,16 @@ export declare class TableOfContents {
    * JSON value or string value parsed to array of items used to build the table of contents. Each item must have
    * a `title` attribute (which may be `null`), and a `children` attribute (which may be `null`).
    *
-   * Items may optionally have an id attribute and a url attribute, which are used to build the links for each item.
+   * Items may optionally have an id attribute and an href attribute, which are used to build the links for each item.
    * */
   items: TOCItem[] | string;
   /**
    * value to filter items by item title
    * */
   titleFilter: string;
-  /** Should the table of contents be expanded when first created? */
+  /**
+   * Should items be expanded by default? This can be overridden by setting the expanded property for individual items.
+   * */
   expanded: boolean;
   /** Full Akoma Ntoso FRBR Expression URI to fetch TOC information for. Only used if `fetch` is set. */
   frbrExpressionUri?: string;
@@ -34,12 +36,14 @@ export declare class TableOfContents {
   filteredItems: Set<TOCItem> | null;
   innerItems: TOCItem[];
   el: HTMLElement;
+  protected expandIconHtml: string;
+  protected collapseIconHtml: string;
   parseItemsProp(newValue: any): void;
   refetch(): void;
   fetchContent(): Promise<void>;
   ensurePartner(): void;
+  getSlotHTML(selector: string): string;
   componentWillLoad(): void;
-  componentDidLoad(): void;
   /**
    * Expands all items
    */
@@ -49,5 +53,11 @@ export declare class TableOfContents {
    */
   collapseAll(): Promise<void>;
   titleFilterChanged(filter: string): void;
+  /**
+   * Render items recursively. We render from the bottom up, allowing us to append children into their
+   * parents. Rendering recursively here rather than inside la-toc-item means we can make use of global
+   * configuration details without having to pass them down the tree.
+   */
+  renderItem(item: TOCItem): any;
   render(): any;
 }
