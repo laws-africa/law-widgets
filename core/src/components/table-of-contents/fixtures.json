@@ -57,6 +57,7 @@
           "title": "Ch. 1 – ",
           "index": 3,
           "append_icon": "😝",
+          "expanded": false,
           "children": [
             {
               "num": "A",

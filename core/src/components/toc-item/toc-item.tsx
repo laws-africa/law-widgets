@@ -78,7 +78,7 @@ export class TocItem {
   render() {
     const isParent = !!this.item.children?.length;
     const showItem = !this.filteredItems || this.filteredItems.has(this.item);
-    const url = this.item.url || `#${this.item.id || ''}`;
+    const href = this.item.href || `#${this.item.id || ''}`;
 
     const renderToggleBtnInner = () => {
       if (this.expanded) {
@@ -100,22 +100,13 @@ export class TocItem {
         <div class="content">
           <div class="content__action">
             {this.prependHtml ? <div class="content__action__prepend" innerHTML={this.prependHtml}></div> : null}
-            <a href={url} class="content__action__title" onClick={this.onItemTitleClick}>
+            <a href={href} class="content__action__title" onClick={this.onItemTitleClick}>
               {this.item.title}
             </a>
             {this.appendHtml ? <div class="content__action__append" innerHTML={this.appendHtml}></div> : null}
           </div>
           <div class="content__children">
-            {this.item.children?.length
-              ? this.item.children.map((item: TOCItem) => (
-                  <la-toc-item
-                    item={item}
-                    filteredItems={this.filteredItems}
-                    expandIconHtml={this.expandIconHtml}
-                    collapseIconHtml={this.collapseIconHtml}
-                  ></la-toc-item>
-                ))
-              : null}
+            <slot />
           </div>
         </div>
       </Host>

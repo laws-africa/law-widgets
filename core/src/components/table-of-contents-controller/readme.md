@@ -162,7 +162,6 @@ Click [here](https://laws.africa/la-web-components/?path=/docs/library-la-table-
 graph TD;
   la-table-of-contents-controller --> la-table-of-contents
   la-table-of-contents --> la-toc-item
-  la-toc-item --> la-toc-item
   style la-table-of-contents-controller fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
