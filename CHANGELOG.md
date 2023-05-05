@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.0 (2023-05-05)
+
+* Built artefacts ([0f8d0b3](https://github.com/laws-africa/law-widgets/commit/0f8d0b3))
+* Built artefacts ([05d8cbe](https://github.com/laws-africa/law-widgets/commit/05d8cbe))
+* Control initial expanded state of TOC; support URLs for items ([7cb32ad](https://github.com/laws-africa/law-widgets/commit/7cb32ad))
+* remove testing ([059eb3e](https://github.com/laws-africa/law-widgets/commit/059eb3e))
+* Simplify TOC item rendering and allow customisation of expand/collapse ([6ae99e6](https://github.com/laws-africa/law-widgets/commit/6ae99e6))
+* Use href rather than url ([2cea83a](https://github.com/laws-africa/law-widgets/commit/2cea83a))
+
+
+
+
+
 ## 1.3.0 (2023-05-03)
 
 * add alineas to primary-styling ([9764fad](https://github.com/laws-africa/law-widget-styles/commit/9764fad))
