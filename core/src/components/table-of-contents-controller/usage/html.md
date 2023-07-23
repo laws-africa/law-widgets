@@ -1,15 +1,43 @@
+### HTML-only usage
+
+This example demos how to use la-table-of-contents-controller without Javascript.
+
+- The `items` attribute is a JSON string of the items.
+
+```html
+<la-table-of-contents-controller
+  items="[{
+    title: 'Entire document',
+    children: [
+      {
+        title: 'Ch. 1 – Heading 1',
+        children: [
+          {
+            title: 'Section 1.',
+          },
+        ],
+      },
+      {
+        title: 'Ch. 2 – Heading 2',
+      },
+    ],
+  }]"
+  >
+</la-table-of-contents-controller>
+```
+
 ### Vanilla HTML JS Implementation
 
-THis example demos the following:
+This example demos the following:
 
 - Passing in data into `items` of `la-table-of-content-controller` via js
 - Slot usage
 
 ```html
-<la-table-of-contents titleFilter="Ch. 2">
+<la-table-of-contents-controller titleFilter="Ch. 2">
   <span slot="expand-icon">⬇️</span>
   <span slot="collapse-icon">⬆️</span>
-</la-table-of-contents>
+</la-table-of-contents-controller>
 <script>
   const laTocElement = document.querySelector('la-table-of-contents');
   const items = [
@@ -17,16 +45,15 @@ THis example demos the following:
       title: 'Entire document',
       children: [
         {
-          title: 'Ch. 1 – ',
+          title: 'Ch. 1 – Heading 1',
           children: [
             {
-              title: 'Part B',
+              title: 'Section 1',
             },
           ],
         },
         {
-          title: 'Ch. 2 – ',
-          index: 9,
+          title: 'Ch. 2 – Heading 2',
         },
       ],
     },
@@ -47,15 +74,15 @@ const App = () => {
       title: 'Entire document',
       children: [
         {
-          title: 'Ch. 1 – ',
+          title: 'Ch. 1 – Heading 1',
           children: [
             {
-              title: 'Part B',
+              title: 'Section 1',
             },
           ],
         },
         {
-          title: 'Ch. 2 – ',
+          title: 'Ch. 2 – Heading 1',
         },
       ],
     },
@@ -89,15 +116,15 @@ export default {
         title: 'Entire document',
         children: [
           {
-            title: 'Ch. 1 – ',
+            title: 'Ch. 1 – Heading 1',
             children: [
               {
-                title: 'Part B',
+                title: 'Section 1',
               },
             ],
           },
           {
-            title: 'Ch. 2 – ',
+            title: 'Ch. 2 – Heading 2',
           },
         ],
       },
