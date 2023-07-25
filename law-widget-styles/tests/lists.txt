@@ -7,3 +7,20 @@ BULLETS
   * multi-line
     item
   * item 3
+
+ITEMS
+  “body” means -
+
+  ITEM (a)
+    any laboratory providing testing or calibrating services;
+
+  ITEM (b)
+    any body or organisation providing certification services;
+
+  ITEM (c)
+    any body or organisation providing inspection services; or
+
+  ITEM (d)
+    any other body or organisation requiring accreditation of competence to provide any other services,
+
+  and which laboratory or body or organisation is registered or established as a juristic person;
