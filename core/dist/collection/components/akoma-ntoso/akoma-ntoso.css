@@ -51,6 +51,12 @@ la-akoma-ntoso .akn-foreign {
 la-akoma-ntoso .akn-item {
   display: block;
 }
+la-akoma-ntoso .akn-listIntroduction {
+  display: block;
+}
+la-akoma-ntoso .akn-listWrapUp {
+  display: block;
+}
 la-akoma-ntoso .akn-ol {
   display: block;
 }
@@ -93,8 +99,8 @@ la-akoma-ntoso .akn-preamble > .akn-p {
   margin-bottom: 0.8em;
 }
 la-akoma-ntoso .akn-listIntroduction,
+la-akoma-ntoso .akn-listWrapUp,
 la-akoma-ntoso .akn-p {
-  display: block;
   margin-bottom: 0.8em;
 }
 la-akoma-ntoso .akn-blockList > .akn-item {
@@ -2304,13 +2310,14 @@ la-akoma-ntoso.show-structure .akn-item::before, la-akoma-ntoso.show-structure-b
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-ol, la-akoma-ntoso.show-structure-block .akn-ol {
+la-akoma-ntoso.show-structure .akn-listIntroduction, la-akoma-ntoso.show-structure-block .akn-listIntroduction {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9aefa1;
 }
-la-akoma-ntoso.show-structure .akn-ol::before, la-akoma-ntoso.show-structure-block .akn-ol::before {
+la-akoma-ntoso.show-structure .akn-listIntroduction::before, la-akoma-ntoso.show-structure-block .akn-listIntroduction::before {
+  content: "listIntro";
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2324,14 +2331,34 @@ la-akoma-ntoso.show-structure .akn-ol::before, la-akoma-ntoso.show-structure-blo
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-preamble, la-akoma-ntoso.show-structure-block .akn-preamble {
+la-akoma-ntoso.show-structure .akn-listWrapUp, la-akoma-ntoso.show-structure-block .akn-listWrapUp {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aefaf;
+}
+la-akoma-ntoso.show-structure .akn-listWrapUp::before, la-akoma-ntoso.show-structure-block .akn-listWrapUp::before {
+  content: "listWrapUp";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: black;
+  background-color: #9aefaf;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-ol, la-akoma-ntoso.show-structure-block .akn-ol {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9aefbd;
 }
-la-akoma-ntoso.show-structure .akn-preamble::before, la-akoma-ntoso.show-structure-block .akn-preamble::before {
-  content: "preamble";
+la-akoma-ntoso.show-structure .akn-ol::before, la-akoma-ntoso.show-structure-block .akn-ol::before {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2345,34 +2372,14 @@ la-akoma-ntoso.show-structure .akn-preamble::before, la-akoma-ntoso.show-structu
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-preface, la-akoma-ntoso.show-structure-block .akn-preface {
-  position: relative;
-  padding-top: 1.2em;
-  padding-left: 3px;
-  border-left: 2px solid #9aefcc;
-}
-la-akoma-ntoso.show-structure .akn-preface::before, la-akoma-ntoso.show-structure-block .akn-preface::before {
-  content: "preface";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  color: black;
-  background-color: #9aefcc;
-  border-top-right-radius: 5px;
-  padding: 0px 4px;
-  font-family: sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 11px;
-  text-transform: uppercase;
-}
-la-akoma-ntoso.show-structure .akn-tblock, la-akoma-ntoso.show-structure-block .akn-tblock {
+la-akoma-ntoso.show-structure .akn-preamble, la-akoma-ntoso.show-structure-block .akn-preamble {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9aefda;
 }
-la-akoma-ntoso.show-structure .akn-tblock::before, la-akoma-ntoso.show-structure-block .akn-tblock::before {
+la-akoma-ntoso.show-structure .akn-preamble::before, la-akoma-ntoso.show-structure-block .akn-preamble::before {
+  content: "preamble";
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2386,13 +2393,14 @@ la-akoma-ntoso.show-structure .akn-tblock::before, la-akoma-ntoso.show-structure
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-toc, la-akoma-ntoso.show-structure-block .akn-toc {
+la-akoma-ntoso.show-structure .akn-preface, la-akoma-ntoso.show-structure-block .akn-preface {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9aefe8;
 }
-la-akoma-ntoso.show-structure .akn-toc::before, la-akoma-ntoso.show-structure-block .akn-toc::before {
+la-akoma-ntoso.show-structure .akn-preface::before, la-akoma-ntoso.show-structure-block .akn-preface::before {
+  content: "preface";
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2406,14 +2414,13 @@ la-akoma-ntoso.show-structure .akn-toc::before, la-akoma-ntoso.show-structure-bl
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-ul, la-akoma-ntoso.show-structure-block .akn-ul {
+la-akoma-ntoso.show-structure .akn-tblock, la-akoma-ntoso.show-structure-block .akn-tblock {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9ae8ef;
 }
-la-akoma-ntoso.show-structure .akn-ul::before, la-akoma-ntoso.show-structure-block .akn-ul::before {
-  content: "bullets";
+la-akoma-ntoso.show-structure .akn-tblock::before, la-akoma-ntoso.show-structure-block .akn-tblock::before {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2427,14 +2434,13 @@ la-akoma-ntoso.show-structure .akn-ul::before, la-akoma-ntoso.show-structure-blo
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-from, la-akoma-ntoso.show-structure-block .akn-from {
+la-akoma-ntoso.show-structure .akn-toc, la-akoma-ntoso.show-structure-block .akn-toc {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9adaef;
 }
-la-akoma-ntoso.show-structure .akn-from::before, la-akoma-ntoso.show-structure-block .akn-from::before {
-  content: "from";
+la-akoma-ntoso.show-structure .akn-toc::before, la-akoma-ntoso.show-structure-block .akn-toc::before {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2448,14 +2454,14 @@ la-akoma-ntoso.show-structure .akn-from::before, la-akoma-ntoso.show-structure-b
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-narrative, la-akoma-ntoso.show-structure-block .akn-narrative {
+la-akoma-ntoso.show-structure .akn-ul, la-akoma-ntoso.show-structure-block .akn-ul {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9accef;
 }
-la-akoma-ntoso.show-structure .akn-narrative::before, la-akoma-ntoso.show-structure-block .akn-narrative::before {
-  content: "narrative";
+la-akoma-ntoso.show-structure .akn-ul::before, la-akoma-ntoso.show-structure-block .akn-ul::before {
+  content: "bullets";
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2469,14 +2475,14 @@ la-akoma-ntoso.show-structure .akn-narrative::before, la-akoma-ntoso.show-struct
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-scene, la-akoma-ntoso.show-structure-block .akn-scene {
+la-akoma-ntoso.show-structure .akn-from, la-akoma-ntoso.show-structure-block .akn-from {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9abdef;
 }
-la-akoma-ntoso.show-structure .akn-scene::before, la-akoma-ntoso.show-structure-block .akn-scene::before {
-  content: "scene";
+la-akoma-ntoso.show-structure .akn-from::before, la-akoma-ntoso.show-structure-block .akn-from::before {
+  content: "from";
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2490,11 +2496,53 @@ la-akoma-ntoso.show-structure .akn-scene::before, la-akoma-ntoso.show-structure-
   font-size: 11px;
   text-transform: uppercase;
 }
-la-akoma-ntoso.show-structure .akn-summary, la-akoma-ntoso.show-structure-block .akn-summary {
+la-akoma-ntoso.show-structure .akn-narrative, la-akoma-ntoso.show-structure-block .akn-narrative {
   position: relative;
   padding-top: 1.2em;
   padding-left: 3px;
   border-left: 2px solid #9aafef;
+}
+la-akoma-ntoso.show-structure .akn-narrative::before, la-akoma-ntoso.show-structure-block .akn-narrative::before {
+  content: "narrative";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #9aafef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-scene, la-akoma-ntoso.show-structure-block .akn-scene {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #9aa1ef;
+}
+la-akoma-ntoso.show-structure .akn-scene::before, la-akoma-ntoso.show-structure-block .akn-scene::before {
+  content: "scene";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  background-color: #9aa1ef;
+  border-top-right-radius: 5px;
+  padding: 0px 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+la-akoma-ntoso.show-structure .akn-summary, la-akoma-ntoso.show-structure-block .akn-summary {
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 3px;
+  border-left: 2px solid #a19aef;
 }
 la-akoma-ntoso.show-structure .akn-summary::before, la-akoma-ntoso.show-structure-block .akn-summary::before {
   content: "summary";
@@ -2502,7 +2550,7 @@ la-akoma-ntoso.show-structure .akn-summary::before, la-akoma-ntoso.show-structur
   top: 0px;
   left: 0px;
   color: white;
-  background-color: #9aafef;
+  background-color: #a19aef;
   border-top-right-radius: 5px;
   padding: 0px 4px;
   font-family: sans-serif;
