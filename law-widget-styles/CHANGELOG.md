@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.0 (2023-07-26)
+
+* add listIntroduction, listWrapUp to blocks; add spacing below wrap ([25e5ae4](https://github.com/laws-africa/law-widget-styles/commit/25e5ae4))
+* update list test, snapshot, readme ([73bf0fd](https://github.com/laws-africa/law-widget-styles/commit/73bf0fd))
+
+
+
+
+
 ## 1.3.0 (2023-05-03)
 
 * add alineas to primary-styling ([9764fad](https://github.com/laws-africa/law-widget-styles/commit/9764fad))

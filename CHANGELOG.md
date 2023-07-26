@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.0 (2023-07-26)
+
+* add listIntroduction, listWrapUp to blocks; add spacing below wrap ([25e5ae4](https://github.com/laws-africa/law-widgets/commit/25e5ae4))
+* Built artefacts ([27ec956](https://github.com/laws-africa/law-widgets/commit/27ec956))
+* docs ([265c945](https://github.com/laws-africa/law-widgets/commit/265c945))
+* update list test, snapshot, readme ([73bf0fd](https://github.com/laws-africa/law-widgets/commit/73bf0fd))
+
+
+
+
+
 ## 1.4.0 (2023-05-05)
 
 * Built artefacts ([0f8d0b3](https://github.com/laws-africa/law-widgets/commit/0f8d0b3))
