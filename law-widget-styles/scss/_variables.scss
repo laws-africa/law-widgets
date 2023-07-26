@@ -50,8 +50,8 @@ $akn-elements-list-like: (
 
 // AKN block and block-like elements
 $akn-elements-block: (
-  "blockContainer", "block", "blockList", "conclusions", "coverPage", "foreign", "item", "ol", "p", "preamble",
-  "preface", "tblock", "toc", "ul",
+  "blockContainer", "block", "blockList", "conclusions", "coverPage", "foreign", "item",
+  "listIntroduction", "listWrapUp", "ol", "p", "preamble", "preface", "tblock", "toc", "ul",
   // speech blocks
   "from", "narrative", "scene", "summary"
 );

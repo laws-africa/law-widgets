@@ -48,6 +48,13 @@ To run screenshot-based tests:
 
 * `npm run test-images`
 
+To update the output of these tests:
+
+* Update the relevant .html file
+* Delete the relevant snapshot in \__image_snapshots\__
+* Run the tests, which will produce a fresh snapshot
+* Check the new snapshot and commit it
+
 ## Release process
 
 * test: `npm run test-images` (these aren't run on GitHub because of font variations between OSes).

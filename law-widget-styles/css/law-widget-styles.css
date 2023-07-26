@@ -44,6 +44,12 @@
 .akoma-ntoso .akn-item {
   display: block;
 }
+.akoma-ntoso .akn-listIntroduction {
+  display: block;
+}
+.akoma-ntoso .akn-listWrapUp {
+  display: block;
+}
 .akoma-ntoso .akn-ol {
   display: block;
 }
@@ -86,8 +92,8 @@
   margin-bottom: 0.8em;
 }
 .akoma-ntoso .akn-listIntroduction,
+.akoma-ntoso .akn-listWrapUp,
 .akoma-ntoso .akn-p {
-  display: block;
   margin-bottom: 0.8em;
 }
 .akoma-ntoso .akn-blockList > .akn-item {
