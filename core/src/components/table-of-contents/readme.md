@@ -14,6 +14,34 @@ this component are the following:
 
 ### Html
 
+### HTML-only usage
+
+This example demos how to use la-table-of-contents-controller without Javascript.
+
+- The `items` attribute is a JSON string of the items.
+
+```html
+<la-table-of-contents
+  items="[{
+    title: 'Entire document',
+    children: [
+      {
+        title: 'Ch. 1 – Heading 1',
+        children: [
+          {
+            title: 'Section 1.',
+          },
+        ],
+      },
+      {
+        title: 'Ch. 2 – Heading 2',
+      },
+    ],
+  }]"
+  >
+</la-table-of-contents>
+```
+
 ### Vanilla HTML JS Implementation
 
 This example demos the following:
@@ -33,15 +61,15 @@ This example demos the following:
       title: 'Entire document',
       children: [
         {
-          title: 'Ch. 1 – ',
+          title: 'Ch. 1 – Heading 1',
           children: [
             {
-              title: 'Part B',
+              title: 'Section 1',
             },
           ],
         },
         {
-          title: 'Ch. 2 – ',
+          title: 'Ch. 2 – Heading 2',
         },
       ],
     },
@@ -62,15 +90,15 @@ const App = () => {
       title: 'Entire document',
       children: [
         {
-          title: 'Ch. 1 – ',
+          title: 'Ch. 1 – Heading 1',
           children: [
             {
-              title: 'Part B',
+              title: 'Section 1',
             },
           ],
         },
         {
-          title: 'Ch. 2 – ',
+          title: 'Ch. 2 – Heading 2',
         },
       ],
     },
@@ -108,15 +136,15 @@ export default {
         title: 'Entire document',
         children: [
           {
-            title: 'Ch. 1 – ',
+            title: 'Ch. 1 – Heading 1',
             children: [
               {
-                title: 'Part B',
+                title: 'Section 1',
               },
             ],
           },
           {
-            title: 'Ch. 2 – ',
+            title: 'Ch. 2 – Heading 2',
           },
         ],
       },
