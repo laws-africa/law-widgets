@@ -32,5 +32,6 @@ la-gutter > la-gutter-item {
 
   &[active] {
     left: $la-gutter-padding;
+    z-index: 3;
   }
 }
