@@ -1,6 +1,6 @@
 {
   "name": "@lawsafrica/law-widgets-react",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "React specific wrapper for @lawsafrica/law-widgets",
   "keywords": [
     "akoma ntoso",
@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "@lawsafrica/law-widget-styles": "^1.5.0",
-    "@lawsafrica/law-widgets": "^1.5.0",
+    "@lawsafrica/law-widgets": "^1.5.1",
     "@types/node": "^18.7.18",
     "@types/resize-observer-browser": "^0.1.7",
     "tslib": "*"

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.5.1 (2023-12-05)</small>
+
+* active gutter item must have slightly higher z-index ([eca46bb](https://github.com/laws-africa/la-web-components/commit/eca46bb))
+* Built artefacts ([5a50f6e](https://github.com/laws-africa/la-web-components/commit/5a50f6e))
+* Built artefacts ([581fefa](https://github.com/laws-africa/la-web-components/commit/581fefa))
+* drop fontawesome, use svg flag icon. Fixes #9 ([b3ec30e](https://github.com/laws-africa/la-web-components/commit/b3ec30e)), closes [#9](https://github.com/laws-africa/la-web-components/issues/9)
+* popups must have position: relative ([22b4ff5](https://github.com/laws-africa/la-web-components/commit/22b4ff5))
+* tweak margin ([47a4693](https://github.com/laws-africa/la-web-components/commit/47a4693))
+* updated examples ([5c15cda](https://github.com/laws-africa/la-web-components/commit/5c15cda))
+
+
+
+
+
 ## 1.5.0 (2023-07-26)
 
 * Built artefacts ([27ec956](https://github.com/laws-africa/la-web-components/commit/27ec956))
