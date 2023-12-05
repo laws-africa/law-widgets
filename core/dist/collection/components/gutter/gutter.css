@@ -27,4 +27,5 @@ la-gutter > la-gutter-item {
 }
 la-gutter > la-gutter-item[active] {
   left: 0.5rem;
+  z-index: 3;
 }

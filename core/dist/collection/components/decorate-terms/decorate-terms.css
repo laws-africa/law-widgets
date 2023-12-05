@@ -1,3 +1,6 @@
+.la-decorate-terms__popup {
+  position: relative;
+}
 .la-decorate-terms__popup .tippy-box[data-animation=fade][data-state=hidden] {
   opacity: 0;
 }

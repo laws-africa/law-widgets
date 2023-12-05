@@ -1,3 +1,6 @@
+.la-decorate-internal-refs__popup {
+  position: relative;
+}
 .la-decorate-internal-refs__popup .tippy-box[data-animation=fade][data-state=hidden] {
   opacity: 0;
 }
