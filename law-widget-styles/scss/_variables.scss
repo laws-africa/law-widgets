@@ -21,6 +21,14 @@ $akn-table-border-width: 1px !default;
 
 $akn-footnote-bg-colour: rgba(0, 0, 0, 0.07);
 
+// akn-structure
+$akn-structure-hier-start-colour: #ef9a9a !default;
+$akn-structure-block-start-colour: adjust-hue($akn-structure-hier-start-colour, 55deg) !default;
+$akn-structure-inline-start-colour: adjust-hue($akn-structure-hier-start-colour, 105deg) !default;
+$akn-structure-subflow-start-colour: adjust-hue($akn-structure-hier-start-colour, 25deg) !default;
+$akn-structure-doc-container-start-colour: adjust-hue($akn-structure-hier-start-colour, 35deg) !default;
+$akn-structure-spacing: 3px !default;
+
 
 // AKN document types
 $akn-elements-doctype: (
@@ -59,4 +67,87 @@ $akn-elements-block: (
 // AKN document containers
 $akn-elements-doc-container: (
   "attachment", "component"
+);
+
+// AKN inline elements
+$akn-elements-inline: ("abbr", "remark");
+
+// AKN subflow elements
+$akn-elements-subflow: ("authorialNote", "embeddedStructure");
+
+// Display names for AKN elements, possibly abbreviated
+$akn-element-names: (
+  "abbr": "abbr",
+  "address": "address",
+  "adjournment": "adjournment",
+  "administrationOfOath": "administrationOfOath",
+  "alinea": "alinea",
+  "answer": "answer",
+  "article": "article",
+  "attachment": "attachment",
+  "authorialNote": "footnote",
+  "blockList": "items",
+  "book": "book",
+  "chapter": "chapter",
+  "clause": "clause",
+  "communication": "communication",
+  "component": "component",
+  "crossHeading": "crossHeading",
+  "debateSection": "debateSection",
+  "declarationOfVote": "declarationOfVote",
+  "division": "division",
+  "embeddedStructure": "quote",
+  "hcontainer": "hcontainer",
+  "indent": "indent",
+  "intro": "intro",
+  "item": "item",
+  "level": "level",
+  "list": "list",
+  "listIntroduction": "listIntro",
+  "listWrapUp": "listWrapUp",
+  "ministerialStatements": "ministerialStatements",
+  "nationalInterest": "nationalInterest",
+  "noticesOfMotion": "noticesOfMotion",
+  "oralStatements": "oralStatements",
+  "papers": "papers",
+  "paragraph": "para",
+  "part": "part",
+  "personalStatements": "personalStatements",
+  "petitions": "petitions",
+  "point": "point",
+  "pointOfOrder": "pointOfOrder",
+  "prayers": "prayers",
+  "preamble": "preamble",
+  "preface": "preface",
+  "proceduralMotions": "proceduralMotions",
+  "proviso": "proviso",
+  "question": "question",
+  "remark": "remark",
+  "rule": "rule",
+  "section": "section",
+  "subchapter": "subchapter",
+  "subclause": "subclause",
+  "subdivision": "subdivision",
+  "sublist": "sublist",
+  "subparagraph": "subpara",
+  "subpart": "subpart",
+  "subrule": "subrule",
+  "subsection": "subsection",
+  "subtitle": "subtitle",
+  "table": "table",
+  "title": "title",
+  "tome": "tome",
+  "transitional": "transitional",
+  "ul": "bullets",
+  "wrapUp": "wrapUp",
+  "questions": "questions",
+  "resolutions": "resolutions",
+  "rollCall": "rollCall",
+  "speech": "speech",
+  "speechGroup": "speechGroup",
+  "writtenStatements": "writtenStatements",
+  "from": "from",
+  "narrative": "narrative",
+  "scene": "scene",
+  "summary": "summary",
 );
