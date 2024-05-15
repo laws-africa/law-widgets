@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.0 (2024-05-15)
+
+* Move akn-structure related SCSS into law-widget-styles ([2d0f4d7](https://github.com/laws-africa/law-widget-styles/commit/2d0f4d7))
+
+
+
+
+
 ## 1.5.0 (2023-07-26)
 
 * add listIntroduction, listWrapUp to blocks; add spacing below wrap ([25e5ae4](https://github.com/laws-africa/law-widget-styles/commit/25e5ae4))

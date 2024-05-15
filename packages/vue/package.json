@@ -1,6 +1,6 @@
 {
   "name": "@lawsafrica/law-widgets-vue",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Vue specific wrapper for @lawsafrica/law-widgets",
   "scripts": {
     "prepublishOnly": "npm run build",
@@ -45,8 +45,8 @@
     "vue-router": "^4.0.16"
   },
   "dependencies": {
-    "@lawsafrica/law-widget-styles": "^1.5.0",
-    "@lawsafrica/law-widgets": "^1.5.1",
+    "@lawsafrica/law-widget-styles": "^1.6.0",
+    "@lawsafrica/law-widgets": "^1.6.0",
     "@types/node": "^18.7.18",
     "@types/resize-observer-browser": "^0.1.7",
     "ionicons": "^6.0.2"

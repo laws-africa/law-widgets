@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.0 (2024-05-15)
+
+* Move akn-structure related SCSS into law-widget-styles ([2d0f4d7](https://github.com/laws-africa/la-web-components/commit/2d0f4d7))
+
+
+
+
+
 ## <small>1.5.1 (2023-12-05)</small>
 
 * active gutter item must have slightly higher z-index ([eca46bb](https://github.com/laws-africa/la-web-components/commit/eca46bb))
