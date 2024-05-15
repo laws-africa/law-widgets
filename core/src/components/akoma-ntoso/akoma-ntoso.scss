@@ -2,8 +2,7 @@
 
 @import "@lawsafrica/law-widget-styles/scss/mixins";
 @import "@lawsafrica/law-widget-styles/scss/variables";
-@import "variables";
-@import "structure";
+@import "@lawsafrica/law-widget-styles/scss/mixins/structure";
 
 la-akoma-ntoso {
   display: block;
