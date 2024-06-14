@@ -3,7 +3,6 @@ import type { Instance as Tippy } from 'tippy.js';
 import tippy from 'tippy.js';
 
 import { AkomaNtosoTarget } from '../../utils/linking';
-import { renameElement } from '../../utils/utils';
 
 @Component({
   tag: 'la-decorate-terms',
@@ -69,6 +68,20 @@ export class DecorateTerms {
     if (this.akomaNtosoElement && popup) {
       this.createPopups();
     }
+
+    this.toggleCssClasses();
+  }
+
+  @Watch('linkTerms')
+  changeLinkTerms() {
+    this.toggleCssClasses();
+  }
+
+  toggleCssClasses() {
+    if (this.akomaNtosoElement) {
+      this.akomaNtosoElement.classList.toggle('show-terms', this.linkTerms || this.popupDefinitions);
+      this.akomaNtosoElement.classList.toggle('link-terms', this.linkTerms);
+    }
   }
 
   // tag term definition containers
@@ -123,11 +136,16 @@ export class DecorateTerms {
 
   makeTermLinks() {
     if (this.akomaNtosoElement) {
-      this.akomaNtosoElement.classList.add('link-terms');
-      Array.from(this.akomaNtosoElement.querySelectorAll<HTMLElement>('.akn-term[data-refersto]')).forEach((term) => {
-        term = renameElement(term, 'a') as HTMLElement;
-        const termId: string = (term.dataset.refersto || '').replace('#', '');
-        term.setAttribute('href', `#defn-${termId}`);
+      this.akomaNtosoElement.addEventListener('click', (e) => {
+        if (e.target && e.target instanceof HTMLElement) {
+          const el= e.target as HTMLElement;
+          if (el.classList.contains('akn-term')) {
+            const termId: string = (el.dataset.refersto || '').replace('#', '');
+            if (termId) {
+              window.location.hash = `#defn-${termId}`;
+            }
+          }
+        }
       });
     }
   }
