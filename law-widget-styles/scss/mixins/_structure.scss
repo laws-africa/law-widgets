@@ -1,9 +1,11 @@
+@use "sass:math";
+
 @function yiq-is-light($color, $threshold: 190) {
   $red: red($color);
   $green: green($color);
   $blue: blue($color);
 
-  $yiq: (($red * 299) + ($green * 587) + ($blue * 114)) / 1000;
+  $yiq: math.div(($red * 299) + ($green * 587) + ($blue * 114), 1000);
 
   @return if($yiq >= $threshold, true, false);
 }
