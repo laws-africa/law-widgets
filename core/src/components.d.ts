@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TOCItem } from "./components/table-of-contents/table-of-contents";
 import { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-contents";
+export { TOCItem } from "./components/table-of-contents/table-of-contents";
+export { TOCItem as TOCItem1 } from "./components/table-of-contents/table-of-contents";
 export namespace Components {
     interface LaAkomaNtoso {
         /**
@@ -308,13 +310,35 @@ declare global {
         prototype: HTMLLaDecorateTermsElement;
         new (): HTMLLaDecorateTermsElement;
     };
+    interface HTMLLaGutterElementEventMap {
+        "layoutComplete": void;
+    }
     interface HTMLLaGutterElement extends Components.LaGutter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLLaGutterElementEventMap>(type: K, listener: (this: HTMLLaGutterElement, ev: LaGutterCustomEvent<HTMLLaGutterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLLaGutterElementEventMap>(type: K, listener: (this: HTMLLaGutterElement, ev: LaGutterCustomEvent<HTMLLaGutterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLLaGutterElement: {
         prototype: HTMLLaGutterElement;
         new (): HTMLLaGutterElement;
     };
+    interface HTMLLaGutterItemElementEventMap {
+        "laItemChanged": void;
+    }
     interface HTMLLaGutterItemElement extends Components.LaGutterItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLLaGutterItemElementEventMap>(type: K, listener: (this: HTMLLaGutterItemElement, ev: LaGutterItemCustomEvent<HTMLLaGutterItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLLaGutterItemElementEventMap>(type: K, listener: (this: HTMLLaGutterItemElement, ev: LaGutterItemCustomEvent<HTMLLaGutterItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLLaGutterItemElement: {
         prototype: HTMLLaGutterItemElement;
@@ -332,7 +356,19 @@ declare global {
         prototype: HTMLLaTableOfContentsControllerElement;
         new (): HTMLLaTableOfContentsControllerElement;
     };
+    interface HTMLLaTocItemElementEventMap {
+        "itemRendered": any;
+        "itemTitleClicked": any;
+    }
     interface HTMLLaTocItemElement extends Components.LaTocItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLLaTocItemElementEventMap>(type: K, listener: (this: HTMLLaTocItemElement, ev: LaTocItemCustomEvent<HTMLLaTocItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLLaTocItemElementEventMap>(type: K, listener: (this: HTMLLaTocItemElement, ev: LaTocItemCustomEvent<HTMLLaTocItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLLaTocItemElement: {
         prototype: HTMLLaTocItemElement;

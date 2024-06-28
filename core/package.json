@@ -16,8 +16,7 @@
   "types": "dist/types/interface.d.ts",
   "files": [
     "components/",
-    "dist/",
-    "hydrate/"
+    "dist/"
   ],
   "dependencies": {
     "@lawsafrica/law-widget-styles": "^1.6.0"
