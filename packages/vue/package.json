@@ -4,7 +4,7 @@
   "description": "Vue specific wrapper for @lawsafrica/law-widgets",
   "scripts": {
     "build": "npm run clean && npm run compile",
-    "clean": "rimraf dist dist-transpiled",
+    "clean": "rm -rf dist dist-transpiled",
     "compile": "npm run tsc",
     "tsc": "tsc -p ."
   },
@@ -14,6 +14,9 @@
   "files": [
     "dist/"
   ],
+  "dependencies": {
+    "@lawsafrica/law-widgets": "^1.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+git@github.com:laws-africa/law-widgets.git"
@@ -28,9 +31,6 @@
     "url": "https://github.com/laws-africa/law-widgets/issues"
   },
   "homepage": "https://github.com/laws-africa/law-widgets#readme",
-  "dependencies": {
-    "@lawsafrica/law-widgets": "^1.6.0"
-  },
   "private": false,
   "publishConfig": {
     "access": "public",
