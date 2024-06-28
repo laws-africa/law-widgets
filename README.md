@@ -19,6 +19,8 @@ Click [here](core/README.md#components) to learn how to use our components.
 
 
 ## Local development
+You must have nodejs version 20.
+
 At the root of project in your terminal, run `npm install`
 
 [Lerna](https://lerna.js.org/) is used for managing and publishing packages in this repo.
