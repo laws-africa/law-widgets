@@ -45,6 +45,7 @@
   },
   "scripts": {
     "build": "npm run clean && stencil build --es5",
+    "build-storybook": "build-storybook",
     "build.debug": "npm run clean && stencil build --debug",
     "build.watch": "npx stencil build --docs-readme --watch",
     "clean": "node scripts/clean.js",
