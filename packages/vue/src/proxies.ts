@@ -73,6 +73,7 @@ export const LaGutterItem = /*@__PURE__*/ defineContainer<JSX.LaGutterItem>('la-
 export const LaTableOfContents = /*@__PURE__*/ defineContainer<JSX.LaTableOfContents>('la-table-of-contents', defineLaTableOfContents, [
   'items',
   'titleFilter',
+  'expanded',
   'frbrExpressionUri',
   'fetch',
   'partner',
@@ -87,6 +88,9 @@ export const LaTableOfContentsController = /*@__PURE__*/ defineContainer<JSX.LaT
   'titleFilterClearBtnClasses',
   'expandAllBtnClasses',
   'collapseAllBtnClasses',
+  'expandAllBtnText',
+  'collapseAllBtnText',
+  'expanded',
   'titleFilterInputClasses',
   'frbrExpressionUri',
   'fetch',
