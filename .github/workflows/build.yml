@@ -12,23 +12,18 @@ jobs:
     concurrency: la-web-components
     steps:
       - name: git-checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # use a token that has admin perms to bypass direct commits to main
           token: ${{ secrets.LA_ACTIONS_TOKEN }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
 
-      - name: Install all dependencies
-        run: | # Install and link dependencies
-          npm ci
-          npx lerna bootstrap
-
-      - name: Build
-        run: |
-          npx lerna run build
+      - run: npm ci
+      - run: npx lerna bootstrap
+      - run: npx lerna run build
 
       - name: Push build artefacts
         uses: EndBug/add-and-commit@v9
