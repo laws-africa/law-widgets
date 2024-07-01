@@ -19,6 +19,7 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/types": "^7.24.7",
     "@stencil/core": "^4.19.1"
   },
   "repository": {
