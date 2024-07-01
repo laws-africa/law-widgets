@@ -17,6 +17,15 @@
   "dependencies": {
     "@lawsafrica/law-widgets": "^1.6.0"
   },
+  "devDependencies": {
+    "@stencil/core": "^4.19.1",
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^5.5.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+git@github.com:laws-africa/law-widgets.git"
