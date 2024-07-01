@@ -36,6 +36,18 @@ There are three methods for using these web components:
 - Put a script tag similar to this `<script type="module" src="node_modules/@lawsafrica/law-widgets/dist/lawwidgets/lawwidgets.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
+### Webpack or similar
+
+- Run `npm install @lawsafrica/law-widgets --save`
+- Import the required modules in your app. They will automatically be registered as custom elements.
+
+Example:
+
+```javascript
+import '@lawsafrica/law-widgets/dist/components/la-akoma-ntoso';
+import '@lawsafrica/law-widgets/dist/components/la-table-of-contents';
+```
+
 # Development
 
 Clone this repository and run:
