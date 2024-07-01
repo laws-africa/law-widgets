@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2024-07-01)
+
+* adjust decorate-terms behaviour ([052f1cd](https://github.com/laws-africa/la-web-components/commit/052f1cd))
+* Built artefacts ([199b204](https://github.com/laws-africa/la-web-components/commit/199b204))
+* don't commit dist to repo ([107e5db](https://github.com/laws-africa/la-web-components/commit/107e5db))
+* don't commit dist to repo ([53031ab](https://github.com/laws-africa/la-web-components/commit/53031ab))
+* react cleanup ([91cc593](https://github.com/laws-africa/la-web-components/commit/91cc593))
+* remove unnecessary dependencies ([65fa1e4](https://github.com/laws-africa/la-web-components/commit/65fa1e4))
+* remove unused scripts ([64b1d60](https://github.com/laws-africa/la-web-components/commit/64b1d60))
+* update dependencies and vue build ([8be8fb2](https://github.com/laws-africa/la-web-components/commit/8be8fb2))
+* updated dependencies ([717fea9](https://github.com/laws-africa/la-web-components/commit/717fea9))
+* updated stencil config ([fd3aded](https://github.com/laws-africa/la-web-components/commit/fd3aded))
+* updated storybook versions ([06b6d87](https://github.com/laws-africa/la-web-components/commit/06b6d87))
+
+
+
+
+
 ## 1.6.0 (2024-05-15)
 
 * Move akn-structure related SCSS into law-widget-styles ([2d0f4d7](https://github.com/laws-africa/la-web-components/commit/2d0f4d7))

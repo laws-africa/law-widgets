@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2024-07-01)
+
+* babel types ([626f094](https://github.com/laws-africa/law-widgets/commit/626f094))
+* build during test; remove unnesed ts types ([7d94310](https://github.com/laws-africa/law-widgets/commit/7d94310))
+* cleanup for vue ([0b9ca48](https://github.com/laws-africa/law-widgets/commit/0b9ca48))
+* react cleanup ([91cc593](https://github.com/laws-africa/law-widgets/commit/91cc593))
+* recompile ([1e8b08f](https://github.com/laws-africa/law-widgets/commit/1e8b08f))
+* update dependencies and vue build ([8be8fb2](https://github.com/laws-africa/law-widgets/commit/8be8fb2))
+
+
+
+
+
 ## 1.6.0 (2024-05-15)
 
 **Note:** Version bump only for package @lawsafrica/law-widgets-vue

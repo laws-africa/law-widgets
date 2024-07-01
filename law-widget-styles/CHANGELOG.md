@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2024-07-01)
+
+* updated dependencies for styles ([6c7a804](https://github.com/laws-africa/law-widget-styles/commit/6c7a804))
+* use math.div rather than deprecated / ([26ec7bf](https://github.com/laws-africa/law-widget-styles/commit/26ec7bf))
+
+
+
+
+
 ## 1.6.0 (2024-05-15)
 
 * Move akn-structure related SCSS into law-widget-styles ([2d0f4d7](https://github.com/laws-africa/law-widget-styles/commit/2d0f4d7))

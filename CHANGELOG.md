@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2024-07-01)
+
+* adjust decorate-terms behaviour ([052f1cd](https://github.com/laws-africa/law-widgets/commit/052f1cd))
+* babel types ([626f094](https://github.com/laws-africa/law-widgets/commit/626f094))
+* build config ([9d67af2](https://github.com/laws-africa/law-widgets/commit/9d67af2))
+* build during test; remove unnesed ts types ([7d94310](https://github.com/laws-africa/law-widgets/commit/7d94310))
+* Built artefacts ([199b204](https://github.com/laws-africa/law-widgets/commit/199b204))
+* cleanup for vue ([0b9ca48](https://github.com/laws-africa/law-widgets/commit/0b9ca48))
+* don't commit dist to repo ([107e5db](https://github.com/laws-africa/law-widgets/commit/107e5db))
+* don't commit dist to repo ([53031ab](https://github.com/laws-africa/law-widgets/commit/53031ab))
+* fix lerna command ([2e8cea1](https://github.com/laws-africa/law-widgets/commit/2e8cea1))
+* fix react compilation ([034f6cb](https://github.com/laws-africa/law-widgets/commit/034f6cb))
+* fixes for react ([e0d84d9](https://github.com/laws-africa/law-widgets/commit/e0d84d9))
+* latest versions ([153bc67](https://github.com/laws-africa/law-widgets/commit/153bc67))
+* node version warning ([49b0e9f](https://github.com/laws-africa/law-widgets/commit/49b0e9f))
+* react cleanup ([91cc593](https://github.com/laws-africa/law-widgets/commit/91cc593))
+* recompile ([1e8b08f](https://github.com/laws-africa/law-widgets/commit/1e8b08f))
+* remove storybuild build ([680cf00](https://github.com/laws-africa/law-widgets/commit/680cf00))
+* remove unnecessary dependencies ([65fa1e4](https://github.com/laws-africa/law-widgets/commit/65fa1e4))
+* remove unused scripts ([64b1d60](https://github.com/laws-africa/law-widgets/commit/64b1d60))
+* update dependencies and vue build ([8be8fb2](https://github.com/laws-africa/law-widgets/commit/8be8fb2))
+* updated dependencies ([717fea9](https://github.com/laws-africa/law-widgets/commit/717fea9))
+* updated dependencies for styles ([6c7a804](https://github.com/laws-africa/law-widgets/commit/6c7a804))
+* updated stencil config ([fd3aded](https://github.com/laws-africa/law-widgets/commit/fd3aded))
+* updated storybook versions ([06b6d87](https://github.com/laws-africa/law-widgets/commit/06b6d87))
+* use math.div rather than deprecated / ([26ec7bf](https://github.com/laws-africa/law-widgets/commit/26ec7bf))
+
+
+
+
+
 ## 1.6.0 (2024-05-15)
 
 * Move akn-structure related SCSS into law-widget-styles ([2d0f4d7](https://github.com/laws-africa/law-widgets/commit/2d0f4d7))

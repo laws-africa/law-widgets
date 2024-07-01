@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2024-07-01)
+
+* build during test; remove unnesed ts types ([7d94310](https://github.com/laws-africa/law-widgets/commit/7d94310))
+* fix react compilation ([034f6cb](https://github.com/laws-africa/law-widgets/commit/034f6cb))
+* fixes for react ([e0d84d9](https://github.com/laws-africa/law-widgets/commit/e0d84d9))
+* react cleanup ([91cc593](https://github.com/laws-africa/law-widgets/commit/91cc593))
+* recompile ([1e8b08f](https://github.com/laws-africa/law-widgets/commit/1e8b08f))
+
+
+
+
+
 ## 1.6.0 (2024-05-15)
 
 **Note:** Version bump only for package @lawsafrica/law-widgets-react
