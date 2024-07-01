@@ -1,0 +1,25 @@
+la-table-of-contents-controller * {
+  box-sizing: border-box;
+}
+la-table-of-contents-controller .search {
+  width: 100%;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+la-table-of-contents-controller .search__input {
+  flex: 1;
+}
+la-table-of-contents-controller .search__clear-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+la-table-of-contents-controller .toggle {
+  margin-bottom: 5px;
+}
+la-table-of-contents-controller .toggle__expand-all-btn {
+  margin-right: 5px;
+}
