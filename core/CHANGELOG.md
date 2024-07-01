@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.0.1 (2024-07-01)</small>
+
+* make underline 1px ([681dad2](https://github.com/laws-africa/la-web-components/commit/681dad2))
+* Readme ([fcdce80](https://github.com/laws-africa/la-web-components/commit/fcdce80))
+
+
+
+
+
 ## 2.0.0 (2024-07-01)
 
 * adjust decorate-terms behaviour ([052f1cd](https://github.com/laws-africa/la-web-components/commit/052f1cd))

@@ -1,6 +1,6 @@
 {
   "name": "@lawsafrica/law-widgets-vue",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vue specific wrapper for @lawsafrica/law-widgets",
   "scripts": {
     "build": "npm run clean && npm run compile",
@@ -15,7 +15,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@lawsafrica/law-widgets": "^2.0.0",
+    "@lawsafrica/law-widgets": "^2.0.1",
     "vue": "^3.0.0"
   },
   "devDependencies": {
