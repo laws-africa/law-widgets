@@ -30,15 +30,3 @@ jobs:
         with:
           add: 'law-widget-styles/css/law-widget-styles.* --force'
           message: 'Built artefacts'
-
-      - name: Build storybook
-        run: | # Build storybook
-          cd ./core
-          npm run build-storybook
-
-      - name: Publish Storybook
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: core/storybook-static
