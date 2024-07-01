@@ -2,25 +2,11 @@
   "name": "@lawsafrica/law-widgets-react",
   "version": "1.6.0",
   "description": "React specific wrapper for @lawsafrica/law-widgets",
-  "keywords": [
-    "akoma ntoso",
-    "react"
-  ],
-  "license": "LGPL-3.0-or-later",
-  "repository": {
-    "type": "git",
-    "url": "git+git@github.com:laws-africa/la-web-components.git"
-  },
   "scripts": {
-    "prepublishOnly": "npm run build",
     "build": "npm run clean && npm run compile",
-    "clean": "rimraf dist && rimraf dist-transpiled && rimraf routing",
-    "compile": "npm run tsc && rollup -c",
-    "lint": "tslint --project .",
-    "lint.fix": "tslint --project . --fix",
-    "tsc": "tsc -p .",
-    "test.spec": "jest --ci",
-    "test.treeshake": "node scripts/treeshaking.js dist/index.esm.js"
+    "clean": "rm -rf dist dist-transpiled routing",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p ."
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -29,65 +15,26 @@
     "dist/"
   ],
   "dependencies": {
-    "@lawsafrica/law-widget-styles": "^1.6.0",
-    "@lawsafrica/law-widgets": "^1.6.0",
-    "@types/node": "^18.7.18",
-    "@types/resize-observer-browser": "^0.1.7",
-    "tslib": "*"
+    "@lawsafrica/law-widgets": "^1.6.0"
   },
-  "peerDependencies": {
-    "react": ">=16.8.6",
-    "react-dom": ">=16.8.6"
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:laws-africa/law-widgets.git"
   },
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^8.1.0",
-    "@rollup/plugin-virtual": "^2.0.3",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/react-hooks": "^7.0.1",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.0.14",
-    "@types/react": "16.14.0",
-    "@types/react-dom": "^16.9.0",
-    "fs-extra": "^9.0.1",
-    "jest": "^26.6.3",
-    "np": "^6.4.0",
-    "prettier": "^2.2.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.26.4",
-    "rollup-plugin-sourcemaps": "^0.6.2",
-    "ts-jest": "^26.4.4",
-    "tslint": "^6.1.2",
-    "tslint-ionic-rules": "0.0.21",
-    "tslint-react": "^5.0.0",
-    "typescript": "^3.9.5"
+  "keywords": [
+    "akoma ntoso",
+    "react"
+  ],
+  "author": "Greg Kempe <greg@laws.africa>",
+  "license": "LGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/laws-africa/law-widgets/issues"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
-    ],
-    "testPathIgnorePatterns": [
-      "cypress",
-      "node_modules",
-      "dist-transpiled",
-      "dist"
-    ],
-    "modulePaths": [
-      "<rootDir>"
-    ]
-  },
+  "homepage": "https://github.com/laws-africa/law-widgets#readme",
   "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "bugs": {
-    "url": "https://github.com/laws-africa/la-web-components/issues"
-  },
-  "homepage": "https://github.com/laws-africa/la-web-components#readme",
-  "author": "Greg Kempe",
   "gitHead": "7d726350cee76a7e4d17ab0bd195271adbbcabad"
 }

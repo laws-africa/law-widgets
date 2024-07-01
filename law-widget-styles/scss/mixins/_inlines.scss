@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin inlines {
   .akn-br {
     display: block;
@@ -33,7 +35,7 @@
   .akn-authorialNote {
     display: flex;
     font-size: small;
-    margin-top: $akn-para-spacing / 2;
+    margin-top: math.div($akn-para-spacing, 2);
     padding: .25em 0.25em 0 .25em;
     position: relative;
     background-color: $akn-footnote-bg-colour;
@@ -58,7 +60,7 @@
     }
 
     & > .akn-authorialNote--marker {
-      margin-right: $akn-para-indent / 6;
+      margin-right: math.div($akn-para-indent, 6);
     }
   }
 

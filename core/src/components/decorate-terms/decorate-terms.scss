@@ -6,3 +6,11 @@
   @include meta.load-css("~tippy.js/themes/light-border.css");
   @include meta.load-css("../../styles/tippy");
 }
+
+la-akoma-ntoso.show-terms .akn-term {
+  text-decoration: underline dotted;
+}
+
+la-akoma-ntoso.link-terms .akn-term {
+  cursor: pointer;
+}

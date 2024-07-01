@@ -4,7 +4,6 @@ import { sass } from '@stencil/sass';
 import { vueOutputTarget } from '@stencil/vue-output-target';
 
 export const config: Config = {
-  autoprefixCss: true,
   namespace: 'LawWidgets',
   plugins: [
     sass({
@@ -12,7 +11,6 @@ export const config: Config = {
     }),
   ],
   outputTargets: [
-    { type: 'docs-readme' },
     reactOutputTarget({
       componentCorePackage: '@lawsafrica/law-widgets',
       includeImportCustomElements: true,
@@ -28,19 +26,22 @@ export const config: Config = {
       proxiesFile: '../packages/vue/src/proxies.ts',
     }),
     {
+      type: 'docs-readme'
+    },
+    {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
-    // Standard treeshaking output in dist (dist/components)
     {
       type: 'dist-custom-elements',
-      generateTypeDeclarations: true,
+      customElementsExportBehavior: 'auto-define-custom-elements',
+      externalRuntime: false
     },
-    /*
-    * Used to generate components directory in core root. components directory
-    * is used by packages/react and packages/vue when running the build command
-    * */
     {
+      /*
+      * Used to generate components directory in core root. components directory
+      * is used by packages/react and packages/vue when running the build command
+      * */
       type: 'dist-custom-elements',
       dir: 'components',
       copy: [
@@ -51,17 +52,9 @@ export const config: Config = {
         },
       ],
       includeGlobalScripts: false,
-    },
-    {
-      type: 'dist-hydrate-script',
-    },
+    }
   ],
   buildEs5: 'prod',
-  extras: {
-    dynamicImportShim: true,
-    initializeNextTick: true,
-    scriptDataOpts: true,
-  },
   testing: {
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec)|[//](e2e))\\.[jt]sx?$',
     allowableMismatchedPixels: 200,
@@ -72,6 +65,6 @@ export const config: Config = {
       '@utils/logging': ['<rootDir>/src/utils/logging'],
     },
   },
-  preamble: '(C) Law Widgets https://laws.africa - MIT License',
+  preamble: '(C) Law Widgets https://laws.africa - GNU Lesser General Public License 3',
   enableCache: true,
 };
