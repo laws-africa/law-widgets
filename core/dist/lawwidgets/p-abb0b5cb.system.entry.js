@@ -1,5 +1,0 @@
-/*!
- * (C) Law Widgets https://laws.africa - GNU Lesser General Public License 3
- */
-System.register(["./p-6fd50c4f.system.js"],(function(t){"use strict";var e,n;return{setters:[function(t){e=t.r;n=t.c}],execute:function(){var i="la-gutter-item{display:block}";var r=i;var u=t("la_gutter_item",function(){function t(t){e(this,t);this.laItemChanged=n(this,"laItemChanged",7);this.anchor=undefined;this.active=false}t.prototype.activeChanged=function(){this.laItemChanged.emit()};t.prototype.anchorChanged=function(){this.laItemChanged.emit()};t.prototype.onClick=function(){this.active=true};Object.defineProperty(t,"watchers",{get:function(){return{active:["activeChanged"],anchor:["anchorChanged"]}},enumerable:false,configurable:true});return t}());u.style=r}}}));
-//# sourceMappingURL=p-abb0b5cb.system.entry.js.map

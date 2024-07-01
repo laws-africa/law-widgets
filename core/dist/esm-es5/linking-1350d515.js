@@ -1,5 +1,0 @@
-/*!
- * (C) Law Widgets https://laws.africa - GNU Lesser General Public License 3
- */
-function getAkomaNtosoElement(t,i){if(i){return i instanceof HTMLElement?i:t.ownerDocument.querySelector(i)}var n=t.closest("la-akoma-ntoso");if(!n){n=t.ownerDocument.querySelector("la-akoma-ntoso")}return n}var AkomaNtosoTarget=function(){function t(t,i,n){var o=this;this.component=t;this.selector=i;this.callback=n;this.target=this.findElement();if(this.target&&window.MutationObserver){this.observer=new MutationObserver((function(){o.targetDomChanged()}));this.observer.observe(this.target,{childList:true})}else{this.observer=null}}t.prototype.getElement=function(){return this.target};t.prototype.findElement=function(){if(this.selector){return this.selector instanceof HTMLElement?this.selector:this.component.ownerDocument.querySelector(this.selector)}var t=this.component.closest("la-akoma-ntoso");if(!t){t=this.component.ownerDocument.querySelector("la-akoma-ntoso")}return t};t.prototype.targetDomChanged=function(){if(this.callback)this.callback()};return t}();export{AkomaNtosoTarget as A,getAkomaNtosoElement as g};
-//# sourceMappingURL=linking-1350d515.js.map
