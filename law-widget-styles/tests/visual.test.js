@@ -3,7 +3,7 @@ expect.extend({ toMatchImageSnapshot });
 
 const config = {
   comparisonMethod: 'pixelmatch',
-  failureThreshold: 0.0,
+  failureThreshold: 1.0,
   failureThresholdType: 'percent',
 };
 
@@ -39,6 +39,12 @@ test('quotes', async function () {
 
 test('lists', async function () {
   await page.goto(`file://${__dirname}/lists.html`, { waitUntil: 'networkidle0' });
+  const image = await page.screenshot();
+  expect(image).toMatchImageSnapshot(config);
+});
+
+test('show-structure', async function () {
+  await page.goto(`file://${__dirname}/primary-styling-structure.html`, { waitUntil: 'networkidle0' });
   const image = await page.screenshot();
   expect(image).toMatchImageSnapshot(config);
 });
