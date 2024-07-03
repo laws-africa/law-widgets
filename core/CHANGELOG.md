@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.0 (2024-07-03)
+
+**Note:** Version bump only for package @lawsafrica/law-widgets
+
+
+
+
+
 ## <small>2.0.1 (2024-07-01)</small>
 
 * make underline 1px ([681dad2](https://github.com/laws-africa/la-web-components/commit/681dad2))

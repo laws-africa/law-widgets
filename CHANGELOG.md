@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.0 (2024-07-03)
+
+* Built artefacts ([3324c94](https://github.com/laws-africa/law-widget-styles/commit/3324c94))
+* intro and wrapUp are block elements ([c9f7b20](https://github.com/laws-africa/law-widget-styles/commit/c9f7b20))
+
+
+
+
+
 ## <small>2.0.1 (2024-07-01)</small>
 
 * make underline 1px ([681dad2](https://github.com/laws-africa/law-widgets/commit/681dad2))
