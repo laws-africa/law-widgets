@@ -1,0 +1,10 @@
+@import "../scss/variables";
+@import "../scss/mixins/structure";
+
+.akoma-ntoso.show-structure {
+  @include show-structure-hier;
+  @include show-structure-block;
+  @include show-structure-inline;
+  @include show-structure-subflow;
+  @include show-structure-doc-container;
+}

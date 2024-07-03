@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "build": "sass --style compressed scss/law-widget-styles.scss css/law-widget-styles.min.css && sass scss/law-widget-styles.scss css/law-widget-styles.css",
-    "test-images": "jest"
+    "build-tests": "sass --style compressed tests/structure.scss tests/structure.css",
+    "test-images": "npm run build-tests && jest"
   },
   "repository": {
     "type": "git",
