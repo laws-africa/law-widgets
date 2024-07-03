@@ -41,6 +41,9 @@
 .akoma-ntoso .akn-foreign {
   display: block;
 }
+.akoma-ntoso .akn-intro {
+  display: block;
+}
 .akoma-ntoso .akn-item {
   display: block;
 }
@@ -69,6 +72,9 @@
   display: block;
 }
 .akoma-ntoso .akn-ul {
+  display: block;
+}
+.akoma-ntoso .akn-wrapUp {
   display: block;
 }
 .akoma-ntoso .akn-from {
