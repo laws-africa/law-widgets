@@ -109,7 +109,14 @@ export class DecorateInternalRefs {
     if (this.akomaNtosoElement) {
       const href: string = tippy.reference.getAttribute('href') || '';
       let html: string | null = '';
-      const provision: HTMLElement | null = this.akomaNtosoElement.querySelector(href);
+      let provision: HTMLElement | null = null;
+
+      try {
+        provision = this.akomaNtosoElement.querySelector(href);
+      } catch (e) {
+        // ignore query selector errors
+        console.log(e);
+      }
 
       if (provision) {
         html = provision.outerHTML;

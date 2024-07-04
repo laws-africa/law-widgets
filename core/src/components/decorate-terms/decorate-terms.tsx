@@ -129,7 +129,12 @@ export class DecorateTerms {
     const term = reference.getAttribute('data-refersto');
     // find where the term is defined
     if (this.akomaNtosoElement) {
-      return this.akomaNtosoElement.querySelector(`[data-defines="${term}"]`);
+      try {
+        return this.akomaNtosoElement.querySelector(`[data-defines="${term}"]`);
+      } catch (e) {
+        // ignore query selector errors
+        console.log(e);
+      }
     }
     return null;
   }

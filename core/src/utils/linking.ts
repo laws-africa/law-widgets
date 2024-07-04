@@ -55,9 +55,15 @@ export class AkomaNtosoTarget {
 
   findElement(): HTMLElement | null {
     if (this.selector) {
-      return this.selector instanceof HTMLElement
-        ? this.selector
-        : this.component.ownerDocument.querySelector(this.selector);
+      try {
+        return this.selector instanceof HTMLElement
+          ? this.selector
+          : this.component.ownerDocument.querySelector(this.selector);
+      } catch (e) {
+        // fail on query selector errors
+        console.log(e);
+        return null;
+      }
     }
 
     // try the nearest ancestor
