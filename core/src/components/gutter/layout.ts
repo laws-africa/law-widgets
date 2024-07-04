@@ -143,7 +143,12 @@ export class GutterLayout {
       if (item.anchor instanceof HTMLElement) {
         return this.root.contains(item.anchor) ? item.anchor : null;
       } else {
-        return this.root.querySelector(item.anchor);
+        try {
+          return this.root.querySelector(item.anchor);
+        } catch (e) {
+          // ignore query selector errors
+          console.log(e);
+        }
       }
     }
     return null;
