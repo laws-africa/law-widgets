@@ -1,6 +1,6 @@
 {
   "name": "@lawsafrica/law-widgets-react",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "React specific wrapper for @lawsafrica/law-widgets",
   "scripts": {
     "build": "npm run clean && npm run compile",
@@ -15,7 +15,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@lawsafrica/law-widgets": "^2.1.0"
+    "@lawsafrica/law-widgets": "^2.2.0"
   },
   "devDependencies": {
     "@stencil/core": "^4.19.1",

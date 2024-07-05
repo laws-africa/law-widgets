@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.0 (2024-07-05)
+
+* add missing tradition test images ([5d32e9a](https://github.com/laws-africa/law-widget-styles/commit/5d32e9a))
+* add updated test image ([020b4aa](https://github.com/laws-africa/law-widget-styles/commit/020b4aa))
+* Built artefacts ([82c4800](https://github.com/laws-africa/law-widget-styles/commit/82c4800))
+* honour akn--no-border on tables ([d77acc2](https://github.com/laws-africa/law-widget-styles/commit/d77acc2))
+* tolerate bad query selectors ([8fe9b5b](https://github.com/laws-africa/law-widget-styles/commit/8fe9b5b))
+
+
+
+
+
 ## 2.1.0 (2024-07-03)
 
 * Built artefacts ([3324c94](https://github.com/laws-africa/law-widget-styles/commit/3324c94))
