@@ -11,6 +11,16 @@
     border: $akn-table-border-width solid $akn-table-border-colour;
     border-collapse: collapse;
 
+    // hide borders for .akn--no-border
+    &.akn--no-border {
+      border-width: 0px;
+
+      th,
+      td {
+        border-width: 0px;
+      }
+    }
+
     // Cells
     th,
     td {

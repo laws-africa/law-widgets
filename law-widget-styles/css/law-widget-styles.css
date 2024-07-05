@@ -838,6 +838,13 @@
   border: 1px solid #ddd;
   border-collapse: collapse;
 }
+.akoma-ntoso table.akn--no-border {
+  border-width: 0px;
+}
+.akoma-ntoso table.akn--no-border th,
+.akoma-ntoso table.akn--no-border td {
+  border-width: 0px;
+}
 .akoma-ntoso table th,
 .akoma-ntoso table td {
   border-top: 1px solid #ddd;

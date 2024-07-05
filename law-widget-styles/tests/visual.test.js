@@ -3,7 +3,7 @@ expect.extend({ toMatchImageSnapshot });
 
 const config = {
   comparisonMethod: 'pixelmatch',
-  failureThreshold: 1.0,
+  failureThreshold: 0.0,
   failureThresholdType: 'percent',
 };
 
