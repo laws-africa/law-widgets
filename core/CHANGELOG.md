@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.2.1 (2024-08-01)</small>
+
+* stencil 4.19.2 ([890da70](https://github.com/laws-africa/la-web-components/commit/890da70))
+
+
+
+
+
 ## 2.2.0 (2024-07-05)
 
 * tolerate bad query selectors ([8fe9b5b](https://github.com/laws-africa/la-web-components/commit/8fe9b5b))

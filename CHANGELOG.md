@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.2.1 (2024-08-01)</small>
+
+* stencil 4.19.2 ([890da70](https://github.com/laws-africa/law-widgets/commit/890da70))
+
+
+
+
+
 ## 2.2.0 (2024-07-05)
 
 * add missing tradition test images ([5d32e9a](https://github.com/laws-africa/law-widget-styles/commit/5d32e9a))
