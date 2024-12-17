@@ -11,7 +11,7 @@ import { AkomaNtosoTarget } from '../../utils/linking';
 export class DecorateTerms {
   // The akn content element being decorated
   protected akomaNtosoElement?: HTMLElement | null;
-  protected defnContainers = '.akn-p, .akn-subsection, .akn-section, .akn-blockList';
+  protected defnContainers = '.akn-p, .akn-subsection, .akn-section, .akn-blockList, .akn-blockContainer';
 
   protected tippies: Tippy[] = [];
   protected tippyContainer?: HTMLElement;
