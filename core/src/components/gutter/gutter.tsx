@@ -67,7 +67,8 @@ export class Gutter {
       // trigger a new event, but the debounce will prevent an unnecessary layout.
       this.setOtherItemsInactive(target);
     }
-    this.queueLayout();
+    // guard against queueLayout still being null before componentWillLoad has been called
+    if (this.queueLayout) this.queueLayout();
   }
 
   @Listen('click')
