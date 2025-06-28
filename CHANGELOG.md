@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.2.2 (2025-06-28)</small>
+
+* fix bug where queueLayout was called before being set ([aabb0f1](https://github.com/laws-africa/law-widgets/commit/aabb0f1))
+
+
+
+
+
 ## <small>2.2.1 (2024-08-01)</small>
 
 * stencil 4.19.2 ([890da70](https://github.com/laws-africa/law-widgets/commit/890da70))
