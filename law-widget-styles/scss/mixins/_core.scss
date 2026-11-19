@@ -2,6 +2,7 @@
   /* typography */
   font-family: $akn-font-family;
   font-size: $akn-font-size;
+  --akn-base-font-size: #{$akn-font-size};
   line-height: $akn-line-height;
 
   /* document types */

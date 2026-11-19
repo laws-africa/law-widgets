@@ -27,7 +27,9 @@
       border-top: $akn-table-border-width solid $akn-table-border-colour;
       border-left: $akn-table-border-width solid $akn-table-border-colour;
       padding: 5px;
-      text-align: left;
+      // Keep the historical default, but allow a table's utility class to
+      // reach its cells. An explicit cell/paragraph utility still wins.
+      text-align: var(--akn-table-text-align, left);
       vertical-align: top;
     }
 
