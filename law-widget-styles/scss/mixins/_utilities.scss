@@ -1,5 +1,20 @@
 @mixin utilities {
-  .akn--text-left { text-align: left; }
-  .akn--text-center { text-align: center; }
-  .akn--text-right { text-align: right; }
+  .akn--text-left { text-align: left; --akn-table-text-align: left; }
+  .akn--text-center { text-align: center; --akn-table-text-align: center; }
+  .akn--text-right { text-align: right; --akn-table-text-align: right; }
+  .akn--text-justify { text-align: justify; --akn-table-text-align: justify; }
+
+  // Anchor every tier to document size, never to an already-reduced parent.
+  @each $name, $scale in (normal: 1, small: 0.8, xsmall: 0.7, xxsmall: 0.6) {
+    .akn--text-#{$name} {
+      font-size: calc(var(--akn-base-font-size, #{$akn-font-size}) * #{$scale});
+    }
+  }
+
+  table.akn--no-padding td,
+  table.akn--no-padding th,
+  td.akn--no-padding,
+  th.akn--no-padding {
+    padding: 0;
+  }
 }

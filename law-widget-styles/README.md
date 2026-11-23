@@ -214,3 +214,19 @@ This version assumes AKN 3.0 documents from Indigo.
 # License
 
 Licensed under an MIT license.
+
+## Explicit formatting classes
+
+Tables, cells and paragraphs accept `akn--text-normal` (100% of document size),
+`akn--text-small` (80%), `akn--text-xsmall` (70%) and `akn--text-xxsmall` (60%).
+Tiers use the document's `--akn-base-font-size` (the configured Sass
+`$akn-font-size` by default), so nested size classes do not compound.
+
+Use `akn--text-left`, `akn--text-center`, `akn--text-right` or
+`akn--text-justify` for alignment. Table alignment reaches cells; explicit cell
+and paragraph settings override it. Generic unclassified tables still use the
+existing left alignment and padding. `akn--no-padding` on a table or individual
+cell removes cell padding and retains borders.
+
+Build styles with `npm run build`. Run the focused browser checks with
+`PUPPETEER_EXECUTABLE_PATH=/path/to/chrome npx jest tests/formatting.test.js --runInBand`.

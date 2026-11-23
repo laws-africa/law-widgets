@@ -14,6 +14,7 @@
   /* typography */
   font-family: Palatino, "Book Antiqua", "PT Serif", Georgia, serif;
   font-size: 15px;
+  --akn-base-font-size: 15px;
   line-height: 1.35;
   /* document types */
   /* Schedules and attachments */
@@ -850,7 +851,7 @@
   border-top: 1px solid #ddd;
   border-left: 1px solid #ddd;
   padding: 5px;
-  text-align: left;
+  text-align: var(--akn-table-text-align, left);
   vertical-align: top;
 }
 .akoma-ntoso table th {
@@ -875,12 +876,37 @@
 }
 .akoma-ntoso .akn--text-left {
   text-align: left;
+  --akn-table-text-align: left;
 }
 .akoma-ntoso .akn--text-center {
   text-align: center;
+  --akn-table-text-align: center;
 }
 .akoma-ntoso .akn--text-right {
   text-align: right;
+  --akn-table-text-align: right;
+}
+.akoma-ntoso .akn--text-justify {
+  text-align: justify;
+  --akn-table-text-align: justify;
+}
+.akoma-ntoso .akn--text-normal {
+  font-size: calc(var(--akn-base-font-size, 15px) * 1);
+}
+.akoma-ntoso .akn--text-small {
+  font-size: calc(var(--akn-base-font-size, 15px) * 0.8);
+}
+.akoma-ntoso .akn--text-xsmall {
+  font-size: calc(var(--akn-base-font-size, 15px) * 0.7);
+}
+.akoma-ntoso .akn--text-xxsmall {
+  font-size: calc(var(--akn-base-font-size, 15px) * 0.6);
+}
+.akoma-ntoso table.akn--no-padding td,
+.akoma-ntoso table.akn--no-padding th,
+.akoma-ntoso td.akn--no-padding,
+.akoma-ntoso th.akn--no-padding {
+  padding: 0;
 }
 .akoma-ntoso.country-ke {
   /*
