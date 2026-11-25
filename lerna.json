@@ -4,6 +4,6 @@
     "core",
     "packages/*"
   ],
-  "version": "2.2.2",
+  "version": "2.3.0",
   "changelogPreset": "conventional-changelog"
 }

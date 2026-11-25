@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.0 (2026-11-25)
+
+* Add explicit table typography utilities ([a4d68bf](https://github.com/laws-africa/law-widget-styles/commit/a4d68bf))
+
+
+
+
+
 ## 2.2.0 (2024-07-05)
 
 * add missing tradition test images ([5d32e9a](https://github.com/laws-africa/law-widget-styles/commit/5d32e9a))
