@@ -44,3 +44,16 @@ In the terminal, run `npx lerna run build`.
 - An automatic tagged commit will occur and the changelog for the packages will be updated.
 - Create a new release [here](https://github.com/laws-africa/law-widgets/releases/new). Use the tag that was pushed for your release.
 - Upon creating a release, a new version of the packages will be published on `npm`.
+
+
+### npm publishing authentication
+
+Publication uses npm trusted publishing from GitHub Actions rather than an npm
+access token. Each of the four public packages must trust owner `laws-africa`,
+repository `law-widgets`, workflow `publish.yml`, with direct `npm publish`
+allowed and no environment name. The publishing workflow uses Node 24 and the
+npm CLI directly so OIDC authentication is supported.
+
+The workflow builds the release tag, not the current main branch. If a run fails
+partway through publication, retry it with the Publish workflow's manual `tag`
+input. Versions already on npm are skipped; existing versions are never replaced.

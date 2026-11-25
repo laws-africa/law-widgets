@@ -53,12 +53,12 @@
   "license": "LGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:laws-africa/la-web-components.git"
+    "url": "git+https://github.com/laws-africa/law-widgets.git"
   },
   "bugs": {
-    "url": "https://github.com/laws-africa/la-web-components/issues"
+    "url": "https://github.com/laws-africa/law-widgets/issues"
   },
-  "homepage": "https://github.com/laws-africa/la-web-components/",
+  "homepage": "https://github.com/laws-africa/law-widgets#readme",
   "private": false,
   "publishConfig": {
     "access": "public",

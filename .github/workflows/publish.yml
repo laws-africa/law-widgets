@@ -3,29 +3,47 @@ name: Publish
 on:
   release:
     types: [created]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to publish or retry
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout release tag
+        uses: actions/checkout@v6
         with:
-          ref: main
+          ref: ${{ inputs.tag || github.event.release.tag_name }}
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
 
       - run: npm ci
       - run: npx lerna bootstrap
       - run: npx lerna run build
-      - name: Version and publish
+      - name: Publish with npm trusted publishing
         run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor}}@users.noreply.github.com"
-          npx lerna publish from-package -y
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          for package in law-widget-styles core packages/react packages/vue; do
+            (
+              cd "$package"
+              name=$(node -p 'require("./package.json").name')
+              version=$(node -p 'require("./package.json").version')
+              if npm view "$name@$version" version >/dev/null 2>&1; then
+                echo "$name@$version is already published; skipping."
+              else
+                npm publish --access public
+              fi
+            )
+          done

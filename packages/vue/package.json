@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:laws-africa/law-widgets.git"
+    "url": "git+https://github.com/laws-africa/law-widgets.git"
   },
   "keywords": [
     "akoma ntoso",
