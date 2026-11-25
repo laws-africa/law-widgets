@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.3.1 (2026-11-25)</small>
+
+* Use npm trusted publishing for releases ([f7d6a2c](https://github.com/laws-africa/law-widgets/commit/f7d6a2c))
+
+
+
+
+
 ## 2.3.0 (2026-11-25)
 
 **Note:** Version bump only for package @lawsafrica/law-widgets-react
