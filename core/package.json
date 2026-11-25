@@ -1,6 +1,6 @@
 {
   "name": "@lawsafrica/law-widgets",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Widgets for Akoma Ntoso content",
   "keywords": [
     "app",
@@ -19,7 +19,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@lawsafrica/law-widget-styles": "^2.3.2"
+    "@lawsafrica/law-widget-styles": "^2.3.3"
   },
   "devDependencies": {
     "@stencil/core": "^4.19.2",

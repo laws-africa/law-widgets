@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.3.3 (2026-11-25)</small>
+
+**Note:** Version bump only for package @lawsafrica/law-widgets-react
+
+
+
+
+
 ## <small>2.3.2 (2026-11-25)</small>
 
 * Build on Node 24 and ship usable React and Vue packages ([47b0639](https://github.com/laws-africa/law-widgets/commit/47b0639))

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.3.3 (2026-11-25)</small>
+
+* fix(styles): express table scrolling on the horizontal axis ([7de6450](https://github.com/laws-africa/law-widgets/commit/7de6450))
+
+
+
+
+
 ## <small>2.3.2 (2026-11-25)</small>
 
 **Note:** Version bump only for package @lawsafrica/law-widget-styles
