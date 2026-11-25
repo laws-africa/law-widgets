@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.3.2 (2026-11-25)</small>
+
+* Build on Node 24 and ship usable React and Vue packages ([47b0639](https://github.com/laws-africa/law-widgets/commit/47b0639))
+
+
+
+
+
 ## <small>2.3.1 (2026-11-25)</small>
 
 * Use npm trusted publishing for releases f7d6a2c
