@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["resize-observer-browser"],
+    "types": ["resize-observer-browser", "jest"],
     "strict": true,
     "alwaysStrict": true,
     "allowSyntheticDefaultImports": true,

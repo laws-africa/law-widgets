@@ -44,6 +44,7 @@ export const config: Config = {
       * */
       type: 'dist-custom-elements',
       dir: 'components',
+      externalRuntime: false,
       copy: [
         {
           src: '../scripts/custom-elements',

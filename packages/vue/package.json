@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf dist dist-transpiled",
-    "compile": "npm run tsc",
+    "compile": "npm run tsc && node ../../scripts/build-wrapper.cjs vue",
     "tsc": "tsc -p ."
   },
   "main": "./dist/index.js",

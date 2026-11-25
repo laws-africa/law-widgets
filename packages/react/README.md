@@ -70,3 +70,12 @@ View more examples of our various components.
 
 
 
+
+
+## Package output
+
+The package root exports all generated components, with CommonJS and ES module
+entrypoints and TypeScript declarations. The wrappers bundle their web-component
+runtime; the application's React/ReactDOM or Vue instance remains external.
+These are browser components. Build through the monorepo so Stencil generates
+the proxies before compiling the wrappers.

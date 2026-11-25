@@ -19,7 +19,7 @@ Click [here](core/README.md#components) to learn how to use our components.
 
 
 ## Local development
-You must have nodejs version 20.
+Use Node.js 24 for development, CI builds and publishing.
 
 At the root of project in your terminal, run `npm install`
 
@@ -51,8 +51,8 @@ In the terminal, run `npx lerna run build`.
 Publication uses npm trusted publishing from GitHub Actions rather than an npm
 access token. Each of the four public packages must trust owner `laws-africa`,
 repository `law-widgets`, workflow `publish.yml`, with direct `npm publish`
-allowed and no environment name. The publishing workflow uses Node 24 and the
-npm CLI directly so OIDC authentication is supported.
+allowed and no environment name. All workflows build on Node 24; publication
+uses the npm CLI directly so OIDC authentication is supported.
 
 The workflow builds the release tag, not the current main branch. If a run fails
 partway through publication, retry it with the Publish workflow's manual `tag`

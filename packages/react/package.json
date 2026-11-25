@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf dist dist-transpiled routing",
-    "compile": "npm run tsc",
+    "compile": "npm run tsc && node ../../scripts/build-wrapper.cjs react",
     "tsc": "tsc -p ."
   },
   "main": "dist/index.js",
@@ -45,5 +45,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "7d726350cee76a7e4d17ab0bd195271adbbcabad"
+  "gitHead": "7d726350cee76a7e4d17ab0bd195271adbbcabad",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
 }
